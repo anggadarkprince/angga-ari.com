@@ -14,10 +14,10 @@
     <title>{{ config('app.name', 'Angga\' Web Blog') }} - @yield('title') </title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/manifest.js') }}" defer></script>
-    <script src="{{ asset('js/vendor.js') }}" defer></script>
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/scripts.js') }}" defer></script>
+    <script src="{{ mix('js/manifest.js') }}" defer></script>
+    <script src="{{ mix('js/vendor.js') }}" defer></script>
+    <script src="{{ mix('js/app.js') }}" defer></script>
+    <script src="{{ mix('js/scripts.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -25,42 +25,40 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
     <!-- Styles -->
-    <link href="{{ asset('css/landing.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/landing.css') }}" rel="stylesheet">
 </head>
 <body id="page-top">
-<div id="app">
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">
-                Angga's Web
-            </a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#experiences">Experiences</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#showcases">Showcases</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#">Blog</a>
-                    </li>
-                </ul>
-            </div>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">
+            Angga's Web
+        </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#experiences">Experiences</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#showcases">Showcases</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#">Blog</a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    @yield('content')
-</div>
+@yield('content')
 </body>
 </html>

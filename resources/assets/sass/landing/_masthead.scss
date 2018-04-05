@@ -2,8 +2,7 @@
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 56px);
-  background-image: url('/storage/layouts/header.jpg');
-  background-position: center center;
+  background: url('/storage/layouts/header-2.jpg') no-repeat bottom center scroll;
   @include background-cover;
   hr {
     margin-top: 30px;
@@ -13,7 +12,7 @@ header.masthead {
     font-size: 2rem;
   }
   p {
-    font-weight: 300;
+    font-weight: 400;
   }
   @media (min-width: 768px) {
     p {

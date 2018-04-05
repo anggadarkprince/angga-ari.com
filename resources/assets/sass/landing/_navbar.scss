@@ -36,6 +36,8 @@
     }
   }
   @media (min-width: 992px) {
+    padding-top: 20px;
+    padding-bottom: 20px;
     border-color: transparent;
     background-color: transparent;
     .navbar-brand {
@@ -56,6 +58,8 @@
       }
     }
     &.navbar-shrink {
+      padding-top: 10px;
+      padding-bottom: 10px;
       border-bottom: 1px solid fade-out($gray-900, .9);
       background-color: $white;
       .navbar-brand {

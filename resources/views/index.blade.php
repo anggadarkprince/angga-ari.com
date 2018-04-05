@@ -24,7 +24,7 @@
     <section class="bg-primary" id="about">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
+                <div class="col-lg-10 mx-auto text-center">
                     <h2 class="section-heading text-white">Who the hell am I?</h2>
                     <hr class="light my-4">
                     <p class="text-faded mb-4">
@@ -186,8 +186,8 @@
 
     <section class="bg-dark text-white">
         <div class="container text-center">
-            <h2 class="mb-4">Free Download at Start Bootstrap!</h2>
-            <a class="btn btn-light btn-xl sr-button" href="http://startbootstrap.com/template-overviews/creative/">Download Now!</a>
+            <h2 class="mb-4">Download Professional CV</h2>
+            <a class="btn btn-light btn-xl sr-button" href="#">Download Now</a>
         </div>
     </section>
 
@@ -214,4 +214,204 @@
             </div>
         </div>
     </section>
+
+    <!-- Map Section -->
+    <div id="map" class="mb-3" style="height: 250px"></div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>&copy; {{ date('Y') }} all rights reserved, made with love & coffee</p>
+        </div>
+    </footer>
+
+    <script>
+        function initMap() {
+            var home = {lat: -7.1760619, lng: 112.6574068};
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: home,
+                styles: [
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "saturation": 36
+                            },
+                            {
+                                "color": "#000000"
+                            },
+                            {
+                                "lightness": 40
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.text.stroke",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "color": "#000000"
+                            },
+                            {
+                                "lightness": 16
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "administrative",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "color": "#000000"
+                            },
+                            {
+                                "lightness": 20
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "administrative",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "color": "#000000"
+                            },
+                            {
+                                "lightness": 17
+                            },
+                            {
+                                "weight": 1.2
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#000000"
+                            },
+                            {
+                                "lightness": 20
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#000000"
+                            },
+                            {
+                                "lightness": 21
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "color": "#000000"
+                            },
+                            {
+                                "lightness": 17
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "color": "#000000"
+                            },
+                            {
+                                "lightness": 29
+                            },
+                            {
+                                "weight": 0.2
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.arterial",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#000000"
+                            },
+                            {
+                                "lightness": 18
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.local",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#000000"
+                            },
+                            {
+                                "lightness": 16
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#000000"
+                            },
+                            {
+                                "lightness": 19
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "water",
+                        "elementType": "geometry",
+                        "stylers": [
+                            {
+                                "color": "#000000"
+                            },
+                            {
+                                "lightness": 17
+                            }
+                        ]
+                    }
+                ],
+                // Disables the default Google Maps UI components
+                disableDefaultUI: true,
+                scrollwheel: true,
+                draggable: true,
+            });
+            var marker = new google.maps.Marker({
+                position: home,
+                map: map,
+                icon: 'storage/layouts/map-marker.svg'
+            });
+        }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCT-r6OXHg5idQfA8x5vLAlMb8Pul4QE6Q&callback=initMap">
+    </script>
+
 @endsection

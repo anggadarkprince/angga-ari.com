@@ -23,6 +23,6 @@ mix
     .extract(['vue', 'lodash', 'jquery', 'bootstrap', 'axios', 'jquery.easing'])
     .version();
 
-if (!mix.config.inProduction) {
+if (!mix.inProduction()) {
     mix.sourceMaps();
 }
