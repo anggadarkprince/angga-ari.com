@@ -11,5 +11,18 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+mix
+    .js('resources/assets/js/app.js', 'public/js')
+    .scripts([
+        'resources/assets/js/scripts/scrollreveal.js',
+        'resources/assets/js/scripts/landing.js'
+    ], 'public/js/scripts.js')
+    .sass('resources/assets/sass/app.scss', 'public/css')
+    .sass('resources/assets/sass/landing.scss', 'public/css')
+
+    .extract(['vue', 'lodash', 'jquery', 'bootstrap', 'axios', 'jquery.easing'])
+    .version();
+
+if (!mix.config.inProduction) {
+    mix.sourceMaps();
+}
