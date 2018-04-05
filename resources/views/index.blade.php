@@ -8,12 +8,13 @@
             <div class="row">
                 <div class="col-lg-10 mx-auto">
                     <h1 class="text-uppercase">
-                        <strong>Your Favorite Source of Free Bootstrap Themes</strong>
+                        <strong>NERD SOFTWARE ARCHITECT</strong>
                     </h1>
+                    <h3>ANGGA ARI WIJAYA</h3>
                     <hr>
                 </div>
                 <div class="col-lg-8 mx-auto">
-                    <p class="text-faded mb-5">Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
+                    <p class="text-faded mb-5">An introvert web programmer who tried to change the small world, craft things with his keyboard typing, love warm rice and coffee!</p>
                     <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
                 </div>
             </div>
@@ -24,10 +25,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="section-heading text-white">We've got what you need!</h2>
+                    <h2 class="section-heading text-white">Who the hell am I?</h2>
                     <hr class="light my-4">
-                    <p class="text-faded mb-4">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
-                    <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>
+                    <p class="text-faded mb-4">
+                        I'm a software developer who has been freelancing for 2 years currently focus on web programming,
+                        Basically I am a calm and quite type of person, common engineer trait and personality.
+                        I am very passionate about my work and new technology. Moreover I am at very ease when working in a
+                        collaboration as team, and ready to be self learner. I force my self to keep persistent and discipline.
+                        My weakness is public speaking, my communication skills which I am trying to improve day by day but
+                        I am working on it. It may be also positive sometimes. I love working with my passion about
+                        design and programming and been wanting to jump into it if there is a big opportunity.
+                    </p>
+                    <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Meet him personally!</a>
                 </div>
             </div>
         </div>
