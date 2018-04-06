@@ -1,4 +1,22 @@
-// Styling for the services section
 .service-box {
   max-width: 400px;
+}
+
+section .text-title {
+  font-size: 130%;
+}
+
+@media (min-width: 768px) {
+  section .text-title {
+    font-size: 100%;
+  }
+}
+
+.skill-content {
+  min-height: 80px;
+}
+
+.progress {
+  height: 0.4rem;
+  border-radius: 0;
 }
