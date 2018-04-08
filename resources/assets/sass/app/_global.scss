@@ -64,7 +64,7 @@ h1, h2, h3, h4, h5, h6 {
 .link-natural {
   color: inherit;
 
-  &:hover {
+  &:focus, &:hover {
     color: $primary;
     text-decoration: none;
   }
@@ -73,7 +73,7 @@ h1, h2, h3, h4, h5, h6 {
 .link-muted {
   color: #999;
 
-  &:hover {
+  &:focus, &:hover {
     color: $primary;
     text-decoration: none;
   }

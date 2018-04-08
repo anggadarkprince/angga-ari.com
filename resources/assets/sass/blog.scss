@@ -7,10 +7,8 @@
 @import "app/bootstrap-overrides.scss";
 @import "app/global.scss";
 
-@import "landing/navbar.scss";
-@import "landing/masthead.scss";
-@import "landing/skills";
-@import "landing/service.scss";
-@import "landing/portfolio.scss";
-@import "landing/blog.scss";
-@import "landing/map.scss";
+@import "blog/navbar";
+@import "blog/banner";
+@import "blog/widget";
+@import "blog/article";
+@import "blog/comment";

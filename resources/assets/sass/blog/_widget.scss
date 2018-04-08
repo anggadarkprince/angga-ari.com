@@ -1,0 +1,40 @@
+.widget {
+  margin-top: 40px;
+  margin-bottom: 40px;
+
+  @media only screen and (min-width: 768px) {
+    margin-top: 0;
+  }
+
+  .widget-title {
+    font-weight: bold;
+    color: $primary;
+  }
+
+  .widget-list {
+    padding-left: 0;
+
+    li {
+      list-style: none;
+      line-height: 2.2em;
+
+      a {
+        display: block;
+        color: $gray-700;
+
+        &:focus, &:hover {
+          text-decoration: none;
+          color: $primary;
+        }
+      }
+
+      span {
+        float: right;
+      }
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+  }
+}

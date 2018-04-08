@@ -1,0 +1,50 @@
+.post-preview {
+  margin-bottom: 40px;
+
+  > a:first-child {
+    &:focus, &:hover {
+      text-decoration: none;
+    }
+
+    > .post-title {
+      font-size: 22px;
+      margin-top: 0;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    > .post-subtitle {
+      font-weight: 300;
+      margin: 0 0 10px 0;
+      font-size: 18px;
+    }
+  }
+
+  > .post-meta {
+    font-size: 16px;
+    margin-top: 10px;
+    color: $gray-600;
+
+    > a {
+      text-decoration: none;
+      color: $gray-800;
+
+      &:focus, &:hover {
+        text-decoration: underline;
+        color: $primary;
+      }
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    > a {
+      > .post-title {
+        font-size: 25px;
+      }
+
+      > .post-subtitle {
+        font-size: 22px;
+      }
+    }
+  }
+}

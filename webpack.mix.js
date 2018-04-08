@@ -17,8 +17,12 @@ mix
         'resources/assets/js/scripts/scrollreveal.js',
         'resources/assets/js/scripts/landing.js'
     ], 'public/js/scripts.js')
+    .scripts([
+        'resources/assets/js/scripts/blog.js',
+    ], 'public/js/blog.js')
     .sass('resources/assets/sass/app.scss', 'public/css')
     .sass('resources/assets/sass/landing.scss', 'public/css')
+    .sass('resources/assets/sass/blog.scss', 'public/css')
 
     .extract(['vue', 'lodash', 'jquery', 'bootstrap', 'axios', 'jquery.easing'])
     .version();
