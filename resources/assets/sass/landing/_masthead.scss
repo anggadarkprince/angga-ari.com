@@ -1,41 +1,53 @@
-// Styling for the masthead
 header.masthead {
-  padding-top: 10rem;
-  padding-bottom: calc(10rem - 56px);
+  padding-top: 7rem;
+  padding-bottom: calc(7rem - 56px); // subtract by nav height (fixed) padding bottom look same as top)
   background: url('/storage/layouts/header-2.jpg') no-repeat bottom center scroll;
   @include background-cover;
+
   hr {
     margin-top: 30px;
     margin-bottom: 30px;
   }
+
   h1 {
     font-size: 2rem;
   }
-  p {
-    font-weight: 400;
+
+  h3 {
+    font-size: 1.4rem;
   }
+
   img {
     max-width: 100px;
     max-height: 100px;
   }
+
   @media (min-width: 768px) {
     p {
-      font-size: 1.15rem;
+      font-size: 1.2rem;
+    }
+
+    h3 {
+      font-size: 1.75rem;
     }
   }
+
   @media (min-width: 992px) {
     height: 100vh;
     min-height: 650px;
     padding-top: 0;
     padding-bottom: 0;
+
     h1 {
       font-size: 3rem;
     }
+
     img {
       max-width: 120px;
       max-height: 120px;
     }
   }
+
   @media (min-width: 1200px) {
     h1 {
       font-size: 4rem;

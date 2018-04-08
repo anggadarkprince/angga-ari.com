@@ -30,7 +30,7 @@
 </head>
 <body id="page-top">
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+<nav class="navbar navbar-expand-md navbar-light fixed-top" id="mainNav">
     <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">
             Angga's Web
@@ -53,7 +53,7 @@
                     <a class="nav-link js-scroll-trigger" href="#showcases">Showcases</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#">Blog</a>
+                    <a class="nav-link js-scroll-trigger" href="#blog">Blog</a>
                 </li>
             </ul>
         </div>

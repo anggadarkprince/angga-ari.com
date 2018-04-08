@@ -8,6 +8,7 @@ body {
   @include sans-serif-font;
 }
 
+//noinspection CssOptimizeSimilarProperties
 hr {
   max-width: 50px;
   border-width: 3px;
@@ -55,23 +56,53 @@ h1, h2, h3, h4, h5, h6 {
   color: $gray-700;
 }
 
+.text-wide {
+  letter-spacing: 3px;
+  @include sans-serif-font2;
+}
+
+.link-natural {
+  color: inherit;
+
+  &:hover {
+    color: $primary;
+    text-decoration: none;
+  }
+}
+
+.link-muted {
+  color: #999;
+
+  &:hover {
+    color: $primary;
+    text-decoration: none;
+  }
+}
+
 section {
-  padding: 4rem 0;
+  padding: 3rem 0;
+
+  .section-heading {
+    margin-top: 0;
+  }
+
+  .section-heading-group {
+    font-size: 130%;
+  }
 }
 
 @media (min-width: 768px) {
   section {
-    padding: 5rem 0;
+    padding: 4rem 0;
+
+    .section-heading-group {
+      font-size: 100%;
+    }
   }
-}
 
-.section-heading {
-  margin-top: 0;
-}
-
-.wide-text {
-  letter-spacing: 10px;
-  @include sans-serif-font2;
+  .text-wide {
+    letter-spacing: 10px;
+  }
 }
 
 ::-moz-selection {

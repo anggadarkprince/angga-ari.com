@@ -7,6 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     /**
+     * Get the route key for post.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    /**
      * Get the author that owns the post.
      */
     public function user()

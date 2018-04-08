@@ -2,11 +2,15 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+@import '~simple-line-icons/scss/simple-line-icons';
 
 @import "landing/mixins.scss";
+@import "landing/bootstrap-overrides.scss";
 @import "landing/global.scss";
 @import "landing/navbar.scss";
 @import "landing/masthead.scss";
-@import "landing/services.scss";
+@import "landing/skills";
+@import "landing/service.scss";
 @import "landing/portfolio.scss";
-@import "landing/bootstrap-overrides.scss";
+@import "landing/blog.scss";
+@import "landing/map.scss";
