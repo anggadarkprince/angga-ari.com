@@ -62,8 +62,7 @@
 
 <!-- Footer -->
 <footer>
-    <hr class="d-block d-md-none">
-    <div class="container text-center text-md-left">
+    <div class="container">
         <p class="mb-0">All copyrights reserved &copy; {{ date('Y') }} - Designed & Developed by Angga</p>
         <p class="text-muted"><small>Made with Love and Coffee</small></p>
     </div>

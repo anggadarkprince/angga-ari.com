@@ -23,7 +23,7 @@
         <div class="row">
             <div class="col-lg-8 mr-auto">
                 <div class="post-preview">
-                    <a href="post.html">
+                    <a href="{{ route('blog.article', ['year' => '2018', 'month' => '03', 'slug' => 'how-ofter-should-you-tweet']) }}">
                         <h2 class="post-title">
                             Man must explore, and this is exploration at its greatest
                         </h2>
@@ -37,11 +37,11 @@
                         nesciunt officia recusandae repellat ullam voluptas voluptate voluptatem! A cumque dolorum
                         inventore ipsam laboriosam laborum possimus sequi, soluta.
                     </p>
-                    <a href="#" class="link-muted">Read More &rarr;</a>
+                    <a href="{{ route('blog.article', ['year' => '2018', 'month' => '03', 'slug' => 'how-ofter-should-you-tweet']) }}" class="link-muted">Read More &rarr;</a>
                 </div>
 
                 <div class="post-preview">
-                    <a href="post.html">
+                    <a href="{{ route('blog.article', ['year' => '2018', 'month' => '03', 'slug' => 'how-ofter-should-you-tweet']) }}">
                         <h2 class="post-title">
                             I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
                         </h2>
@@ -52,11 +52,11 @@
                         blanditiis deleniti dignissimos, error est exercitationem illo laudantium libero magnam nihil
                         nobis, quibusdam velit voluptas. Enim, sit, sunt.
                     </p>
-                    <a href="#" class="link-muted">Read More &rarr;</a>
+                    <a href="{{ route('blog.article', ['year' => '2018', 'month' => '03', 'slug' => 'how-ofter-should-you-tweet']) }}" class="link-muted">Read More &rarr;</a>
                 </div>
 
                 <div class="post-preview">
-                    <a href="post.html">
+                    <a href="{{ route('blog.article', ['year' => '2018', 'month' => '03', 'slug' => 'how-ofter-should-you-tweet']) }}">
                         <h2 class="post-title">
                             Science has not yet mastered prophecy
                         </h2>
@@ -70,11 +70,11 @@
                         eius, facilis iste itaque laborum magnam maiores minus officiis optio pariatur quidem
                         repellendus sint tenetur voluptate. Architecto!
                     </p>
-                    <a href="#" class="link-muted">Read More &rarr;</a>
+                    <a href="{{ route('blog.article', ['year' => '2018', 'month' => '03', 'slug' => 'how-ofter-should-you-tweet']) }}" class="link-muted">Read More &rarr;</a>
                 </div>
 
                 <div class="post-preview">
-                    <a href="post.html">
+                    <a href="{{ route('blog.article', ['year' => '2018', 'month' => '03', 'slug' => 'how-ofter-should-you-tweet']) }}">
                         <h2 class="post-title">
                             Failure is not an option
                         </h2>
@@ -88,7 +88,7 @@
                         aspernatur at aut consequatur cum dicta dolor dolore dolorem doloremque, dolores explicabo harum
                         natus non perferendis perspiciatis quam, tempora.
                     </p>
-                    <a href="#" class="link-muted">Read More &rarr;</a>
+                    <a href="{{ route('blog.article', ['year' => '2018', 'month' => '03', 'slug' => 'how-ofter-should-you-tweet']) }}" class="link-muted">Read More &rarr;</a>
                 </div>
                 <!-- Pager -->
                 <div class="clearfix mb-5">
@@ -143,6 +143,30 @@
                             <li><a href="#">December 2017 <span>(33)</span></a></li>
                             <li><a href="#">November 2017 <span>(532)</span></a></li>
                             <li><a href="#">October 2017 <span>(623)</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="widget">
+                        <p class="widget-title">
+                            Popular Article
+                        </p>
+                        <ul class="widget-list">
+                            <li><a href="#">How to code React.js</a></li>
+                            <li><a href="#">Improve your workflow with gulp and grunt</a></li>
+                            <li><a href="#">Mix in Laravel 5.6</a></li>
+                            <li><a href="#">Bringing your web development process life again</a></li>
+                            <li><a href="#">Tutorial using NPM properly</a></li>
+                        </ul>
+                    </div>
+                    <div class="widget">
+                        <p class="widget-title">
+                            Socials
+                        </p>
+                        <p>Let's get in touch</p>
+                        <ul class="widget-list text-wide">
+                            <a href="#"><i class="fab fa-facebook-f fa-2x"></i></a>
+                            <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+                            <a href="#"><i class="fab fa-github fa-2x"></i></a>
+                            <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
                         </ul>
                     </div>
                 </div>

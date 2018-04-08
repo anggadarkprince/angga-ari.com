@@ -16,7 +16,7 @@
 
     li {
       list-style: none;
-      line-height: 2.2em;
+      padding-bottom: 10px;
 
       a {
         display: block;
@@ -37,4 +37,11 @@
       padding-left: 20px;
     }
   }
+}
+
+footer {
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0,0,0,.1);
 }
