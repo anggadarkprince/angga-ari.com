@@ -56,4 +56,25 @@
         distance: '0px'
     }, 300);
 
+    $('.showcase-gallery').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        mainClass: 'mfp-with-zoom', // this class is for CSS animation below
+        gallery:{
+            enabled:true
+        },
+        zoom: {
+            enabled: true,
+            duration: 300, // don't foget to change the duration also in CSS
+            opener: function(element) {
+                return element.find('img');
+            }
+        },
+        image: {
+            // options for image content type
+            titleSrc: 'title',
+            verticalFit: true,
+        }
+    });
+
 })(jQuery); // End of use strict

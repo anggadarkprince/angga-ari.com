@@ -2,6 +2,7 @@
 
 @import '~bootstrap/scss/bootstrap';
 @import '~simple-line-icons/scss/simple-line-icons';
+@import '~magnific-popup/dist/magnific-popup.css';
 
 @import "app/mixins.scss";
 @import "app/bootstrap-overrides.scss";
@@ -13,4 +14,5 @@
 @import "landing/service.scss";
 @import "landing/portfolio.scss";
 @import "landing/blog.scss";
+@import "landing/showcase.scss";
 @import "landing/map.scss";

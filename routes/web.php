@@ -23,3 +23,5 @@ Route::prefix('blog')->group(function () {
     Route::view('/tag/{slug}', 'blog.index')->name('blog.tag');
     Route::view('/{year}/{month}/{slug}', 'blog.article')->name('blog.article');
 });
+
+Route::view('/showcase/{slug}', 'showcase.view')->name('showcase.view');

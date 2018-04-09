@@ -3,7 +3,7 @@
 @section('title', 'Home Page')
 
 @section('content')
-    <header class="masthead text-center text-white d-flex">
+    <header class="masthead text-center text-white d-flex" style="background: url('/storage/layouts/header-2.jpg') no-repeat bottom center scroll;">
         <div class="container my-auto">
             <div class="row">
                 <div class="col-lg-5 mx-auto">
@@ -441,7 +441,7 @@
         <div class="container-fluid p-0">
             <div class="row no-gutters">
                 <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="{{ Storage::url('showcases/fullsize/1.jpg') }}">
+                    <a class="portfolio-box" href="{{ route('showcase.view', ['slug' => 'website-orion-management']) }}">
                         <img class="img-fluid" src="{{ Storage::url('showcases/thumbnails/1.jpg') }}" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">

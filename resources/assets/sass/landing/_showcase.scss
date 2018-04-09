@@ -1,0 +1,50 @@
+.mfp-with-zoom {
+  .mfp-container, &.mfp-bg{
+    opacity: 0;
+    -webkit-backface-visibility: hidden;
+    /* ideally, transition speed should match zoom duration */
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+  }
+
+  &.mfp-ready {
+    .mfp-container {
+      opacity: 1;
+    }
+
+    &.mfp-bg {
+      opacity: 0.8;
+    }
+  }
+
+  &.mfp-removing {
+    .mfp-container, &.mfp-bg {
+      opacity: 0;
+    }
+  }
+}
+
+.showcase-title {
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.showcase-description {
+  margin-bottom: 30px;
+}
+
+.showcase-information {
+  margin-bottom: 35px;
+
+  .progress {
+    margin-top: 12px;
+  }
+}
+
+.showcase-gallery {
+  img {
+    width: 100%;
+  }
+}

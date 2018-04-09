@@ -17,6 +17,7 @@
     "jquery.easing": "^1.4.1",
     "laravel-mix": "^2.0",
     "lodash": "^4.17.4",
+    "magnific-popup": "^1.1.0",
     "popper.js": "^1.12",
     "prismjs": "^1.13.0",
     "scrollreveal": "3.3.6",

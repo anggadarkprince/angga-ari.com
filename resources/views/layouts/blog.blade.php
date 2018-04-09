@@ -45,13 +45,13 @@
                     <a class="nav-link" href="{{ route('index') }}">Profile</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="#">Showcase</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#">Browse</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contribute</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
                 </li>
             </ul>
         </div>
