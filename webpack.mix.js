@@ -14,7 +14,7 @@ let mix = require('laravel-mix');
 mix
     .js('resources/assets/js/app.js', 'public/js')
     .scripts([
-        'resources/assets/js/scripts/scrollreveal.js',
+        'node_modules/scrollreveal/dist/scrollreveal.js',
         'resources/assets/js/scripts/landing.js',
         'resources/assets/js/scripts/backtotop.js',
     ], 'public/js/scripts.js')
@@ -26,7 +26,7 @@ mix
     .sass('resources/assets/sass/landing.scss', 'public/css')
     .sass('resources/assets/sass/blog.scss', 'public/css')
 
-    .extract(['vue', 'lodash', 'jquery', 'bootstrap', 'axios', 'jquery.easing'])
+    .extract(['vue', 'lodash', 'jquery', 'bootstrap', 'axios', 'jquery.easing', 'magnific-popup', 'mixitup'])
     .version();
 
 if (!mix.inProduction()) {

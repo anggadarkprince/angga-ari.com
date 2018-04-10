@@ -58,3 +58,4 @@ if (token) {
 require('jquery.easing');
 require('prismjs');
 require('magnific-popup');
+window.mixitup = require('mixitup');

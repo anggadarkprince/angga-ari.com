@@ -46,10 +46,14 @@ header.masthead {
   }
 
   @media (min-width: 992px) {
-    height: 100vh;
-    min-height: 650px;
+    height: auto;
+    min-height: 350px;
     padding-top: 0;
     padding-bottom: 0;
+
+    &.full-height {
+      height: 100vh;
+    }
 
     h1 {
       font-size: 3rem;

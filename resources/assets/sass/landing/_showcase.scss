@@ -48,3 +48,19 @@
     width: 100%;
   }
 }
+
+.showcase-control {
+  .btn {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: 7px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+#showcases .mix {
+  margin-bottom: 20px;
+}

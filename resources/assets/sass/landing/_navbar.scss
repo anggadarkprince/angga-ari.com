@@ -47,7 +47,8 @@
     background-color: transparent;
 
     .navbar-brand {
-      color: fade-out($white, .3);
+      color: fade-out($white, .2);
+      letter-spacing: 1px;
 
       &:focus, &:hover {
         color: $white;
@@ -60,7 +61,7 @@
 
     .navbar-nav > li.nav-item > a.nav-link,
     .navbar-nav > li.nav-item > a.nav-link:focus {
-      color: fade-out($white, .3);
+      color: fade-out($white, .2);
 
       &:hover {
         color: $white;

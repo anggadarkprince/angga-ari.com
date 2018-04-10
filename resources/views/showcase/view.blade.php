@@ -3,7 +3,7 @@
 @section('title', 'Showcase view')
 
 @section('content')
-    <header class="masthead overlay text-center text-white d-flex" style="background: url('/storage/layouts/header.jpg') no-repeat bottom center scroll;">
+    <header class="masthead full-height overlay text-center text-white d-flex" style="background: url('{{ Storage::url('/layouts/header-2.jpg') }}') no-repeat bottom center scroll;">
         <div class="container my-auto">
             <div class="row">
                 <div class="col-lg-10 mx-auto">

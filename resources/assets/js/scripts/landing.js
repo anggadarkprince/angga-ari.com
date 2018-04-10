@@ -68,24 +68,50 @@
         delay: 250
     });
 
-    $('.showcase-gallery').magnificPopup({
-        delegate: 'a',
-        type: 'image',
-        mainClass: 'mfp-with-zoom', // this class is for CSS animation below
-        gallery:{
-            enabled:true
-        },
-        zoom: {
-            enabled: true,
-            duration: 300, // don't foget to change the duration also in CSS
-            opener: function(element) {
-                return element.find('img');
+    if ($('.showcase-gallery').length) {
+        $('.showcase-gallery').magnificPopup({
+            delegate: 'a',
+            type: 'image',
+            mainClass: 'mfp-with-zoom', // this class is for CSS animation below
+            gallery: {
+                enabled: true
+            },
+            zoom: {
+                enabled: true,
+                duration: 300, // don't foget to change the duration also in CSS
+                opener: function (element) {
+                    return element.find('img');
+                }
+            },
+            image: {
+                // options for image content type
+                titleSrc: 'title',
+                verticalFit: true,
             }
-        },
-        image: {
-            // options for image content type
-            titleSrc: 'title',
-            verticalFit: true,
+        });
+    }
+
+    if ($('#showcases').length) {
+        $('#showcases').magnificPopup({
+            delegate: 'a',
+            type: 'image',
+            tLoading: 'Loading image #%curr%...',
+            mainClass: 'mfp-img-mobile',
+            gallery: {
+                enabled: true,
+                navigateByImgClick: true,
+                preload: [0, 1]
+            },
+            image: {
+                tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
+            }
+        });
+    }
+
+    mixitup('#showcases', {
+        classNames: {
+            block: '',
+            elementFilter: ''
         }
     });
 
