@@ -3,22 +3,22 @@
 @section('title', 'Home Page')
 
 @section('content')
-    <header class="masthead text-center text-white d-flex" style="background: url('/storage/layouts/header-2.jpg') no-repeat bottom center scroll;">
+    <header class="masthead text-center text-white d-flex" style="background: url('{{ Storage::url('/layouts/header-2.jpg') }}') no-repeat bottom center scroll;">
         <div class="container my-auto">
             <div class="row">
-                <div class="col-lg-5 mx-auto">
+                <div class="col-lg-5 mx-auto sr-show-up">
                     <img src="{{ Storage::url('avatars/2018040600001/avatar.jpg') }}" alt="Angga" class="mb-3 rounded-circle">
                 </div>
                 <div class="col-lg-10 mx-auto">
-                    <h1 class="text-uppercase">
+                    <h1 class="text-uppercase sr-show-up">
                         <strong>NERD SOFTWARE ARCHITECT</strong>
                     </h1>
-                    <h3 class="text-wide">ANGGA ARI WIJAYA</h3>
-                    <hr>
+                    <h3 class="text-wide sr-show-up">ANGGA ARI WIJAYA</h3>
+                    <hr class="sr-show-up">
                 </div>
                 <div class="col-lg-8 mx-auto">
-                    <p class="text-faded mb-5">An introvert web programmer who tried to change his small world, craft things with his keyboard and papers, love warm rice and coffee!</p>
-                    <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
+                    <p class="text-faded mb-5 sr-show-up">An introvert web programmer who tried to change his small world, craft things with his keyboard and papers, love warm rice and coffee!</p>
+                    <a class="btn btn-primary btn-xl js-scroll-trigger sr-button" href="#about">Find Out More</a>
                 </div>
             </div>
         </div>
@@ -28,15 +28,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 mx-auto text-center">
-                    <h2 class="section-heading text-white">Who the hell am I?</h2>
-                    <hr class="light my-4">
-                    <p class="text-faded mb-5">
+                    <h2 class="section-heading text-white sr-icons">Who the hell am I?</h2>
+                    <hr class="light my-4 sr-icons">
+                    <p class="text-faded mb-5 sr-icons">
                         I'm a software developer who has been freelancing for 2 years, currently I have full time job and focus on web development.
                         Basically I am a calm and quite type of person, common engineer trait and personality.
                         I am very passionate about programming and new technology. Moreover I am very ease and ready to be self learner.
                         I force my self to keep persistent and discipline. I love working with my passion and been wanting to another challenge if there is an opportunity.
                     </p>
-                    <a class="btn btn-light btn-xl js-scroll-trigger" href="#profile">Meet him personally</a>
+                    <a class="btn btn-light btn-xl js-scroll-trigger sr-button" href="#profile">Meet him personally</a>
                 </div>
             </div>
         </div>
@@ -45,20 +45,22 @@
     <div class="container">
         <section id="profile" class="text-gray-700">
             <div class="row justify-content-sm-between">
-                <div class="col-md-3 mb-3 text-center text-md-right">
+                <div class="col-md-3 mb-3 text-center text-md-right sr-show-up">
                     <p class="mb-0 section-heading-group"><strong>PROFILE</strong></p>
                     <small class="text-muted">What I am all about</small>
                 </div>
                 <div class="col-md-8 text-center text-sm-left">
-                    <p>
-                        Hey, I am Angga Ari Wijaya a boy with quarter century of age, just call me Angga, I'm a rookie software engineer, I used to live in Gresik - East Java, Indonesia.
-                        Half workaholic, sometimes playing games, less sleep, build something like application or software. I practice everyday by the way and I think I'm good at it as well.</p>
-                    <p>
-                        Welcome to my personal website, here you can found my latest works, achievement, history, papers
-                        and blog posts. Presently I am working at Transcon Indonesia a logistic company in Surabaya, Indonesia since 2017.
-                    </p>
+                    <div class="sr-show-up">
+                        <p>
+                            Hey, I am Angga Ari Wijaya a boy with quarter century of age, just call me Angga, I'm a rookie software engineer, I used to live in Gresik - East Java, Indonesia.
+                            Half workaholic, sometimes playing games, less sleep, build something like application or software. I practice everyday by the way and I think I'm good at it as well.</p>
+                        <p>
+                            Welcome to my personal website, here you can found my latest works, achievement, history, papers
+                            and blog posts. Presently I am working at Transcon Indonesia a logistic company in Surabaya, Indonesia since 2017.
+                        </p>
+                    </div>
 
-                    <div class="row">
+                    <div class="row sr-show-up">
                         <div class="col-sm-4">
                             <p class="mb-1 mb-sm-2"><strong>Full Name</strong></p>
                         </div>
@@ -67,7 +69,7 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row sr-show-up">
                         <div class="col-sm-4">
                             <p class="mb-1 mb-sm-2"><strong>Contact</strong></p>
                         </div>
@@ -76,7 +78,7 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row sr-show-up">
                         <div class="col-sm-4">
                             <p class="mb-1 mb-sm-2"><strong>Email</strong></p>
                         </div>
@@ -89,7 +91,7 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row sr-show-up">
                         <div class="col-sm-4">
                             <p class="mb-1 mb-sm-2"><strong>Website</strong></p>
                         </div>
@@ -102,7 +104,7 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row sr-show-up">
                         <div class="col-sm-4">
                             <p class="mb-1 mb-sm-2"><strong>Day of Birth</strong></p>
                         </div>
@@ -111,7 +113,7 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row sr-show-up">
                         <div class="col-sm-4">
                             <p class="mb-1 mb-sm-2"><strong>Location</strong></p>
                         </div>
@@ -120,7 +122,7 @@
                         </div>
                     </div>
 
-                    <p class="text-center text-sm-left text-wide mt-4 mb-0">
+                    <p class="text-center text-sm-left text-wide mt-4 mb-0 sr-show-up">
                         <a href="#"><i class="fab fa-facebook-f fa-2x"></i></a>
                         <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in fa-2x"></i></a>
@@ -134,15 +136,15 @@
 
         <section id="experiences" class="text-gray-700">
             <div class="row justify-content-sm-between">
-                <div class="col-sm-3 mb-3 text-center text-sm-right">
+                <div class="col-sm-3 mb-3 text-center text-sm-right sr-show-up">
                     <p class="mb-0 section-heading-group"><strong>JOURNEY</strong></p>
                     <small class="text-muted">Education and experiences</small>
                 </div>
                 <div class="col-sm-8 text-center text-sm-left">
                     <div class="mb-4">
-                        <p class="text-primary"><strong>EDUCATIONS</strong></p>
+                        <p class="text-primary sr-show-up"><strong>EDUCATIONS</strong></p>
                         <ul class="list-unstyled">
-                            <li>
+                            <li class="sr-show-up">
                                 <div class="row">
                                     <div class="col-md-7">
                                         <p class="mb-1"><strong>Bachelor Degree</strong></p>
@@ -154,7 +156,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li>
+                            <li class="sr-show-up">
                                 <div class="row">
                                     <div class="col-md-7">
                                         <p class="mb-1"><strong>High School</strong></p>
@@ -169,9 +171,9 @@
                         </ul>
                     </div>
                     <div class="mb-4">
-                        <p class="text-primary"><strong>EXPERIENCES</strong></p>
+                        <p class="text-primary sr-show-up"><strong>EXPERIENCES</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-3">
+                            <li class="mb-3 sr-show-up">
                                 <div class="row">
                                     <div class="col-md-8">
                                         <p class="mb-1"><strong>Remote Job</strong></p>
@@ -190,7 +192,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="mb-3">
+                            <li class="mb-3 sr-show-up">
                                 <div class="row">
                                     <div class="col-md-8">
                                         <p class="mb-1"><strong>Internship: Ministry of Transmigration and Manpower of RI</strong></p>
@@ -208,7 +210,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li>
+                            <li class="mb-3 sr-show-up">
                                 <div class="row">
                                     <div class="col-md-8">
                                         <p class="mb-1"><strong>Lab Assistance</strong></p>
@@ -229,9 +231,9 @@
                         </ul>
                     </div>
                     <div class="mb-4">
-                        <p class="text-primary"><strong>ACHIEVEMENTS</strong></p>
+                        <p class="text-primary sr-show-up"><strong>ACHIEVEMENTS</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-3">
+                            <li class="mb-3 sr-show-up">
                                 <div class="row">
                                     <div class="col-md-8">
                                         <p class="mb-1"><strong>Discovery National Event</strong></p>
@@ -242,7 +244,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="mb-3">
+                            <li class="mb-3 sr-show-up">
                                 <div class="row">
                                     <div class="col-md-8">
                                         <p class="mb-1"><strong>HIMASIF Friendship Competition</strong></p>
@@ -261,14 +263,14 @@
 
         <section id="skills" class="text-gray-700">
             <div class="row justify-content-sm-between">
-                <div class="col-sm-3 mb-3 text-center text-sm-right">
+                <div class="col-sm-3 mb-3 text-center text-sm-right sr-show-up">
                     <p class="mb-0 section-heading-group"><strong>EXPERTISE</strong></p>
                     <small class="text-muted">Every detail of skills</small>
                 </div>
                 <div class="col-sm-8">
                     <div class="row">
                         <div class="col-lg-6 mb-5">
-                            <div class="row">
+                            <div class="row sr-show-up">
                                 <div class="col-1">
                                     <strong class="text-gray-400">01</strong>
                                 </div>
@@ -289,7 +291,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6 mb-5">
-                            <div class="row">
+                            <div class="row sr-show-up">
                                 <div class="col-1">
                                     <strong class="text-gray-400">02</strong>
                                 </div>
@@ -311,7 +313,7 @@
                         </div>
                         <div class="w-100"></div>
                         <div class="col-lg-6 mb-5">
-                            <div class="row">
+                            <div class="row sr-show-up">
                                 <div class="col-1">
                                     <strong class="text-gray-400">'03'</strong>
                                 </div>
@@ -332,7 +334,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6 mb-5">
-                            <div class="row">
+                            <div class="row sr-show-up">
                                 <div class="col-1">
                                     <strong class="text-gray-400">04</strong>
                                 </div>
@@ -354,7 +356,7 @@
                         </div>
                         <div class="w-100"></div>
                         <div class="col-lg-6 mb-5">
-                            <div class="row">
+                            <div class="row sr-show-up">
                                 <div class="col-1">
                                     <strong class="text-gray-400">05</strong>
                                 </div>
@@ -375,7 +377,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6 mb-5">
-                            <div class="row">
+                            <div class="row sr-show-up">
                                 <div class="col-1">
                                     <strong class="text-gray-400">06</strong>
                                 </div>
@@ -404,7 +406,7 @@
     <section id="services">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center">
+                <div class="col-lg-12 text-center sr-button">
                     <h3 class="section-heading">Let's Work Together</h3>
                     <hr class="my-4">
                 </div>
@@ -440,7 +442,7 @@
     <section class="p-0" id="showcases">
         <div class="container-fluid p-0">
             <div class="row no-gutters">
-                <div class="col-lg-4 col-sm-6">
+                <div class="col-lg-4 col-sm-6 sr-showcase">
                     <a class="portfolio-box" href="{{ route('showcase.view', ['slug' => 'website-orion-management']) }}">
                         <img class="img-fluid" src="{{ Storage::url('showcases/thumbnails/1.jpg') }}" alt="">
                         <div class="portfolio-box-caption">
@@ -455,8 +457,8 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="{{ Storage::url('showcases/fullsize/2.jpg') }}">
+                <div class="col-lg-4 col-sm-6 sr-showcase">
+                    <a class="portfolio-box" href="{{ route('showcase.view', ['slug' => 'website-orion-management']) }}">
                         <img class="img-fluid" src="{{ Storage::url('showcases/thumbnails/2.jpg') }}" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
@@ -470,8 +472,8 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="{{ Storage::url('showcases/fullsize/3.jpg') }}">
+                <div class="col-lg-4 col-sm-6 sr-showcase">
+                    <a class="portfolio-box" href="{{ route('showcase.view', ['slug' => 'website-orion-management']) }}">
                         <img class="img-fluid" src="{{ Storage::url('showcases/thumbnails/3.jpg') }}" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
@@ -485,8 +487,23 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="{{ Storage::url('showcases/fullsize/4.jpg') }}">
+                <div class="col-lg-4 col-sm-6 sr-showcase">
+                    <a class="portfolio-box" href="{{ route('showcase.view', ['slug' => 'website-orion-management']) }}">
+                        <img class="img-fluid" src="{{ Storage::url('showcases/thumbnails/4.jpg') }}" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6 sr-showcase">
+                    <a class="portfolio-box" href="{{ route('showcase.view', ['slug' => 'website-orion-management']) }}">
                         <img class="img-fluid" src="{{ Storage::url('showcases/thumbnails/5.jpg') }}" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
@@ -500,23 +517,8 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="{{ Storage::url('showcases/fullsize/5.jpg') }}">
-                        <img class="img-fluid" src="{{ Storage::url('showcases/thumbnails/5.jpg') }}" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                    Category
-                                </div>
-                                <div class="project-name">
-                                    Project Name
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="{{ Storage::url('showcases/fullsize/6.jpg') }}">
+                <div class="col-lg-4 col-sm-6 sr-showcase">
+                    <a class="portfolio-box" href="{{ route('showcase.view', ['slug' => 'website-orion-management']) }}">
                         <img class="img-fluid" src="{{ Storage::url('showcases/thumbnails/6.jpg') }}" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
@@ -548,7 +550,7 @@
     <section id="blog">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center">
+                <div class="col-lg-12 text-center sr-button">
                     <h3 class="section-heading">Recent Articles</h3>
                     <hr class="my-4">
                 </div>
@@ -556,7 +558,7 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item sr-show-up">
                     <div class="blog-item-wrapper">
                         <div class="blog-item-img">
                             <a href="{{ route('blog.article', ['year' => '2018', 'month' => '03', 'slug' => 'how-ofter-should-you-tweet']) }}">
@@ -581,7 +583,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item sr-show-up">
                     <div class="blog-item-wrapper">
                         <div class="blog-item-img">
                             <a href="{{ route('blog.article', ['year' => '2018', 'month' => '03', 'slug' => 'content-is-still-king']) }}">
@@ -606,7 +608,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item sr-show-up">
                     <div class="blog-item-wrapper">
                         <div class="blog-item-img">
                             <a href="{{ route('blog.article', ['year' => '2018', 'month' => '03', 'slug' => 'social-media-at-work']) }}">
@@ -633,7 +635,7 @@
             </div>
 
             <div class="text-center">
-                <a class="btn btn-primary btn-xl mt-5" href="{{ route('blog') }}">VISIT MY BLOG</a>
+                <a class="btn btn-primary btn-xl mt-5 sr-button" href="{{ route('blog') }}">VISIT MY BLOG</a>
             </div>
 
         </div>
@@ -643,9 +645,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
-                    <h3 class="section-heading">Let's Get In Touch!</h3>
-                    <hr class="my-4">
-                    <p class="mb-5">
+                    <h3 class="section-heading sr-show-up">Let's Get In Touch!</h3>
+                    <hr class="my-4 sr-show-up">
+                    <p class="mb-5 sr-show-up">
                         Ready to start your next project with me? That's great! Give me a call or send me an
                         email and I will get back to you as soon as possible!
                     </p>
@@ -654,17 +656,17 @@
             <div class="row text-center">
                 <div class="col-6 col-md-3 ml-auto">
                     <i class="fa icon-screen-smartphone fa-3x mb-3 sr-contact"></i>
-                    <p>(+62) 85655479868</p>
+                    <p class="sr-show-up">(+62) 85655479868</p>
                 </div>
                 <div class="col-6 col-md-3 mr-auto mr-md-0">
                     <i class="fa icon-envelope-open fa-3x mb-3 sr-contact"></i>
-                    <p>
+                    <p class="sr-show-up">
                         <a href="mailto:me@angga-ari.com" class="link-natural">me@angga-ari.com</a>
                     </p>
                 </div>
                 <div class="col-12 col-md-3 mr-auto d-none d-md-block">
                     <i class="fa icon-social-twitter fa-3x mb-3 sr-contact"></i>
-                    <p>
+                    <p class="sr-show-up">
                         <a href="https://twitter.com/anggadarkprince" class="link-natural">
                             @anggadarkprince
                         </a>
@@ -676,5 +678,38 @@
 
     <!-- Map Section -->
     <div id="map" class="mb-3"></div>
+
+    <section class="sr-contact-form">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h3 class="section-heading">Contact With Me</h3>
+                    <p class="text-muted">Let's chat or buy me a cup of coffee, I like latte by the way</p>
+                    <hr class="my-4">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mx-auto text-center">
+                    <form role="form" class="mt-2">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Email" id="email" class="form-control" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="message" placeholder="Your Message" rows="8" required></textarea>
+                        </div>
+                        <button class="btn btn-xl btn-primary mt-2" id="submit" type="submit">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </section>
 
 @endsection

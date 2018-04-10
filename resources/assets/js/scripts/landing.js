@@ -47,7 +47,7 @@
         distance: '0px'
     }, 200);
     sr.reveal('.sr-button', {
-        duration: 1000,
+        duration: 800,
         delay: 200
     });
     sr.reveal('.sr-contact', {
@@ -55,6 +55,18 @@
         scale: 0.3,
         distance: '0px'
     }, 300);
+    sr.reveal('.sr-show-up', {
+        duration: 500,
+        scale: 0.3
+    }, 100);
+    sr.reveal('.sr-showcase', {
+        duration: 1000,
+        delay: 250
+    }, 100);
+    sr.reveal('.sr-contact-form', {
+        duration: 800,
+        delay: 250
+    });
 
     $('.showcase-gallery').magnificPopup({
         delegate: 'a',

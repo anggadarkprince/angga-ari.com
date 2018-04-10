@@ -1,0 +1,23 @@
+footer {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0,0,0,.1);
+}
+
+.back-to-top {
+  display: none;
+  position: fixed;
+  bottom: 18px;
+  right: 15px;
+
+  i {
+    display: block;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    background-color: $primary;
+  }
+}

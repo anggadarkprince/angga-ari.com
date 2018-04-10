@@ -15,10 +15,12 @@ mix
     .js('resources/assets/js/app.js', 'public/js')
     .scripts([
         'resources/assets/js/scripts/scrollreveal.js',
-        'resources/assets/js/scripts/landing.js'
+        'resources/assets/js/scripts/landing.js',
+        'resources/assets/js/scripts/backtotop.js',
     ], 'public/js/scripts.js')
     .scripts([
         'resources/assets/js/scripts/blog.js',
+        'resources/assets/js/scripts/backtotop.js',
     ], 'public/js/blog.js')
     .sass('resources/assets/sass/app.scss', 'public/css')
     .sass('resources/assets/sass/landing.scss', 'public/css')

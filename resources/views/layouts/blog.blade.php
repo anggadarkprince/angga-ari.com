@@ -51,7 +51,7 @@
                     <a class="nav-link" href="#">Browse</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contribute</a>
+                    <a class="nav-link" href="/register">Contribute</a>
                 </li>
             </ul>
         </div>
