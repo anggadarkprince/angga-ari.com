@@ -15,11 +15,11 @@
                         <p class="text-faded sr-show-up">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, delectus distinctio dolores ducimus earum esse est facilis incidunt.</p>
                         <ul class="list-inline text-center text-uppercase post-author-stats">
                             <li class="list-inline-item sr-show-up">
-                                <span class="d-block d-md-inline-block">234</span> Post
+                                <span class="d-block d-md-inline-block">234</span> {{ str_plural('Post', 234) }}
                             </li><li class="list-inline-item sr-show-up">
-                                <span class="d-block d-md-inline-block">13</span> Tags
+                                <span class="d-block d-md-inline-block">13</span> {{ str_plural('Tag', 13) }}
                             </li><li class="list-inline-item sr-show-up">
-                                <span class="d-block d-md-inline-block">463K</span> Views
+                                <span class="d-block d-md-inline-block">463K</span> {{ str_plural('View', 463000) }}
                             </li>
                         </ul>
                     </div>
