@@ -43,7 +43,7 @@
     </section>
 
     <div class="container">
-        <section id="profile" class="text-gray-700">
+        <section id="profile">
             <div class="row justify-content-sm-between">
                 <div class="col-md-3 mb-3 text-center text-md-right sr-profile">
                     <p class="mb-0 section-heading-group"><strong>PROFILE</strong></p>
@@ -134,7 +134,7 @@
             </div>
         </section>
 
-        <section id="experiences" class="text-gray-700">
+        <section id="experiences">
             <div class="row justify-content-sm-between">
                 <div class="col-sm-3 mb-3 text-center text-sm-right sr-profile">
                     <p class="mb-0 section-heading-group"><strong>JOURNEY</strong></p>
@@ -261,7 +261,7 @@
             </div>
         </section>
 
-        <section id="skills" class="text-gray-700">
+        <section id="skills">
             <div class="row justify-content-sm-between">
                 <div class="col-sm-3 mb-3 text-center text-sm-right sr-skill">
                     <p class="mb-0 section-heading-group"><strong>EXPERTISE</strong></p>
@@ -551,7 +551,7 @@
         </div>
     </section>
 
-    <section id="blog">
+    <section id="blog" class="text-gray-700">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center sr-blog">

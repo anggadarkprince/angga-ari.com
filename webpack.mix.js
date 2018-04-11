@@ -17,8 +17,9 @@ mix
         'node_modules/scrollreveal/dist/scrollreveal.js',
         'resources/assets/js/scripts/landing.js',
         'resources/assets/js/scripts/backtotop.js',
-    ], 'public/js/scripts.js')
+    ], 'public/js/landing.js')
     .scripts([
+        'node_modules/scrollreveal/dist/scrollreveal.js',
         'resources/assets/js/scripts/blog.js',
         'resources/assets/js/scripts/backtotop.js',
     ], 'public/js/blog.js')

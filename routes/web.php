@@ -22,6 +22,7 @@ Route::prefix('blog')->group(function () {
     Route::view('/category/{slug}', 'blog.index')->name('blog.category');
     Route::view('/tag/{slug}', 'blog.index')->name('blog.tag');
     Route::view('/{year}/{month}/{slug}', 'blog.article')->name('blog.article');
+    Route::view('/author/{username}', 'blog.author')->name('blog.author');
 });
 
 Route::view('/showcase/{slug}', 'showcase.view')->name('showcase.view');

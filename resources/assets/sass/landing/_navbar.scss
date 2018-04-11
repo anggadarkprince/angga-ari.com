@@ -1,5 +1,5 @@
 #mainNav {
-  border-bottom: 1px solid fade-out($gray-900, .9);
+  border-bottom: 1px solid fade-out($gray-800, .9);
   background-color: $white;
   @include sans-serif-font;
   @include transition-all;
@@ -83,7 +83,7 @@
 
       .navbar-nav > li.nav-item > a.nav-link,
       .navbar-nav > li.nav-item > a.nav-link:focus {
-        color: $gray-900;
+        color: $gray-800;
         &:hover {
           color: $primary;
         }

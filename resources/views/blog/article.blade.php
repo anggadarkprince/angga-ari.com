@@ -10,9 +10,9 @@
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="post-heading">
-                        <h1>Man must explore, and this is exploration at its greatest</h1>
-                        <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
-                        <span class="meta">Posted by <a href="#">Angga Ari Wijaya</a> on August 24, 2018</span>
+                        <h1 class="sr-show-up">Man must explore, and this is exploration at its greatest</h1>
+                        <h2 class="subheading sr-show-up">Problems look mighty small from 150 miles up</h2>
+                        <span class="meta sr-show-up">Posted by <a href="{{ route('blog.author', ['username' => 'angga.ari']) }}">Angga Ari Wijaya</a> on August 24, 2018</span>
                     </div>
                 </div>
             </div>
@@ -94,7 +94,7 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item sr-show-up">
                     <div class="post-preview">
                         <a href="{{ route('blog.article', ['year' => '2018', 'month' => '03', 'slug' => 'how-ofter-should-you-tweet']) }}">
                             <img src="{{ Storage::url('showcases/thumbnails/1.jpg') }}" class="img-fluid mb-3" alt="">
@@ -106,7 +106,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item sr-show-up">
                     <div class="post-preview">
                         <a href="{{ route('blog.article', ['year' => '2018', 'month' => '03', 'slug' => 'how-ofter-should-you-tweet']) }}">
                             <img src="{{ Storage::url('showcases/thumbnails/2.jpg') }}" class="img-fluid mb-3" alt="">
@@ -118,7 +118,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item sr-show-up">
                     <div class="post-preview">
                         <a href="{{ route('blog.article', ['year' => '2018', 'month' => '03', 'slug' => 'how-ofter-should-you-tweet']) }}">
                             <img src="{{ Storage::url('showcases/thumbnails/3.jpg') }}" class="img-fluid mb-3" alt="">

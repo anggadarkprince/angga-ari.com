@@ -27,4 +27,11 @@
             });
     }
 
+    // Scroll reveal calls
+    window.sr = ScrollReveal();
+    sr.reveal('.sr-show-up', {
+        duration: 500,
+        delay: 100
+    }, 200);
+
 })(jQuery); // End of use strict

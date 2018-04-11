@@ -2,6 +2,7 @@ body,
 html {
   width: 100%;
   height: 100%;
+  color: $gray-800;
 }
 
 body {
@@ -87,6 +88,8 @@ section {
   }
 
   .section-heading-group {
+    @include sans-serif-font2;
+    letter-spacing: 1px;
     font-size: 130%;
   }
 }

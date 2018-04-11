@@ -20,9 +20,9 @@
     <script src="{{ mix('js/blog.js') }}" defer></script>
 
     <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
 
     <!-- Styles -->
@@ -45,10 +45,10 @@
                     <a class="nav-link" href="{{ route('index') }}">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Showcase</a>
+                    <a class="nav-link" href="{{ route('showcase') }}">Showcase</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Browse</a>
+                    <a class="nav-link" href="{{ route('blog') }}">Browse</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/register">Contribute</a>
@@ -60,13 +60,7 @@
 
 @yield('content')
 
-<!-- Footer -->
-<footer>
-    <div class="container">
-        <p class="mb-0">All copyrights reserved &copy; {{ date('Y') }} - Designed & Developed by Angga</p>
-        <p class="text-muted"><small>Made with Love and Coffee</small></p>
-    </div>
-</footer>
+@include('components.footer')
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-@extends('layouts.showcase', ['backToProfile' => false])
+@extends('layouts.landing', ['backToProfile' => false])
 
 @section('title', 'Showcase view')
 

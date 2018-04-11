@@ -17,7 +17,7 @@
     <script src="{{ mix('js/manifest.js') }}" defer></script>
     <script src="{{ mix('js/vendor.js') }}" defer></script>
     <script src="{{ mix('js/app.js') }}" defer></script>
-    <script src="{{ mix('js/scripts.js') }}" defer></script>
+    <script src="{{ mix('js/landing.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -33,29 +33,48 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-md navbar-light fixed-top" id="mainNav">
     <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">
-            Angga's Web
-        </a>
+        @if (!isset($backToProfile))
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                Angga's Web
+            </a>
+        @elseif ($backToProfile)
+            <a class="navbar-brand js-scroll-trigger" href="{{ route('index') }}">
+                <i class="fa fa-arrow-left mr-2"></i> Back to Profile
+            </a>
+        @else
+            <a class="navbar-brand js-scroll-trigger" href="{{ route('showcase') }}">
+                <i class="fa fa-arrow-left mr-2"></i> Back to Showcases
+            </a>
+        @endif
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#experiences">Experiences</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#showcases">Showcases</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#blog">Blog</a>
-                </li>
+                @if (!isset($backToProfile))
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#experiences">Experiences</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#showcases">Showcases</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#blog">Blog</a>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('index') }}">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('blog') }}">Blog</a>
+                    </li>
+                @endif
             </ul>
         </div>
     </div>
@@ -63,18 +82,7 @@
 
 @yield('content')
 
-<!-- Footer -->
-<footer>
-    <div class="container">
-        <p class="mb-0">All copyrights reserved &copy; {{ date('Y') }} - Designed & Developed by Angga</p>
-        <p class="text-muted"><small>Made with Love and Coffee</small></p>
-    </div>
-</footer>
-
-<!-- Go To Top Link -->
-<a href="#" class="back-to-top">
-    <i class="icon-arrow-up-circle"></i>
-</a>
+@include('components.footer')
 
 </body>
 </html>
