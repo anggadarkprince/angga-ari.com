@@ -29,6 +29,7 @@
                         <h3 class="showcase-title">
                             Orion Management System
                         </h3>
+                        <p class="text-muted">Created By <a href="#">Angga Ari Wijaya</a></p>
                         <div class="showcase-description">
                             <p>
                                 A management system is the framework of policies, processes and procedures used by an
@@ -106,16 +107,6 @@
                                 </div>
                                 <div class="col-9 col-md-8">
                                     <p class="text-muted mb-3">(GNU) General</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-3 col-md-4">
-                                    <p class="mb-1"><strong>Difficulty</strong></p>
-                                </div>
-                                <div class="col-9 col-md-8">
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
                                 </div>
                             </div>
                             <div class="row">

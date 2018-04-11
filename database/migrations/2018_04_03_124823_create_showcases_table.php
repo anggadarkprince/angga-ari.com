@@ -16,8 +16,9 @@ class CreateShowcasesTable extends Migration
         Schema::create('showcases', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->string('title', 100);
             $table->string('slug', 300);
+            $table->string('title', 100);
+            $table->string('tagline', 100);
             $table->text('description')->nullable();
             $table->string('cover', 300);
             $table->string('company', 100)->nullable();
@@ -25,7 +26,6 @@ class CreateShowcasesTable extends Migration
             $table->string('url', 500)->nullable();
             $table->date('date')->nullable();
             $table->string('licence', 100)->nullable();
-            $table->smallInteger('difficulty')->unsigned()->nullable();
             $table->enum('privacy', ['private', 'public'])->default('public');
             $table->softDeletes();
             $table->timestamps();

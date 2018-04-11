@@ -45,12 +45,12 @@
     <div class="container">
         <section id="profile" class="text-gray-700">
             <div class="row justify-content-sm-between">
-                <div class="col-md-3 mb-3 text-center text-md-right sr-show-up">
+                <div class="col-md-3 mb-3 text-center text-md-right sr-profile">
                     <p class="mb-0 section-heading-group"><strong>PROFILE</strong></p>
                     <small class="text-muted">What I am all about</small>
                 </div>
                 <div class="col-md-8 text-center text-sm-left">
-                    <div class="sr-show-up">
+                    <div class="sr-profile">
                         <p>
                             Hey, I am Angga Ari Wijaya a boy with quarter century of age, just call me Angga, I'm a rookie software engineer, I used to live in Gresik - East Java, Indonesia.
                             Half workaholic, sometimes playing games, less sleep, build something like application or software. I practice everyday by the way and I think I'm good at it as well.</p>
@@ -60,7 +60,7 @@
                         </p>
                     </div>
 
-                    <div class="row sr-show-up">
+                    <div class="row sr-profile">
                         <div class="col-sm-4">
                             <p class="mb-1 mb-sm-2"><strong>Full Name</strong></p>
                         </div>
@@ -69,7 +69,7 @@
                         </div>
                     </div>
 
-                    <div class="row sr-show-up">
+                    <div class="row sr-profile">
                         <div class="col-sm-4">
                             <p class="mb-1 mb-sm-2"><strong>Contact</strong></p>
                         </div>
@@ -78,7 +78,7 @@
                         </div>
                     </div>
 
-                    <div class="row sr-show-up">
+                    <div class="row sr-profile">
                         <div class="col-sm-4">
                             <p class="mb-1 mb-sm-2"><strong>Email</strong></p>
                         </div>
@@ -91,7 +91,7 @@
                         </div>
                     </div>
 
-                    <div class="row sr-show-up">
+                    <div class="row sr-profile">
                         <div class="col-sm-4">
                             <p class="mb-1 mb-sm-2"><strong>Website</strong></p>
                         </div>
@@ -104,7 +104,7 @@
                         </div>
                     </div>
 
-                    <div class="row sr-show-up">
+                    <div class="row sr-profile">
                         <div class="col-sm-4">
                             <p class="mb-1 mb-sm-2"><strong>Day of Birth</strong></p>
                         </div>
@@ -113,7 +113,7 @@
                         </div>
                     </div>
 
-                    <div class="row sr-show-up">
+                    <div class="row sr-profile">
                         <div class="col-sm-4">
                             <p class="mb-1 mb-sm-2"><strong>Location</strong></p>
                         </div>
@@ -122,7 +122,7 @@
                         </div>
                     </div>
 
-                    <p class="text-center text-sm-left text-wide mt-4 mb-0 sr-show-up">
+                    <p class="text-center text-sm-left text-wide mt-4 mb-0 sr-profile">
                         <a href="#"><i class="fab fa-facebook-f fa-2x"></i></a>
                         <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in fa-2x"></i></a>
@@ -136,15 +136,15 @@
 
         <section id="experiences" class="text-gray-700">
             <div class="row justify-content-sm-between">
-                <div class="col-sm-3 mb-3 text-center text-sm-right sr-show-up">
+                <div class="col-sm-3 mb-3 text-center text-sm-right sr-profile">
                     <p class="mb-0 section-heading-group"><strong>JOURNEY</strong></p>
                     <small class="text-muted">Education and experiences</small>
                 </div>
                 <div class="col-sm-8 text-center text-sm-left">
                     <div class="mb-4">
-                        <p class="text-primary sr-show-up"><strong>EDUCATIONS</strong></p>
+                        <p class="text-primary sr-profile"><strong>EDUCATIONS</strong></p>
                         <ul class="list-unstyled">
-                            <li class="sr-show-up">
+                            <li class="sr-profile">
                                 <div class="row">
                                     <div class="col-md-7">
                                         <p class="mb-1"><strong>Bachelor Degree</strong></p>
@@ -156,7 +156,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="sr-show-up">
+                            <li class="sr-profile">
                                 <div class="row">
                                     <div class="col-md-7">
                                         <p class="mb-1"><strong>High School</strong></p>
@@ -171,9 +171,9 @@
                         </ul>
                     </div>
                     <div class="mb-4">
-                        <p class="text-primary sr-show-up"><strong>EXPERIENCES</strong></p>
+                        <p class="text-primary sr-profile"><strong>EXPERIENCES</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-3 sr-show-up">
+                            <li class="mb-3 sr-profile">
                                 <div class="row">
                                     <div class="col-md-8">
                                         <p class="mb-1"><strong>Remote Job</strong></p>
@@ -192,7 +192,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="mb-3 sr-show-up">
+                            <li class="mb-3 sr-profile">
                                 <div class="row">
                                     <div class="col-md-8">
                                         <p class="mb-1"><strong>Internship: Ministry of Transmigration and Manpower of RI</strong></p>
@@ -210,7 +210,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="mb-3 sr-show-up">
+                            <li class="mb-3 sr-profile">
                                 <div class="row">
                                     <div class="col-md-8">
                                         <p class="mb-1"><strong>Lab Assistance</strong></p>
@@ -231,9 +231,9 @@
                         </ul>
                     </div>
                     <div class="mb-4">
-                        <p class="text-primary sr-show-up"><strong>ACHIEVEMENTS</strong></p>
+                        <p class="text-primary sr-profile"><strong>ACHIEVEMENTS</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-3 sr-show-up">
+                            <li class="mb-3 sr-profile">
                                 <div class="row">
                                     <div class="col-md-8">
                                         <p class="mb-1"><strong>Discovery National Event</strong></p>
@@ -244,7 +244,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="mb-3 sr-show-up">
+                            <li class="mb-3 sr-profile">
                                 <div class="row">
                                     <div class="col-md-8">
                                         <p class="mb-1"><strong>HIMASIF Friendship Competition</strong></p>
@@ -406,7 +406,7 @@
     <section id="services">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center sr-showcase">
+                <div class="col-lg-12 text-center sr-profile">
                     <h3 class="section-heading">Let's Work Together</h3>
                     <hr class="my-4">
                 </div>
@@ -542,10 +542,10 @@
 
     <section class="bg-dark text-white">
         <div class="container text-center">
-            <h3 class="mb-2">Download My Professional CV</h3>
-            <p class="mb-5">Generated PDF file</p>
+            <h3 class="mb-2 sr-profile">Download My Professional CV</h3>
+            <p class="mb-5 sr-profile">Generated PDF file</p>
             <a class="btn btn-light btn-xl sr-button mb-5" href="#">Download Now</a>
-            <p>
+            <p class="sr-profile">
                 Or visit my old profile <a href="https://anggadarkprince.github.io">anggadarkprince.github.io</a>
             </p>
         </div>
@@ -704,7 +704,7 @@
                             <input type="text" placeholder="Your Email" id="email" class="form-control" name="name" required>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" id="message" placeholder="Your Message" rows="8" required></textarea>
+                            <textarea class="form-control" id="message" placeholder="Your Message" rows="5" required></textarea>
                         </div>
                         <button class="btn btn-xl btn-primary mt-2" id="submit" type="submit">
                             Send Message

@@ -4,8 +4,9 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Showcase::class, function (Faker $faker) {
     return [
-        'title' => $faker->sentence(),
         'slug' => $faker->slug(),
+        'title' => $faker->sentence(),
+        'tagline' => $faker->sentence(10),
         'description' => $faker->paragraphs(10, true),
         'cover' => $faker->imageUrl(),
         'company' => $faker->company,
@@ -13,7 +14,6 @@ $factory->define(App\Showcase::class, function (Faker $faker) {
         'url' => $faker->url,
         'date' => $faker->date(),
         'licence' => $faker->sentence,
-        'difficulty' => $faker->numberBetween(1, 10),
         'privacy' => $faker->randomElement(['private', 'public']),
     ];
 });

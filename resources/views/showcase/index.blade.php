@@ -41,6 +41,13 @@
                         <a class="portfolio-box"
                            href="{{ route('showcase.view', ['slug' => 'website-orion-management']) }}">
                             <img class="img-fluid" src="{{ Storage::url('showcases/thumbnails/1.jpg') }}" alt="">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="text-uppercase text-wide">
+                                        Show Detail
+                                    </div>
+                                </div>
+                            </div>
                         </a>
                         <div class="text-center mt-3 mb-4">
                             <p class="lead mb-0">Website Orion Management</p>
@@ -50,6 +57,13 @@
                     <div class="col-lg-4 col-sm-6 mix development">
                         <a class="portfolio-box" href="{{ route('showcase.view', ['slug' => 'website-orion-management']) }}">
                             <img class="img-fluid" src="{{ Storage::url('showcases/thumbnails/2.jpg') }}" alt="">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="text-uppercase text-wide">
+                                        Show Detail
+                                    </div>
+                                </div>
+                            </div>
                         </a>
                         <div class="text-center mt-3 mb-4">
                             <p class="lead mb-0">Dark Story and Pen</p>
@@ -59,6 +73,13 @@
                     <div class="col-lg-4 col-sm-6 mix design">
                         <a class="portfolio-box" href="{{ route('showcase.view', ['slug' => 'website-orion-management']) }}">
                             <img class="img-fluid" src="{{ Storage::url('showcases/thumbnails/3.jpg') }}" alt="">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="text-uppercase text-wide">
+                                        Show Detail
+                                    </div>
+                                </div>
+                            </div>
                         </a>
                         <div class="text-center mt-3 mb-4">
                             <p class="lead mb-0">The Photograph</p>
@@ -68,6 +89,13 @@
                     <div class="col-lg-4 col-sm-6 mix development print">
                         <a class="portfolio-box" href="{{ route('showcase.view', ['slug' => 'website-orion-management']) }}">
                             <img class="img-fluid" src="{{ Storage::url('showcases/thumbnails/4.jpg') }}" alt="">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="text-uppercase text-wide">
+                                        Show Detail
+                                    </div>
+                                </div>
+                            </div>
                         </a>
                         <div class="text-center mt-3 mb-4">
                             <p class="lead mb-0">Foody Maximum</p>
@@ -77,6 +105,13 @@
                     <div class="col-lg-4 col-sm-6 mix print">
                         <a class="portfolio-box" href="{{ route('showcase.view', ['slug' => 'website-orion-management']) }}">
                             <img class="img-fluid" src="{{ Storage::url('showcases/thumbnails/5.jpg') }}" alt="">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="text-uppercase text-wide">
+                                        Show Detail
+                                    </div>
+                                </div>
+                            </div>
                         </a>
                         <div class="text-center mt-3 mb-4">
                             <p class="lead mb-0">Curve Blazzer</p>
@@ -86,6 +121,13 @@
                     <div class="col-lg-4 col-sm-6 mix design development print">
                         <a class="portfolio-box" href="{{ route('showcase.view', ['slug' => 'website-orion-management']) }}">
                             <img class="img-fluid" src="{{ Storage::url('showcases/thumbnails/6.jpg') }}" alt="">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="text-uppercase text-wide">
+                                        Show Detail
+                                    </div>
+                                </div>
+                            </div>
                         </a>
                         <div class="text-center mt-3 mb-4">
                             <p class="lead mb-0">Tools And Media</p>

@@ -16,12 +16,14 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->string('title', 150);
             $table->string('slug', 350);
+            $table->string('title', 150);
+            $table->string('subtitle', 150);
             $table->text('content');
             $table->text('cover');
             $table->enum('status', ['draft', 'published', 'scheduled'])->default('draft');
             $table->enum('privacy', ['private', 'public'])->default('public');
+            $table->unsignedBigInteger('view');
             $table->dateTime('published_at');
             $table->softDeletes();
             $table->timestamps();
