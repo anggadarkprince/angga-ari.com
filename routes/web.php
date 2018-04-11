@@ -25,4 +25,4 @@ Route::prefix('blog')->group(function () {
 });
 
 Route::view('/showcase/{slug}', 'showcase.view')->name('showcase.view');
-Route::view('/showcases', 'showcase.index')->name('showcase.index');
+Route::view('/showcases', 'showcase.index')->name('showcase');

@@ -33,16 +33,26 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-md navbar-light fixed-top" id="mainNav">
     <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="{{ route('index') }}">
-            <i class="fa fa-arrow-left mr-2"></i> Back to Profile
-        </a>
+        @if ($backToProfile)
+            <a class="navbar-brand js-scroll-trigger" href="{{ route('index') }}">
+                <i class="fa fa-arrow-left mr-2"></i> Back to Profile
+            </a>
+        @else
+            <a class="navbar-brand js-scroll-trigger" href="{{ route('showcase') }}">
+                <i class="fa fa-arrow-left mr-2"></i> Back to Showcases
+            </a>
+        @endif
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('showcase.index') }}">All Showcases</a>
+                    @if ($backToProfile)
+                        <a class="nav-link" href="{{ route('index') }}">All Showcase</a>
+                    @else
+                        <a class="nav-link" href="{{ route('showcase') }}">Profile</a>
+                    @endif
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('blog') }}">Blog</a>

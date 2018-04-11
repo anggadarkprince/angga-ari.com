@@ -133,7 +133,7 @@
         </div>
     </section>
 
-    <div class="container">
+    <div class="container mb-5">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
                 <div id="disqus_thread"></div>

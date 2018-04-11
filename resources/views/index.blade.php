@@ -263,14 +263,14 @@
 
         <section id="skills" class="text-gray-700">
             <div class="row justify-content-sm-between">
-                <div class="col-sm-3 mb-3 text-center text-sm-right sr-show-up">
+                <div class="col-sm-3 mb-3 text-center text-sm-right sr-skill">
                     <p class="mb-0 section-heading-group"><strong>EXPERTISE</strong></p>
                     <small class="text-muted">Every detail of skills</small>
                 </div>
                 <div class="col-sm-8">
                     <div class="row">
                         <div class="col-lg-6 mb-5">
-                            <div class="row sr-show-up">
+                            <div class="row sr-skill">
                                 <div class="col-1">
                                     <strong class="text-gray-400">01</strong>
                                 </div>
@@ -291,7 +291,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6 mb-5">
-                            <div class="row sr-show-up">
+                            <div class="row sr-skill">
                                 <div class="col-1">
                                     <strong class="text-gray-400">02</strong>
                                 </div>
@@ -313,7 +313,7 @@
                         </div>
                         <div class="w-100"></div>
                         <div class="col-lg-6 mb-5">
-                            <div class="row sr-show-up">
+                            <div class="row sr-skill">
                                 <div class="col-1">
                                     <strong class="text-gray-400">'03'</strong>
                                 </div>
@@ -334,7 +334,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6 mb-5">
-                            <div class="row sr-show-up">
+                            <div class="row sr-skill">
                                 <div class="col-1">
                                     <strong class="text-gray-400">04</strong>
                                 </div>
@@ -356,7 +356,7 @@
                         </div>
                         <div class="w-100"></div>
                         <div class="col-lg-6 mb-5">
-                            <div class="row sr-show-up">
+                            <div class="row sr-skill">
                                 <div class="col-1">
                                     <strong class="text-gray-400">05</strong>
                                 </div>
@@ -377,7 +377,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6 mb-5">
-                            <div class="row sr-show-up">
+                            <div class="row sr-skill">
                                 <div class="col-1">
                                     <strong class="text-gray-400">06</strong>
                                 </div>
@@ -406,7 +406,7 @@
     <section id="services">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center sr-button">
+                <div class="col-lg-12 text-center sr-showcase">
                     <h3 class="section-heading">Let's Work Together</h3>
                     <hr class="my-4">
                 </div>
@@ -417,24 +417,28 @@
                 <div class="col-md-3 text-center">
                     <div class="service-box mt-5 mx-auto">
                         <i class="fa fa-4x fa-code text-primary mb-3 sr-icons"></i>
-                        <h4 class="mb-3">Website Project</h4>
-                        <p class="text-muted mb-0">Share your idea to the world when everyone could access!</p>
+                        <h4 class="mb-3 sr-showcase">Website Project</h4>
+                        <p class="text-muted mb-0 sr-showcase">Share your idea to the world when everyone could access!</p>
                     </div>
                 </div>
                 <div class="col-md-3 text-center">
                     <div class="service-box mt-5 mx-auto">
                         <i class="fa fa-4x fa-mobile-alt text-primary mb-3 sr-icons"></i>
-                        <h4 class="mb-3">Mobile App</h4>
-                        <p class="text-muted mb-0">Everything goes simple right in your hand, a handheld app!</p>
+                        <h4 class="mb-3 sr-showcase">Mobile App</h4>
+                        <p class="text-muted mb-0 sr-showcase">Everything goes simple right in your hand, a handheld app!</p>
                     </div>
                 </div>
                 <div class="col-md-3 text-center">
                     <div class="service-box mt-5 mx-auto">
                         <i class="fa fa-4x fa-paint-brush text-primary mb-3 sr-icons"></i>
-                        <h4 class="mb-3">UI/UX Design</h4>
-                        <p class="text-muted mb-0">You have to make your interface with love these days!</p>
+                        <h4 class="mb-3 sr-showcase">UI/UX Design</h4>
+                        <p class="text-muted mb-0 sr-showcase">You have to make your interface with love these days!</p>
                     </div>
                 </div>
+            </div>
+
+            <div class="text-center">
+                <a class="btn btn-primary btn-xl mt-5 sr-showcase" href="{{ route('showcase') }}">SHOW ALL MY SHOWCASES</a>
             </div>
         </div>
     </section>
@@ -550,7 +554,7 @@
     <section id="blog">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center sr-button">
+                <div class="col-lg-12 text-center sr-blog">
                     <h3 class="section-heading">Recent Articles</h3>
                     <hr class="my-4">
                 </div>
@@ -558,7 +562,7 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item sr-show-up">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item sr-blog">
                     <div class="blog-item-wrapper">
                         <div class="blog-item-img">
                             <a href="{{ route('blog.article', ['year' => '2018', 'month' => '03', 'slug' => 'how-ofter-should-you-tweet']) }}">
@@ -583,7 +587,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item sr-show-up">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item sr-blog">
                     <div class="blog-item-wrapper">
                         <div class="blog-item-img">
                             <a href="{{ route('blog.article', ['year' => '2018', 'month' => '03', 'slug' => 'content-is-still-king']) }}">
@@ -608,7 +612,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item sr-show-up">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item sr-blog">
                     <div class="blog-item-wrapper">
                         <div class="blog-item-img">
                             <a href="{{ route('blog.article', ['year' => '2018', 'month' => '03', 'slug' => 'social-media-at-work']) }}">
@@ -655,17 +659,17 @@
             </div>
             <div class="row text-center">
                 <div class="col-6 col-md-3 ml-auto">
-                    <i class="fa icon-screen-smartphone fa-3x mb-3 sr-contact"></i>
+                    <i class="icon-screen-smartphone fa-3x mb-3 d-inline-block sr-contact"></i>
                     <p class="sr-show-up">(+62) 85655479868</p>
                 </div>
                 <div class="col-6 col-md-3 mr-auto mr-md-0">
-                    <i class="fa icon-envelope-open fa-3x mb-3 sr-contact"></i>
+                    <i class="icon-envelope-open fa-3x mb-3 d-inline-block sr-contact"></i>
                     <p class="sr-show-up">
                         <a href="mailto:me@angga-ari.com" class="link-natural">me@angga-ari.com</a>
                     </p>
                 </div>
                 <div class="col-12 col-md-3 mr-auto d-none d-md-block">
-                    <i class="fa icon-social-twitter fa-3x mb-3 sr-contact"></i>
+                    <i class="icon-social-twitter fa-3x mb-3 d-inline-block sr-contact"></i>
                     <p class="sr-show-up">
                         <a href="https://twitter.com/anggadarkprince" class="link-natural">
                             @anggadarkprince

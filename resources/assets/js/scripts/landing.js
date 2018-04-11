@@ -59,13 +59,21 @@
         duration: 500,
         scale: 0.3
     }, 100);
+    sr.reveal('.sr-skill', {
+        duration: 600,
+        delay: 100
+    }, 150);
+    sr.reveal('.sr-blog', {
+        duration: 600,
+        delay: 100
+    }, 150);
     sr.reveal('.sr-showcase', {
-        duration: 1000,
-        delay: 250
+        duration: 800,
+        delay: 200
     }, 100);
     sr.reveal('.sr-contact-form', {
         duration: 800,
-        delay: 250
+        delay: 200
     });
 
     if ($('.showcase-gallery').length) {
@@ -91,24 +99,7 @@
         });
     }
 
-    if ($('#showcases').length) {
-        $('#showcases').magnificPopup({
-            delegate: 'a',
-            type: 'image',
-            tLoading: 'Loading image #%curr%...',
-            mainClass: 'mfp-img-mobile',
-            gallery: {
-                enabled: true,
-                navigateByImgClick: true,
-                preload: [0, 1]
-            },
-            image: {
-                tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
-            }
-        });
-    }
-
-    mixitup('#showcases', {
+    mixitup('#showcases-mix', {
         classNames: {
             block: '',
             elementFilter: ''

@@ -61,6 +61,14 @@
   }
 }
 
-#showcases .mix {
+#showcases-mix .mix {
   margin-bottom: 20px;
+
+  .lead {
+    font-weight: 600;
+
+    + p {
+      font-size: 0.9rem;
+    }
+  }
 }

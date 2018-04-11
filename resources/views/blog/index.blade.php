@@ -19,7 +19,7 @@
     </header>
 
     <!-- Main Content -->
-    <div class="container">
+    <div class="container mb-5">
         <div class="row">
             <div class="col-lg-8 mr-auto">
                 <div class="post-preview">
