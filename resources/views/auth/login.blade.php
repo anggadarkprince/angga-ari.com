@@ -6,6 +6,13 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-sm-8 col-lg-5 col-xl-4">
+
+            @if (session('status'))
+                <div class="alert alert-{{ session('type', 'success') }} text-left">
+                    {{ session('status') }}
+                </div>
+            @endif
+
             <div class="card box-shadow">
                 <div class="card-body text-center">
                     <h4 class="mb-0">{{ __('Sign In') }}</h4>
@@ -20,9 +27,19 @@
                             <input id="email" type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="Username or email" required>
 
                             @if ($errors->has('email'))
-                                <span class="invalid-feedback">
-                                    <strong>{{ $errors->first('email') }}</strong>
+                                <span class="invalid-feedback text-left">
+                                    <strong>
+                                        {{ $errors->first('email') }}
+
+                                        @if ($errors->has('resend'))
+                                            <a href="{{ route('register.resend') }}" class="link-muted"
+                                                       onclick="event.preventDefault(); document.getElementById('resend-form').submit();">
+                                                {{ __('Click here to resend') }}
+                                            </a>
+                                        @endif
+                                    </strong>
                                 </span>
+
                             @endif
                         </div>
 
@@ -30,7 +47,7 @@
                             <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="Password" required>
 
                             @if ($errors->has('password'))
-                                <span class="invalid-feedback">
+                                <span class="invalid-feedback text-left">
                                     <strong>{{ $errors->first('password') }}</strong>
                                 </span>
                             @endif
@@ -61,6 +78,11 @@
                                 <small>{{ __('Forgot Your Password?') }}</small>
                             </a>
                         </div>
+                    </form>
+
+                    <form id="resend-form" action="{{ route('register.resend') }}" method="POST" style="display: none;">
+                        @csrf
+                        <input type="hidden" name="email" value="{{ old('email') }}">
                     </form>
                 </div>
             </div>

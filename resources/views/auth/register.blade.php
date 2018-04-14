@@ -17,20 +17,20 @@
                         @csrf
 
                         <div class="form-group">
-                            <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required placeholder="Your full name" autofocus>
+                            <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required placeholder="Your full name" maxlength="30" autofocus>
 
                             @if ($errors->has('name'))
-                                <span class="invalid-feedback">
+                                <span class="invalid-feedback text-left">
                                     <strong>{{ $errors->first('name') }}</strong>
                                 </span>
                             @endif
                         </div>
 
                         <div class="form-group">
-                            <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="Email address" required>
+                            <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="Email address" maxlength="50" required>
 
                             @if ($errors->has('email'))
-                                <span class="invalid-feedback">
+                                <span class="invalid-feedback text-left">
                                     <strong>{{ $errors->first('email') }}</strong>
                                 </span>
                             @endif
@@ -40,7 +40,7 @@
                             <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="Pick your secure password" required>
 
                             @if ($errors->has('password'))
-                                <span class="invalid-feedback">
+                                <span class="invalid-feedback text-left">
                                     <strong>{{ $errors->first('password') }}</strong>
                                 </span>
                             @endif

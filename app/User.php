@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'location', 'contact', 'website', 'about', 'avatar', 'status'
+        'name', 'username', 'email', 'password', 'location', 'contact', 'website', 'about', 'avatar', 'status'
     ];
 
     /**
@@ -27,6 +27,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Get the activation token that owned by user.
+     */
+    public function userActivation()
+    {
+        return $this->hasOne(UserActivation::class);
+    }
 
     /**
      * Get the posts that owned by author.

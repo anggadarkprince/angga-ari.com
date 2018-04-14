@@ -54,6 +54,7 @@ class LoginController extends Controller
 
             throw ValidationException::withMessages([
                 $this->username() => [trans('auth.' . $user->status)],
+                'resend' => ($user->status == 'pending')
             ]);
         }
         return redirect()->intended($this->redirectPath());

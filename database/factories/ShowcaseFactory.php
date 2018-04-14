@@ -6,7 +6,7 @@ $factory->define(App\Showcase::class, function (Faker $faker) {
     return [
         'slug' => $faker->slug(),
         'title' => $faker->sentence(),
-        'tagline' => $faker->sentence(10),
+        'tagline' => $faker->sentence(2),
         'description' => $faker->paragraphs(10, true),
         'cover' => $faker->imageUrl(),
         'company' => $faker->company,

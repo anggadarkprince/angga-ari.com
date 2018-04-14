@@ -55,7 +55,7 @@
                                 {{ __('Reset Password') }}
                             </button>
                             <a href="{{ route('login') }}">
-                                <small>I remember my credentials</small>
+                                <small>I remember my password</small>
                             </a>
                         </div>
                     </form>

@@ -38,9 +38,13 @@
                         </div>
 
                         <div class="form-group mb-2">
-                            <button type="submit" class="btn btn-primary btn-block">
+                            <button type="submit" class="btn btn-primary btn-block mb-2">
                                 {{ __('Send Me Reset Link') }}
                             </button>
+
+                            <a href="{{ route('login') }}">
+                                <small>{{ __('I Remember my password') }}</small>
+                            </a>
                         </div>
                     </form>
                 </div>

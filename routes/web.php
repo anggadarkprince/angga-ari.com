@@ -15,6 +15,9 @@ Route::get('/', 'PageController@index')->name('index');
 
 Auth::routes();
 
+Route::get('/register/activate/{token}', 'Auth\RegisterController@activate')->name('register.activation');
+Route::post('/register/resend', 'Auth\RegisterController@resendEmailActivation')->name('register.resend');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('blog')->group(function () {
