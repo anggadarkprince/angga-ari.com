@@ -8,6 +8,11 @@
 @import "app/mixins.scss";
 @import "app/bootstrap-overrides.scss";
 @import "app/global.scss";
-@import "app/layout.scss";
+@import "app/form";
 
-@import "landing/form.scss";
+@import "dashboard/layout.scss";
+@import "dashboard/sidebar.scss";
+@import "dashboard/card.scss";
+
+@import "landing/footer.scss";
+

@@ -11,6 +11,7 @@
 @import "app/mixins.scss";
 @import "app/bootstrap-overrides.scss";
 @import "app/global.scss";
+@import "app/form";
 
 @import "landing/navbar.scss";
 @import "landing/masthead.scss";
@@ -19,5 +20,4 @@
 @import "landing/blog.scss";
 @import "landing/showcase.scss";
 @import "landing/map.scss";
-@import "landing/form.scss";
 @import "landing/footer.scss";

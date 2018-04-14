@@ -14,6 +14,9 @@ let mix = require('laravel-mix');
 mix
     .js('resources/assets/js/app.js', 'public/js')
     .scripts([
+        'resources/assets/js/scripts/backtotop.js',
+    ], 'public/js/dashboard.js')
+    .scripts([
         'node_modules/scrollreveal/dist/scrollreveal.js',
         'resources/assets/js/scripts/landing.js',
         'resources/assets/js/scripts/backtotop.js',

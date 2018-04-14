@@ -28,6 +28,12 @@
 }
 
 .box-shadow {
-  border: none;
-  box-shadow: 0 0 7px rgba(0, 0, 0, 0.12);
+  @include box-shadow
+}
+
+.card-app-wrapper {
+  div[class*="col-md"] {
+    padding-right: 25px;
+    padding-left: 25px;
+  }
 }

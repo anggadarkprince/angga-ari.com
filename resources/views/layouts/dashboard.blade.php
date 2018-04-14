@@ -14,6 +14,7 @@
     <script src="{{ mix('js/manifest.js') }}" defer></script>
     <script src="{{ mix('js/vendor.js') }}" defer></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/dashboard.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -70,6 +71,9 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#">
+                                        <i class="icon-layers"></i> {{ __('Apps') }}
+                                    </a>
                                     <a class="dropdown-item" href="#">
                                         <i class="icon-equalizer"></i> {{ __('Setting') }}
                                     </a>

@@ -18,16 +18,16 @@
   border-width: 2px;
 }
 
-.btn-xl {
-  padding: 1rem 2rem;
-}
-
 .btn {
   padding: 0.375rem 1rem;
 }
 
 .btn.btn-wide {
   padding: 0.375rem 1.5rem;
+}
+
+.btn-xl {
+  padding: 1rem 2rem;
 }
 
 .btn-primary {
@@ -47,4 +47,16 @@
 
 .alert {
   font-size: 0.95em;
+}
+
+.dropdown-menu {
+  @include box-shadow
+}
+
+.dropdown-item {
+  font-size: 0.9em;
+
+  i {
+    margin-right: 12px;
+  }
 }

@@ -1,0 +1,66 @@
+.card-app {
+  margin-right: 10px;
+  margin-bottom: 2.3rem;
+  border-radius: 3px;
+
+  &.card-coming-soon {
+    text-align: center;
+    text-transform: uppercase;
+
+    .card-body {
+      padding: 3rem 1.25rem;
+
+      .card-title {
+        font-size: 2em;
+        color: $gray-600;
+        font-weight: 300;
+      }
+
+      .card-text {
+        margin-bottom: 0;
+        color: $gray-900;
+        letter-spacing: 2px;
+        padding-right: 0;
+        font-size: 1.2rem;
+      }
+
+      i {
+        background: $gray-300;
+        color: $gray-700;
+      }
+    }
+
+  }
+
+  .card-feature {
+    height: 9rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  }
+
+  .card-body {
+    position: relative;
+
+    .card-title {
+      margin-bottom: 5px;
+    }
+
+    .card-text {
+      font-size: 0.8em;
+      color: $gray-500;
+      margin-bottom: 0;
+      padding-right: 15px;
+    }
+
+    i {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      color: $white;
+      padding: 10px;
+      border-radius: 50%;
+      transform: translate(50%, -50%);
+      background: $primary;
+      font-size: 1.4rem;
+    }
+  }
+}

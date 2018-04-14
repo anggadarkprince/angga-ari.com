@@ -18,3 +18,8 @@
 @mixin sans-serif-font2() {
   font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
 }
+
+@mixin box-shadow() {
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
