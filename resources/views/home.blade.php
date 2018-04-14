@@ -30,7 +30,7 @@
             <ul class="sidebar-menu">
                 <li><a href="#"><i class="icon-energy"></i>Go Premium</a></li>
                 <li><a href="#"><i class="icon-equalizer"></i>Settings</a></li>
-                <li><a href="#"><i class="icon-question"></i>Help</a></li></ul>
+                <li><a href="{{ route('help') }}"><i class="icon-question"></i>Help</a></li></ul>
         </div>
         <div class="col-md-9">
             @if (session('status'))

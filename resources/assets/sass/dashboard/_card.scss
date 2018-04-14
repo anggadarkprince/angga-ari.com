@@ -1,7 +1,7 @@
 .card-app {
   margin-right: 10px;
   margin-bottom: 2.3rem;
-  border-radius: 3px;
+  border-radius: 10px;
 
   &.card-coming-soon {
     text-align: center;
@@ -26,7 +26,7 @@
 
       i {
         background: $gray-300;
-        color: $gray-700;
+        color: $gray-600;
       }
     }
 
@@ -62,5 +62,32 @@
       background: $primary;
       font-size: 1.4rem;
     }
+  }
+}
+
+.card-borderless {
+  margin-bottom: 25px;
+  border: none;
+
+  .card-header {
+    border-bottom: none;
+    background-color: transparent;
+    @include box-shadow;
+
+    a {
+      display: block;
+
+      i {
+        padding: 5px 0;
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .card-body {
+    font-size: 0.9rem;
   }
 }
