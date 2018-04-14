@@ -1,5 +1,5 @@
 .form-control {
-  border-radius: 0;
+  border-radius: 3px;
   font-size: 0.9rem;
   padding: 0.5rem 0.8rem;
   border-color: $gray-300;
@@ -7,4 +7,36 @@
 
 .form-control:disabled, .form-control[readonly] {
   background-color: $gray-100;
+}
+
+.col-form-label {
+  font-size: 0.95rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.custom-control {
+  min-height: 1.8rem;
+  padding-left: 1.8rem;
+}
+
+.custom-file .custom-file-label {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: $gray-600;
+}
+
+fieldset {
+  margin-bottom: 20px;
+
+  legend {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: $gray-500;
+    font-weight: 600;
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+  }
 }

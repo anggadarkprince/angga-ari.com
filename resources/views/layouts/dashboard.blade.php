@@ -97,7 +97,43 @@
         </nav>
 
         <main class="py-5 content-wrapper">
-            @yield('content')
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 sidebar">
+                        <div class="sidebar-header">
+                            <img class="user-avatar" src="{{ Storage::url('avatars/' . (Auth::user()->avatar ? $user->avatar : 'noavatar.jpg')) }}" alt="{{ Auth::user()->name }}">
+
+                            <h3 class="user-name">{{ Auth::user()->name }}</h3>
+                            <p class="text-muted"><small>{{ '@'.Auth::user()->username }}</small></p>
+
+                            <a href="#" class="btn btn-sm btn-outline-primary">Edit Profile</a>
+                            <a href="#" class="btn btn-sm btn-primary"><i class="icon-bell"></i></a>
+                        </div>
+
+                        <ul class="sidebar-menu">
+                            <li{{ Route::current()->getName() == 'home' ? ' class=active' : '' }}>
+                                <a href="{{ route('home') }}"><i class="icon-layers"></i>Apps</a>
+                                @if(Request::segment(1) == 'app')
+                                    <ul>
+                                        <li><a href="#">{{ ucfirst(Request::segment(1)) }}</a></li>
+                                    </ul>
+                                @endif
+                            </li>
+                            <li><a href="#"><i class="icon-present"></i>Discover</a></li>
+                            <li><a href="#"><i class="icon-graph"></i>Insight</a></li>
+                        </ul>
+
+                        <ul class="sidebar-menu">
+                            <li><a href="{{ route('subscribe') }}"><i class="icon-energy"></i>Go Premium</a></li>
+                            <li{{ Request::segment(1) == 'setting' ? ' class=active' : '' }}><a href="{{ route('setting.profile') }}"><i class="icon-equalizer"></i>Settings</a></li>
+                            <li><a href="{{ route('help') }}"><i class="icon-question"></i>Help</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-9">
+                        @yield('content')
+                    </div>
+                </div>
+            </div>
         </main>
 
         @include('components.footer')

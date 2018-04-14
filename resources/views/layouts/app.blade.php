@@ -70,10 +70,13 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('home') }}">
+                                        <i class="icon-layers"></i> {{ __('Apps') }}
+                                    </a>
                                     <a class="dropdown-item" href="#">
                                         <i class="icon-equalizer"></i> {{ __('Setting') }}
                                     </a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('help') }}">
                                         <i class="icon-question"></i> {{ __('Help') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"

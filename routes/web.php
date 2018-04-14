@@ -31,4 +31,12 @@ Route::prefix('blog')->group(function () {
 Route::view('/showcase/{slug}', 'showcase.view')->name('showcase.view');
 Route::view('/showcases', 'showcase.index')->name('showcase');
 
+Route::prefix('setting')->group(function () {
+    Route::view('/profile', 'setting.profile')->name('setting.profile');
+    Route::view('/contact', 'setting.contact')->name('setting.contact');
+    Route::view('/password', 'setting.password')->name('setting.password');
+    Route::view('/notification', 'setting.notification')->name('setting.notification');
+});
+
 Route::view('/help', 'statics.help')->name('help');
+Route::view('/subscribe', 'statics.subscribe')->name('subscribe');

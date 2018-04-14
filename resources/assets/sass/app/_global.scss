@@ -130,12 +130,12 @@ img::-moz-selection {
   background: transparent;
 }
 
-input[type=checkbox], input[type=radio] {
+input[type=checkbox]:not(.custom-control-input), input[type=radio]:not(.custom-control-input) {
   vertical-align: middle;
   position: relative;
   bottom: 1px;
 }
 
 input[type=radio] {
-  bottom: 2px;
+  bottom: 3px;
 }
