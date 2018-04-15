@@ -71,7 +71,7 @@
     transition: none;
     text-transform: uppercase;
     font-size: 0.95rem;
-    padding: 0.7rem 1rem;
+    padding: 0.9rem 0.6rem;
 
     &.active, &:hover:not(.disabled), &:active:not(.disabled) {
       border-bottom: 2px solid $primary;

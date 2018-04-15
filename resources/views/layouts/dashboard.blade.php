@@ -113,11 +113,15 @@
                         </div>
 
                         <ul class="sidebar-menu">
-                            <li{{ Route::current()->getName() == 'home' ? ' class=active' : '' }}>
+                            <li{{ Route::current()->getName() == 'home' || Request::segment(1) == 'app' ? ' class=active' : '' }}>
                                 <a href="{{ route('home') }}"><i class="icon-layers"></i>Apps</a>
                                 @if(Request::segment(1) == 'app')
                                     <ul>
-                                        <li><a href="#">{{ ucfirst(Request::segment(1)) }}</a></li>
+                                        <li>
+                                            <a href="{{ url('/app/' . Request::segment(2)) }}">
+                                                {{ ucfirst(Request::segment(2)) }}
+                                            </a>
+                                        </li>
                                     </ul>
                                 @endif
                             </li>

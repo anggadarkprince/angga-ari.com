@@ -14,9 +14,9 @@
             <div class="card box-shadow card-app">
                 <div class="card-feature"></div>
                 <div class="card-body">
-                    <h5 class="card-title"><a href="#" class="link-natural">Showcase</a></h5>
+                    <h5 class="card-title"><a href="{{ route('showcase.profile') }}" class="link-natural">Showcase</a></h5>
                     <p class="card-text">Your professional profile</p>
-                    <a href="#"><i class="icon-arrow-right-circle"></i></a>
+                    <a href="{{ route('showcase.profile') }}"><i class="icon-arrow-right-circle"></i></a>
                 </div>
             </div>
         </div>

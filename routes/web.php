@@ -28,8 +28,8 @@ Route::prefix('blog')->group(function () {
     Route::view('/author/{username}', 'blog.author')->name('blog.author');
 });
 
-Route::view('/showcase/{slug}', 'showcase.view')->name('showcase.view');
-Route::view('/showcases', 'showcase.index')->name('showcase');
+Route::view('/showcase/{slug}', 'landing.showcase.view')->name('showcase.view');
+Route::view('/showcases', 'landing.showcase.index')->name('showcase');
 
 Route::prefix('setting')->group(function () {
     Route::view('/profile', 'setting.profile')->name('setting.profile');
@@ -40,3 +40,13 @@ Route::prefix('setting')->group(function () {
 
 Route::view('/help', 'statics.help')->name('help');
 Route::view('/subscribe', 'statics.subscribe')->name('subscribe');
+
+
+Route::prefix('app')->group(function () {
+    Route::view('/showcase', 'showcase.profile')->name('showcase.profile');
+    Route::view('/showcase/school', 'showcase.school')->name('showcase.school');
+    Route::view('/showcase/work', 'showcase.work')->name('showcase.work');
+    Route::view('/showcase/award', 'showcase.award')->name('showcase.award');
+    Route::view('/showcase/skill', 'showcase.skill')->name('showcase.skill');
+    Route::view('/showcase/portfolio', 'showcase.portfolio')->name('showcase.portfolio');
+});

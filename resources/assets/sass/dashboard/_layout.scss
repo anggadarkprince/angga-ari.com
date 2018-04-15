@@ -41,7 +41,7 @@
 .section-title {
   margin-bottom: 15px;
 
-  i {
+  i[class*='icon-'] {
     margin-right: 15px;
     vertical-align: middle;
   }
