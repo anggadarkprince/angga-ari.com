@@ -104,10 +104,12 @@
                             <img class="user-avatar" src="{{ Storage::url('avatars/' . (Auth::user()->avatar ? $user->avatar : 'noavatar.jpg')) }}" alt="{{ Auth::user()->name }}">
 
                             <h3 class="user-name">{{ Auth::user()->name }}</h3>
-                            <p class="text-muted"><small>{{ '@'.Auth::user()->username }}</small></p>
+                            <p class="text-muted">
+                                <small>{{ '@'.Auth::user()->username }}</small>
+                            </p>
 
-                            <a href="#" class="btn btn-sm btn-outline-primary">Edit Profile</a>
-                            <a href="#" class="btn btn-sm btn-primary"><i class="icon-bell"></i></a>
+                            <a href="{{ route('setting.profile') }}" class="btn btn-sm btn-primary">Edit Profile</a>
+                            <a href="{{ route('setting.notification') }}" class="btn btn-sm btn-primary"><i class="icon-bell"></i></a>
                         </div>
 
                         <ul class="sidebar-menu">
