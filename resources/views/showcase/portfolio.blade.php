@@ -7,10 +7,10 @@
 @section('showcase_content')
     <div class="row">
         <div class="col-sm-6 col-md-4">
-            <a href="#" class="card card-portfolio card-portfolio-empty">
-                <div class="card-body text-center d-flex align-items-center">
+            <a href="#" class="card card-portfolio card-empty">
+                <div class="card-body text-center d-flex align-items-center justify-content-center">
                     <div>
-                        <h1 class="mb-2"><i class="icon-plus"></i></h1>
+                        <h2 class="mb-2"><i class="icon-plus"></i></h2>
                         <h4>ADD NEW PORTFOLIO</h4>
                     </div>
                 </div>

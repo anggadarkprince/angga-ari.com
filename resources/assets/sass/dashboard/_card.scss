@@ -120,6 +120,10 @@
       background-color: transparent;
       border: 1px solid rgba(255, 255, 255, 0.125);
     }
+
+    .card-footer {
+      background: transparent;
+    }
   }
 
   .price, .card-title {
@@ -136,20 +140,23 @@
   }
 }
 
+.card.card-empty {
+  background: transparent;
+  border-style: dashed;
+  border-width: 2px;
+  color: $gray-500;
+
+  &:hover {
+    border-color: $primary;
+    color: $primary;
+  }
+}
+
 .card-portfolio {
   margin-bottom: 25px;
 
-  &.card-portfolio-empty {
+  &.card-empty {
     min-height: 295px;
-    background: transparent;
-    border-style: dashed;
-    border-width: 2px;
-    color: $gray-500;
-
-    &:hover {
-      border-color: $primary;
-      color: $primary;
-    }
   }
 
   .card-body {
@@ -172,7 +179,5 @@
   .card-footer {
     color: $gray-600;
     padding: 0.55rem 1rem;
-    background: white;
-    border-color: $gray-200;
   }
 }

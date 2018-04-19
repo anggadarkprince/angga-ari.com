@@ -106,9 +106,22 @@
                             </a>
                         </li>
                         @if(Request::segment(1) == 'app')
-                            <li class="breadcrumb-item active" aria-current="page">
-                                {{ ucfirst(Request::segment(2)) }}
-                            </li>
+                            @if(empty(Request::segment(3)))
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    {{ ucfirst(Request::segment(2)) }}
+                                </li>
+                            @else
+                                <li class="breadcrumb-item" aria-current="page">
+                                    <a href="{{ url('/' . Request::segment(2) . '/' . Request::segment(3)) }}">
+                                        {{ ucfirst(Request::segment(2)) }}
+                                    </a>
+                                </li>
+                            @endif
+                            @if(!empty(Request::segment(2)) && !empty(Request::segment(3)))
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    {{ ucfirst(Request::segment(3)) }}
+                                </li>
+                            @endif
                         @endif
                     </ol>
                 </nav>
@@ -118,41 +131,43 @@
         <main class="py-5 content-wrapper">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3 sidebar">
-                        <div class="sidebar-header">
-                            <img class="user-avatar" src="{{ Storage::url('avatars/' . (Auth::user()->avatar ? Auth::user()->avatar : 'noavatar.jpg')) }}" alt="{{ Auth::user()->name }}">
+                    <div class="col-md-3">
+                        <div class="sidebar mr-md-4">
+                            <div class="sidebar-header">
+                                <img class="user-avatar" src="{{ Storage::url('avatars/' . (Auth::user()->avatar ? Auth::user()->avatar : 'noavatar.jpg')) }}" alt="{{ Auth::user()->name }}">
 
-                            <h3 class="user-name">{{ Auth::user()->name }}</h3>
-                            <p class="text-muted">
-                                <small>{{ '@'.Auth::user()->username }}</small>
-                            </p>
+                                <h3 class="user-name">{{ Auth::user()->name }}</h3>
+                                <p class="text-muted">
+                                    <small>{{ '@'.Auth::user()->username }}</small>
+                                </p>
 
-                            <a href="{{ route('setting.profile') }}" class="btn btn-sm btn-primary">Edit Profile</a>
-                            <a href="{{ route('setting.notification') }}" class="btn btn-sm btn-primary"><i class="icon-bell"></i></a>
+                                <a href="{{ route('setting.profile') }}" class="btn btn-sm btn-primary">Edit Profile</a>
+                                <a href="{{ route('setting.notification') }}" class="btn btn-sm btn-primary"><i class="icon-bell"></i></a>
+                            </div>
+
+                            <ul class="sidebar-menu">
+                                <li{{ Route::current()->getName() == 'home' || Request::segment(1) == 'app' ? ' class=active' : '' }}>
+                                    <a href="{{ route('home') }}"><i class="icon-layers"></i>Apps</a>
+                                    @if(Request::segment(1) == 'app')
+                                        <ul>
+                                            <li>
+                                                <a href="{{ url('/app/' . Request::segment(2)) }}">
+                                                    {{ ucfirst(Request::segment(2)) }}
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    @endif
+                                </li>
+                                <li><a href="#"><i class="icon-present"></i>Discover</a></li>
+                                <li><a href="#"><i class="icon-graph"></i>Insight</a></li>
+                            </ul>
+
+                            <ul class="sidebar-menu">
+                                <li><a href="{{ route('subscribe') }}"><i class="icon-energy"></i>Go Premium</a></li>
+                                <li{{ Request::segment(1) == 'setting' ? ' class=active' : '' }}><a href="{{ route('setting.profile') }}"><i class="icon-equalizer"></i>Settings</a></li>
+                                <li><a href="{{ route('help') }}"><i class="icon-question"></i>Help</a></li>
+                            </ul>
                         </div>
-
-                        <ul class="sidebar-menu">
-                            <li{{ Route::current()->getName() == 'home' || Request::segment(1) == 'app' ? ' class=active' : '' }}>
-                                <a href="{{ route('home') }}"><i class="icon-layers"></i>Apps</a>
-                                @if(Request::segment(1) == 'app')
-                                    <ul>
-                                        <li>
-                                            <a href="{{ url('/app/' . Request::segment(2)) }}">
-                                                {{ ucfirst(Request::segment(2)) }}
-                                            </a>
-                                        </li>
-                                    </ul>
-                                @endif
-                            </li>
-                            <li><a href="#"><i class="icon-present"></i>Discover</a></li>
-                            <li><a href="#"><i class="icon-graph"></i>Insight</a></li>
-                        </ul>
-
-                        <ul class="sidebar-menu">
-                            <li><a href="{{ route('subscribe') }}"><i class="icon-energy"></i>Go Premium</a></li>
-                            <li{{ Request::segment(1) == 'setting' ? ' class=active' : '' }}><a href="{{ route('setting.profile') }}"><i class="icon-equalizer"></i>Settings</a></li>
-                            <li><a href="{{ route('help') }}"><i class="icon-question"></i>Help</a></li>
-                        </ul>
                     </div>
                     <div class="col-md-9">
                         @yield('content')

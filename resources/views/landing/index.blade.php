@@ -315,7 +315,7 @@
                         <div class="col-lg-6 mb-5">
                             <div class="row sr-skill">
                                 <div class="col-1">
-                                    <strong class="text-gray-400">'03'</strong>
+                                    <strong class="text-gray-400">03</strong>
                                 </div>
                                 <div class="col-11">
                                     <p><strong>VERSION CONTROL</strong></p>

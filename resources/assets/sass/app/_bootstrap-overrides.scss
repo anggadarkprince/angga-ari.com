@@ -115,3 +115,15 @@
     }
   }
 }
+
+.card {
+  .card-footer {
+    background: white;
+    border-color: $gray-200;
+  }
+}
+
+.progress {
+  height: 0.4rem;
+  border-radius: 0;
+}
