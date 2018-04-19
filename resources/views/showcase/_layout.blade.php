@@ -14,44 +14,30 @@
             @yield('showcase_description')
         </small>
     </div>
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a class="nav-link{{ Route::current()->getName() == 'showcase.profile' ? ' active' : '' }}" href="{{ route('showcase.profile') }}">
-                <i class="icon-user"></i>Profile
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link{{ Route::current()->getName() == 'showcase.school' ? ' active' : '' }}" href="{{ route('showcase.school') }}">
-                <i class="icon-graduation"></i>School
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link{{ Route::current()->getName() == 'showcase.work' ? ' active' : '' }}" href="{{ route('showcase.work') }}">
-                <i class="icon-briefcase"></i>Work
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link{{ Route::current()->getName() == 'showcase.award' ? ' active' : '' }}" href="{{ route('showcase.award') }}">
-                <i class="icon-trophy"></i>Award
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link{{ Route::current()->getName() == 'showcase.skill' ? ' active' : '' }}" href="{{ route('showcase.skill') }}">
-                <i class="icon-wrench"></i>Skill
-            </a>
-        </li>
+    <ul class="nav nav-tabs nav-justified">
         <li class="nav-item">
             <a class="nav-link{{ Route::current()->getName() == 'showcase.portfolio' ? ' active' : '' }}" href="{{ route('showcase.portfolio') }}">
                 <i class="icon-notebook"></i>Portfolio
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link{{ Route::current()->getName() == 'showcase.skill' ? ' active' : '' }}" href="{{ route('showcase.skill') }}">
+                <i class="icon-energy"></i>Skill & Expertise
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link{{ Route::current()->getName() == 'showcase.story' ? ' active' : '' }}" href="{{ route('showcase.award') }}">
+                <i class="icon-trophy"></i>Achievement
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link{{ Route::current()->getName() == 'showcase.profile' ? ' active' : '' }}" href="{{ route('showcase.profile') }}">
+                <i class="icon-user"></i>Profile
+            </a>
+        </li>
     </ul>
 
     <div class="section-content">
-        <div class="row justify-content-center">
-            <div class="col-md-10">
-                @yield('showcase_content')
-            </div>
-        </div>
+        @yield('showcase_content')
     </div>
 @endsection

@@ -43,10 +43,10 @@ Route::view('/subscribe', 'statics.subscribe')->name('subscribe');
 
 
 Route::prefix('app')->group(function () {
-    Route::view('/showcase', 'showcase.profile')->name('showcase.profile');
+    Route::view('/showcase', 'showcase.portfolio')->name('showcase.portfolio');
     Route::view('/showcase/school', 'showcase.school')->name('showcase.school');
     Route::view('/showcase/work', 'showcase.work')->name('showcase.work');
     Route::view('/showcase/award', 'showcase.award')->name('showcase.award');
     Route::view('/showcase/skill', 'showcase.skill')->name('showcase.skill');
-    Route::view('/showcase/portfolio', 'showcase.portfolio')->name('showcase.portfolio');
+    Route::view('/showcase/profile', 'showcase.profile')->name('showcase.profile');
 });

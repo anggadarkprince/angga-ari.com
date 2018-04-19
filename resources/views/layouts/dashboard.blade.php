@@ -96,12 +96,31 @@
             </div>
         </nav>
 
+        <div class="bg-primary text-white">
+            <div class="container">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb text-uppercase">
+                        <li class="breadcrumb-item">
+                            <a href="{{ route('home') }}">
+                                <i class="fa fa-arrow-circle-left mr-2"></i>Apps
+                            </a>
+                        </li>
+                        @if(Request::segment(1) == 'app')
+                            <li class="breadcrumb-item active" aria-current="page">
+                                {{ ucfirst(Request::segment(2)) }}
+                            </li>
+                        @endif
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
         <main class="py-5 content-wrapper">
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 sidebar">
                         <div class="sidebar-header">
-                            <img class="user-avatar" src="{{ Storage::url('avatars/' . (Auth::user()->avatar ? $user->avatar : 'noavatar.jpg')) }}" alt="{{ Auth::user()->name }}">
+                            <img class="user-avatar" src="{{ Storage::url('avatars/' . (Auth::user()->avatar ? Auth::user()->avatar : 'noavatar.jpg')) }}" alt="{{ Auth::user()->name }}">
 
                             <h3 class="user-name">{{ Auth::user()->name }}</h3>
                             <p class="text-muted">

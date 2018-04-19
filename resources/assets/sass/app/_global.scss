@@ -26,6 +26,7 @@ a {
 
   &:hover {
     color: darken($primary, .1);
+    text-decoration: none;
   }
 }
 
@@ -51,6 +52,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .text-gray-400 {
   color: $gray-400;
+}
+
+.text-gray-500 {
+  color: $gray-500;
 }
 
 .text-gray-700 {

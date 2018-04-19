@@ -51,7 +51,7 @@
                         </a>
                         <div class="text-center mt-3 mb-4">
                             <p class="lead mb-0">Website Orion Management</p>
-                            <p class="text-primary text-uppercase">WEBS DESIGN MEDIA</p>
+                            <p class="text-primary text-uppercase">WEB DESIGN MEDIA</p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 mix development">
@@ -99,7 +99,7 @@
                         </a>
                         <div class="text-center mt-3 mb-4">
                             <p class="lead mb-0">Foody Maximum</p>
-                            <p class="text-primary text-uppercase">WEBS DESIGN MEDIA</p>
+                            <p class="text-primary text-uppercase">WEB DESIGN MEDIA</p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 mix print">
