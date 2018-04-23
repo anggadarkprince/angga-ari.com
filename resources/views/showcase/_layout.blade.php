@@ -22,11 +22,11 @@
         </li>
         <li class="nav-item">
             <a class="nav-link{{ Route::current()->getName() == 'showcase.skill' ? ' active' : '' }}" href="{{ route('showcase.skill') }}">
-                <i class="icon-energy"></i>Skill & Expertise
+                <i class="icon-energy"></i>Expertise
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link{{ Route::current()->getName() == 'showcase.story' ? ' active' : '' }}" href="{{ route('showcase.award') }}">
+            <a class="nav-link{{ Route::current()->getName() == 'showcase.achievement' ? ' active' : '' }}" href="{{ route('showcase.achievement') }}">
                 <i class="icon-trophy"></i>Achievement
             </a>
         </li>

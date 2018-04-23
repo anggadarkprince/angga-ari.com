@@ -7,16 +7,6 @@
 @section('showcase_content')
     <div class="row">
         <div class="col-sm-6 col-md-4">
-            <a href="#" class="card card-portfolio card-empty">
-                <div class="card-body text-center d-flex align-items-center justify-content-center">
-                    <div>
-                        <h2 class="mb-2"><i class="icon-plus"></i></h2>
-                        <h4>ADD NEW PORTFOLIO</h4>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-sm-6 col-md-4">
             <div class="card card-portfolio box-shadow">
                 <img class="card-img-top" src="{{ Storage::url('showcases/thumbnails/1.jpg') }}" alt="Portfolio 1">
                 <div class="card-body">
@@ -232,6 +222,16 @@
                     </ul>
                 </div>
             </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <a href="#" class="card card-portfolio card-empty">
+                <div class="card-body text-center d-flex align-items-center justify-content-center">
+                    <div>
+                        <h3 class="mb-2"><i class="icon-plus"></i></h3>
+                        <h4>ADD NEW PORTFOLIO</h4>
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
 @endsection

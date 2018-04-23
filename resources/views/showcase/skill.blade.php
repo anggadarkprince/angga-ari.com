@@ -7,13 +7,8 @@
 @section('showcase_content')
     <div class="row">
         <div class="col-md-12">
-            <a href="#" class="card card-empty mb-4">
-                <div class="card-body text-center d-flex align-items-center justify-content-center">
-                    <h5 class="mb-0"><i class="icon-plus mr-3"></i> ADD NEW SKILL</h5>
-                </div>
-            </a>
             <div class="card box-shadow mb-4">
-                <div class="card-body">
+                <div class="card-body pr-3">
                     <h5 class="card-title mb-2"><a href="#">ADVANCED CSS</a></h5>
                     <p class="card-text mb-2">
                         We're entering the deepest realms of CSS3 now, using gulp stack and webpack automate builder.
@@ -30,7 +25,9 @@
                         </li>
                         <li class="list-inline-item float-right">
                             <div class="dropdown">
-                                <a href="#" class="dropdown-toggle link-natural" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                                <a href="#" class="link-natural" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="icon-options-vertical"></i>
+                                </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                     <h6 class="dropdown-header">Action</h6>
                                     <a class="dropdown-item" href="#"><i class="icon-eye mr-2"></i>View In Showcase</a>
@@ -45,7 +42,7 @@
         </div>
         <div class="col-md-12">
             <div class="card box-shadow mb-4">
-                <div class="card-body">
+                <div class="card-body pr-3">
                     <h5 class="card-title mb-2"><a href="#">FRONT END DESIGN</a></h5>
                     <p class="card-text mb-2">
                         Involves creating the HTML, CSS, and presentational JavaScript code that makes up a user interface.
@@ -62,7 +59,9 @@
                         </li>
                         <li class="list-inline-item float-right">
                             <div class="dropdown">
-                                <a href="#" class="dropdown-toggle link-natural" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                                <a href="#" class="link-natural" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="icon-options-vertical"></i>
+                                </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                     <h6 class="dropdown-header">Action</h6>
                                     <a class="dropdown-item" href="#"><i class="icon-eye mr-2"></i>View In Showcase</a>
@@ -77,7 +76,7 @@
         </div>
         <div class="col-md-12">
             <div class="card box-shadow mb-4">
-                <div class="card-body">
+                <div class="card-body pr-3">
                     <h5 class="card-title mb-2"><a href="#">VERSION CONTROL</a></h5>
                     <p class="card-text mb-2">
                         GIT version control software to track every modification my code in a special kind of database.
@@ -94,7 +93,9 @@
                         </li>
                         <li class="list-inline-item float-right">
                             <div class="dropdown">
-                                <a href="#" class="dropdown-toggle link-natural" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                                <a href="#" class="link-natural" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="icon-options-vertical"></i>
+                                </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                     <h6 class="dropdown-header">Action</h6>
                                     <a class="dropdown-item" href="#"><i class="icon-eye mr-2"></i>View In Showcase</a>
@@ -106,6 +107,13 @@
                     </ul>
                 </div>
             </div>
+        </div>
+        <div class="col-md-12">
+            <a href="#" class="card card-empty mb-4">
+                <div class="card-body text-center d-flex align-items-center justify-content-center">
+                    <h6 class="mb-0"><i class="icon-plus mr-3"></i> ADD NEW SKILL</h6>
+                </div>
+            </a>
         </div>
     </div>
 @endsection
