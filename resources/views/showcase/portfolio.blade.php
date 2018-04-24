@@ -11,10 +11,10 @@
                 <img class="card-img-top" src="{{ Storage::url('showcases/thumbnails/1.jpg') }}" alt="Portfolio 1">
                 <div class="card-body">
                     <h3 class="card-title mb-2"><a href="#">Website Orion Management v2.8</a></h3>
-                    <p class="card-text mb-1 text-uppercase">WEB DESIGN</p>
+                    <p class="card-text small mb-1 text-uppercase">WEB DESIGN</p>
                     <p class="text-muted small mb-0">Sketch Project Studio</p>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer small text-muted">
                     <ul class="list-inline mb-0">
                         <li class="list-inline-item">
                             <i class="icon-eye mr-2"></i>334K
@@ -42,10 +42,10 @@
                 <img class="card-img-top" src="{{ Storage::url('showcases/thumbnails/2.jpg') }}" alt="Portfolio 1">
                 <div class="card-body">
                     <h3 class="card-title mb-2"><a href="#">Dark Story and Pen</a></h3>
-                    <p class="card-text mb-1 text-uppercase">WRITING</p>
+                    <p class="card-text small mb-1 text-uppercase">WRITING</p>
                     <p class="text-muted small mb-0">Blanc et Noir</p>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer small text-muted">
                     <ul class="list-inline mb-0">
                         <li class="list-inline-item">
                             <i class="icon-eye mr-2"></i>45
@@ -73,10 +73,10 @@
                 <img class="card-img-top" src="{{ Storage::url('showcases/thumbnails/3.jpg') }}" alt="Portfolio 1">
                 <div class="card-body">
                     <h3 class="card-title mb-2"><a href="#">The Photograph</a></h3>
-                    <p class="card-text mb-1 text-uppercase">COVER DESIGN</p>
+                    <p class="card-text small mb-1 text-uppercase">COVER DESIGN</p>
                     <p class="text-muted small mb-0">Blanc et Noir</p>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer small text-muted">
                     <ul class="list-inline mb-0">
                         <li class="list-inline-item">
                             <i class="icon-eye mr-2"></i>63
@@ -104,10 +104,10 @@
                 <img class="card-img-top" src="{{ Storage::url('showcases/thumbnails/4.jpg') }}" alt="Portfolio 1">
                 <div class="card-body">
                     <h3 class="card-title mb-2"><a href="#">Foody Maximum</a></h3>
-                    <p class="card-text mb-1 text-uppercase">Application Design</p>
+                    <p class="card-text small mb-1 text-uppercase">Application Design</p>
                     <p class="text-muted small mb-0">Berbeque Rion</p>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer small text-muted">
                     <ul class="list-inline mb-0">
                         <li class="list-inline-item">
                             <i class="icon-eye mr-2"></i>734K
@@ -135,10 +135,10 @@
                 <img class="card-img-top" src="{{ Storage::url('showcases/thumbnails/5.jpg') }}" alt="Portfolio 1">
                 <div class="card-body">
                     <h3 class="card-title mb-2"><a href="#">Microsoft Redesign Website</a></h3>
-                    <p class="card-text mb-1 text-uppercase">Web Design</p>
+                    <p class="card-text small mb-1 text-uppercase">Web Design</p>
                     <p class="text-muted small mb-0">Microsoft</p>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer small text-muted">
                     <ul class="list-inline mb-0">
                         <li class="list-inline-item">
                             <i class="icon-eye mr-2"></i>734K
@@ -166,10 +166,10 @@
                 <img class="card-img-top" src="{{ Storage::url('showcases/thumbnails/6.jpg') }}" alt="Portfolio 1">
                 <div class="card-body">
                     <h3 class="card-title mb-2"><a href="#">Curfy Blazzer Exotic Maniacs</a></h3>
-                    <p class="card-text mb-1 text-uppercase">AIRCRAFT AND PLOT</p>
+                    <p class="card-text small mb-1 text-uppercase">AIRCRAFT AND PLOT</p>
                     <p class="text-muted small mb-0">Sketch Project Studio</p>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer small text-muted">
                     <ul class="list-inline mb-0">
                         <li class="list-inline-item">
                             <i class="icon-eye mr-2"></i>234K
@@ -197,10 +197,10 @@
                 <img class="card-img-top" src="{{ Storage::url('showcases/thumbnails/2.jpg') }}" alt="Portfolio 1">
                 <div class="card-body">
                     <h3 class="card-title mb-2"><a href="#">Wealthy Moriona Zona 345</a></h3>
-                    <p class="card-text mb-1 text-uppercase">Application Design</p>
+                    <p class="card-text small mb-1 text-uppercase">Application Design</p>
                     <p class="text-muted small mb-0">Sketch Project Studio</p>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer small text-muted">
                     <ul class="list-inline mb-0">
                         <li class="list-inline-item">
                             <i class="icon-eye mr-2"></i>36

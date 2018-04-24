@@ -172,12 +172,11 @@
     letter-spacing: 1px;
   }
 
-  .card-text, .card-footer {
-    font-size: 0.9rem;
-  }
-
   .card-footer {
-    color: $gray-600;
     padding: 0.55rem 1rem;
   }
+}
+
+.card-text.small, .card-footer.small {
+  font-size: 0.9rem;
 }

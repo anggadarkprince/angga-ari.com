@@ -6,6 +6,18 @@
     padding-bottom: 25px;
     border-bottom: 1px solid $gray-200;
 
+    &.avatar-collapse {
+      .user-avatar {
+        float: left;
+        border-radius: 50%;
+        width: 50px;
+      }
+
+      .user-info {
+        padding-left: 60px;
+      }
+    }
+
     .user-avatar {
       margin-bottom: 20px;
     }
@@ -14,6 +26,12 @@
       font-size: 1.2rem;
       margin-bottom: 0;
     }
+
+    .user-username {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   }
 
   .sidebar-menu {
@@ -21,7 +39,7 @@
     padding-bottom: 20px;
     border-bottom: 1px solid $gray-200;
 
-    li {
+    > li {
       list-style: none;
 
       &.active {
@@ -37,26 +55,25 @@
       }
 
       ul {
-        padding-left: 50px;
+        padding-left: 45px;
 
         li {
           position: relative;
+          list-style: none;
 
-          &:before {
-            content: "";
-            border-left: 1px solid $primary;
-            border-bottom: 1px solid $primary;
-            padding: 5px;
-            display: inline-block;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-75%);
+          &.active {
+            a {
+              color: $primary;
+            }
           }
 
           a {
-            padding-left: 20px;
-            line-height: 1.5rem;
+            line-height: 2rem;
             font-size: 0.9rem;
+          }
+
+          i {
+            margin-right: 10px;
           }
         }
       }

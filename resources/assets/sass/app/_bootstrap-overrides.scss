@@ -127,3 +127,13 @@
   height: 0.4rem;
   border-radius: 0;
 }
+
+.list-inline-item:not(:last-child) {
+  margin-right: 1rem;
+}
+
+[data-toggle="buttons"] > .btn input[type="checkbox"], [data-toggle="buttons"] > .btn input[type="radio"], [data-toggle="buttons"] > .btn-group > .btn input[type="checkbox"], [data-toggle="buttons"] > .btn-group > .btn input[type="radio"] {
+  position: absolute;
+  clip: rect(0,0,0,0);
+  pointer-events: none;
+}

@@ -43,8 +43,16 @@ Route::view('/subscribe', 'statics.subscribe')->name('subscribe');
 
 
 Route::prefix('app')->group(function () {
-    Route::view('/showcase', 'showcase.portfolio')->name('showcase.portfolio');
-    Route::view('/showcase/achievement', 'showcase.achievement')->name('showcase.achievement');
-    Route::view('/showcase/skill', 'showcase.skill')->name('showcase.skill');
-    Route::view('/showcase/profile', 'showcase.profile')->name('showcase.profile');
+    Route::prefix('showcase')->group(function () {
+        Route::view('/', 'showcase.portfolio')->name('showcase.portfolio');
+        Route::view('/achievement', 'showcase.achievement')->name('showcase.achievement');
+        Route::view('/skill', 'showcase.skill')->name('showcase.skill');
+        Route::view('/profile', 'showcase.profile')->name('showcase.profile');
+    });
+
+    Route::prefix('blog')->group(function () {
+        Route::view('/', 'blog.post')->name('blog.post');
+        Route::view('/category', 'blog.category')->name('blog.category');
+        Route::view('/taxonomy', 'blog.taxonomy')->name('blog.taxonomy');
+    });
 });

@@ -112,7 +112,7 @@
                                 </li>
                             @else
                                 <li class="breadcrumb-item" aria-current="page">
-                                    <a href="{{ url('/' . Request::segment(2) . '/' . Request::segment(3)) }}">
+                                    <a href="{{ url('/' . Request::segment(1) . '/' . Request::segment(2)) }}">
                                         {{ ucfirst(Request::segment(2)) }}
                                     </a>
                                 </li>
@@ -131,35 +131,39 @@
         <main class="py-5 content-wrapper">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-lg-3">
                         <div class="sidebar mr-md-4">
-                            <div class="sidebar-header">
+                            <div class="sidebar-header{{ Request::segment(1) == 'app' ? ' avatar-collapse' : '' }}">
                                 <img class="user-avatar" src="{{ Storage::url('avatars/' . (Auth::user()->avatar ? Auth::user()->avatar : 'noavatar.jpg')) }}" alt="{{ Auth::user()->name }}">
+                                <div class="user-info clearfix">
+                                    <h3 class="user-name">{{ Auth::user()->name }}</h3>
+                                    <p class="user-username text-muted">
+                                        <small>{{ '@'.Auth::user()->username }}</small>
+                                    </p>
+                                </div>
 
-                                <h3 class="user-name">{{ Auth::user()->name }}</h3>
-                                <p class="text-muted">
-                                    <small>{{ '@'.Auth::user()->username }}</small>
-                                </p>
-
-                                <a href="{{ route('setting.profile') }}" class="btn btn-sm btn-primary">Edit Profile</a>
-                                <a href="{{ route('setting.notification') }}" class="btn btn-sm btn-primary"><i class="icon-bell"></i></a>
+                                <div{{ Request::segment(1) == 'app' ? ' class=text-center' : '' }}>
+                                    <a href="{{ route('setting.profile') }}" class="btn btn-sm btn-primary">Edit Profile</a>
+                                    <a href="{{ route('setting.notification') }}" class="btn btn-sm btn-primary"><i class="icon-bell"></i></a>
+                                </div>
                             </div>
 
                             <ul class="sidebar-menu">
                                 <li{{ Route::current()->getName() == 'home' || Request::segment(1) == 'app' ? ' class=active' : '' }}>
-                                    <a href="{{ route('home') }}"><i class="icon-layers"></i>Apps</a>
                                     @if(Request::segment(1) == 'app')
-                                        <ul>
-                                            <li>
-                                                <a href="{{ url('/app/' . Request::segment(2)) }}">
-                                                    {{ ucfirst(Request::segment(2)) }}
-                                                </a>
-                                            </li>
-                                        </ul>
+                                        <a href="{{ url('/app/' . Request::segment(2)) }}"><i class="icon-layers"></i>{{ ucfirst(Request::segment(2)) }}</a>
+                                    @else
+                                        <a href="{{ route('home') }}"><i class="icon-layers"></i>Apps</a>
                                     @endif
                                 </li>
-                                <li><a href="#"><i class="icon-present"></i>Discover</a></li>
-                                <li><a href="#"><i class="icon-graph"></i>Insight</a></li>
+                                @if(Request::segment(1) == 'app')
+                                    <li>
+                                        @include(Request::segment(2) . '._navigation')
+                                    </li>
+                                @else
+                                    <li><a href="#"><i class="icon-present"></i>Discover</a></li>
+                                    <li><a href="#"><i class="icon-graph"></i>Insight</a></li>
+                                @endif
                             </ul>
 
                             <ul class="sidebar-menu">
@@ -169,7 +173,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-lg-9">
                         @yield('content')
                     </div>
                 </div>
