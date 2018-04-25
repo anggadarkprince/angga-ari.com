@@ -4,11 +4,11 @@
 
 @section('blog_description', 'Personal journal and articles')
 
-@section('showcase_content')
+@section('blog_content')
     <div class="row justify-content-center">
-        <div class="col-lg-10">
+        <div class="col-lg-11">
 
-            <div class="card box-shadow mb-4">
+            <div class="card box-shadow mb-5">
                 <div class="card-img-top" style="height: 200px; background: url({{ Storage::url('showcases/thumbnails/1.jpg') }}) no-repeat center center / cover;"></div>
                 <div class="card-body">
                     <h4 class="card-title mb-1"><a href="#">Man must explore, and this is exploration at its greatest </a></h4>

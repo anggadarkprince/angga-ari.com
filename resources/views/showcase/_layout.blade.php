@@ -3,9 +3,9 @@
 @section('content')
     <div class="section-title">
         <h4 class="mb-0">
-            <a href="{{ route('home') }}" class="link-natural">
+            <a href="javascript:void(0)" onclick="window.history.back();" class="link-natural">
                 <i class="icon-arrow-left-circle"></i>
-            </a>Showcase
+            </a>Showcase @if(!empty(Request::segment(3))) <span class="small text-muted"> / {{ Request::segment(3) }}</span> @endif
             <a href="#" class="float-right btn btn-sm btn-primary">
                 View Showcase <i class="fa fa-arrow-right ml-2"></i>
             </a>
