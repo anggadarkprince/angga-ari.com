@@ -8,11 +8,11 @@
     <div class="row justify-content-center">
         <div class="col-lg-11">
             <div class="row">
-                <div class="col-md-4">
-                    <div class="card box-shadow">
+                <div class="col-md-4 col-sm-6">
+                    <div class="card box-shadow mb-4">
                         <div class="card-body text-center">
                             <h1 class="display-4 mb-0 mt-2"><i class="icon-notebook"></i></h1>
-                            <a href="{{ route('note.note') }}" class="card-title mb-0 d-block"><strong>My Personal Journal</strong></a>
+                            <a href="{{ route('note.note') }}" class="d-block text-ellipsis"><strong>My Personal Journal</strong></a>
                             <span class="text-muted small">23 days ago</span>
                         </div>
                         <div class="card-footer pr-3">
@@ -37,11 +37,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card box-shadow">
+                <div class="col-md-4 col-sm-6">
+                    <div class="card box-shadow mb-4">
                         <div class="card-body text-center">
                             <h1 class="display-4 mb-0 mt-2"><i class="icon-notebook"></i></h1>
-                            <a href="{{ route('note.note') }}" class="card-title mb-0 d-block"><strong>Projects</strong></a>
+                            <a href="{{ route('note.note') }}" class="d-block text-ellipsis"><strong>Projects</strong></a>
                             <span class="text-muted small">3 minutes ago</span>
                         </div>
                         <div class="card-footer pr-3">

@@ -118,7 +118,7 @@
                                 </li>
                             @endif
                             @if(!empty(Request::segment(2)) && !empty(Request::segment(3)))
-                                <li class="breadcrumb-item active" aria-current="page">
+                                <li class="breadcrumb-item active d-none d-sm-inline-block" aria-current="page">
                                     {{ ucfirst(Request::segment(3)) }}
                                 </li>
                             @endif
@@ -128,12 +128,12 @@
             </div>
         </div>
 
-        <main class="py-5 content-wrapper">
+        <main class="py-3 py-lg-5 content-wrapper">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3">
-                        <div class="sidebar mr-md-4">
-                            <div class="sidebar-header{{ Request::segment(1) == 'app' ? ' avatar-collapse' : '' }}">
+                        <div class="sidebar mr-xl-4">
+                            <div class="sidebar-header d-none d-lg-block{{ Request::segment(1) == 'app' ? ' avatar-collapse' : '' }}">
                                 <img class="user-avatar" src="{{ Storage::url('avatars/' . (Auth::user()->avatar ? Auth::user()->avatar : 'noavatar.jpg')) }}" alt="{{ Auth::user()->name }}">
                                 <div class="user-info clearfix">
                                     <h3 class="user-name">{{ Auth::user()->name }}</h3>
@@ -148,8 +148,8 @@
                                 </div>
                             </div>
 
-                            <ul class="sidebar-menu">
-                                <li{{ Route::current()->getName() == 'home' || Request::segment(1) == 'app' ? ' class=active' : '' }}>
+                            <ul class="sidebar-menu{{ Request::segment(1) == 'app' ? '' : ' d-none d-lg-block' }}">
+                                <li class="d-none d-lg-block{{ Route::current()->getName() == 'home' || Request::segment(1) == 'app' ? ' active' : '' }}">
                                     @if(Request::segment(1) == 'app')
                                         <a href="{{ url('/app/' . Request::segment(2)) }}"><i class="icon-layers"></i>{{ ucfirst(Request::segment(2)) }}</a>
                                     @else
@@ -166,10 +166,10 @@
                                 @endif
                             </ul>
 
-                            <ul class="sidebar-menu">
-                                <li><a href="{{ route('subscribe') }}"><i class="icon-energy"></i>Go Premium</a></li>
-                                <li{{ Request::segment(1) == 'setting' ? ' class=active' : '' }}><a href="{{ route('setting.profile') }}"><i class="icon-equalizer"></i>Settings</a></li>
-                                <li><a href="{{ route('help') }}"><i class="icon-question"></i>Help</a></li>
+                            <ul class="sidebar-menu d-none d-lg-block justify-content-around{{ Request::segment(1) == 'app' ? '' : ' d-sm-flex' }}">
+                                <li><a href="{{ route('subscribe') }}"><i class="icon-energy d-none d-sm-inline-block"></i>Go Premium</a></li>
+                                <li{{ Request::segment(1) == 'setting' ? ' class=active' : '' }}><a href="{{ route('setting.profile') }}"><i class="icon-equalizer d-none d-sm-inline-block"></i>Settings</a></li>
+                                <li><a href="{{ route('help') }}"><i class="icon-question d-none d-sm-inline-block"></i>Help & Support</a></li>
                             </ul>
                         </div>
                     </div>

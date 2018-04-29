@@ -5,8 +5,8 @@
 @section('showcase_description', 'Advanced knowledge in yourself')
 
 @section('showcase_content')
-    <div class="row">
-        <div class="col-md-12">
+    <div class="row justify-content-center">
+        <div class="col-md-11">
             <div class="card box-shadow mb-4">
                 <div class="card-body pr-3">
                     <h5 class="card-title mb-2"><a href="#">ADVANCED CSS</a></h5>
@@ -24,7 +24,7 @@
                             <small><strong class="text-primary">75 / 100</strong></small>
                         </li>
                         <li class="list-inline-item float-right">
-                            <div class="dropdown">
+                            <div class="dropdown mt-md-1 text-muted">
                                 <a href="#" class="link-natural" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="icon-options-vertical"></i>
                                 </a>
@@ -39,8 +39,6 @@
                     </ul>
                 </div>
             </div>
-        </div>
-        <div class="col-md-12">
             <div class="card box-shadow mb-4">
                 <div class="card-body pr-3">
                     <h5 class="card-title mb-2"><a href="#">FRONT END DESIGN</a></h5>
@@ -58,7 +56,7 @@
                             <small><strong class="text-primary">50 / 100</strong></small>
                         </li>
                         <li class="list-inline-item float-right">
-                            <div class="dropdown">
+                            <div class="dropdown mt-md-1 text-muted">
                                 <a href="#" class="link-natural" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="icon-options-vertical"></i>
                                 </a>
@@ -73,8 +71,6 @@
                     </ul>
                 </div>
             </div>
-        </div>
-        <div class="col-md-12">
             <div class="card box-shadow mb-4">
                 <div class="card-body pr-3">
                     <h5 class="card-title mb-2"><a href="#">VERSION CONTROL</a></h5>
@@ -92,7 +88,7 @@
                             <small><strong class="text-primary">33 / 100</strong></small>
                         </li>
                         <li class="list-inline-item float-right">
-                            <div class="dropdown">
+                            <div class="dropdown mt-md-1 text-muted">
                                 <a href="#" class="link-natural" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="icon-options-vertical"></i>
                                 </a>
@@ -107,8 +103,6 @@
                     </ul>
                 </div>
             </div>
-        </div>
-        <div class="col-md-12">
             <a href="#" class="card card-empty mb-4">
                 <div class="card-body text-center d-flex align-items-center justify-content-center">
                     <h6 class="mb-0"><i class="icon-plus mr-3"></i> ADD NEW SKILL</h6>

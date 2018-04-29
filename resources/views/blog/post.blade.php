@@ -1,6 +1,6 @@
 @extends('blog._layout')
 
-@section('title', 'Blog Journal')
+@section('title', 'Blog Post')
 
 @section('blog_description', 'Personal journal and articles')
 
@@ -12,7 +12,7 @@
                 <div class="card-img-top" style="height: 200px; background: url({{ Storage::url('showcases/thumbnails/1.jpg') }}) no-repeat center center / cover;"></div>
                 <div class="card-body">
                     <h4 class="card-title mb-1"><a href="#">Man must explore, and this is exploration at its greatest </a></h4>
-                    <p class="card-text mb-2 text-primary">Problems look mighty small from 150 miles up</p>
+                    <p class="card-text mb-2 text-primary d-none d-sm-block">Problems look mighty small from 150 miles up</p>
 
                     <p class="text-muted small">
                         Posted by <a href="{{ route('blog.author', ['username' => 'angga-ari-wijaya']) }}">Angga Ari Wijaya</a> on September 24, 2018

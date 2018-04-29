@@ -36,8 +36,12 @@
 
   .sidebar-menu {
     padding-left: 0;
-    padding-bottom: 20px;
+    padding-bottom: 15px;
     border-bottom: 1px solid $gray-200;
+
+    @media (min-width: map-get($grid-breakpoints, "lg")) {
+      padding-bottom: 20px;
+    }
 
     > li {
       list-style: none;
@@ -55,7 +59,8 @@
       }
 
       ul {
-        padding-left: 45px;
+        padding-left: 0;
+        text-transform: uppercase;
 
         li {
           position: relative;
@@ -63,17 +68,47 @@
 
           &.active {
             a {
+              font-weight: 600;
               color: $primary;
             }
           }
 
           a {
             line-height: 2rem;
-            font-size: 0.9rem;
+            font-size: 0.75rem;
+            color: $text-muted;
           }
 
           i {
             margin-right: 10px;
+          }
+        }
+
+        @media (min-width: map-get($grid-breakpoints, "sm")) {
+          li {
+            a {
+              font-size: 0.8rem;
+              color: $gray-800;
+            }
+          }
+        }
+
+        @media (min-width: map-get($grid-breakpoints, "md")) {
+          li {
+            a {
+              font-size: 0.9rem;
+            }
+          }
+        }
+
+        @media (min-width: map-get($grid-breakpoints, "lg")) {
+          padding-left: 45px;
+          text-transform: none;
+
+          li {
+            &.active a {
+              font-weight: 400;
+            }
           }
         }
       }

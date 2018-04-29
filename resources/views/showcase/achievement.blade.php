@@ -10,9 +10,9 @@
         <div>
             <div class="card box-shadow mb-4">
                 <div class="card-body pr-3">
-                    <h5 class="card-title mb-1">
+                    <h5 class="card-title mb-1 d-flex justify-content-between">
                         <a href="#">Bachelor Degree</a>
-                        <div class="dropdown float-right small">
+                        <div class="dropdown float-right small text-muted">
                             <a href="#" class="link-natural" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="icon-options-vertical"></i>
                             </a>
@@ -30,9 +30,9 @@
             </div>
             <div class="card box-shadow mb-4">
                 <div class="card-body pr-3">
-                    <h5 class="card-title mb-1">
+                    <h5 class="card-title mb-1 d-flex justify-content-between">
                         <a href="#">High School</a>
-                        <div class="dropdown float-right small">
+                        <div class="dropdown float-right small text-muted">
                             <a href="#" class="link-natural" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="icon-options-vertical"></i>
                             </a>
@@ -50,7 +50,7 @@
             </div>
             <a href="#" class="card card-empty mb-4">
                 <div class="card-body text-center d-flex align-items-center justify-content-center">
-                    <h6 class="mb-0"><i class="icon-plus mr-3"></i> ADD NEW SCHOOL</h6>
+                    <h6 class="mb-0"><i class="icon-plus mr-2"></i> ADD NEW SCHOOL</h6>
                 </div>
             </a>
         </div>
@@ -61,9 +61,9 @@
         <div>
             <div class="card box-shadow mb-4">
                 <div class="card-body pr-3">
-                    <h5 class="card-title mb-1">
+                    <h5 class="card-title mb-1 d-flex justify-content-between">
                         <a href="#">Remote Job</a>
-                        <div class="dropdown float-right small">
+                        <div class="dropdown float-right small text-muted">
                             <a href="#" class="link-natural" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="icon-options-vertical"></i>
                             </a>
@@ -75,8 +75,8 @@
                             </div>
                         </div>
                     </h5>
-                    <p class="card-text mb-1">Freelance Programmer</p>
-                    <p class="text-muted mb-1">
+                    <p class="card-text text-muted mb-1">Freelance Programmer</p>
+                    <p class="card-text mb-1">
                         I worked remotely for many client that required to build web, desktop, and mobile application
                         in small and medium size. I used many frameworks and face a lot of technical issue alone...
                     </p>
@@ -85,9 +85,9 @@
             </div>
             <div class="card box-shadow mb-4">
                 <div class="card-body pr-3">
-                    <h5 class="card-title mb-1">
+                    <h5 class="card-title mb-1 d-flex justify-content-between">
                         <a href="#">Internship: Ministry of Transmigration and Manpower of RI</a>
-                        <div class="dropdown float-right small">
+                        <div class="dropdown float-right small text-muted">
                             <a href="#" class="link-natural" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="icon-options-vertical"></i>
                             </a>
@@ -99,8 +99,8 @@
                             </div>
                         </div>
                     </h5>
-                    <p class="card-text mb-1">Temporary Junior Programmer</p>
-                    <p class="text-muted mb-1">
+                    <p class="card-text text-muted mb-1">Temporary Junior Programmer</p>
+                    <p class="card-text mb-1">
                         Translate, design and developing government IT business as Internship Programme Project.
                         I developed task scheduler in android with Java and hybrid app for iPad...
                     </p>
@@ -109,9 +109,9 @@
             </div>
             <div class="card box-shadow mb-4">
                 <div class="card-body pr-3">
-                    <h5 class="card-title mb-1">
+                    <h5 class="card-title mb-1 d-flex justify-content-between">
                         <a href="#">Lab Assistance</a>
-                        <div class="dropdown float-right small">
+                        <div class="dropdown float-right small text-muted">
                             <a href="#" class="link-natural" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="icon-options-vertical"></i>
                             </a>
@@ -123,8 +123,8 @@
                             </div>
                         </div>
                     </h5>
-                    <p class="card-text mb-1">Programming Assistance</p>
-                    <p class="text-muted mb-1">
+                    <p class="card-text text-muted mb-1">Programming Assistance</p>
+                    <p class="card-text mb-1">
                         Lab is one of my favorite place in University, try to share my knowledge by teaching another students.
                         Improve skills in daily basis, managed programming event and course...
                     </p>
@@ -133,7 +133,7 @@
             </div>
             <a href="#" class="card card-empty mb-4">
                 <div class="card-body text-center d-flex align-items-center justify-content-center">
-                    <h6 class="mb-0"><i class="icon-plus mr-3"></i> ADD NEW EXPERIENCE</h6>
+                    <h6 class="mb-0"><i class="icon-plus mr-2"></i> ADD NEW EXPERIENCE</h6>
                 </div>
             </a>
         </div>
@@ -144,9 +144,9 @@
         <div>
             <div class="card box-shadow mb-4">
                 <div class="card-body pr-3">
-                    <h5 class="card-title mb-1">
+                    <h5 class="card-title mb-1 d-flex justify-content-between">
                         <a href="#">Discovery National Event</a>
-                        <div class="dropdown float-right small">
+                        <div class="dropdown float-right small text-muted">
                             <a href="#" class="link-natural" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="icon-options-vertical"></i>
                             </a>
@@ -164,9 +164,9 @@
             </div>
             <div class="card box-shadow mb-4">
                 <div class="card-body pr-3">
-                    <h5 class="card-title mb-1">
+                    <h5 class="card-title mb-1 d-flex justify-content-between">
                         <a href="#">HIMASIF Friendship Competition</a>
-                        <div class="dropdown float-right small">
+                        <div class="dropdown float-right small text-muted">
                             <a href="#" class="link-natural" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="icon-options-vertical"></i>
                             </a>
@@ -184,7 +184,7 @@
             </div>
             <a href="#" class="card card-empty mb-4">
                 <div class="card-body text-center d-flex align-items-center justify-content-center">
-                    <h6 class="mb-0"><i class="icon-plus mr-3"></i> ADD NEW AWARD</h6>
+                    <h6 class="mb-0"><i class="icon-plus mr-2"></i> ADD NEW AWARD</h6>
                 </div>
             </a>
         </div>

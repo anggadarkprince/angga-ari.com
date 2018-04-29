@@ -67,6 +67,12 @@ h1, h2, h3, h4, h5, h6 {
   @include sans-serif-font2;
 }
 
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .link-natural {
   color: inherit;
 

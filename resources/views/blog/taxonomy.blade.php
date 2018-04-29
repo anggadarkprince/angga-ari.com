@@ -1,6 +1,6 @@
 @extends('blog._layout')
 
-@section('title', 'Blog Taxonomy')
+@section('title', 'Blog - Taxonomy and keywords')
 
 @section('blog_description', 'Keywords and and tagging of articles')
 

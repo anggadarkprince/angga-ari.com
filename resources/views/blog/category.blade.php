@@ -1,6 +1,6 @@
 @extends('blog._layout')
 
-@section('title', 'Blog Categories')
+@section('title', 'Blog - Post Categories')
 
 @section('blog_description', 'Personal journal and articles')
 

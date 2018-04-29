@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col">
                     <ol class="breadcrumb small mb-4">
-                        <li class="breadcrumb-item"><a href="#">Browser</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('drive.browser') }}">Browser</a></li>
                         <li class="breadcrumb-item active">Trash</li>
                     </ol>
                 </div>

@@ -54,6 +54,7 @@ Route::prefix('app')->group(function () {
         Route::view('/', 'blog.post')->name('blog.post');
         Route::view('/category', 'blog.category')->name('blog.category');
         Route::view('/taxonomy', 'blog.taxonomy')->name('blog.taxonomy');
+        Route::view('/preference', 'blog.preference')->name('blog.preference');
     });
 
     Route::prefix('drive')->group(function () {
@@ -66,7 +67,16 @@ Route::prefix('app')->group(function () {
 
     Route::prefix('note')->group(function () {
         Route::view('/', 'note.notebook')->name('note.notebook');
+        Route::view('/category', 'note.category')->name('note.category');
         Route::view('/note', 'note.note')->name('note.note');
         Route::view('/todo', 'note.todo')->name('note.todo');
+    });
+
+    Route::prefix('finance')->group(function () {
+        Route::view('/', 'finance.transaction')->name('finance.transaction');
+        Route::view('/wallet', 'finance.wallet')->name('finance.wallet');
+        Route::view('/category', 'finance.category')->name('finance.category');
+        Route::view('/report', 'finance.report')->name('finance.report');
+        Route::view('/preference', 'finance.preference')->name('finance.preference');
     });
 });

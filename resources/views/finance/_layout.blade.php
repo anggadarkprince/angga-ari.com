@@ -6,34 +6,34 @@
             <h4 class="mb-0">
                 <a href="javascript:void(0)" onclick="window.history.back();" class="link-natural d-none d-sm-inline-block">
                     <i class="icon-arrow-left-circle"></i>
-                </a>Blog @if(!empty(Request::segment(3))) <span class="small text-muted"> / {{ Request::segment(3) }}</span> @endif
+                </a>Finance @if(!empty(Request::segment(3))) <span class="small text-muted"> / {{ Request::segment(3) }}</span> @endif
             </h4>
             <small class="text-muted">
-                @yield('blog_description')
+                @yield('finance_description')
             </small>
         </div>
         <div>
-            @if(Route::current()->getName() == 'blog.post')
+            @if(Route::current()->getName() == 'finance.transaction')
                 <a href="#" class="btn btn-sm btn-primary d-block d-sm-inline-block">
-                    <i class="icon-note mr-2 d-none d-sm-inline-block"></i>New Post
+                    <i class="icon-note mr-2 d-none d-sm-inline-block"></i>New Transaction
                 </a>
             @endif
 
-            @if(Route::current()->getName() == 'blog.category')
+            @if(Route::current()->getName() == 'finance.wallet')
+                <a href="#" class="btn btn-sm btn-primary d-block d-sm-inline-block">
+                    <i class="icon-note mr-2 d-none d-sm-inline-block"></i>New Wallet
+                </a>
+            @endif
+
+            @if(Route::current()->getName() == 'finance.category')
                 <a href="#" class="btn btn-sm btn-primary d-block d-sm-inline-block">
                     <i class="icon-note mr-2 d-none d-sm-inline-block"></i>New Category
-                </a>
-            @endif
-
-            @if(Route::current()->getName() == 'blog.taxonomy')
-                <a href="#" class="btn btn-sm btn-primary d-block d-sm-inline-block">
-                    <i class="icon-note mr-2 d-none d-sm-inline-block"></i>New Taxonomy
                 </a>
             @endif
         </div>
     </div>
 
     <div class="section-content">
-        @yield('blog_content')
+        @yield('finance_content')
     </div>
 @endsection

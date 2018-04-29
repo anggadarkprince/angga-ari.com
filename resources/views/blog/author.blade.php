@@ -1,6 +1,6 @@
 @extends('layouts.blog')
 
-@section('title', 'Blog Title')
+@section('title', 'Blog Author')
 
 @section('content')
     <!-- Page Header -->

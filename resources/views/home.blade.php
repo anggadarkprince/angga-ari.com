@@ -10,17 +10,17 @@
     @endif
 
     <div class="row card-app-wrapper">
-        <div class="col-md-4">
+        <div class="col-sm-6 col-md-4">
             <div class="card box-shadow card-app">
                 <div class="card-feature"></div>
                 <div class="card-body">
                     <h5 class="card-title"><a href="{{ route('showcase.portfolio') }}" class="link-natural">Showcase</a></h5>
-                    <p class="card-text">Your professional profile</p>
+                    <p class="card-text">Professional profile</p>
                     <a href="{{ route('showcase.portfolio') }}"><i class="icon-arrow-right-circle"></i></a>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-sm-6 col-md-4">
             <div class="card box-shadow card-app">
                 <div class="card-feature"></div>
                 <div class="card-body">
@@ -30,7 +30,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-sm-6 col-md-4">
             <div class="card box-shadow card-app">
                 <div class="card-feature"></div>
                 <div class="card-body">
@@ -40,7 +40,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-sm-6 col-md-4">
             <div class="card box-shadow card-app">
                 <div class="card-feature"></div>
                 <div class="card-body">
@@ -50,27 +50,27 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-sm-6 col-md-4">
             <div class="card box-shadow card-app">
                 <div class="card-feature"></div>
                 <div class="card-body">
-                    <h5 class="card-title"><a href="#" class="link-natural">Finance</a></h5>
+                    <h5 class="card-title"><a href="{{ route('finance.transaction') }}" class="link-natural">Finance</a></h5>
                     <p class="card-text">A transaction tracker</p>
-                    <a href="#"><i class="icon-arrow-right-circle"></i></a>
+                    <a href="{{ route('finance.transaction') }}"><i class="icon-arrow-right-circle"></i></a>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-sm-6 col-md-4">
             <div class="card box-shadow card-app">
                 <div class="card-feature"></div>
                 <div class="card-body">
                     <h5 class="card-title"><a href="#" class="link-natural">Password Vault</a></h5>
-                    <p class="card-text">Secure password reminder</p>
+                    <p class="card-text">Secure key reminder</p>
                     <a href="#"><i class="icon-arrow-right-circle"></i></a>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-sm-6 col-md-4">
             <div class="card box-shadow card-app card-coming-soon">
                 <div class="card-body">
                     <h5 class="card-title">Coming Soon</h5>
@@ -79,7 +79,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-sm-6 col-md-4">
             <div class="card box-shadow card-app card-coming-soon">
                 <div class="card-body">
                     <h5 class="card-title">Coming Soon</h5>
@@ -88,7 +88,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-sm-6 col-md-4">
             <div class="card box-shadow card-app card-coming-soon">
                 <div class="card-body">
                     <h5 class="card-title">Coming Soon</h5>

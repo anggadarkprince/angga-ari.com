@@ -10,7 +10,7 @@
             <div class="card box-shadow mb-4">
                 <div class="card-body">
                     <small class="card-subtitle mb-2 mt-0 text-muted d-block">
-                        <a href="#" class="link-muted">My Personal Journal</a> - 23 days ago
+                        <a href="#" class="link-muted">Project</a> - 2 months ago
                     </small>
                     <h5 class="card-title mb-1"><a href="#">Shopping list weekly</a></h5>
                     <p class="card-text mb-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
