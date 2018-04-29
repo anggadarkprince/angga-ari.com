@@ -63,4 +63,10 @@ Route::prefix('app')->group(function () {
         Route::view('/trash', 'drive.trash')->name('drive.trash');
         Route::view('/file/{token}', 'drive.view')->name('drive.view');
     });
+
+    Route::prefix('note')->group(function () {
+        Route::view('/', 'note.notebook')->name('note.notebook');
+        Route::view('/note', 'note.note')->name('note.note');
+        Route::view('/todo', 'note.todo')->name('note.todo');
+    });
 });

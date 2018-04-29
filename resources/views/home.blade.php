@@ -44,9 +44,9 @@
             <div class="card box-shadow card-app">
                 <div class="card-feature"></div>
                 <div class="card-body">
-                    <h5 class="card-title"><a href="#" class="link-natural">Note</a></h5>
-                    <p class="card-text">Task and note list</p>
-                    <a href="#"><i class="icon-arrow-right-circle"></i></a>
+                    <h5 class="card-title"><a href="{{ route('note.notebook') }}" class="link-natural">Note</a></h5>
+                    <p class="card-text">Task and todo list</p>
+                    <a href="{{ route('note.notebook') }}"><i class="icon-arrow-right-circle"></i></a>
                 </div>
             </div>
         </div>

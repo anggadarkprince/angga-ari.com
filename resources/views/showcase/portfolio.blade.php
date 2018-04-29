@@ -24,7 +24,9 @@
                         </li>
                         <li class="list-inline-item float-right">
                             <div class="dropdown">
-                                <a href="#" class="dropdown-toggle link-natural" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                                <a href="#" class="link-muted" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="icon-options-vertical"></i>
+                                </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                     <h6 class="dropdown-header">Action</h6>
                                     <a class="dropdown-item" href="#"><i class="icon-eye mr-2"></i>View In Showcase</a>
@@ -55,7 +57,9 @@
                         </li>
                         <li class="list-inline-item float-right">
                             <div class="dropdown">
-                                <a href="#" class="dropdown-toggle link-natural" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                                <a href="#" class="link-muted" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="icon-options-vertical"></i>
+                                </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                     <h6 class="dropdown-header">Action</h6>
                                     <a class="dropdown-item" href="#"><i class="icon-eye mr-2"></i>View In Showcase</a>
@@ -86,7 +90,9 @@
                         </li>
                         <li class="list-inline-item float-right">
                             <div class="dropdown">
-                                <a href="#" class="dropdown-toggle link-natural" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                                <a href="#" class="link-muted" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="icon-options-vertical"></i>
+                                </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                     <h6 class="dropdown-header">Action</h6>
                                     <a class="dropdown-item" href="#"><i class="icon-eye mr-2"></i>View In Showcase</a>
@@ -117,7 +123,9 @@
                         </li>
                         <li class="list-inline-item float-right">
                             <div class="dropdown">
-                                <a href="#" class="dropdown-toggle link-natural" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                                <a href="#" class="link-muted" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="icon-options-vertical"></i>
+                                </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                     <h6 class="dropdown-header">Action</h6>
                                     <a class="dropdown-item" href="#"><i class="icon-eye mr-2"></i>View In Showcase</a>
@@ -148,7 +156,9 @@
                         </li>
                         <li class="list-inline-item float-right">
                             <div class="dropdown">
-                                <a href="#" class="dropdown-toggle link-natural" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                                <a href="#" class="link-muted" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="icon-options-vertical"></i>
+                                </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                     <h6 class="dropdown-header">Action</h6>
                                     <a class="dropdown-item" href="#"><i class="icon-eye mr-2"></i>View In Showcase</a>
@@ -179,7 +189,9 @@
                         </li>
                         <li class="list-inline-item float-right">
                             <div class="dropdown">
-                                <a href="#" class="dropdown-toggle link-natural" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                                <a href="#" class="link-muted" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="icon-options-vertical"></i>
+                                </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                     <h6 class="dropdown-header">Action</h6>
                                     <a class="dropdown-item" href="#"><i class="icon-eye mr-2"></i>View In Showcase</a>
@@ -210,7 +222,9 @@
                         </li>
                         <li class="list-inline-item float-right">
                             <div class="dropdown">
-                                <a href="#" class="dropdown-toggle link-natural" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                                <a href="#" class="link-muted" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="icon-options-vertical"></i>
+                                </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                     <h6 class="dropdown-header">Action</h6>
                                     <a class="dropdown-item" href="#"><i class="icon-eye mr-2"></i>View In Showcase</a>
