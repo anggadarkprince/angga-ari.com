@@ -55,4 +55,12 @@ Route::prefix('app')->group(function () {
         Route::view('/category', 'blog.category')->name('blog.category');
         Route::view('/taxonomy', 'blog.taxonomy')->name('blog.taxonomy');
     });
+
+    Route::prefix('drive')->group(function () {
+        Route::view('/', 'drive.browser')->name('drive.browser');
+        Route::view('/album', 'drive.album')->name('drive.album');
+        Route::view('/analyzer', 'drive.analyzer')->name('drive.analyzer');
+        Route::view('/trash', 'drive.trash')->name('drive.trash');
+        Route::view('/file/{token}', 'drive.view')->name('drive.view');
+    });
 });

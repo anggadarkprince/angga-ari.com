@@ -180,3 +180,44 @@
 .card-text.small, .card-footer.small {
   font-size: 0.9rem;
 }
+
+.card-drive {
+  margin-bottom: 20px;
+  position: relative;
+
+  &:active, &:focus, &:hover, &.active {
+    border-color: $primary;
+  }
+
+  .drive-control {
+    position: absolute;
+    right: 0.5rem;
+    top: 0.6rem;
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  .file-name {
+    height: 2.6rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: default;
+    user-select: none;
+  }
+
+  &.directory {
+    .file-name {
+      height: auto;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    small {
+      cursor: default;
+      user-select: none;
+    }
+  }
+}

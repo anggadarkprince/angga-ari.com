@@ -14,7 +14,7 @@
             @yield('showcase_description')
         </small>
     </div>
-    <ul class="nav nav-tabs nav-justified">
+    <ul class="nav nav-tabs nav-justified mb-4">
         <li class="nav-item">
             <a class="nav-link{{ Route::current()->getName() == 'showcase.portfolio' ? ' active' : '' }}" href="{{ route('showcase.portfolio') }}">
                 <i class="icon-notebook"></i>Portfolio

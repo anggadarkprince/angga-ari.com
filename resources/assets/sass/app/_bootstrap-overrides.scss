@@ -96,27 +96,32 @@
 }
 
 .breadcrumb {
-  margin-bottom: 0;
-  background-color: transparent;
+  background-color: $gray-100;
 
-  .breadcrumb-item {
-    font-weight: 600;
+  &.main {
+    margin-bottom: 0;
+    background-color: transparent;
 
-    &.active {
-      color: fade_out($white, 0.1);
-    }
+    .breadcrumb-item {
+      font-weight: 600;
 
-    a {
-      color: $white;
-    }
+      &.active {
+        color: fade_out($white, 0.1);
+      }
 
-    + .breadcrumb-item:before {
-      color: $white;
+      a {
+        color: $white;
+      }
+
+      + .breadcrumb-item:before {
+        color: $white;
+      }
     }
   }
 }
 
 .card {
+  .card-header,
   .card-footer {
     background: white;
     border-color: $gray-200;
@@ -134,6 +139,6 @@
 
 [data-toggle="buttons"] > .btn input[type="checkbox"], [data-toggle="buttons"] > .btn input[type="radio"], [data-toggle="buttons"] > .btn-group > .btn input[type="checkbox"], [data-toggle="buttons"] > .btn-group > .btn input[type="radio"] {
   position: absolute;
-  clip: rect(0,0,0,0);
+  clip: rect(0, 0, 0, 0);
   pointer-events: none;
 }

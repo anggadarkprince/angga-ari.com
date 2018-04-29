@@ -34,9 +34,9 @@
             <div class="card box-shadow card-app">
                 <div class="card-feature"></div>
                 <div class="card-body">
-                    <h5 class="card-title"><a href="#" class="link-natural">Drive</a></h5>
+                    <h5 class="card-title"><a href="{{ route('drive.browser') }}" class="link-natural">Drive</a></h5>
                     <p class="card-text">Service cloud storage</p>
-                    <a href="#"><i class="icon-arrow-right-circle"></i></a>
+                    <a href="{{ route('drive.browser') }}"><i class="icon-arrow-right-circle"></i></a>
                 </div>
             </div>
         </div>

@@ -11,7 +11,7 @@
             @yield('setting_description')
         </small>
     </div>
-    <ul class="nav nav-tabs">
+    <ul class="nav nav-tabs mb-4">
         <li class="nav-item">
             <a class="nav-link{{ Route::current()->getName() == 'setting.profile' ? ' active' : '' }}" href="{{ route('setting.profile') }}">
                 <i class="icon-user"></i>Profile

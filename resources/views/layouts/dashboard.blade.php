@@ -99,7 +99,7 @@
         <div class="bg-primary text-white">
             <div class="container">
                 <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb text-uppercase">
+                    <ol class="breadcrumb main text-uppercase">
                         <li class="breadcrumb-item">
                             <a href="{{ route('home') }}">
                                 <i class="fa fa-arrow-circle-left mr-2"></i>Apps
