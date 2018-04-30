@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    <div class="section-title d-sm-flex w-100 justify-content-between{{ Route::current()->getName() == 'showcase.profile' ? ' mb-0' : '' }}">
+    <div class="section-title d-sm-flex w-100 justify-content-between{{ Route::current()->getName() == 'showcase.profile' ? ' mb-0 mb-sm-3' : '' }}">
         <div class="d-none d-sm-block">
             <h4 class="mb-0">
                 <a href="javascript:void(0)" onclick="window.history.back();" class="link-natural d-none d-sm-inline-block">
@@ -55,7 +55,7 @@
         </li>
     </ul>
 
-    <div class="section-content{{ Route::current()->getName() == 'showcase.profile' ? ' pt-0' : '' }}">
+    <div class="section-content{{ Route::current()->getName() == 'showcase.profile' ? ' pt-0 pt-sm-3' : '' }}">
         @yield('showcase_content')
     </div>
 @endsection

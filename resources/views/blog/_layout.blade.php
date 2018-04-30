@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    <div class="section-title d-sm-flex w-100 justify-content-between">
+    <div class="section-title d-sm-flex w-100 justify-content-between{{ Route::current()->getName() == 'blog.preference' ? ' mb-0 mb-sm-3' : '' }}">
         <div class="d-none d-sm-block">
             <h4 class="mb-0">
                 <a href="javascript:void(0)" onclick="window.history.back();" class="link-natural d-none d-sm-inline-block">
@@ -33,7 +33,7 @@
         </div>
     </div>
 
-    <div class="section-content">
+    <div class="section-content{{ Route::current()->getName() == 'blog.preference' ? ' pt-0 pt-sm-3' : '' }}">
         @yield('blog_content')
     </div>
 @endsection

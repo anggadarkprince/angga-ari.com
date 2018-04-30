@@ -79,4 +79,10 @@ Route::prefix('app')->group(function () {
         Route::view('/report', 'finance.report')->name('finance.report');
         Route::view('/preference', 'finance.preference')->name('finance.preference');
     });
+
+    Route::prefix('vault')->group(function () {
+        Route::view('/', 'vault.password')->name('vault.password');
+        Route::view('/activity', 'vault.activity')->name('vault.activity');
+        Route::view('/preference', 'vault.preference')->name('vault.preference');
+    });
 });
