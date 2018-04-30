@@ -19,78 +19,69 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,600,700" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-app">
+        <nav class="navbar navbar-expand navbar-app">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand text-uppercase mr-1 mr-sm-4" href="{{ url('/') }}">
                     {{ config('app.name', 'Angga') }}
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('showcase') }}">{{ __('Showcase') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('blog') }}">{{ __('Blog') }}</a>
-                            </li>
-                        @endguest
-                    </ul>
+                <div class="navbar-collapse">
+                    <form class="form-inline ml-lg-4 d-none d-md-block search-form">
+                        <div class="input-group">
+                            <input class="form-control form-control-sm" id="search" type="text" placeholder="Search" aria-label="Search">
+                            <i class="icon-magnifier"></i>
+                        </div>
+                    </form>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if(Route::current()->getName() == 'register')
-                                <li class="nav-item">
-                                    <a class="btn btn-outline-primary btn-sm" href="{{ route('login') }}">
-                                        {{ __('Sign In') }}
-                                    </a>
-                                </li>
-                            @else
-                                <li class="nav-item">
-                                    <a class="btn btn-outline-primary btn-sm" href="{{ route('register') }}">
-                                        {{ __('Register') }}
-                                    </a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                    <ul class="navbar-nav ml-auto text-strong">
+                        <li class="nav-item d-md-none">
+                            <a class="nav-link link-natural" href="#"><i class="icon-magnifier"></i></a>
+                        </li>
+                        <li class="nav-item d-none d-lg-inline-block">
+                            <a class="nav-link link-natural" href="#"><i class="icon-energy mr-2"></i>Go Premium</a>
+                        </li>
+                        <li class="nav-item d-none d-md-inline-block">
+                            <a class="nav-link link-natural" href="#">Discovery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link-natural" href="#">
+                                <i class="icon-bell d-sm-none"></i>
+                                <span class="d-none d-sm-inline-block">Notifications</span>
+                                <span class="badge badge-primary ml-1 ml-lg-2">23</span>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown dropdown-account">
+                            <a id="navbarDropdown" class="nav-link py-0 pr-0 pl-2 pl-md-3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <img class="rounded-circle" src="{{ Storage::url('avatars/' . (Auth::user()->avatar ? Auth::user()->avatar : 'noavatar.jpg')) }}" alt="{{ Auth::user()->name }}">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('home') }}">
+                                    <i class="icon-layers"></i> {{ __('Apps') }}
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="icon-equalizer"></i> {{ __('Setting') }}
+                                </a>
+                                <a class="dropdown-item" href="{{ route('help') }}">
+                                    <i class="icon-question"></i> {{ __('Help') }}
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="icon-logout"></i> {{ __('Logout') }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('home') }}">
-                                        <i class="icon-layers"></i> {{ __('Apps') }}
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="icon-equalizer"></i> {{ __('Setting') }}
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('help') }}">
-                                        <i class="icon-question"></i> {{ __('Help') }}
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        <i class="icon-logout"></i> {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -117,9 +108,25 @@
                                     </a>
                                 </li>
                             @endif
+
                             @if(!empty(Request::segment(2)) && !empty(Request::segment(3)))
+                                @if(empty(Request::segment(4)))
+                                    <li class="breadcrumb-item active d-none d-sm-inline-block" aria-current="page">
+                                        {{ ucfirst(Request::segment(3)) }}
+                                    </li>
+                                @else
+                                    <li class="breadcrumb-item" aria-current="page">
+                                        <a href="{{ url('/' . Request::segment(1) . '/' . Request::segment(2) . '/' . Request::segment(3)) }}">
+                                            {{ ucfirst(Request::segment(3)) }}
+                                        </a>
+                                    </li>
+                                @endif
+                            @endif
+
+
+                            @if(!empty(Request::segment(2)) && !empty(Request::segment(3)) && !empty(Request::segment(4)))
                                 <li class="breadcrumb-item active d-none d-sm-inline-block" aria-current="page">
-                                    {{ ucfirst(Request::segment(3)) }}
+                                    {{ ucfirst(Request::segment(4)) }}
                                 </li>
                             @endif
                         @endif

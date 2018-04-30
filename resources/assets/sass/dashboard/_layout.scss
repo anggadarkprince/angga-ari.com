@@ -7,10 +7,15 @@ body {
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.06);
   color: $gray-800;
   @include transition-all;
+  padding: 0.9rem 0;
+
+  > .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 
   .navbar-brand {
-    font-weight: 700;
-    text-transform: uppercase;
+    font-weight: 600;
     color: $primary;
     @include sans-serif-font;
 
@@ -20,10 +25,47 @@ body {
     }
   }
 
+  .search-form {
+    .input-group {
+      position: relative;
+
+      input {
+        padding-left: 2rem;
+        font-size: 0.8rem;
+
+        @media (min-width: map-get($grid-breakpoints, "lg")) {
+          width: 300px;
+        }
+      }
+    }
+
+    i {
+      position: absolute;
+      padding: 0.62rem 0.7rem;
+      z-index: 3;
+      color: $gray-600;
+      font-size: 0.75rem;
+    }
+  }
+
   .navbar-nav > li.nav-item > a.nav-link {
-    padding: 0.5rem 1rem;
-    text-transform: uppercase;
+    padding: 0.5rem;
     font-size: .9rem;
+
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+      padding: 0.5rem 0.75rem;
+    }
+
+    i {
+      vertical-align: middle;
+    }
+  }
+
+  .dropdown-account {
+    img {
+      width: 35px;
+      height: 35px;
+    }
   }
 }
 

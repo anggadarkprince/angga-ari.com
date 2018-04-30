@@ -19,11 +19,11 @@
 }
 
 .btn {
-  padding: 0.375rem 1rem;
+  padding: 0.38rem 1rem;
 }
 
 .btn.btn-wide {
-  padding: 0.375rem 1.5rem;
+  padding: 0.38rem 1.5rem;
 }
 
 .btn-xl {
@@ -59,6 +59,10 @@
   i {
     margin-right: 12px;
   }
+}
+
+.navbar-toggler {
+  border: none;
 }
 
 .nav-tabs {
@@ -102,6 +106,7 @@
     margin-bottom: 0;
     padding: 0.75rem 0;
     background-color: transparent;
+    font-size: 0.9rem;
 
     .breadcrumb-item {
       font-weight: 600;
@@ -150,4 +155,9 @@
   position: absolute;
   clip: rect(0, 0, 0, 0);
   pointer-events: none;
+}
+
+.badge {
+  padding: 0.4em 0.7em;
+  font-size: 70%;
 }

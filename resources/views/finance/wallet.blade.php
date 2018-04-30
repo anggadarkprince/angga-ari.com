@@ -23,9 +23,11 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                 <h6 class="dropdown-header">Action</h6>
-                                <a class="dropdown-item" href="#"><i class="icon-arrow-up-circle mr-2"></i>Deposit Fund</a>
-                                <a class="dropdown-item" href="#"><i class="icon-bag mr-2"></i>Transactions</a>
-                                <a class="dropdown-item" href="#"><i class="icon-note mr-2"></i>Edit Wallet</a>
+                                <a class="dropdown-item" href="{{ route('finance.wallet.view') }}"><i class="icon-info mr-2"></i>Info Wallet</a>
+                                <a class="dropdown-item" href="{{ route('finance.transaction.create', ['wallet' => 1, 'type' => 'income']) }}"><i class="icon-arrow-up-circle mr-2"></i>Deposit Fund</a>
+                                <a class="dropdown-item" href="{{ route('finance.transaction', ['transaction' => 'transaction', 'filter' => true, 'wallet' => 1]) }}"><i class="icon-bag mr-2"></i>Transactions</a>
+                                <a class="dropdown-item" href="{{ route('finance.wallet.create') }}"><i class="icon-note mr-2"></i>Edit Wallet</a>
+                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#"><i class="icon-trash mr-2"></i>Delete</a>
                             </div>
                         </div>
@@ -49,9 +51,11 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                 <h6 class="dropdown-header">Action</h6>
-                                <a class="dropdown-item" href="#"><i class="icon-arrow-up-circle mr-2"></i>Deposit Fund</a>
-                                <a class="dropdown-item" href="#"><i class="icon-bag mr-2"></i>Transactions</a>
-                                <a class="dropdown-item" href="#"><i class="icon-note mr-2"></i>Edit Wallet</a>
+                                <a class="dropdown-item" href="{{ route('finance.wallet.view') }}"><i class="icon-info mr-2"></i>Info Wallet</a>
+                                <a class="dropdown-item" href="{{ route('finance.transaction.create', ['wallet' => 1, 'type' => 'income']) }}"><i class="icon-arrow-up-circle mr-2"></i>Deposit Fund</a>
+                                <a class="dropdown-item" href="{{ route('finance.transaction', ['transaction' => 'transaction', 'filter' => true, 'wallet' => 1]) }}"><i class="icon-bag mr-2"></i>Transactions</a>
+                                <a class="dropdown-item" href="{{ route('finance.wallet.create') }}"><i class="icon-note mr-2"></i>Edit Wallet</a>
+                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#"><i class="icon-trash mr-2"></i>Delete</a>
                             </div>
                         </div>
@@ -75,9 +79,11 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                 <h6 class="dropdown-header">Action</h6>
-                                <a class="dropdown-item" href="#"><i class="icon-arrow-up-circle mr-2"></i>Deposit Fund</a>
-                                <a class="dropdown-item" href="#"><i class="icon-bag mr-2"></i>Transactions</a>
-                                <a class="dropdown-item" href="#"><i class="icon-note mr-2"></i>Edit Wallet</a>
+                                <a class="dropdown-item" href="{{ route('finance.wallet.view') }}"><i class="icon-info mr-2"></i>Info Wallet</a>
+                                <a class="dropdown-item" href="{{ route('finance.transaction.create', ['wallet' => 1, 'type' => 'income']) }}"><i class="icon-arrow-up-circle mr-2"></i>Deposit Fund</a>
+                                <a class="dropdown-item" href="{{ route('finance.transaction', ['transaction' => 'transaction', 'filter' => true, 'wallet' => 1]) }}"><i class="icon-bag mr-2"></i>Transactions</a>
+                                <a class="dropdown-item" href="{{ route('finance.wallet.create') }}"><i class="icon-note mr-2"></i>Edit Wallet</a>
+                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#"><i class="icon-trash mr-2"></i>Delete</a>
                             </div>
                         </div>

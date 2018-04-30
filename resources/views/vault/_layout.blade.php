@@ -14,7 +14,7 @@
         </div>
         <div>
             @if(Route::current()->getName() == 'vault.password')
-                <a href="#" class="btn btn-sm btn-primary d-block d-sm-inline-block">
+                <a href="{{ route('vault.password.create') }}" class="btn btn-sm btn-primary d-block d-sm-inline-block">
                     <i class="icon-note mr-2 d-none d-sm-inline-block"></i>New Password
                 </a>
             @endif

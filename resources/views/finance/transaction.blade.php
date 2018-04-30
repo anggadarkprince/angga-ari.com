@@ -9,25 +9,32 @@
         <div class="col-lg-10">
             <div class="card box-shadow mb-4">
                 <div class="card-body">
-                    <small class="card-subtitle mb-1 mt-0 text-muted d-block">
-                        <a href="#" class="link-muted">BANK MANDIRI</a>
-                    </small>
-                    <span class="badge badge-success badge-pill mb-2 mt-0 float-right">IN<span class="d-none d-sm-inline-block">COME</span></span>
+                    <div class="text-muted d-flex w-100 justify-content-between mb-1">
+                        <a href="#" class="link-muted small">BANK MANDIRI</a>
+                        <span class="badge badge-success badge-pill my-0">IN<span class="d-none d-sm-inline-block">COME</span></span>
+                    </div>
                     <h5 class="card-title mb-1"><a href="#" class="text-success">IDR 5.400.000</a></h5>
-                    <p class="small mb-2"><strong>Salary</strong> at 18 hours ago</p>
+                    <p class="card-text mb-2 small">Monthly salary from company</p>
                     <div class="text-muted d-flex w-100 justify-content-between">
-                        <div>
-                            <small class="mr-4 d-block d-sm-inline-block"><i class="icon-info mr-2"></i>Monthly salary from company</small>
-                            <small class="mr-4 d-block d-sm-inline-block"><i class="icon-location-pin mr-2"></i>Gresik, Indonesia</small>
-                        </div>
+                        <ul class="list-inline mb-0 small">
+                            <li class="list-inline-item">
+                                <i class="icon-grid mr-2"></i>Food
+                            </li>
+                            <li class="list-inline-item">
+                                <i class="icon-clock mr-2"></i>May 26, 2018
+                            </li>
+                            <li class="list-inline-item">
+                                <i class="icon-location-pin mr-2"></i>Gresik, Indonesia
+                            </li>
+                        </ul>
                         <div class="dropdown align-self-end small">
                             <a href="#" class="link-natural" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="icon-options-vertical"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                 <h6 class="dropdown-header">Action</h6>
-                                <a class="dropdown-item" href="#"><i class="icon-eye mr-2"></i>View Transaction</a>
-                                <a class="dropdown-item" href="#"><i class="icon-note mr-2"></i>Edit Transaction</a>
+                                <a class="dropdown-item" href="{{ route('finance.transaction.view') }}"><i class="icon-eye mr-2"></i>View Transaction</a>
+                                <a class="dropdown-item" href="{{ route('finance.transaction.create') }}"><i class="icon-note mr-2"></i>Edit Transaction</a>
                                 <a class="dropdown-item" href="#"><i class="icon-trash mr-2"></i>Delete</a>
                             </div>
                         </div>
@@ -36,24 +43,29 @@
             </div>
             <div class="card box-shadow mb-4">
                 <div class="card-body">
-                    <small class="card-subtitle mb-1 mt-0 text-muted d-block">
-                        <a href="#" class="link-muted">MY CASH</a>
-                    </small>
-                    <span class="badge badge-danger badge-pill mb-2 mt-0 float-right">OUT<span class="d-none d-sm-inline-block">COME</span></span>
+                    <div class="text-muted d-flex w-100 justify-content-between mb-1">
+                        <a href="#" class="link-muted small">MY CASH</a>
+                        <span class="badge badge-danger badge-pill my-0">OUT<span class="d-none d-sm-inline-block">COME</span></span>
+                    </div>
                     <h5 class="card-title mb-1"><a href="#" class="text-danger">IDR 200.000</a></h5>
-                    <p class="small mb-2"><strong>Food</strong> at 2 days ago</p>
+                    <p class="card-text mb-2 small">Hang out with my friends</p>
                     <div class="text-muted d-flex w-100 justify-content-between">
-                        <div>
-                            <small class="mr-4 d-block d-sm-inline-block"><i class="icon-info mr-2"></i>Hang out with friends</small>
-                        </div>
+                        <ul class="list-inline mb-0 small">
+                            <li class="list-inline-item">
+                                <i class="icon-grid mr-2"></i>Coffee
+                            </li>
+                            <li class="list-inline-item">
+                                <i class="icon-clock mr-2"></i>May 16, 2018
+                            </li>
+                        </ul>
                         <div class="dropdown align-self-end small">
                             <a href="#" class="link-natural" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="icon-options-vertical"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                 <h6 class="dropdown-header">Action</h6>
-                                <a class="dropdown-item" href="#"><i class="icon-eye mr-2"></i>View Transaction</a>
-                                <a class="dropdown-item" href="#"><i class="icon-note mr-2"></i>Edit Transaction</a>
+                                <a class="dropdown-item" href="{{ route('finance.transaction.view') }}"><i class="icon-eye mr-2"></i>View Transaction</a>
+                                <a class="dropdown-item" href="{{ route('finance.transaction.create') }}"><i class="icon-note mr-2"></i>Edit Transaction</a>
                                 <a class="dropdown-item" href="#"><i class="icon-trash mr-2"></i>Delete</a>
                             </div>
                         </div>
@@ -62,24 +74,32 @@
             </div>
             <div class="card box-shadow mb-4">
                 <div class="card-body">
-                    <small class="card-subtitle mb-1 mt-0 text-muted d-block">
-                        <a href="#" class="link-muted">DIGITAL CASH</a>
-                    </small>
-                    <span class="badge badge-success badge-pill mb-2 mt-0 float-right">IN<span class="d-none d-sm-inline-block">COME</span></span>
-                    <h5 class="card-title mb-1"><a href="#" class="text-success">IDR 10.000</a></h5>
-                    <span class="small mb-2"><strong>Deposit</strong> at 4 days ago</span>
+                    <div class="text-muted d-flex w-100 justify-content-between mb-1">
+                        <a href="#" class="link-muted small">DIGITAL CASH</a>
+                        <span class="badge badge-success badge-pill my-0">IN<span class="d-none d-sm-inline-block">COME</span></span>
+                    </div>
+                    <h5 class="card-title mb-1"><a href="#" class="text-success">IDR 340.000</a></h5>
+                    <p class="card-text mb-2 small">Deposit my account</p>
                     <div class="text-muted d-flex w-100 justify-content-between">
-                        <div>
-                            <small>No detail available</small>
-                        </div>
+                        <ul class="list-inline mb-0 small">
+                            <li class="list-inline-item">
+                                <i class="icon-grid mr-2"></i>Deposit
+                            </li>
+                            <li class="list-inline-item">
+                                <i class="icon-clock mr-2"></i>May 12, 2018
+                            </li>
+                            <li class="list-inline-item">
+                                <i class="icon-location-pin mr-2"></i>Gresik, Indonesia
+                            </li>
+                        </ul>
                         <div class="dropdown align-self-end small">
                             <a href="#" class="link-natural" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="icon-options-vertical"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                 <h6 class="dropdown-header">Action</h6>
-                                <a class="dropdown-item" href="#"><i class="icon-eye mr-2"></i>View Transaction</a>
-                                <a class="dropdown-item" href="#"><i class="icon-note mr-2"></i>Edit Transaction</a>
+                                <a class="dropdown-item" href="{{ route('finance.transaction.view') }}"><i class="icon-eye mr-2"></i>View Transaction</a>
+                                <a class="dropdown-item" href="{{ route('finance.transaction.create') }}"><i class="icon-note mr-2"></i>Edit Transaction</a>
                                 <a class="dropdown-item" href="#"><i class="icon-trash mr-2"></i>Delete</a>
                             </div>
                         </div>
@@ -88,24 +108,29 @@
             </div>
             <div class="card box-shadow mb-4">
                 <div class="card-body">
-                    <small class="card-subtitle mb-1 mt-0 text-muted d-block">
-                        <a href="#" class="link-muted">CASH</a>
-                    </small>
-                    <span class="badge badge-danger badge-pill mb-2 mt-0 float-right">OUT<span class="d-none d-sm-inline-block">COME</span></span>
+                    <div class="text-muted d-flex w-100 justify-content-between mb-1">
+                        <a href="#" class="link-muted small">MY CASH</a>
+                        <span class="badge badge-danger badge-pill my-0">OUT<span class="d-none d-sm-inline-block">COME</span></span>
+                    </div>
                     <h5 class="card-title mb-1"><a href="#" class="text-danger">IDR 12.000</a></h5>
-                    <p class="small mb-2"><strong>Coffee</strong> at 18 April 2018</p>
+                    <p class="card-text mb-2 small">Visit night life hotel</p>
                     <div class="text-muted d-flex w-100 justify-content-between">
-                        <div>
-                            <small class="mr-4 d-block d-sm-inline-block"><i class="icon-location-pin mr-2"></i>Starbuck Surabaya</small>
-                        </div>
+                        <ul class="list-inline mb-0 small">
+                            <li class="list-inline-item">
+                                <i class="icon-grid mr-2"></i>Night Life
+                            </li>
+                            <li class="list-inline-item">
+                                <i class="icon-clock mr-2"></i>January 11, 2018
+                            </li>
+                        </ul>
                         <div class="dropdown align-self-end small">
                             <a href="#" class="link-natural" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="icon-options-vertical"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                 <h6 class="dropdown-header">Action</h6>
-                                <a class="dropdown-item" href="#"><i class="icon-eye mr-2"></i>View Transaction</a>
-                                <a class="dropdown-item" href="#"><i class="icon-note mr-2"></i>Edit Transaction</a>
+                                <a class="dropdown-item" href="{{ route('finance.transaction.view') }}"><i class="icon-eye mr-2"></i>View Transaction</a>
+                                <a class="dropdown-item" href="{{ route('finance.transaction.create') }}"><i class="icon-note mr-2"></i>Edit Transaction</a>
                                 <a class="dropdown-item" href="#"><i class="icon-trash mr-2"></i>Delete</a>
                             </div>
                         </div>

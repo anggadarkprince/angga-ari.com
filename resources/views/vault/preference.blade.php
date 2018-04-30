@@ -12,19 +12,19 @@
                 <fieldset>
                     <legend>Security Setting</legend>
                     <div class="form-group row">
-                        <label for="category" class="col-md-3 col-form-label">Encryption</label>
+                        <label for="encryption" class="col-md-3 col-form-label">Default Encryption</label>
                         <div class="col-md-9">
-                            <select class="custom-select">
-                                <option value="1">SHA 512</option>
-                                <option value="2">SHA 256</option>
-                                <option value="3">AES 128</option>
-                                <option value="3">AES 256</option>
-                                <option value="4">DES</option>
+                            <select class="custom-select" name="encryption" id="encryption">
+                                <option value="sha512">SHA 512</option>
+                                <option value="sha256">SHA 256</option>
+                                <option value="aes128">AES 128</option>
+                                <option value="aes256">AES 256</option>
+                                <option value="des">DES</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="category" class="col-md-3 col-form-label">Reveal Password</label>
+                        <label for="reveal_stenography" class="col-md-3 col-form-label">Reveal Password</label>
                         <div class="col-md-9">
                             <div class="custom-control custom-radio">
                                 <input class="custom-control-input" type="radio" name="reveal" id="reveal_stenography" value="stenography" checked>

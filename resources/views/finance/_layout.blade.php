@@ -14,19 +14,19 @@
         </div>
         <div>
             @if(Route::current()->getName() == 'finance.transaction')
-                <a href="#" class="btn btn-sm btn-primary d-block d-sm-inline-block">
+                <a href="{{ route('finance.transaction.create') }}" class="btn btn-sm btn-primary d-block d-sm-inline-block">
                     <i class="icon-note mr-2 d-none d-sm-inline-block"></i>New Transaction
                 </a>
             @endif
 
             @if(Route::current()->getName() == 'finance.wallet')
-                <a href="#" class="btn btn-sm btn-primary d-block d-sm-inline-block">
+                <a href="{{ route('finance.wallet.create') }}" class="btn btn-sm btn-primary d-block d-sm-inline-block">
                     <i class="icon-note mr-2 d-none d-sm-inline-block"></i>New Wallet
                 </a>
             @endif
 
             @if(Route::current()->getName() == 'finance.category')
-                <a href="#" class="btn btn-sm btn-primary d-block d-sm-inline-block">
+                <a href="{{ route('finance.category.create') }}" class="btn btn-sm btn-primary d-block d-sm-inline-block">
                     <i class="icon-note mr-2 d-none d-sm-inline-block"></i>New Category
                 </a>
             @endif

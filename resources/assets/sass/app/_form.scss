@@ -5,11 +5,16 @@
   border-color: $gray-300;
 }
 
+.form-control-sm, .input-group-sm > .form-control, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .btn {
+  padding: .3rem .5rem;
+  font-size: .875rem;
+}
+
 .form-control:disabled, .form-control[readonly] {
   background-color: $gray-100;
 }
 
-.col-form-label {
+.col-form-label, .form-group label {
   font-size: 0.95rem;
 }
 
@@ -23,6 +28,10 @@
 }
 
 .custom-select {
+  font-size: 0.9rem;
+}
+
+.custom-control-label {
   font-size: 0.9rem;
 }
 
