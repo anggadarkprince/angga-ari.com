@@ -6,15 +6,13 @@
 
     <div class="container">
 
-        <p class="text-center text-primary">Still not find an answer?</p>
-
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h4 class="section-heading">Contact With Real Human</h4>
-                <p class="text-muted">Ask help and support with our communities</p>
-                <hr class="my-4">
-            </div>
+        <div class="text-center mb-5">
+            <h1><i class="icon-wrench"></i></h1>
+            <h3>Coming Soon</h3>
+            <p>We're on building something awesome</p>
         </div>
+
+        <p class="text-center text-primary">Find more information?</p>
     </div>
     @include('components.contact')
 @endsection

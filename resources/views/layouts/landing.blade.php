@@ -82,7 +82,7 @@
 
 @yield('content')
 
-@include('components.footer')
+@include('components.footer_simple')
 
 </body>
 </html>

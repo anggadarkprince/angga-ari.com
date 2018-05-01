@@ -41,6 +41,9 @@ Route::prefix('setting')->group(function () {
 Route::view('/help', 'statics.help')->name('help');
 Route::view('/premium', 'statics.premium')->name('premium');
 Route::view('/coming_soon', 'statics.coming_soon')->name('coming_soon');
+Route::view('/privacy', 'statics.privacy')->name('privacy');
+Route::view('/agreement', 'statics.agreement')->name('agreement');
+Route::view('/about', 'statics.about')->name('about');
 
 
 Route::prefix('app')->group(function () {

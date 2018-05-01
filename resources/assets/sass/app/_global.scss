@@ -9,7 +9,6 @@ body {
   @include sans-serif-font;
 }
 
-//noinspection CssOptimizeSimilarProperties
 hr {
   max-width: 50px;
   border-width: 3px;
@@ -108,6 +107,33 @@ section {
     @include sans-serif-font2;
     letter-spacing: 1px;
     font-size: 130%;
+  }
+}
+
+article {
+  line-height: 2;
+
+  .blockquote {
+    font-style: italic;
+    color: $gray-600;
+  }
+}
+
+.back-to-top {
+  display: none;
+  position: fixed;
+  bottom: 18px;
+  right: 15px;
+
+  i {
+    display: block;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    background-color: $primary;
   }
 }
 
