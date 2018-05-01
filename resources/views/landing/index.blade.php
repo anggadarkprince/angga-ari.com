@@ -11,14 +11,14 @@
                 </div>
                 <div class="col-lg-10 mx-auto">
                     <h1 class="text-uppercase sr-show-up">
-                        <strong>NERD SOFTWARE ARCHITECT</strong>
+                        <strong class="text-stronger">NERD SOFTWARE ARCHITECT</strong>
                     </h1>
                     <h3 class="text-wide sr-show-up">ANGGA ARI WIJAYA</h3>
                     <hr class="sr-show-up">
                 </div>
                 <div class="col-lg-8 mx-auto">
                     <p class="text-faded mb-5 sr-show-up">An introvert web programmer who tried to change his small world, craft things with his keyboard and papers, love warm rice and coffee!</p>
-                    <a class="btn btn-primary btn-xl js-scroll-trigger sr-button" href="#about">Find Out More</a>
+                    <a class="btn btn-primary btn-xl btn-pill js-scroll-trigger sr-button" href="#about">Find Out More</a>
                 </div>
             </div>
         </div>
@@ -36,7 +36,7 @@
                         I am very passionate about programming and new technology. Moreover I am very ease and ready to be self learner.
                         I force my self to keep persistent and discipline. I love working with my passion and been wanting to another challenge if there is an opportunity.
                     </p>
-                    <a class="btn btn-light btn-xl js-scroll-trigger sr-button" href="#profile">Meet him personally</a>
+                    <a class="btn btn-light btn-lg js-scroll-trigger sr-button" href="#profile">Meet him personally</a>
                 </div>
             </div>
         </div>
@@ -438,7 +438,7 @@
             </div>
 
             <div class="text-center">
-                <a class="btn btn-primary btn-xl mt-5 sr-showcase" href="{{ route('showcase') }}">SHOW ALL MY SHOWCASES</a>
+                <a class="btn btn-primary btn-pill btn-lg mt-5 sr-showcase" href="{{ route('showcase') }}">SHOW ALL MY SHOWCASES</a>
             </div>
         </div>
     </section>
@@ -639,7 +639,7 @@
             </div>
 
             <div class="text-center">
-                <a class="btn btn-primary btn-xl mt-5 sr-button" href="{{ route('blog') }}">VISIT MY BLOG</a>
+                <a class="btn btn-primary btn-pill btn-lg mt-5 sr-button" href="{{ route('blog') }}">VISIT MY BLOG</a>
             </div>
 
         </div>

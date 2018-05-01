@@ -10,7 +10,7 @@
                     <i class="icon-energy"></i>
                     <span class="d-block">Go Premium</span>
                 </h4>
-                <p class="text-muted">Kick out the ads and awesome support</p>
+                <p class="text-muted">Kick out the ads and get friendly support</p>
                 <hr class="my-4">
             </div>
             <div class="col-md-8">

@@ -39,7 +39,8 @@ Route::prefix('setting')->group(function () {
 });
 
 Route::view('/help', 'statics.help')->name('help');
-Route::view('/subscribe', 'statics.subscribe')->name('subscribe');
+Route::view('/premium', 'statics.premium')->name('premium');
+Route::view('/coming_soon', 'statics.coming_soon')->name('coming_soon');
 
 
 Route::prefix('app')->group(function () {

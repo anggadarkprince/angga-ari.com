@@ -15,6 +15,8 @@ mix
     .js('resources/assets/js/app.js', 'public/js')
     .scripts([
         'resources/assets/js/scripts/backtotop.js',
+        'resources/assets/js/scripts/searchbox.js',
+        'resources/assets/js/scripts/appthumbnail.js',
     ], 'public/js/dashboard.js')
     .scripts([
         'node_modules/scrollreveal/dist/scrollreveal.js',

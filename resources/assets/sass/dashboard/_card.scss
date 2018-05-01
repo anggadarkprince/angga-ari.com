@@ -1,35 +1,78 @@
+.card-app-wrapper {
+  div[class*="col-"] {
+    padding-right: 25px;
+    padding-left: 25px;
+
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+
+    @media (min-width: map-get($grid-breakpoints, "xl")) {
+      padding-right: 25px;
+      padding-left: 25px;
+    }
+  }
+
+  &.list-view {
+    div[class*="col-"] {
+      padding-right: 15px;
+      padding-left: 15px;
+
+      @media (min-width: map-get($grid-breakpoints, "xl")) {
+        padding-right: 25px;
+        padding-left: 25px;
+      }
+    }
+
+    .card-app {
+      flex-direction: row;
+      -webkit-box-orient: horizontal;
+      -moz-box-orient: horizontal;
+      margin-right: 0;
+      margin-bottom: 1.7rem;
+
+      .card-feature {
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.05);
+        height: auto;
+        width: 100px;
+      }
+
+      @media (min-width: map-get($grid-breakpoints, "md")) {
+        margin-bottom: 2rem;
+
+        .card-feature {
+          width: 200px;
+        }
+
+        .card-body {
+          padding-left: 1.8rem;
+        }
+      }
+    }
+  }
+}
+
 .card-app {
-  margin-right: 10px;
   margin-bottom: 2.3rem;
   border-radius: 10px;
 
   &.card-coming-soon {
-    text-align: center;
-    text-transform: uppercase;
+    .card-feature {
+      height: 4rem;
+    }
 
     .card-body {
-      padding: 3rem 1.25rem;
+      padding: 1.5rem 1.25rem;
 
       .card-title {
-        font-size: 2em;
-        color: $gray-600;
-        font-weight: 300;
+        font-size: 1.4rem;
       }
 
       .card-text {
-        margin-bottom: 0;
-        color: $gray-900;
-        letter-spacing: 2px;
-        padding-right: 0;
         font-size: 1.2rem;
       }
-
-      i {
-        background: $gray-300;
-        color: $gray-600;
-      }
     }
-
   }
 
   .card-feature {
@@ -61,6 +104,18 @@
       transform: translate(50%, -50%);
       background: $primary;
       font-size: 1.4rem;
+    }
+  }
+
+  .btn-arrow {
+    display: none;
+  }
+
+  @media (min-width: map-get($grid-breakpoints, "md")) {
+    margin-right: 10px;
+
+    .btn-arrow {
+      display: block;
     }
   }
 }

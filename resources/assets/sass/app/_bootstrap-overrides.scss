@@ -5,42 +5,50 @@
 
 .btn {
   font-weight: 600;
-  text-transform: uppercase;
-  border-radius: 300px;
-  @include sans-serif-font;
-}
-
-.btn:not([class*="btn-outline-"]) {
-  border: none;
-}
-
-[class*="btn-outline-"] {
   border-width: 2px;
+  text-transform: uppercase;
+}
+
+.btn-pill {
+  border-radius: 300px;
+}
+
+.btn-wide {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 .btn {
-  padding: 0.38rem 1rem;
+  font-size: 0.9rem;
+  padding: 0.38rem 0.8rem;
 }
 
-.btn.btn-wide {
-  padding: 0.38rem 1.5rem;
+.btn-sm {
+  font-size: 0.8rem;
+  padding: 0.3rem 0.5rem;
+  line-height: 1.3;
+}
+
+.btn-lg {
+  font-size: 1.1rem;
+  padding: 0.7rem 1.3rem;
 }
 
 .btn-xl {
+  font-size: 1.1rem;
   padding: 1rem 2rem;
 }
 
 .btn-primary {
   background-color: $primary;
   border-color: $primary;
-  &:hover,
-  &:focus,
-  &:active {
+
+  &:hover, &:focus, &:active {
     color: $white;
     background-color: darken($primary, 5%) !important;
   }
-  &:active,
-  &:focus {
+
+  &:active, &:focus {
     box-shadow: 0 0 0 0.2rem rgba(240, 95, 64, .5) !important;
   }
 }

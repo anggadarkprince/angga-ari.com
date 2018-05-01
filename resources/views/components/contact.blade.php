@@ -11,7 +11,7 @@
                 <div class="form-group">
                     <textarea class="form-control" id="message" placeholder="Your Message" rows="5" required></textarea>
                 </div>
-                <button class="btn btn-xl btn-primary mt-2" id="submit" type="submit">
+                <button class="btn btn-lg btn-primary mt-2" id="submit" type="submit">
                     Send Message
                 </button>
             </form>

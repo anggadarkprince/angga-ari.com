@@ -5,7 +5,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-sm-8 col-lg-5 col-xl-4">
+        <div class="col-sm-8 col-md-6 col-lg-5 col-xl-4">
 
             @if (session('status'))
                 <div class="alert alert-{{ session('type', 'success') }} text-left">
@@ -54,7 +54,7 @@
                         </div>
 
                         <div class="form-group mb-2 text-left row">
-                            <div class="col-6">
+                            <div class="col-7">
                                 <div class="checkbox">
                                     <label>
                                         <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -62,9 +62,9 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="col-6 text-right">
+                            <div class="col-5 text-right">
                                 <a href="{{ route('register') }}">
-                                    <small>{{ __('Register here') }}</small>
+                                    <small>{{ __('Register Me') }}</small>
                                 </a>
                             </div>
                         </div>
