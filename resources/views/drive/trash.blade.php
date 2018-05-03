@@ -31,7 +31,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <h1 class="display-3 mb-0"><i class="icon-folder-alt"></i></h1>
+                            <img src="{{ Storage::url('layouts/folder/folder-open-full.svg') }}" class="svg w-50">
                             <p class="file-name mb-0 small">Workspace</p>
                             <small class="text-gray-500 mb-0">23 Items</small>
                         </div>
@@ -52,7 +52,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <h1 class="display-3 mb-0"><i class="icon-doc"></i></h1>
+                            <img src="{{ Storage::url('layouts/filetype/pdf.svg') }}" class="svg w-50 mb-1">
                             <p class="file-name mb-0 small">High Performance MySQL v2.0.pdf</p>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <h1 class="display-3 mb-0"><i class="icon-doc"></i></h1>
+                            <img src="{{ Storage::url('layouts/filetype/txt.svg') }}" class="svg w-50 mb-1">
                             <p class="file-name mb-0 small">Illusion of numbers and letters (Published at 2018).txt</p>
                         </div>
                     </div>

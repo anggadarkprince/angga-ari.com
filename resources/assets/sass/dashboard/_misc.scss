@@ -1,0 +1,15 @@
+.cookie-choice {
+  position: fixed;
+  width: 100%;
+  background-color: $misty;
+  color: $gray-200;
+  left: 0px;
+  bottom: 0px;
+  padding: 12px 0;
+  z-index: 1000;
+  text-align: center;
+
+  span {
+    font-size: 0.9rem;
+  }
+}

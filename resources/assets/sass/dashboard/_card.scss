@@ -60,6 +60,10 @@
   &.card-coming-soon {
     .card-feature {
       height: 4rem;
+
+      .main-feature {
+        top: -10%;
+      }
     }
 
     .card-body {
@@ -76,8 +80,29 @@
   }
 
   .card-feature {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     height: 9rem;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    position: relative;
+
+    .main-feature, .secondary-feature {
+      position: absolute;
+    }
+
+    .main-feature {
+      width: 60%;
+      top: 20%;
+      left: -6%;
+    }
+
+    .secondary-feature {
+      opacity: 0.2;
+      top: -10%;
+      right: -50%;
+      width: 90%;
+    }
   }
 
   .card-body {
@@ -239,8 +264,13 @@
 .card-drive {
   margin-bottom: 20px;
   position: relative;
+  min-height: 152px;
 
-  &:active, &:focus, &:hover, &.active {
+  &.selected {
+    background: fade_out($primary, 0.97);
+  }
+
+  &.selected, &:active, &:focus, &:hover, &.active {
     border-color: $primary;
   }
 

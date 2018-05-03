@@ -24,7 +24,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <h1 class="display-3 mb-0"><i class="icon-camera"></i></h1>
+                            <img src="{{ Storage::url('layouts/folder/folder-album.svg') }}" class="svg w-50 mb-2">
                             <p class="file-name mb-0 small">Vacation on Monday</p>
                             <small class="text-gray-500 mb-0">23 Pictures</small>
                         </div>
@@ -44,7 +44,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <h1 class="display-3 mb-0"><i class="icon-camera"></i></h1>
+                            <img src="{{ Storage::url('layouts/folder/folder-album.svg') }}" class="svg w-50 mb-2">
                             <p class="file-name mb-0 small">Graduation</p>
                             <small class="text-gray-500 mb-0">535 Pictures</small>
                         </div>
@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <h1 class="display-3 mb-0"><i class="icon-camera"></i></h1>
+                            <img src="{{ Storage::url('layouts/folder/folder-album.svg') }}" class="svg w-50 mb-2">
                             <p class="file-name mb-0 small">Bali and lombok at once</p>
                             <small class="text-gray-500 mb-0">7423 Pictures</small>
                         </div>

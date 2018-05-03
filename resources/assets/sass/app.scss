@@ -5,13 +5,12 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~simple-line-icons/scss/simple-line-icons';
 @import '~@fortawesome/fontawesome-free-webfonts/scss/fontawesome';
-@import '~@fortawesome/fontawesome-free-webfonts/scss/fa-regular';
 @import '~@fortawesome/fontawesome-free-webfonts/scss/fa-solid';
-@import '~@fortawesome/fontawesome-free-webfonts/scss/fa-brands';
 
 @import "app/mixins.scss";
 @import "app/bootstrap-overrides.scss";
 @import "app/global.scss";
+@import "app/pallets";
 @import "app/form";
 
 @import "dashboard/layout.scss";
@@ -19,4 +18,5 @@
 @import "dashboard/card.scss";
 @import "dashboard/list.scss";
 @import "dashboard/footer.scss";
+@import "dashboard/misc.scss";
 

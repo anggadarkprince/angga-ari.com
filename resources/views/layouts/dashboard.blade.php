@@ -60,6 +60,12 @@
         </div>
     </footer>
 
+    <div class="cookie-choice alert mb-0 rounded-0">
+        <span>By continuing to browse the site you are agreeing to our use of cookies. For more details about cookies see our cookie policy.</span>
+        <a href="{{ route('privacy') }}" target="_blank" class="ml-2 text-strong text-info">See details</a>
+        <a class="ml-2 text-strong text-info" href="#" data-dismiss="alert" aria-label="Close">OK</a>
+    </div>
+
     <!-- Go To Top Link -->
     <a href="#" class="back-to-top">
         <i class="icon-arrow-up-circle"></i>
