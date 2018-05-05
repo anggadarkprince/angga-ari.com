@@ -10,9 +10,11 @@
 
 @import "app/mixins.scss";
 @import "app/bootstrap-overrides.scss";
+@import "app/typography.scss";
 @import "app/global.scss";
 @import "app/form";
 
+@import "landing/override.scss";
 @import "landing/navbar.scss";
 @import "landing/masthead.scss";
 @import "landing/skills";

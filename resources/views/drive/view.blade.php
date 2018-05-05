@@ -2,7 +2,7 @@
 
 @section('title', 'Download and share file')
 
-@section('content')
+@section('main')
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-3 my-4">

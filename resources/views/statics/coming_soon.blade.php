@@ -2,17 +2,14 @@
 
 @section('title', 'Coming Soon')
 
-@section('content')
-
+@section('main')
     <div class="container">
-
-        <div class="text-center mb-5">
+        <div class="text-center">
             <h1><i class="icon-wrench"></i></h1>
             <h3>Coming Soon</h3>
-            <p>We're on building something awesome</p>
-        </div>
+            <p class="mb-5">We're on building something awesome</p>
 
-        <p class="text-center text-primary">Find more information?</p>
+            <p class="mb-4">Find more information? <a href="{{ route('contact') }}">Click Here</a></p>
+        </div>
     </div>
-    @include('components.contact')
 @endsection

@@ -12,11 +12,13 @@
                 @else
                     <li class="breadcrumb-item d-flex w-100 justify-content-between">
                         <a href="{{ route('home') }}">
-                            All Applications
+                            {{ Route::current()->getName() == 'home' ? 'All Applications' : Request::segment(1) }}
                         </a>
-                        <a href="#" class="app-display-setting">
-                            Show As <i class="icon-menu ml-2"></i>
-                        </a>
+                        @if(Route::current()->getName() == 'home')
+                            <a href="#" class="app-display-setting">
+                                Show As <i class="icon-menu ml-2"></i>
+                            </a>
+                        @endif
                     </li>
                 @endif
 

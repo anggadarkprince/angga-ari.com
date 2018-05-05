@@ -693,8 +693,13 @@
                 </div>
             </div>
         </div>
-        @include('components.contact')
-
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mx-auto text-center">
+                    @include('components.contact')
+                </div>
+            </div>
+        </div>
     </section>
 
     <script>

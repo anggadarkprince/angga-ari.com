@@ -2,7 +2,7 @@
 
 @section('title', 'Subscribe')
 
-@section('content')
+@section('main')
     <div class="container">
         <div class="row justify-content-center mb-3">
             <div class="col-lg-12 text-center mb-4">

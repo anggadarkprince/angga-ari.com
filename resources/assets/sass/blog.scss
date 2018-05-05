@@ -10,6 +10,7 @@
 
 @import "app/mixins.scss";
 @import "app/bootstrap-overrides.scss";
+@import "app/typography.scss";
 @import "app/global.scss";
 @import "app/form.scss";
 
@@ -20,4 +21,4 @@
 @import "blog/article";
 @import "blog/comment";
 
-@import "landing/footer";
+@import "dashboard/footer";

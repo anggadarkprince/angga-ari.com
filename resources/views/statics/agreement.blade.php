@@ -2,7 +2,7 @@
 
 @section('title', 'Agreement')
 
-@section('content')
+@section('main')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10">
@@ -200,7 +200,7 @@
                         Terms and your account. You may terminate the Terms at any time by deleting your login account with
                         the Website and discontinuing use of any and all parts of the Website.
                     </p>
-                    <p class="mb-4">Find more information? <a href="{{ route('about') }}">Click Here</a></p>
+                    <p class="mb-4">Find more information? <a href="{{ route('contact') }}">Click Here</a></p>
 
                     <p class="small text-muted">Last updated by Administrator at 19 November 2018</p>
                 </article>

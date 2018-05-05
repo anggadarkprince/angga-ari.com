@@ -2,12 +2,11 @@
   position: absolute;
   border-bottom: 1px solid $gray-200;
   background-color: white;
-  @include sans-serif-font;
 
   .navbar-toggler {
     font-size: 14px;
     padding: 12px;
-    font-weight: 600;
+    font-weight: 500;
   }
 
   .navbar-brand {
@@ -44,7 +43,7 @@
         > a {
           padding: 10px 20px;
           color: $white;
-          font-weight: 600;
+          font-weight: 500;
 
           &:focus,
           &:hover {

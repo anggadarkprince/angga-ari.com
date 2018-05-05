@@ -2,7 +2,7 @@
 
 @section('title', 'Request Reset Link')
 
-@section('content')
+@section('main')
 <div class="container">
 
     <div class="row justify-content-center">

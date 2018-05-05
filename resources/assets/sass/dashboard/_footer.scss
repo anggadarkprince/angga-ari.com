@@ -1,16 +1,16 @@
 footer {
-  padding: 20px 0;
+  padding: 70px 0;
   border-top: 1px solid rgba(0, 0, 0, .1);
   font-size: 0.9rem;
+
+  li {
+    line-height: 2;
+  }
 
   @media (min-width: map-get($grid-breakpoints, "sm")) {
     p {
       font-size: 0.95rem;
     }
-  }
-
-  a {
-    font-weight: 600;
   }
 }
 

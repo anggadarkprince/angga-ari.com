@@ -5,7 +5,7 @@
   @include transition-all;
 
   .navbar-brand {
-    font-weight: 700;
+    font-weight: 500;
     text-transform: uppercase;
     color: $primary;
     @include sans-serif-font;
@@ -20,7 +20,7 @@
     > li.nav-item {
       > a.nav-link, > a.nav-link:focus {
         font-size: .9rem;
-        font-weight: 600;
+        font-weight: 500;
         text-transform: uppercase;
         color: $gray-900;
 

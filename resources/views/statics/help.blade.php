@@ -2,13 +2,16 @@
 
 @section('title', 'Help Page')
 
-@section('content')
-
+@section('main')
     <div class="container">
         <div class="row justify-content-center mb-3">
-            <div class="col-lg-12 text-center mb-4">
-                <h4 class="section-heading">Help and FAQ</h4>
-                <p class="text-muted">Find some frequent question and help</p>
+            <div class="col-lg-6 text-center mb-4">
+                <h4 class="section-heading">Do you need any help?</h4>
+                <p class="text-muted">
+                    Here's the common asked questions.
+                    You can also <a href="{{ route('contact') }}">email</a> or <a href="#">tweet us</a>
+                    and we'll get back to you!
+                </p>
                 <hr class="my-4">
             </div>
             <div class="col-md-8">
@@ -57,15 +60,9 @@
             </div>
         </div>
 
-        <p class="text-center text-primary">Still not find an answer?</p>
-
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h4 class="section-heading">Contact With Real Human</h4>
-                <p class="text-muted">Ask help and support with our communities</p>
-                <hr class="my-4">
-            </div>
-        </div>
+        <p class="text-center">
+            Still not find an answer? Try ask via
+            <a href="{{ route('contact') }}">contact page</a>.
+        </p>
     </div>
-    @include('components.contact')
 @endsection

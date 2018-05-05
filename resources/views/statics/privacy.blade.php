@@ -2,7 +2,7 @@
 
 @section('title', 'Privacy Policy')
 
-@section('content')
+@section('main')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10">
@@ -184,7 +184,7 @@
                         privacy@orion.com or by mail at: Orion, PO Box 1630, Avenue 34 Gresik, East Java -
                         Indonesia.
                     </p>
-                    <p class="mb-4">Find more information? <a href="{{ route('about') }}">Click Here</a></p>
+                    <p class="mb-4">Find more information? <a href="{{ route('contact') }}">Click Here</a></p>
 
                     <p class="small text-muted">Last updated by Administrator at 19 November 2018</p>
                 </article>

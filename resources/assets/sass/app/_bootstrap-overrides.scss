@@ -4,7 +4,7 @@
 }
 
 .btn {
-  font-weight: 600;
+  font-weight: 500;
   border-width: 2px;
   text-transform: uppercase;
 }
@@ -117,7 +117,7 @@
     font-size: 0.9rem;
 
     .breadcrumb-item {
-      font-weight: 600;
+      font-weight: 500;
 
       &.active {
         color: fade_out($white, 0.1);
@@ -135,6 +135,13 @@
 }
 
 .card {
+  border-radius: 0.5rem;
+
+  .card-img-top {
+    border-top-right-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+  }
+
   .card-text {
     font-size: 0.9rem;
 
@@ -168,4 +175,39 @@
 .badge {
   padding: 0.4em 0.7em;
   font-size: 70%;
+}
+
+.modal {
+  &.fade {
+    .modal-dialog {
+      transition: height .3s ease-in-out, width .3s ease-in-out, margin .3s ease-in-out, transform .6s cubic-bezier(0, 0, 0, 1);
+      transform: scale(.9) translate(0, 0);
+    }
+  }
+
+  &.show {
+    .modal-dialog {
+      transform: scale(1);
+    }
+  }
+
+  .modal-content {
+    border-radius: 8px;
+  }
+
+  .modal-header {
+    border-bottom: none;
+  }
+
+  .modal-footer {
+    border-top: none;
+  }
+}
+
+.modal-backdrop {
+  background-color: $dark-misty;
+
+  &.show {
+    opacity: 0.9;
+  }
 }

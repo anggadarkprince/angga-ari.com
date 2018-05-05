@@ -18,7 +18,6 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -26,12 +25,20 @@
 <body>
     <div id="app">
         @include('components.navbar')
+        @yield('sub_header')
 
-        <main class="py-5 content-wrapper">
-            @yield('content')
+        <main class="py-3 py-lg-5 content-wrapper">
+            @yield('main')
         </main>
 
         @include('components.footer')
+        @include('components.back_to_top')
+
+        <div class="cookie-choice alert mb-0 rounded-0">
+            <span class="d-block d-sm-inline-block">By continuing to browse the site you are agreeing to our use of cookies. For more details about cookies see our cookie policy.</span>
+            <a href="{{ route('privacy') }}" target="_blank" class="ml-2 text-strong text-info">See details</a>
+            <a class="ml-2 text-strong text-info" href="#" data-dismiss="alert" aria-label="Close">OK</a>
+        </div>
     </div>
 </body>
 </html>

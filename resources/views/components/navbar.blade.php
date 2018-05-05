@@ -23,7 +23,7 @@
                         <i class="icon-energy mr-2"></i>{{ __('Go Premium') }}
                     </a>
                 </li>
-                <li class="nav-item d-none d-md-inline-block">
+                <li class="nav-item d-none d-lg-inline-block">
                     <a class="nav-link" href="{{ route('coming_soon') }}">
                         {{ __('Discovery') }}
                     </a>
