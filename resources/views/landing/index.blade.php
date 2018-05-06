@@ -140,7 +140,7 @@
                     <p class="mb-0 section-heading-group"><strong>JOURNEY</strong></p>
                     <small class="text-muted">Education and experiences</small>
                 </div>
-                <div class="col-sm-8 text-center text-sm-left">
+                <div class="col-sm-8">
                     <div class="mb-4">
                         <p class="text-primary sr-profile"><strong>EDUCATIONS</strong></p>
                         <ul class="list-unstyled">
@@ -696,7 +696,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 mx-auto text-center">
-                    @include('components.contact')
+                    @include('components._contact')
                 </div>
             </div>
         </div>

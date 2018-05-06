@@ -82,8 +82,8 @@
 
 @yield('content')
 
-@include('components.footer_mini')
-@include('components.back_to_top')
+@include('components._footer_mini')
+@include('components._to_top')
 
 </body>
 </html>

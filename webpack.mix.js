@@ -19,6 +19,8 @@ mix
         'resources/assets/js/scripts/appthumbnail.js',
         'resources/assets/js/scripts/svg.js',
         'resources/assets/js/scripts/drive.js',
+        'resources/assets/js/scripts/cookie.js',
+        'resources/assets/js/scripts/delete.js',
     ], 'public/js/dashboard.js')
     .scripts([
         'node_modules/scrollreveal/dist/scrollreveal.js',

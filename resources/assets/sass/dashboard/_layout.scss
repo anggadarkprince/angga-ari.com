@@ -2,136 +2,27 @@ body {
   background-color: #fdfdfd;
 }
 
-.navbar-app {
-  background-color: #fff;
-  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.06);
-  @include transition-all;
-  padding: 0.9rem 0;
-
-  > .container {
-    padding-left: 15px;
-    padding-right: 15px;
-    position: relative;
-  }
-
-  .navbar-brand {
-    font-weight: 600;
-    color: $primary;
-    @include sans-serif-font;
-
-    &:focus,
-    &:hover {
-      color: darken($primary, .1);
-    }
-  }
-
-  .search-form {
-    display: none;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: 0 15px;
-    z-index: 10;
-
-    @media (min-width: map-get($grid-breakpoints, "md")) {
-      display: block !important;
-      position: static;
-      margin: 0;
-    }
-
-    .input-group {
-      position: relative;
-
-      input {
-        padding: 0.55rem 0.4rem 0.5rem 2.2rem;
-        font-size: 0.8rem;
-        border-radius: 5px;
-        @include transition-all;
-
-        @media (min-width: map-get($grid-breakpoints, "md")) {
-          padding: .3rem .5rem .3rem 2rem;
-        }
-
-        @media (min-width: map-get($grid-breakpoints, "lg")) {
-          width: 270px;
-
-          &:focus {
-            width: 290px;
-          }
-        }
-
-        @media (min-width: map-get($grid-breakpoints, "xl")) {
-          width: 300px;
-
-          &:focus {
-            width: 370px;
-          }
-        }
-      }
-    }
-
-    i {
-      position: absolute;
-      padding: 0.76rem;
-      z-index: 3;
-      color: $gray-600;
-      font-size: 0.75rem;
-
-      @media (min-width: map-get($grid-breakpoints, "md")) {
-        padding: 0.62rem 0.7rem;
-      }
-    }
-  }
-
-  .navbar-nav > li.nav-item {
-    &.active a.nav-link {
-      color: $primary;
-    }
-
-    > a.nav-link {
-      padding: 0.5rem;
-      font-size: .9rem;
-      color: inherit;
-
-      @media (min-width: map-get($grid-breakpoints, "md")) {
-        padding: 0.5rem 0.75rem;
-      }
-
-      i {
-        vertical-align: middle;
-      }
-    }
-  }
-
-  .dropdown-account {
-    img {
-      width: 35px;
-      height: 35px;
-    }
-  }
-}
-
 .content-wrapper {
   min-height: calc(100vh - 145px);
 }
 
-.box-shadow {
-  @include box-shadow
-}
-
 .section-title {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+
+  h4 {
+    font-size: 1.4rem;
+  }
 
   i[class*='icon-'] {
     margin-right: 15px;
-  }
-
-  small {
-    margin-left: 40px;
   }
 }
 
 .section-content {
   padding-top: 1rem;
   margin-bottom: 2rem;
+}
+
+.box-shadow {
+  @include box-shadow
 }

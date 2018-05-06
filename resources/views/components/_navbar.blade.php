@@ -1,13 +1,20 @@
 <nav class="navbar navbar-expand navbar-app">
     <div class="container">
-        <a class="navbar-brand text-uppercase mr-1 mr-sm-4" href="{{ url('/') }}">
-            {{ config('app.name') }}
-        </a>
+        @if(Request::segment(1) == 'app')
+            <div class="navbar-brand app text-uppercase mr-1 mr-sm-4">
+                <a href="{{ url('/') }}" class="d-block">{{ Request::segment(2) }}</a>
+                <small class="text-gray-500">{{ config('app.name') }}</small>
+            </div>
+        @else
+            <a class="navbar-brand text-uppercase mr-1 mr-sm-4" href="{{ url('/') }}">
+                {{ config('app.name') }}
+            </a>
+        @endif
 
         <div class="navbar-collapse">
             <form action="search" class="ml-lg-4 search-form">
                 <div class="input-group">
-                    <input class="form-control form-control-sm" id="search" name="q" type="text" placeholder="Search" aria-label="Search">
+                    <input class="form-control" id="search" name="q" type="text" placeholder="Search" aria-label="Search">
                     <i class="icon-magnifier"></i>
                 </div>
             </form>
@@ -30,14 +37,14 @@
                 </li>
                 @auth
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link notification" href="#">
                             <i class="icon-bell d-sm-none"></i>
                             <span class="d-none d-sm-inline-block">{{ __('Notifications') }}</span>
                             <span class="badge badge-primary ml-1 ml-lg-2">23</span>
                         </a>
                     </li>
-                    <li class="nav-item dropdown dropdown-account">
-                        <a id="dropdown-account" class="nav-link py-0 pr-0 pl-2 pl-md-3" href="#" role="button"
+                    <li class="nav-item dropdown dropdown-account pl-3">
+                        <a id="dropdown-account" class="nav-link p-0" href="#" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img class="rounded-circle"
                                  src="{{ Storage::url('avatars/' . (Auth::user()->avatar ? Auth::user()->avatar : 'noavatar.jpg')) }}"

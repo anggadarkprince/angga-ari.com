@@ -9,7 +9,7 @@
         </div>
 
         <div class="mt-3 user-control">
-            <a href="{{ route('setting.profile') }}" class="btn btn-sm btn-primary">Edit Profile</a>
+            <a href="{{ route('setting.profile') }}" class="btn btn-sm btn-primary">Edit<span class="{{ Request::segment(1) == 'app' ? 'd-none ' : '' }}d-xl-inline-block"> Profile</span></a>
             <a href="{{ route('setting.notification') }}" class="btn btn-sm btn-primary"><i class="icon-bell"></i></a>
         </div>
     </div>

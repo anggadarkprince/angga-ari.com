@@ -60,8 +60,8 @@
 
 @yield('content')
 
-@include('components.footer')
-@include('components.back_to_top')
+@include('components._footer')
+@include('components._to_top')
 
 </body>
 </html>

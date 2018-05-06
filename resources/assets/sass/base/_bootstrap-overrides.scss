@@ -14,8 +14,8 @@
 }
 
 .btn-wide {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 2.2rem;
+  padding-right: 2.2rem;
 }
 
 .btn {
@@ -89,8 +89,17 @@
     color: $gray-700;
     transition: none;
     text-transform: uppercase;
-    font-size: 0.95rem;
-    padding: 0.9rem 0.6rem;
+    font-size: 0.75rem;
+    padding: 0.9rem 0;
+
+    @media (min-width: map-get($grid-breakpoints, "sm")) {
+      font-size: 0.9rem;
+      padding: 0.9rem 0.5rem;
+    }
+
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+      padding: 0.9rem 1rem;
+    }
 
     &.active, &:hover:not(.disabled), &:active:not(.disabled) {
       border-bottom: 2px solid $primary;
@@ -103,6 +112,11 @@
 
     i {
       margin-right: 10px;
+      display: none;
+
+      @media (min-width: map-get($grid-breakpoints, "md")) {
+        display: inline-block;
+      }
     }
   }
 }
@@ -114,7 +128,11 @@
     margin-bottom: 0;
     padding: 0.75rem 0;
     background-color: transparent;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+
+    @media (min-width: map-get($grid-breakpoints, "sm")) {
+      font-size: 0.9rem;
+    }
 
     .breadcrumb-item {
       font-weight: 500;
@@ -159,7 +177,7 @@
 
 .progress {
   height: 0.4rem;
-  border-radius: 0;
+  border-radius: 5px;
 }
 
 .list-inline-item:not(:last-child) {
@@ -195,8 +213,16 @@
     border-radius: 8px;
   }
 
-  .modal-header {
+  .modal-header:not(.border) {
     border-bottom: none;
+  }
+
+  .modal-title {
+    font-size: 1.2rem;
+
+    i {
+      font-size: 1rem;
+    }
   }
 
   .modal-footer {

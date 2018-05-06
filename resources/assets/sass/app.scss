@@ -1,20 +1,17 @@
-// Variables
-@import "app/variables";
+@import "base/variables";
 
-// Bootstrap
 @import '~bootstrap/scss/bootstrap';
 @import '~simple-line-icons/scss/simple-line-icons';
-@import '~@fortawesome/fontawesome-free-webfonts/scss/fontawesome';
-@import '~@fortawesome/fontawesome-free-webfonts/scss/fa-solid';
 
-@import "app/mixins.scss";
-@import "app/bootstrap-overrides.scss";
-@import "app/typography.scss";
-@import "app/global.scss";
-@import "app/pallets";
-@import "app/form";
+@import "base/mixins.scss";
+@import "base/bootstrap-overrides.scss";
+@import "base/typography.scss";
+@import "base/global.scss";
+@import "base/pallets";
+@import "base/form";
 
 @import "dashboard/layout.scss";
+@import "dashboard/navbar.scss";
 @import "dashboard/sidebar.scss";
 @import "dashboard/card.scss";
 @import "dashboard/list.scss";

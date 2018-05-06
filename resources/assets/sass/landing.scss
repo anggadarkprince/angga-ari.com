@@ -1,4 +1,4 @@
-@import "app/variables.scss";
+@import "base/variables.scss";
 
 @import '~bootstrap/scss/bootstrap';
 @import '~simple-line-icons/scss/simple-line-icons';
@@ -8,11 +8,11 @@
 @import '~@fortawesome/fontawesome-free-webfonts/scss/fa-brands';
 @import '~magnific-popup/dist/magnific-popup.css';
 
-@import "app/mixins.scss";
-@import "app/bootstrap-overrides.scss";
-@import "app/typography.scss";
-@import "app/global.scss";
-@import "app/form";
+@import "base/mixins.scss";
+@import "base/bootstrap-overrides.scss";
+@import "base/typography.scss";
+@import "base/global.scss";
+@import "base/form";
 
 @import "landing/override.scss";
 @import "landing/navbar.scss";

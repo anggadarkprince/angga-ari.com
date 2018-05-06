@@ -1,0 +1,128 @@
+.navbar-app {
+  background-color: #fff;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.06);
+  @include transition-all;
+  padding: 0.9rem 0;
+
+  > .container {
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+  }
+
+  .navbar-brand {
+    font-weight: 500;
+
+    &.app {
+      font-size: 1.1rem;
+      line-height: 0.852;
+
+      small {
+        font-size: 0.75rem;
+      }
+    }
+  }
+
+  .search-form {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 15px;
+    z-index: 10;
+
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+      display: block !important;
+      position: static;
+      margin: 0;
+    }
+
+    .input-group {
+      position: relative;
+
+      input {
+        padding: 0.55rem 0.4rem 0.5rem 2.2rem;
+        font-size: 0.8rem;
+        border-radius: 5px;
+        @include transition-all;
+
+        @media (min-width: map-get($grid-breakpoints, "md")) {
+          padding: .4rem .5rem .4rem 2rem;
+        }
+
+        @media (min-width: map-get($grid-breakpoints, "lg")) {
+          width: 270px;
+
+          &:focus {
+            width: 290px;
+          }
+        }
+
+        @media (min-width: map-get($grid-breakpoints, "xl")) {
+          width: 300px;
+
+          &:focus {
+            width: 370px;
+          }
+        }
+      }
+    }
+
+    i {
+      position: absolute;
+      padding: 0.76rem;
+      z-index: 3;
+      color: $gray-600;
+      font-size: 0.75rem;
+
+      @media (min-width: map-get($grid-breakpoints, "md")) {
+        padding: 0.68rem 0.7rem;
+      }
+    }
+  }
+
+  .navbar-nav > li.nav-item {
+    &.active a.nav-link {
+      color: $primary;
+    }
+
+    > a.nav-link {
+      padding: 0.5rem;
+      font-size: .9rem;
+      color: inherit;
+
+      @media (min-width: map-get($grid-breakpoints, "md")) {
+        padding: 0.5rem 0.75rem;
+      }
+
+      i {
+        vertical-align: middle;
+      }
+    }
+
+    .notification {
+      position: relative;
+
+      @media (max-width: map-get($grid-breakpoints, "sm")) {
+        .badge {
+          border-radius: 50%;
+          width: 10px;
+          height: 10px;
+          position: absolute;
+          top: 6px;
+          right: 5px;
+          text-indent: -9999px;
+          padding: 0;
+          border: 2px solid #fff;
+        }
+      }
+    }
+  }
+
+  .dropdown-account {
+    img {
+      width: 35px;
+      height: 35px;
+    }
+  }
+}

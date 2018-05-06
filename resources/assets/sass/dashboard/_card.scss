@@ -233,32 +233,14 @@
 }
 
 .card-portfolio {
-  margin-bottom: 25px;
-
-  &.card-empty {
-    min-height: 295px;
-  }
-
-  .card-body {
-    padding: 0.7rem 1rem;
-    min-height: 115px;
-  }
-
   .card-title {
     font-size: 1.1rem;
   }
 
   .card-text {
+    font-size: 0.9rem;
     letter-spacing: 1px;
   }
-
-  .card-footer {
-    padding: 0.55rem 0.8rem 0.55rem 1rem;
-  }
-}
-
-.card-text.small, .card-footer.small {
-  font-size: 0.9rem;
 }
 
 .card-drive {

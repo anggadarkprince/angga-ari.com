@@ -2,16 +2,10 @@
 
 @section('content')
     <div class="section-title">
-        <h4 class="mb-0">
-            <a href="{{ route('home') }}" class="link-natural">
-                <i class="icon-arrow-left-circle"></i>
-            </a>Settings
-        </h4>
-        <small class="text-muted">
-            @yield('setting_description')
-        </small>
+        <h4 class="mb-0">Settings</h4>
+        <small class="text-muted">@yield('setting_description')</small>
     </div>
-    <ul class="nav nav-tabs mb-4">
+    <ul class="nav nav-tabs flex-row justify-content-lg-start justify-content-between mb-4">
         <li class="nav-item">
             <a class="nav-link{{ Route::current()->getName() == 'setting.profile' ? ' active' : '' }}" href="{{ route('setting.profile') }}">
                 <i class="icon-user"></i>Profile
@@ -19,7 +13,7 @@
         </li>
         <li class="nav-item">
             <a class="nav-link{{ Route::current()->getName() == 'setting.contact' ? ' active' : '' }}" href="{{ route('setting.contact') }}">
-                <i class="icon-envelope-open"></i>Contact
+                <i class="icon-location-pin"></i>Contact
             </a>
         </li>
         <li class="nav-item">
@@ -36,7 +30,7 @@
 
     <div class="section-content">
         <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-xl-10">
                 @yield('setting_content')
             </div>
         </div>

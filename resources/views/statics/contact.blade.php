@@ -10,7 +10,7 @@
                 <p class="text-muted">Ask help and support with our communities</p>
                 <hr class="my-4">
 
-                @include('components.contact')
+                @include('components._contact')
             </div>
         </div>
     </div>

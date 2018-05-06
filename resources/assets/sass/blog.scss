@@ -1,18 +1,14 @@
-@import "app/variables.scss";
+@import "base/variables.scss";
 
 @import '~bootstrap/scss/bootstrap';
 @import '~simple-line-icons/scss/simple-line-icons';
-@import '~@fortawesome/fontawesome-free-webfonts/scss/fontawesome';
-@import '~@fortawesome/fontawesome-free-webfonts/scss/fa-regular';
-@import '~@fortawesome/fontawesome-free-webfonts/scss/fa-solid';
-@import '~@fortawesome/fontawesome-free-webfonts/scss/fa-brands';
 @import '~prismjs/themes/prism-tomorrow.css';
 
-@import "app/mixins.scss";
-@import "app/bootstrap-overrides.scss";
-@import "app/typography.scss";
-@import "app/global.scss";
-@import "app/form.scss";
+@import "base/mixins.scss";
+@import "base/bootstrap-overrides.scss";
+@import "base/typography.scss";
+@import "base/global.scss";
+@import "base/form.scss";
 
 @import "blog/navbar";
 @import "blog/author";

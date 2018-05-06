@@ -52,6 +52,8 @@ Route::prefix('app')->group(function () {
         Route::view('/achievement', 'showcase.achievement')->name('showcase.achievement');
         Route::view('/skill', 'showcase.skill')->name('showcase.skill');
         Route::view('/profile', 'showcase.profile')->name('showcase.profile');
+
+        Route::view('/portfolio/create', 'showcase.portfolio.create')->name('showcase.portfolio.create');
         Route::view('/{portfolio?}', 'showcase.portfolio')->name('showcase.portfolio');
     });
 

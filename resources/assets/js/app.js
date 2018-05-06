@@ -22,3 +22,7 @@ if($('#app').length) {
         el: '#app'
     });
 }
+
+$('[data-toggle="popover"]').popover({
+    trigger: 'focus'
+});

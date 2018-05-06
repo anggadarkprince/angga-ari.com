@@ -1,113 +1,125 @@
-@extends('showcase._layout')
+@extends('layouts.dashboard')
 
-@section('title', 'Showcase Skill')
+@section('title', 'Showcase - Skill')
 
-@section('showcase_description', 'Advanced knowledge in yourself')
-
-@section('showcase_content')
-    <div class="row justify-content-center">
-        <div class="col-md-11">
+@section('content')
+    <div class="section-title d-sm-flex w-100 justify-content-between">
+        <div class="d-none d-sm-block">
+            <h4 class="mb-0">Expertise</h4>
+            <small class="text-muted">Advanced knowledge in yourself</small>
+        </div>
+        <div class="mt-0 mt-sm-2">
+            <a href="#modal-form-skill" data-toggle="modal" class="btn btn-sm btn-primary d-block d-sm-inline-block">
+                <i class="icon-note mr-2 d-none d-sm-inline-block"></i>New Skill
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
             <div class="card box-shadow mb-4">
-                <div class="card-body pr-3">
-                    <h5 class="card-title mb-2"><a href="#">ADVANCED CSS</a></h5>
-                    <p class="card-text mb-2">
-                        We're entering the deepest realms of CSS3 now, using gulp stack and webpack automate builder.
-                    </p>
-                    <p class="text-muted small text-uppercase mb-1">Front End</p>
-                    <ul class="list-inline mb-0">
-                        <li class="list-inline-item w-75">
-                            <div class="progress">
+                <div class="card-body d-flex justify-content-start pr-3">
+                    <img src="{{ Storage::url('layouts/icons/footwear.svg') }}" class="pr-3 mr-3 border-right align-self-start d-none d-sm-block" style="width: 100px">
+                    <div class="w-100">
+                        <p class="card-title text-strong mb-1"><a href="#">Advanced CSS</a></p>
+                        <p class="text-muted small text-uppercase mb-1">Front End</p>
+                        <p class="card-text mb-2">
+                            We're entering the deepest realms of CSS3 now, using gulp stack and webpack automate builder.
+                        </p>
+                        <div class="d-flex flex-row align-items-center">
+                            <div class="progress w-100">
                                 <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
-                        </li>
-                        <li class="list-inline-item">
-                            <small><strong class="text-primary">75 / 100</strong></small>
-                        </li>
-                        <li class="list-inline-item float-right">
-                            <div class="dropdown mt-md-1 text-muted">
-                                <a href="#" class="link-natural" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <small class="text-center" style="width: 100px"><strong class="text-primary">75 / 100</strong></small>
+                            <div class="dropdown">
+                                <a href="#" class="link-muted small" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="icon-options-vertical"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                     <h6 class="dropdown-header">Action</h6>
                                     <a class="dropdown-item" href="#"><i class="icon-eye mr-2"></i>View In Showcase</a>
-                                    <a class="dropdown-item" href="#"><i class="icon-note mr-2"></i>Edit Skill</a>
-                                    <a class="dropdown-item" href="#"><i class="icon-trash mr-2"></i>Delete</a>
+                                    <a class="dropdown-item" href="#" data-toggle="modal"><i class="icon-note mr-2"></i>Edit Skill</a>
+                                    <a class="dropdown-item btn-delete" href="#modal-delete" data-toggle="modal"
+                                       data-id="1" data-label="Advanced CSS" data-title="Skill" data-url="{{ route('showcase.skill') }}">
+                                        <i class="icon-trash mr-2"></i>Delete
+                                    </a>
                                 </div>
                             </div>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="card box-shadow mb-4">
-                <div class="card-body pr-3">
-                    <h5 class="card-title mb-2"><a href="#">FRONT END DESIGN</a></h5>
-                    <p class="card-text mb-2">
-                        Involves creating the HTML, CSS, and presentational JavaScript code that makes up a user interface.
-                    </p>
-                    <p class="text-muted small text-uppercase mb-1">Front End</p>
-                    <ul class="list-inline mb-0">
-                        <li class="list-inline-item w-75">
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 45%" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="card-body d-flex justify-content-start pr-3">
+                    <img src="{{ Storage::url('layouts/icons/headphones.svg') }}" class="pr-3 mr-3 border-right align-self-start d-none d-sm-block" style="width: 100px">
+                    <div class="w-100">
+                        <p class="card-title text-strong mb-1"><a href="#">Front End Design</a></p>
+                        <p class="text-muted small text-uppercase mb-1">Front End</p>
+                        <p class="card-text mb-2">
+                            Involves creating the HTML, CSS, and presentational JavaScript code that makes up a user interface.
+                        </p>
+                        <div class="d-flex flex-row align-items-center">
+                            <div class="progress w-100">
+                                <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
-                        </li>
-                        <li class="list-inline-item">
-                            <small><strong class="text-primary">50 / 100</strong></small>
-                        </li>
-                        <li class="list-inline-item float-right">
-                            <div class="dropdown mt-md-1 text-muted">
-                                <a href="#" class="link-natural" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <small class="text-center" style="width: 100px"><strong class="text-primary">50 / 100</strong></small>
+                            <div class="dropdown">
+                                <a href="#" class="link-muted small" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="icon-options-vertical"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                     <h6 class="dropdown-header">Action</h6>
                                     <a class="dropdown-item" href="#"><i class="icon-eye mr-2"></i>View In Showcase</a>
-                                    <a class="dropdown-item" href="#"><i class="icon-note mr-2"></i>Edit Skill</a>
-                                    <a class="dropdown-item" href="#"><i class="icon-trash mr-2"></i>Delete</a>
+                                    <a class="dropdown-item" href="#modal-form-skill" data-toggle="modal"><i class="icon-note mr-2"></i>Edit Skill</a>
+                                    <a class="dropdown-item btn-delete" href="#modal-delete" data-toggle="modal"
+                                       data-id="2" data-label="Front End Design" data-title="Skill" data-url="{{ route('showcase.skill') }}">
+                                        <i class="icon-trash mr-2"></i>Delete
+                                    </a>
                                 </div>
                             </div>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="card box-shadow mb-4">
-                <div class="card-body pr-3">
-                    <h5 class="card-title mb-2"><a href="#">VERSION CONTROL</a></h5>
-                    <p class="card-text mb-2">
-                        GIT version control software to track every modification my code in a special kind of database.
-                    </p>
-                    <p class="text-muted small text-uppercase mb-1">Front End</p>
-                    <ul class="list-inline mb-0">
-                        <li class="list-inline-item w-75">
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 33%" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="card-body d-flex justify-content-start pr-3">
+                    <img src="{{ Storage::url('layouts/icons/camera.svg') }}" class="pr-3 mr-3 border-right align-self-start d-none d-sm-block" style="width: 100px">
+                    <div class="w-100">
+                        <p class="card-title text-strong mb-1"><a href="#">Version Control</a></p>
+                        <p class="text-muted small text-uppercase mb-1">Programming</p>
+                        <p class="card-text mb-2">
+                            GIT version control software to track every modification my code in a special kind of database.
+                        </p>
+                        <div class="d-flex flex-row align-items-center">
+                            <div class="progress w-100">
+                                <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
-                        </li>
-                        <li class="list-inline-item">
-                            <small><strong class="text-primary">33 / 100</strong></small>
-                        </li>
-                        <li class="list-inline-item float-right">
-                            <div class="dropdown mt-md-1 text-muted">
-                                <a href="#" class="link-natural" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <small class="text-center" style="width: 100px"><strong class="text-primary">75 / 100</strong></small>
+                            <div class="dropdown">
+                                <a href="#" class="link-muted small" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="icon-options-vertical"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                     <h6 class="dropdown-header">Action</h6>
                                     <a class="dropdown-item" href="#"><i class="icon-eye mr-2"></i>View In Showcase</a>
-                                    <a class="dropdown-item" href="#"><i class="icon-note mr-2"></i>Edit Skill</a>
-                                    <a class="dropdown-item" href="#"><i class="icon-trash mr-2"></i>Delete</a>
+                                    <a class="dropdown-item" href="#modal-form-skill" data-toggle="modal"><i class="icon-note mr-2"></i>Edit Skill</a>
+                                    <a class="dropdown-item btn-delete" href="#modal-delete" data-toggle="modal"
+                                       data-id="3" data-label="Front End Design" data-title="Skill" data-url="{{ route('showcase.skill') }}">
+                                        <i class="icon-trash mr-2"></i>Delete
+                                    </a>
                                 </div>
                             </div>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <a href="#" class="card card-empty mb-4">
+            <a href="#modal-form-skill" data-toggle="modal" class="card card-empty mb-4">
                 <div class="card-body text-center d-flex align-items-center justify-content-center">
                     <h6 class="mb-0"><i class="icon-plus mr-3"></i> ADD NEW SKILL</h6>
                 </div>
             </a>
         </div>
     </div>
+
+    @include('showcase.modals._skill')
+    @include('components.modals._delete')
 @endsection
