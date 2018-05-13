@@ -51,7 +51,7 @@
                     <a class="nav-link" href="{{ route('blog') }}">Browse</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/register">Contribute</a>
+                    <a class="nav-link" href="{{ route('register') }}">Contribute</a>
                 </li>
             </ul>
         </div>

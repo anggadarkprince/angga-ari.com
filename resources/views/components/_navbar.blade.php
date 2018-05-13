@@ -2,11 +2,11 @@
     <div class="container">
         @if(Request::segment(1) == 'app')
             <div class="navbar-brand app text-uppercase mr-1 mr-sm-4">
-                <a href="{{ url('/') }}" class="d-block">{{ Request::segment(2) }}</a>
+                <a href="{{ route('index') }}" class="d-block">{{ Request::segment(2) }}</a>
                 <small class="text-gray-500">{{ config('app.name') }}</small>
             </div>
         @else
-            <a class="navbar-brand text-uppercase mr-1 mr-sm-4" href="{{ url('/') }}">
+            <a class="navbar-brand text-uppercase mr-1 mr-sm-4" href="{{ route('index') }}">
                 {{ config('app.name') }}
             </a>
         @endif

@@ -23,6 +23,7 @@ header.masthead {
   }
 
   h1 {
+    @include sans-serif-font2;
     font-size: 2rem;
   }
 

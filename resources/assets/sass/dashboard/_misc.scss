@@ -13,3 +13,9 @@
     font-size: 0.9rem;
   }
 }
+
+@media (min-width: map-get($grid-breakpoints, "sm")) {
+  .w-sm-auto {
+    width: auto !important;
+  }
+}

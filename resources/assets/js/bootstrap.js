@@ -58,4 +58,6 @@ if (token) {
 require('jquery.easing');
 require('prismjs');
 require('magnific-popup');
+require('ckeditor');
+require('jquery-validation');
 window.mixitup = require('mixitup');

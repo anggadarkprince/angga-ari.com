@@ -5,7 +5,6 @@
 
 .btn {
   font-weight: 500;
-  border-width: 2px;
   text-transform: uppercase;
 }
 
@@ -37,6 +36,10 @@
 .btn-xl {
   font-size: 1.1rem;
   padding: 1rem 2rem;
+}
+
+.btn-input {
+  border-color: $gray-300;
 }
 
 .btn-primary {
@@ -158,6 +161,12 @@
   .card-img-top {
     border-top-right-radius: 0.5rem;
     border-top-left-radius: 0.5rem;
+  }
+
+  @media (max-width: map-get($grid-breakpoints, "sm")) {
+    .card-title {
+      font-size: 1.2rem;
+    }
   }
 
   .card-text {

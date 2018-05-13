@@ -11,10 +11,13 @@
     <title>{{ config('app.name') }} - @yield('title') </title>
 
     <!-- Scripts -->
+    <script>
+        var CKEDITOR_BASEPATH = '/js/ckeditor/';
+    </script>
     <script src="{{ mix('js/manifest.js') }}" defer></script>
     <script src="{{ mix('js/vendor.js') }}" defer></script>
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/dashboard.js') }}" defer></script>
+    <script src="{{ mix('js/app.js') }}" defer></script>
+    <script src="{{ mix('js/dashboard.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">

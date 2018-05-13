@@ -63,7 +63,6 @@ strong {
 
 .text-wide {
   letter-spacing: 3px;
-  @include sans-serif-font2;
 }
 
 .text-strong {
@@ -154,7 +153,6 @@ section {
   }
 
   .section-heading-group {
-    @include sans-serif-font2;
     letter-spacing: 1px;
     font-size: 130%;
   }

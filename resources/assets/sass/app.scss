@@ -2,8 +2,14 @@
 
 @import '~bootstrap/scss/bootstrap';
 @import '~simple-line-icons/scss/simple-line-icons';
+@import '~selectize.js/dist/css/selectize.css';
+@import '~selectizebootstrap/dist/css/selectize.bootstrap4.css';
 
 @import "base/mixins.scss";
+
+@import "plugins/ckeditor";
+@import "plugins/selectize";
+
 @import "base/bootstrap-overrides.scss";
 @import "base/typography.scss";
 @import "base/global.scss";

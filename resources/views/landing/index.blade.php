@@ -3,7 +3,7 @@
 @section('title', 'Home Page')
 
 @section('content')
-    <header class="masthead full-height text-center text-white d-flex" style="background: url('{{ Storage::url('/layouts/header-2.jpg') }}') no-repeat bottom center scroll;">
+    <header class="masthead full-height text-center text-white d-flex" style="background: url('{{ Storage::url('layouts/header-2.jpg') }}') no-repeat bottom center scroll;">
         <div class="container my-auto">
             <div class="row">
                 <div class="col-lg-5 mx-auto sr-show-up">

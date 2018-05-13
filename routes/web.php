@@ -11,16 +11,18 @@
 |
 */
 
-Route::get('/', 'PageController@index')->name('index');
+Route::domain(env('APP_URL'))->group(function () {
+    Route::get('/', 'PageController@index')->name('index');
+    Route::view('/contact', 'statics.contact')->name('contact');
+    Route::view('/help', 'statics.help')->name('help');
+    Route::view('/privacy', 'statics.privacy')->name('privacy');
+    Route::view('/agreement', 'statics.agreement')->name('agreement');
+    Route::view('/cookie', 'statics.cookie')->name('cookie');
+    Route::view('/premium', 'statics.premium')->name('premium');
+    Route::view('/coming_soon', 'statics.coming_soon')->name('coming_soon');
+});
 
-Auth::routes();
-
-Route::get('/register/activate/{token}', 'Auth\RegisterController@activate')->name('register.activation');
-Route::post('/register/resend', 'Auth\RegisterController@resendEmailActivation')->name('register.resend');
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::prefix('blog')->group(function () {
+Route::domain('blog.' . env('APP_URL'))->group(function () {
     Route::view('/', 'blog.index')->name('blog');
     Route::view('/category/{slug}', 'blog.index')->name('blog.category');
     Route::view('/tag/{slug}', 'blog.index')->name('blog.tag');
@@ -28,26 +30,27 @@ Route::prefix('blog')->group(function () {
     Route::view('/author/{username}', 'blog.author')->name('blog.author');
 });
 
-Route::view('/showcase/{slug}', 'landing.showcase.view')->name('showcase.view');
-Route::view('/showcases', 'landing.showcase.index')->name('showcase');
-
-Route::prefix('setting')->group(function () {
-    Route::view('/profile', 'setting.profile')->name('setting.profile');
-    Route::view('/contact', 'setting.contact')->name('setting.contact');
-    Route::view('/password', 'setting.password')->name('setting.password');
-    Route::view('/notification', 'setting.notification')->name('setting.notification');
+Route::domain('showcase.' . env('APP_URL'))->group(function () {
+    Route::view('/', 'landing.showcase.index')->name('showcase');
+    Route::view('/{slug}', 'landing.showcase.view')->name('showcase.view');
 });
 
-Route::view('/contact', 'statics.contact')->name('contact');
-Route::view('/help', 'statics.help')->name('help');
-Route::view('/premium', 'statics.premium')->name('premium');
-Route::view('/coming_soon', 'statics.coming_soon')->name('coming_soon');
-Route::view('/privacy', 'statics.privacy')->name('privacy');
-Route::view('/agreement', 'statics.agreement')->name('agreement');
-Route::view('/cookie', 'statics.cookie')->name('cookie');
+Route::domain('account.' . env('APP_URL'))->group(function () {
+    Auth::routes();
+    Route::get('/register/activate/{token}', 'Auth\RegisterController@activate')->name('register.activation');
+    Route::post('/register/resend', 'Auth\RegisterController@resendEmailActivation')->name('register.resend');
+});
 
+Route::domain('dashboard.' . env('APP_URL'))->group(function () {
+    Route::get('/', 'HomeController@index')->name('home');
 
-Route::prefix('app')->group(function () {
+    Route::prefix('setting')->group(function () {
+        Route::view('/profile', 'setting.profile')->name('setting.profile');
+        Route::view('/contact', 'setting.contact')->name('setting.contact');
+        Route::view('/password', 'setting.password')->name('setting.password');
+        Route::view('/notification', 'setting.notification')->name('setting.notification');
+    });
+
     Route::prefix('showcase')->group(function () {
         Route::view('/achievement', 'showcase.achievement')->name('showcase.achievement');
         Route::view('/skill', 'showcase.skill')->name('showcase.skill');
@@ -61,6 +64,8 @@ Route::prefix('app')->group(function () {
         Route::view('/category', 'blog.category')->name('blog.category');
         Route::view('/taxonomy', 'blog.taxonomy')->name('blog.taxonomy');
         Route::view('/preference', 'blog.preference')->name('blog.preference');
+
+        Route::view('/post/create', 'blog.post.create')->name('blog.post.create');
         Route::view('/{post?}', 'blog.post')->name('blog.post');
     });
 

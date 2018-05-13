@@ -1,11 +1,12 @@
-@extends('blog._layout')
+@extends('layouts.dashboard')
 
 @section('title', 'Blog - Preference')
 
-@section('blog_description', 'Blog settings')
-
-@section('blog_content')
-
+@section('content')
+    <div class="section-title">
+        <h4 class="mb-0">Preference</h4>
+        <small class="text-muted">Blog settings and profile</small>
+    </div>
     <div class="row justify-content-center">
         <div class="col-md-10">
             <form enctype="multipart/form-data">
@@ -26,7 +27,7 @@
                     <div class="form-group row">
                         <label for="contact" class="col-md-3 col-form-label">Keywords</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" id="contact" placeholder="Keyword of your content">
+                            <input type="text" class="form-control tag-able" id="contact" placeholder="Keyword of your content">
                         </div>
                     </div>
                     <div class="form-group row">

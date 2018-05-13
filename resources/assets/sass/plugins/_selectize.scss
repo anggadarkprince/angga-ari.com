@@ -1,0 +1,73 @@
+// tag margin
+.selectize-control.multi .selectize-input > div {
+  margin: 0 5px 0 0;
+  padding: 1px 8px;
+}
+
+// force height to equal with other input
+.form-control.selectize-control {
+  max-height: 39.6px;
+}
+
+// outline and focus box shadow bootstrap 4.1
+.selectize-input {
+  > input:not(#category-selectized) {
+    line-height: 1.6 !important;
+  }
+
+  &.focus {
+    color: $input-focus-color;
+    background-color: $input-focus-bg;
+    border-color: $input-focus-border-color;
+    outline: 0;
+    // Avoid using mixin so we can pass custom focus shadow properly
+    @if $enable-shadows {
+      box-shadow: $input-box-shadow, $input-focus-box-shadow;
+    } @else {
+      box-shadow: $input-focus-box-shadow;
+    }
+  }
+}
+
+// force dropdown item cursor pointer
+.selectize-dropdown .option,
+.selectize-dropdown [data-disabled],
+.selectize-dropdown [data-disabled] [data-selectable].option {
+  cursor: pointer;
+}
+
+// input font size
+.selectize-dropdown, .selectize-input, .selectize-input input,
+.selectize-dropdown-content {
+  font-size: 0.9rem;
+}
+
+// selected option
+.selectize-input .item {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+// adjust list select drop down item
+.selectize-dropdown .option, .selectize-dropdown .optgroup-header {
+  padding: 5px 0.75rem;
+}
+
+// override color input text with color
+.selectize-input, .selectize-input input {
+  color: $misty;
+  padding: 0.455rem 0.8rem;
+}
+
+.selectize-dropdown {
+  color: $misty;
+}
+
+.selectize-control.multi .selectize-input.has-items {
+  padding: 0.455rem 0.5rem;
+}
+
+// set color arrow drop down
+.selectize-control.single .selectize-input::after {
+  border-color: $gray-500 transparent transparent transparent;
+}

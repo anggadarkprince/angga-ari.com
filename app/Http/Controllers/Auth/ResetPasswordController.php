@@ -56,4 +56,14 @@ class ResetPasswordController extends Controller
 
         event(new PasswordReset($user));
     }
+
+    /**
+     * Redirect user after login.
+     *
+     * @return string
+     */
+    public function redirectTo()
+    {
+        return route('login');
+    }
 }
