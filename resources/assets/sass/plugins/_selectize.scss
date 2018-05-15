@@ -11,10 +11,6 @@
 
 // outline and focus box shadow bootstrap 4.1
 .selectize-input {
-  > input:not(#category-selectized) {
-    line-height: 1.6 !important;
-  }
-
   &.focus {
     color: $input-focus-color;
     background-color: $input-focus-bg;
@@ -57,6 +53,10 @@
 .selectize-input, .selectize-input input {
   color: $misty;
   padding: 0.455rem 0.8rem;
+}
+
+.selectize-input {
+  border-color: $gray-300;
 }
 
 .selectize-dropdown {

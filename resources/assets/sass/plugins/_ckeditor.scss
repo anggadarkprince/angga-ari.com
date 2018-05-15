@@ -1,9 +1,11 @@
-#cke_editor {
+.cke {
   border-radius: 5px;
+  border-color: $gray-300 !important;
   overflow: hidden;
 
   .cke_top, .cke_inner, .cke_bottom {
     background: transparent;
+    border-color: $gray-300;
   }
 
   .cke_top {

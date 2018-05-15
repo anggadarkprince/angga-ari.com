@@ -25,7 +25,7 @@
                 <div class="card-feature" style="background: url('{{ Storage::url('layouts/app/blog.png') }}') no-repeat center center / cover;"></div>
                 <div class="card-body">
                     <h5 class="card-title"><a href="{{ route('blog.post') }}" class="link-aqua">Blog</a></h5>
-                    <p class="card-text">Personal journal</p>
+                    <p class="card-text">Personal blog post</p>
                     <a href="{{ route('blog.post') }}" class="btn-arrow"><i class="icon-arrow-right-circle bg-aqua"></i></a>
                 </div>
             </div>
@@ -44,9 +44,9 @@
             <div class="card box-shadow card-app">
                 <div class="card-feature" style="background: url('{{ Storage::url('layouts/app/note.png') }}') no-repeat center center / cover;"></div>
                 <div class="card-body">
-                    <h5 class="card-title"><a href="{{ route('note.notebook') }}" class="link-violet">Note</a></h5>
+                    <h5 class="card-title"><a href="{{ route('journal.notebook') }}" class="link-violet">Journal</a></h5>
                     <p class="card-text">Task and todo list</p>
-                    <a href="{{ route('note.notebook') }}" class="btn-arrow"><i class="icon-arrow-right-circle bg-violet"></i></a>
+                    <a href="{{ route('journal.notebook') }}" class="btn-arrow"><i class="icon-arrow-right-circle bg-violet"></i></a>
                 </div>
             </div>
         </div>

@@ -27,4 +27,24 @@
         });
     }
 
+    if ($('#editor-simple').length) {
+        CKEDITOR.replace('editor-simple', {
+            toolbar: [
+                {name: 'basicstyles', items: ['Bold', 'Italic', 'Strike']},
+                {
+                    name: 'paragraph',
+                    items: ['NumberedList', 'BulletedList']
+                },
+                {name: 'links', items: ['Link', 'Unlink']},
+                {name: 'tools', items: ['Maximize']},
+                {name: 'others', items: ['Source']}
+            ],
+            skin: 'moono-lisa',
+            bodyClass: 'article-editor',
+            height: 300,
+            placeholder: 'Type content here...',
+            contentsCss: ['/content.css', '../../css/app.css']
+        });
+    }
+
 }(jQuery));

@@ -10,7 +10,7 @@
         </div>
         <div class="mt-0 mt-sm-2">
             <a href="{{ route('blog.post.create') }}" class="btn btn-sm btn-primary d-block d-sm-inline-block">
-                <i class="icon-note mr-2 d-none d-sm-inline-block"></i>New Post
+                New Post
             </a>
         </div>
     </div>

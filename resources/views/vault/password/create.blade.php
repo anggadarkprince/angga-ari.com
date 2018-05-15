@@ -8,12 +8,12 @@
         <small class="text-muted">Secure your password vault</small>
     </div>
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-11">
             <form enctype="multipart/form-data">
                 <fieldset>
                     <legend>Password Info</legend>
                     <div class="form-group row">
-                        <label for="type" class="col-md-3 col-form-label">Key Type</label>
+                        <label for="type" class="col-md-3 col-form-label">Vault Type</label>
                         <div class="col-md-9">
                             <select class="custom-select" name="type" id="type" required>
                                 <option value="password">Password</option>
@@ -91,7 +91,7 @@
 
                 <div class="form-group row">
                     <div class="col-md-9 offset-md-3">
-                        <button class="btn btn-primary">Store to Password Vault</button>
+                        <button class="btn btn-primary">Save Password Vault</button>
                     </div>
                 </div>
             </form>

@@ -1,10 +1,12 @@
-@extends('finance._layout')
+@extends('layouts.dashboard')
 
-@section('title', 'Finance - Create New Wallet')
+@section('title', 'Finance - Create new wallet')
 
-@section('finance_description', 'Create account that collect your money')
-
-@section('finance_content')
+@section('content')
+    <div class="section-title">
+        <h4 class="mb-0">Create Wallet</h4>
+        <small class="text-muted">Account that collect money</small>
+    </div>
     <div class="row justify-content-center">
         <div class="col-md-11">
             <form action="#">

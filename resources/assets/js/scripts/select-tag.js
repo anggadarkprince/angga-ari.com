@@ -1,5 +1,7 @@
 (function ($) {
-    $('.selectize').selectize({
+    $('.selectize:not(.create)').selectize();
+
+    $('.selectize.create').selectize({
         create: true,
         sortField: 'text'
     });

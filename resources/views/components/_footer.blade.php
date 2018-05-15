@@ -17,7 +17,7 @@
                     <li><a href="{{ route('showcase.portfolio') }}" class="link-muted">Showcase</a></li>
                     <li><a href="{{ route('blog.post') }}" class="link-muted">Blog</a></li>
                     <li><a href="{{ route('drive.browser') }}" class="link-muted">Drive</a></li>
-                    <li class="d-none d-sm-block"><a href="{{ route('note.notebook') }}" class="link-muted">Note</a></li>
+                    <li class="d-none d-sm-block"><a href="{{ route('journal.notebook') }}" class="link-muted">Note</a></li>
                     <li class="d-none d-sm-block"><a href="{{ route('finance.transaction') }}" class="link-muted">Finance</a></li>
                     <li class="d-none d-sm-block"><a href="{{ route('vault.password') }}" class="link-muted">Password Vault</a></li>
                     <li class="d-block d-sm-none"><a href="{{ route('home') }}" class="link-muted">More...</a></li>

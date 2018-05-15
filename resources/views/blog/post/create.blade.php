@@ -49,7 +49,7 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="category">Category</label>
-                            <select name="category" class="selectize" id="category" placeholder="Type new or select category" required>
+                            <select name="category" class="selectize create" id="category" placeholder="Type new or select category" required>
                                 <option value=""></option>
                                 <option value="design">Design</option>
                                 <option value="programming">Programming</option>

@@ -10,7 +10,7 @@
         </div>
         <div class="mt-0 mt-sm-2">
             <a href="{{ route('vault.password.create') }}" class="btn btn-sm btn-primary d-block d-sm-inline-block">
-                <i class="icon-note mr-2 d-none d-sm-inline-block"></i>New Password
+                Create Password Vault
             </a>
         </div>
     </div>
@@ -24,7 +24,6 @@
                 <div class="text-muted d-flex w-100 justify-content-between">
                     <div>
                         <small class="mr-4 d-block d-sm-inline-block"><i class="icon-lock mr-2"></i>SHA 512 encryption</small>
-                        <small class="mr-4 d-block d-sm-inline-block"><i class="icon-info mr-2"></i>Asymmetric Key</small>
                         <small class="mr-4 d-block d-sm-inline-block"><i class="icon-clock mr-2"></i>Never Expired</small>
                     </div>
                     <div class="dropdown align-self-end small">
@@ -50,7 +49,6 @@
                 <div class="text-muted d-flex w-100 justify-content-between">
                     <div>
                         <small class="mr-4 d-block d-sm-inline-block"><i class="icon-lock mr-2"></i>SHA 256 encryption</small>
-                        <small class="mr-4 d-block d-sm-inline-block"><i class="icon-info mr-2"></i>No secret Key</small>
                         <small class="mr-4 d-block d-sm-inline-block text-warning"><i class="icon-clock mr-2"></i>Expired in 6 days</small>
                     </div>
                     <div class="dropdown align-self-end small">
@@ -76,7 +74,6 @@
                 <div class="text-muted d-flex w-100 justify-content-between">
                     <div>
                         <small class="mr-4 d-block d-sm-inline-block"><i class="icon-lock mr-2"></i>SHA 256 encryption</small>
-                        <small class="mr-4 d-block d-sm-inline-block"><i class="icon-info mr-2"></i>No secret Key</small>
                         <small class="mr-4 d-block d-sm-inline-block text-danger"><i class="icon-clock mr-2"></i>Expired in 3 days</small>
                     </div>
                     <div class="dropdown align-self-end small">
@@ -102,7 +99,6 @@
                 <div class="text-muted d-flex w-100 justify-content-between">
                     <div>
                         <small class="mr-4 d-block d-sm-inline-block"><i class="icon-lock mr-2"></i>SHA 256 encryption</small>
-                        <small class="mr-4 d-block d-sm-inline-block"><i class="icon-info mr-2"></i>No secret Key</small>
                         <small class="mr-4 d-block d-sm-inline-block"><i class="icon-clock mr-2"></i>Expired in 60 days</small>
                     </div>
                     <div class="dropdown align-self-end small">

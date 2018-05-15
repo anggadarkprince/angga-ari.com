@@ -8,7 +8,7 @@
         <small class="text-muted">Vault password setting</small>
     </div>
     <div class="row justify-content-center">
-        <div class="col-xl-10">
+        <div class="col-xl-11">
             <form enctype="multipart/form-data">
                 <fieldset>
                     <legend>Security Setting</legend>

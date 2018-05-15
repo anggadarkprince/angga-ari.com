@@ -9,8 +9,8 @@
             <small class="text-muted">Group your article into category</small>
         </div>
         <div class="mt-0 mt-sm-2">
-            <a href="#" class="btn btn-sm btn-primary d-block d-sm-inline-block">
-                <i class="icon-note mr-2 d-none d-sm-inline-block"></i>New Category
+            <a href="#modal-form-category" data-toggle="modal" class="btn btn-sm btn-primary d-block d-sm-inline-block">
+                New Category
             </a>
         </div>
     </div>
@@ -168,4 +168,6 @@
             </li>
         </ul>
     </div>
+
+    @include('blog.modals._category')
 @endsection

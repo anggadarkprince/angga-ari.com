@@ -1,13 +1,14 @@
-@extends('finance._layout')
+@extends('layouts.dashboard')
 
 @section('title', 'Finance - Preference')
 
-@section('finance_description', 'Transaction settings')
-
-@section('finance_content')
-
+@section('content')
+    <div class="section-title">
+        <h4 class="mb-0">Preference</h4>
+        <small class="text-muted">Transaction configuration</small>
+    </div>
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-11">
             <form enctype="multipart/form-data">
                 <fieldset>
                     <legend>Finance Setting</legend>

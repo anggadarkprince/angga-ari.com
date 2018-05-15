@@ -57,7 +57,7 @@
 
                 <div class="form-group row">
                     <div class="col-md-9 offset-md-3">
-                        <button class="btn btn-primary btn-sm btn-wide">Update Preference</button>
+                        <button class="btn btn-primary">Update Preference</button>
                     </div>
                 </div>
             </form>

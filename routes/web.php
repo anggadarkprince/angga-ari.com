@@ -77,11 +77,12 @@ Route::domain('dashboard.' . env('APP_URL'))->group(function () {
         Route::view('/{browser?}', 'drive.browser')->name('drive.browser');
     });
 
-    Route::prefix('note')->group(function () {
-        Route::view('/category', 'note.category')->name('note.category');
-        Route::view('/note', 'note.note')->name('note.note');
-        Route::view('/todo', 'note.todo')->name('note.todo');
-        Route::view('/{notebook?}', 'note.notebook')->name('note.notebook');
+    Route::prefix('journal')->group(function () {
+        Route::view('/category', 'journal.category')->name('journal.category');
+        Route::view('/note', 'journal.note')->name('journal.note');
+        Route::view('/note/create', 'journal.note.create')->name('journal.note.create');
+        Route::view('/todo', 'journal.todo')->name('journal.todo');
+        Route::view('/{notebook?}', 'journal.notebook')->name('journal.notebook');
     });
 
     Route::prefix('finance')->group(function () {

@@ -1,10 +1,12 @@
-@extends('finance._layout')
+@extends('layouts.dashboard')
 
-@section('title', 'Finance - Create New Transaction')
+@section('title', 'Finance - Create new transaction')
 
-@section('finance_description', 'Financial transaction')
-
-@section('finance_content')
+@section('content')
+    <div class="section-title">
+        <h4 class="mb-0">Create Transaction</h4>
+        <small class="text-muted">Latest transaction history</small>
+    </div>
     <div class="row justify-content-center">
         <div class="col-md-11">
             <form enctype="multipart/form-data">
@@ -13,7 +15,8 @@
                     <div class="form-group row">
                         <label for="type" class="col-md-3 col-form-label">Type</label>
                         <div class="col-md-9">
-                            <select class="custom-select" name="type" id="type">
+                            <select class="selectize" name="type" id="type" placeholder="Select transaction type">
+                                <option value=""></option>
                                 <option value="income">Income</option>
                                 <option value="expense">Expense</option>
                                 <option value="transfer">Transfer</option>
@@ -23,22 +26,25 @@
                     <div class="form-group row">
                         <label for="wallet" class="col-md-3 col-form-label">Wallet</label>
                         <div class="col-md-9">
-                            <select class="custom-select" name="wallet" id="wallet">
-                                <option value="1">My Cash</option>
-                                <option value="2">Bank Mandiri</option>
-                                <option value="3">Apple Pay</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="category" class="col-md-3 col-form-label">Category</label>
-                        <div class="col-md-9">
-                            <select class="custom-select" name="category" id="category">
-                                <option value="1">General</option>
-                                <option value="2">Food</option>
-                                <option value="3">Drink</option>
-                                <option value="4">Night Life</option>
-                            </select>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <select class="selectize" name="wallet" id="wallet" placeholder="Select wallet">
+                                        <option value=""></option>
+                                        <option value="1">My Cash</option>
+                                        <option value="2">Bank Mandiri</option>
+                                        <option value="3">Apple Pay</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-6">
+                                    <select class="selectize" name="category" id="category" placeholder="Transaction category">
+                                        <option value=""></option>
+                                        <option value="1">General</option>
+                                        <option value="2">Food</option>
+                                        <option value="3">Drink</option>
+                                        <option value="4">Night Life</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -69,7 +75,7 @@
                     <div class="form-group row">
                         <label for="tags" class="col-md-3 col-form-label">Tags or Keywords</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" id="tags" name="tags" placeholder="Separate tags by commas">
+                            <input type="text" class="form-control tag-able" id="tags" name="tags" placeholder="Separate tags by commas">
                             <small class="form-text text-muted">
                                 Tag your transaction into multi group category.
                             </small>
