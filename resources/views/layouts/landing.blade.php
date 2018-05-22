@@ -37,11 +37,11 @@
                 Angga's Web
             </a>
         @elseif ($backToProfile)
-            <a class="navbar-brand js-scroll-trigger" href="{{ route('index') }}">
+            <a class="navbar-brand js-scroll-trigger" style="font-size: 1rem" href="{{ route('index') }}">
                 <i class="fa fa-arrow-left mr-2"></i> Back to Profile
             </a>
         @else
-            <a class="navbar-brand js-scroll-trigger" href="{{ route('showcase') }}">
+            <a class="navbar-brand js-scroll-trigger" style="font-size: 1rem" href="{{ route('showcase') }}">
                 <i class="fa fa-arrow-left mr-2"></i> Back to Showcases
             </a>
         @endif

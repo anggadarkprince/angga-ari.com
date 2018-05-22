@@ -75,15 +75,12 @@
             </ul>
             @guest
                 <div class="ml-2">
-                    @if(Route::current()->getName() == 'register')
-                        <a class="btn btn-outline-primary btn-sm align-middle" href="{{ route('login') }}">
-                            {{ __('Sign In') }}
-                        </a>
-                    @else
-                        <a class="btn btn-outline-primary btn-sm align-middle" href="{{ route('register') }}">
-                            {{ __('Register') }}
-                        </a>
-                    @endif
+                    <a class="btn btn-primary btn-sm align-middle{{ Route::current()->getName() == 'register' ? '' : ' d-none' }}" href="{{ route('login') }}">
+                        {{ __('Sign In') }}
+                    </a>
+                    <a class="btn btn-outline-primary btn-sm align-middle{{ Route::current()->getName() == 'login' ? '' : ' d-none' }}" href="{{ route('register') }}">
+                        {{ __('Register') }}
+                    </a>
                 </div>
             @endguest
         </div>

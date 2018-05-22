@@ -17,10 +17,11 @@ class CreateContactsTable extends Migration
             $table->increments('id');
             $table->string('name', 100);
             $table->string('email', 50);
-            $table->string('contact', 50);
-            $table->string('website', 100);
-            $table->string('subject', 200);
+            $table->string('contact', 50)->nullable();
+            $table->string('website', 100)->nullable();
+            $table->string('subject', 200)->nullable();
             $table->text('message');
+            $table->ipAddress('ip')->nullable();
             $table->timestamps();
         });
     }

@@ -13,13 +13,15 @@
 
 Route::domain(env('APP_URL'))->group(function () {
     Route::get('/', 'PageController@index')->name('index');
-    Route::view('/contact', 'statics.contact')->name('contact');
     Route::view('/help', 'statics.help')->name('help');
     Route::view('/privacy', 'statics.privacy')->name('privacy');
     Route::view('/agreement', 'statics.agreement')->name('agreement');
     Route::view('/cookie', 'statics.cookie')->name('cookie');
     Route::view('/premium', 'statics.premium')->name('premium');
     Route::view('/coming_soon', 'statics.coming_soon')->name('coming_soon');
+
+    Route::get('contact', 'ContactController@form')->name('contact');
+    Route::post('contact', 'ContactController@save')->name('contact.save');
 });
 
 Route::domain('blog.' . env('APP_URL'))->group(function () {

@@ -10,5 +10,6 @@ $factory->define(App\Comment::class, function (Faker $faker) {
         'website' => $faker->domainName,
         'comment' => $faker->paragraph(5),
         'status' => $faker->randomElement(['pending', 'approved', 'rejected']),
+        'ip' => $faker->ipv4
     ];
 });

@@ -23,6 +23,7 @@
         <div class="row">
             <div class="col-lg-8 mr-auto">
                 <div class="post-preview">
+                    <div class="mb-3" style="height: 300px; background: url({{ Storage::url('showcases/thumbnails/1.jpg') }}) no-repeat center center / cover;"></div>
                     <a href="{{ route('blog.article', ['year' => '2018', 'month' => '03', 'slug' => 'how-ofter-should-you-tweet']) }}">
                         <h2 class="post-title">
                             Man must explore, and this is exploration at its greatest

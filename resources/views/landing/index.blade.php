@@ -695,7 +695,7 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-6 mx-auto text-center">
+                <div class="col-md-6 mx-auto">
                     @include('components._contact')
                 </div>
             </div>
