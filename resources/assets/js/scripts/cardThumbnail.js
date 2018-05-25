@@ -1,4 +1,4 @@
-(function ($) {
+export default function() {
     var displayButton = $('.breadcrumb.main').find('.app-display-setting');
     var cardAppWrapper = $('.card-app-wrapper');
     var thumbnails = $(cardAppWrapper).find('[class*=col-]');
@@ -32,5 +32,4 @@
             setListView();
         }
     });
-
-})(jQuery);
+}

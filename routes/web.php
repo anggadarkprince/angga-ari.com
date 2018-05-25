@@ -44,71 +44,75 @@ Route::domain('account.' . env('APP_URL'))->group(function () {
 });
 
 Route::domain('dashboard.' . env('APP_URL'))->group(function () {
-    Route::get('/', 'HomeController@index')->name('home');
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/', 'HomeController@index')->name('home');
 
-    Route::prefix('setting')->group(function () {
-        Route::view('/profile', 'setting.profile')->name('setting.profile');
-        Route::view('/contact', 'setting.contact')->name('setting.contact');
-        Route::view('/password', 'setting.password')->name('setting.password');
-        Route::view('/notification', 'setting.notification')->name('setting.notification');
-    });
+        Route::prefix('setting')->group(function () {
+            Route::get('profile', 'SettingController@profile')->name('setting.profile');
+            Route::put('profile', 'SettingController@updateProfile')->name('setting.profile.update');
 
-    Route::prefix('showcase')->group(function () {
-        Route::view('/achievement', 'showcase.achievement')->name('showcase.achievement');
-        Route::view('/skill', 'showcase.skill')->name('showcase.skill');
-        Route::view('/profile', 'showcase.profile')->name('showcase.profile');
+            Route::view('/contact', 'setting.contact')->name('setting.contact');
+            Route::view('/password', 'setting.password')->name('setting.password');
+            Route::view('/notification', 'setting.notification')->name('setting.notification');
+        });
 
-        Route::view('/portfolio/create', 'showcase.portfolio.create')->name('showcase.portfolio.create');
-        Route::view('/{portfolio?}', 'showcase.portfolio')->name('showcase.portfolio');
-    });
+        Route::prefix('showcase')->group(function () {
+            Route::view('/achievement', 'showcase.achievement')->name('showcase.achievement');
+            Route::view('/skill', 'showcase.skill')->name('showcase.skill');
+            Route::view('/profile', 'showcase.profile')->name('showcase.profile');
 
-    Route::prefix('blog')->group(function () {
-        Route::view('/category', 'blog.category')->name('blog.category');
-        Route::view('/taxonomy', 'blog.taxonomy')->name('blog.taxonomy');
-        Route::view('/preference', 'blog.preference')->name('blog.preference');
+            Route::view('/portfolio/create', 'showcase.portfolio.create')->name('showcase.portfolio.create');
+            Route::view('/{portfolio?}', 'showcase.portfolio')->name('showcase.portfolio');
+        });
 
-        Route::view('/post/create', 'blog.post.create')->name('blog.post.create');
-        Route::view('/{post?}', 'blog.post')->name('blog.post');
-    });
+        Route::prefix('blog')->group(function () {
+            Route::view('/category', 'blog.category')->name('blog.category');
+            Route::view('/taxonomy', 'blog.taxonomy')->name('blog.taxonomy');
+            Route::view('/preference', 'blog.preference')->name('blog.preference');
 
-    Route::prefix('drive')->group(function () {
-        Route::view('/album', 'drive.album')->name('drive.album');
-        Route::view('/analyzer', 'drive.analyzer')->name('drive.analyzer');
-        Route::view('/trash', 'drive.trash')->name('drive.trash');
-        Route::view('/file/{token}', 'drive.view')->name('drive.view');
-        Route::view('/{browser?}', 'drive.browser')->name('drive.browser');
-    });
+            Route::view('/post/create', 'blog.post.create')->name('blog.post.create');
+            Route::view('/{post?}', 'blog.post')->name('blog.post');
+        });
 
-    Route::prefix('journal')->group(function () {
-        Route::view('/category', 'journal.category')->name('journal.category');
-        Route::view('/note', 'journal.note')->name('journal.note');
-        Route::view('/note/create', 'journal.note.create')->name('journal.note.create');
-        Route::view('/todo', 'journal.todo')->name('journal.todo');
-        Route::view('/{notebook?}', 'journal.notebook')->name('journal.notebook');
-    });
+        Route::prefix('drive')->group(function () {
+            Route::view('/album', 'drive.album')->name('drive.album');
+            Route::view('/analyzer', 'drive.analyzer')->name('drive.analyzer');
+            Route::view('/trash', 'drive.trash')->name('drive.trash');
+            Route::view('/file/{token}', 'drive.view')->name('drive.view');
+            Route::view('/{browser?}', 'drive.browser')->name('drive.browser');
+        });
 
-    Route::prefix('finance')->group(function () {
-        Route::view('/wallet', 'finance.wallet')->name('finance.wallet');
-        Route::view('/wallet/create', 'finance.wallet.create')->name('finance.wallet.create');
-        Route::view('/wallet/view', 'finance.wallet.view')->name('finance.wallet.view');
+        Route::prefix('journal')->group(function () {
+            Route::view('/category', 'journal.category')->name('journal.category');
+            Route::view('/note', 'journal.note')->name('journal.note');
+            Route::view('/note/create', 'journal.note.create')->name('journal.note.create');
+            Route::view('/todo', 'journal.todo')->name('journal.todo');
+            Route::view('/{notebook?}', 'journal.notebook')->name('journal.notebook');
+        });
 
-        Route::view('/category', 'finance.category')->name('finance.category');
-        Route::view('/category/create', 'finance.category.create')->name('finance.category.create');
+        Route::prefix('finance')->group(function () {
+            Route::view('/wallet', 'finance.wallet')->name('finance.wallet');
+            Route::view('/wallet/create', 'finance.wallet.create')->name('finance.wallet.create');
+            Route::view('/wallet/view', 'finance.wallet.view')->name('finance.wallet.view');
 
-        Route::view('/report', 'finance.report')->name('finance.report');
+            Route::view('/category', 'finance.category')->name('finance.category');
+            Route::view('/category/create', 'finance.category.create')->name('finance.category.create');
 
-        Route::view('/preference', 'finance.preference')->name('finance.preference');
+            Route::view('/report', 'finance.report')->name('finance.report');
 
-        Route::view('/transaction/create', 'finance.transaction.create')->name('finance.transaction.create');
-        Route::view('/transaction/view', 'finance.transaction.view')->name('finance.transaction.view');
-        Route::view('/{transaction?}', 'finance.transaction')->name('finance.transaction');
-    });
+            Route::view('/preference', 'finance.preference')->name('finance.preference');
 
-    Route::prefix('vault')->group(function () {
-        Route::view('/activity', 'vault.activity')->name('vault.activity');
-        Route::view('/preference', 'vault.preference')->name('vault.preference');
+            Route::view('/transaction/create', 'finance.transaction.create')->name('finance.transaction.create');
+            Route::view('/transaction/view', 'finance.transaction.view')->name('finance.transaction.view');
+            Route::view('/{transaction?}', 'finance.transaction')->name('finance.transaction');
+        });
 
-        Route::view('/password/create', 'vault.password.create')->name('vault.password.create');
-        Route::view('/{password?}', 'vault.password')->name('vault.password');
+        Route::prefix('vault')->group(function () {
+            Route::view('/activity', 'vault.activity')->name('vault.activity');
+            Route::view('/preference', 'vault.preference')->name('vault.preference');
+
+            Route::view('/password/create', 'vault.password.create')->name('vault.password.create');
+            Route::view('/{password?}', 'vault.password')->name('vault.password');
+        });
     });
 });

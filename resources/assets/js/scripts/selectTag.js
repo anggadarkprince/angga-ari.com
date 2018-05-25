@@ -1,4 +1,4 @@
-(function ($) {
+export default function() {
     $('.selectize:not(.create)').selectize();
 
     $('.selectize.create').selectize({
@@ -18,4 +18,4 @@
             }
         }
     });
-})(jQuery);
+}

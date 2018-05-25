@@ -1,4 +1,4 @@
-(function ($) {
+export default function() {
     var modalDelete = $('#modal-delete');
     var buttonDelete = modalDelete.find('[data-submit]');
     var buttonDismiss = modalDelete.find('[data-dismiss]');
@@ -21,5 +21,4 @@
         form.find('.delete-title').text('');
         form.find('.delete-label').text('');
     });
-
-})(jQuery);
+}

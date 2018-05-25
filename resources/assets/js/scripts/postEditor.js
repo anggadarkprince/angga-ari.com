@@ -1,5 +1,4 @@
-(function ($) {
-
+export default function() {
     if ($('#editor').length) {
         CKEDITOR.replace('editor', {
             extraPlugins: 'autoembed,embedsemantic,codesnippet',
@@ -46,5 +45,4 @@
             contentsCss: ['/content.css', '../../css/app.css']
         });
     }
-
-}(jQuery));
+}

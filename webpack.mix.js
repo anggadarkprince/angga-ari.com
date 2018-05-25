@@ -20,19 +20,6 @@ mix
     .copyDirectory('node_modules/ckeditor/lang', 'public/js/ckeditor/lang')
     .copyDirectory('node_modules/ckeditor/plugins', 'public/js/ckeditor/plugins')
     .scripts([
-        'node_modules/selectize.js/dist/js/standalone/selectize.js',
-        'resources/assets/js/scripts/select-tag.js',
-        'resources/assets/js/scripts/validation.js',
-        'resources/assets/js/scripts/post-editor.js',
-        'resources/assets/js/scripts/back-top.js',
-        'resources/assets/js/scripts/search-box.js',
-        'resources/assets/js/scripts/app-thumb.js',
-        'resources/assets/js/scripts/svg.js',
-        'resources/assets/js/scripts/drive.js',
-        'resources/assets/js/scripts/cookie.js',
-        'resources/assets/js/scripts/delete.js',
-    ], 'public/js/dashboard.js')
-    .scripts([
         'node_modules/scrollreveal/dist/scrollreveal.js',
         'resources/assets/js/scripts/landing.js',
         'resources/assets/js/scripts/backtotop.js',

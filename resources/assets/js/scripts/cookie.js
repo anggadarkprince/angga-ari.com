@@ -1,4 +1,4 @@
-(function ($) {
+export default function() {
     var cookieBox = $('.cookie-choice');
     var confirmCookieUsage = cookieBox.find('[data-dismiss]');
 
@@ -12,5 +12,4 @@
     confirmCookieUsage.on('click', function (e) {
         localStorage.setItem(cookieConfirmKeyStorage, '1');
     });
-
-})(jQuery);
+}

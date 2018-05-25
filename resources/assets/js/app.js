@@ -23,6 +23,8 @@ if($('#app').length) {
     });
 }
 
-$('[data-toggle="popover"]').popover({
-    trigger: 'focus'
-});
+import LibraryInitializer from './library.js'
+LibraryInitializer.init();
+
+import UploadAvatar from './scripts/avatar.js'
+UploadAvatar.init();

@@ -2,7 +2,7 @@
 <?php $isAppRoute = ($routeName != 'home' && strpos($routeName, 'setting.') === false) ?>
 <div class="sidebar mr-xl-4">
     <div class="sidebar-header d-none d-lg-block{{ $isAppRoute ? ' avatar-collapse' : '' }}">
-        <img class="user-avatar" src="{{ Storage::url('avatars/' . (Auth::user()->avatar ? Auth::user()->avatar : 'noavatar.jpg')) }}" alt="{{ Auth::user()->name }}">
+        <img class="user-avatar img-fluid" src="{{ Storage::url((Auth::user()->avatar ? Auth::user()->avatar : 'avatars/noavatar.jpg')) }}" alt="{{ Auth::user()->name }}">
         <div class="user-info clearfix">
             <h3 class="user-name text-truncate">{{ Auth::user()->name }}</h3>
             <p class="text-truncate mb-0 text-muted">

@@ -60,4 +60,6 @@ require('prismjs');
 require('magnific-popup');
 require('ckeditor');
 require('jquery-validation');
+require('croppie');
+require('selectize');
 window.mixitup = require('mixitup');

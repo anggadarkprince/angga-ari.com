@@ -1,4 +1,4 @@
-(function ($) {
+export default function() {
     $('.navbar').find('.icon-search').on('click', function (e) {
         e.preventDefault();
 
@@ -10,5 +10,4 @@
     $('.navbar .search-form').find('input').on('blur', function () {
         $('.navbar .search-form').hide(0);
     });
-
-})(jQuery);
+}

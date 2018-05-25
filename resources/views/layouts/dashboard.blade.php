@@ -15,4 +15,5 @@
             </div>
         </div>
     </div>
+    @include('components.modals._alert')
 @endsection

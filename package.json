@@ -28,7 +28,7 @@
     "popper.js": "^1.12",
     "prismjs": "^1.13.0",
     "scrollreveal": "3.3.6",
-    "selectize.js": "^0.12.12",
+    "selectize": "^0.12.4",
     "selectizebootstrap": "git+ssh://git@github.com/papakay/selectize-bootstrap-4-style.git",
     "simple-line-icons": "^2.4.1",
     "toastr": "^2.1.4",
