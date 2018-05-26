@@ -6,6 +6,7 @@ use App\Contracts\Calendar;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use Intervention\Image\Facades\Image;
@@ -25,7 +26,7 @@ class SettingController extends Controller
     }
 
     /**
-     * Save user profile.
+     * Update user profile.
      *
      * @param  Request $request
      * @return Response
@@ -109,6 +110,38 @@ class SettingController extends Controller
     }
 
     /**
+     * Update user contact.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function updateContact(Request $request)
+    {
+        $this->validate($request, [
+            'contact' => 'bail|required|max:50',
+            'location' => 'required|max:100',
+            'website' => 'max:100|url',
+        ]);
+
+        $user = User::find($request->user()->id);
+        $user->contact = $request->get('contact');
+        $user->location = $request->get('location');
+        $user->website = $request->get('website');
+
+        if ($user->save()) {
+            return redirect()->back()->with([
+                'status' => 'success',
+                'message' => __('Contact successfully updated')
+            ]);
+        }
+
+        return redirect()->back()->with([
+            'status' => 'danger',
+            'message' => __('Something went wrong, try again later')
+        ]);
+    }
+
+    /**
      * Show the password setting.
      *
      * @return \Illuminate\View\View
@@ -118,6 +151,42 @@ class SettingController extends Controller
         $user = Auth::user();
 
         return view('setting.password', compact('user'));
+    }
+
+    /**
+     * Save user password.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function updatePassword(Request $request)
+    {
+        $user = User::find($request->user()->id);
+        $hashedPassword = $user->password;
+
+        $this->validate($request, [
+            'password' => ['required', function ($attribute, $value, $fail) use ($hashedPassword) {
+                if (!Hash::check($value, $hashedPassword)) {
+                    return $fail($attribute . ' does not match with old password.');
+                }
+            }],
+            'new_password' => 'confirmed|between:5,100',
+            'new_password_confirmation' => 'between:5,100',
+        ]);
+
+        $user->password = Hash::make($request->get('new_password'));
+
+        if ($user->save()) {
+            return redirect()->back()->with([
+                'status' => 'success',
+                'message' => __('Password successfully updated')
+            ]);
+        }
+
+        return redirect()->back()->with([
+            'status' => 'danger',
+            'message' => __('Something went wrong, try again later')
+        ]);
     }
 
     /**

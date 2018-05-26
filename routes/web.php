@@ -39,6 +39,9 @@ Route::domain('showcase.' . env('APP_URL'))->group(function () {
 
 Route::domain('account.' . env('APP_URL'))->group(function () {
     Auth::routes();
+    Route::get('/', function () {
+        return redirect(route('login'));
+    });
     Route::get('/register/activate/{token}', 'Auth\RegisterController@activate')->name('register.activation');
     Route::post('/register/resend', 'Auth\RegisterController@resendEmailActivation')->name('register.resend');
 });
@@ -51,8 +54,12 @@ Route::domain('dashboard.' . env('APP_URL'))->group(function () {
             Route::get('profile', 'SettingController@profile')->name('setting.profile');
             Route::put('profile', 'SettingController@updateProfile')->name('setting.profile.update');
 
-            Route::view('/contact', 'setting.contact')->name('setting.contact');
-            Route::view('/password', 'setting.password')->name('setting.password');
+            Route::get('contact', 'SettingController@contact')->name('setting.contact');
+            Route::put('contact', 'SettingController@updateContact')->name('setting.contact.update');
+
+            Route::get('password', 'SettingController@password')->name('setting.password');
+            Route::put('password', 'SettingController@updatePassword')->name('setting.password.update');
+
             Route::view('/notification', 'setting.notification')->name('setting.notification');
         });
 

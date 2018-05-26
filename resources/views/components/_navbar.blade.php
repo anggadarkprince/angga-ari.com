@@ -47,7 +47,7 @@
                         <a id="dropdown-account" class="nav-link p-0" href="#" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img class="rounded-circle"
-                                 src="{{ Storage::url('avatars/' . (Auth::user()->avatar ? Auth::user()->avatar : 'noavatar.jpg')) }}"
+                                 src="{{ Storage::url((Auth::user()->avatar ? Auth::user()->avatar : 'avatars/noavatar.jpg')) }}"
                                  alt="{{ Auth::user()->name }}">
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-account">
