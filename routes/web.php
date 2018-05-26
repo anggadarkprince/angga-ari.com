@@ -60,7 +60,8 @@ Route::domain('dashboard.' . env('APP_URL'))->group(function () {
             Route::get('password', 'SettingController@password')->name('setting.password');
             Route::put('password', 'SettingController@updatePassword')->name('setting.password.update');
 
-            Route::view('/notification', 'setting.notification')->name('setting.notification');
+            Route::get('notification', 'SettingController@notification')->name('setting.notification');
+            Route::put('notification', 'SettingController@updateNotification')->name('setting.notification.update');
         });
 
         Route::prefix('showcase')->group(function () {

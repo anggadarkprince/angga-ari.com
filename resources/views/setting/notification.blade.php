@@ -5,32 +5,53 @@
 @section('setting_description', 'Subscribe the news and activity log')
 
 @section('setting_content')
-    <form enctype="multipart/form-data">
+
+    @include('errors._general')
+    @include('errors._message')
+
+    <form action="{{ route('setting.notification.update') }}" method="post" novalidate>
+
+        @csrf
+        @method('put')
+
         <fieldset>
+
             <legend>Notification</legend>
+
             <div class="form-group row">
                 <label class="col-md-3 col-form-label">Email</label>
-                <div class="col-md-9">
+                <div class="col-md-9 pt-2">
                     <div class="custom-control custom-checkbox">
-                        <input class="custom-control-input" type="checkbox" name="news_offer" id="news_offer" value="1" checked>
-                        <label class="custom-control-label" for="news_offer">News and updates</label>
+                        <input class="custom-control-input" type="checkbox" name="notification_update"
+                               id="notification_update"
+                               value="1"{{ old('notification_update', $update) ? ' checked' : '' }}>
+                        <label class="custom-control-label" for="notification_update">News and updates</label>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input class="custom-control-input" type="checkbox" name="product_offer" id="product_offer" value="1" checked>
-                        <label class="custom-control-label" for="product_offer">Product and interesting offer</label>
+                        <input class="custom-control-input" type="checkbox" name="notification_product"
+                               id="notification_product"
+                               value="1"{{ old('notification_product', $product) ? ' checked' : '' }}>
+                        <label class="custom-control-label" for="notification_product">Product and interesting
+                            offer</label>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input class="custom-control-input" type="checkbox" name="login_notification" id="login_notification" value="1" checked>
-                        <label class="custom-control-label" for="login_notification">Sign in device notification</label>
+                        <input class="custom-control-input" type="checkbox" name="notification_login"
+                               id="notification_login"
+                               value="1"{{ old('notification_login', $login) ? ' checked' : '' }}>
+                        <label class="custom-control-label" for="notification_login">Sign in device notification</label>
                     </div>
                 </div>
             </div>
+
             <div class="form-group row">
                 <label for="new_password" class="col-md-3 col-form-label">Mobile</label>
-                <div class="col-md-9">
+                <div class="col-md-9 pt-2">
                     <div class="custom-control custom-checkbox">
-                        <input class="custom-control-input" type="checkbox" name="mobile_notification" id="mobile_notification" value="1" checked>
-                        <label class="custom-control-label" for="mobile_notification">Send me notification message</label>
+                        <input class="custom-control-input" type="checkbox" name="notification_mobile"
+                               id="notification_mobile"
+                               value="1"{{ old('notification_mobile', $mobile) ? ' checked' : '' }}>
+                        <label class="custom-control-label" for="notification_mobile">Send me notification
+                            message</label>
                     </div>
                 </div>
             </div>

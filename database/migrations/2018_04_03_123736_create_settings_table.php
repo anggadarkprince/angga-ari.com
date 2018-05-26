@@ -15,25 +15,25 @@ class CreateSettingsTable extends Migration
     public function up()
     {
         Schema::create('settings', function (Blueprint $table) {
-            $table->string('key');
-            $table->text('value');
-            $table->string('module');
+            $table->increments('id');
+            $table->integer('setting_group_id')->unsigned();
+            $table->string('setting');
             $table->timestamps();
-            $table->primary('key');
+
+            $table->foreign('setting_group_id')->references('id')->on('setting_groups')->onDelete('cascade');
         });
 
         DB::table('settings')->insert([
-            ['module' => 'application', 'key' => 'app_name', 'value' => 'Angga Web Blog'],
-            ['module' => 'application', 'key' => 'app_desc', 'value' => 'Personal website and blog'],
-            ['module' => 'application', 'key' => 'app_keywords', 'value' => 'application, personal, blog, online, profile, showcase, portfolio, internet, angga, ari, wijaya'],
-            ['module' => 'application', 'key' => 'theme', 'value' => 'magniva'],
-            ['module' => 'application', 'key' => 'default_profile', 'value' => ''],
-            ['module' => 'contact', 'key' => 'email_support', 'value' => 'angga.aw92@gmail.com'],
-            ['module' => 'contact', 'key' => 'contact_phone', 'value' => '+6285655479868'],
-            ['module' => 'social', 'key' => 'facebook', 'value' => 'https://facebook.com/anggadarkprince'],
-            ['module' => 'social', 'key' => 'twitter', 'value' => 'https://twitter.com/anggadarkprince'],
-            ['module' => 'social', 'key' => 'google', 'value' => 'https://plus.google.com/+AnggaAriWijaya'],
-            ['module' => 'social', 'key' => 'instagram', 'value' => 'https://instagram.com/anggadarkprince'],
+            ['setting_group_id' => 1, 'setting' => 'name'],
+            ['setting_group_id' => 1, 'setting' => 'description'],
+            ['setting_group_id' => 1, 'setting' => 'keywords'],
+            ['setting_group_id' => 1, 'setting' => 'profile'],
+            ['setting_group_id' => 2, 'setting' => 'support'],
+            ['setting_group_id' => 2, 'setting' => 'bug'],
+            ['setting_group_id' => 3, 'setting' => 'update'],
+            ['setting_group_id' => 3, 'setting' => 'offer'],
+            ['setting_group_id' => 3, 'setting' => 'login'],
+            ['setting_group_id' => 3, 'setting' => 'mobile'],
         ]);
     }
 

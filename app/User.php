@@ -92,6 +92,30 @@ class User extends Authenticatable
         return $this->hasMany(Upload::class);
     }
 
+    /**
+     * Get user setting.
+     *
+     * @param $keys
+     * @param $defaultValue
+     * @return \Illuminate\Database\Eloquent\Model|\Illuminate\Database\Query\Builder|null|object
+     * @throws \Exception
+     */
+    public function setting($keys, $defaultValue)
+    {
+        $setting = new Setting();
+
+        if(!isset($this->id)) {
+            throw new \Exception('No user setting available');
+        }
+
+        return $setting->getSetting($this->id, $keys, $defaultValue);
+    }
+
+    /**
+     * Send password reset email.
+     *
+     * @param string $token
+     */
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPassword($token));

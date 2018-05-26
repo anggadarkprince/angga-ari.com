@@ -9,7 +9,7 @@
     @include('errors._general')
     @include('errors._message')
 
-    <form action="{{ route('setting.contact.update') }}" novalidate method="post" id="form-with-avatar">
+    <form action="{{ route('setting.profile.update') }}" novalidate method="post" id="form-with-avatar">
 
         @csrf
         @method('put')

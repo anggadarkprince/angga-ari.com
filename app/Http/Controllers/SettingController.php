@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contracts\Calendar;
+use App\Setting;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -170,8 +171,8 @@ class SettingController extends Controller
                     return $fail($attribute . ' does not match with old password.');
                 }
             }],
-            'new_password' => 'confirmed|between:5,100',
-            'new_password_confirmation' => 'between:5,100',
+            'new_password' => 'confirmed|between:5,50',
+            'new_password_confirmation' => 'between:5,50',
         ]);
 
         $user->password = Hash::make($request->get('new_password'));
@@ -198,7 +199,52 @@ class SettingController extends Controller
     {
         $user = Auth::user();
 
-        return view('setting.notification', compact('user'));
+        $update = $user->setting('notification.update', 1);
+        $product = $user->setting('notification.offer', 1);
+        $login = $user->setting('notification.login', 1);
+        $mobile = $user->setting('notification.mobile', 1);
+
+        return view('setting.notification', compact('user', 'update', 'product', 'login', 'mobile'));
+    }
+
+    /**
+     * Save user notification setting.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
+     */
+    public function updateNotification(Request $request)
+    {
+        $this->validate($request, [
+            'notification_update' => 'boolean',
+            'notification_product' => 'boolean',
+            'notification_login' => 'boolean',
+            'notification_mobile' => 'boolean',
+        ]);
+
+        $user = User::find($request->user()->id);
+
+        $setting = new Setting();
+
+        try {
+            $setting->setSetting($user->id, [
+                'notification.update' => $request->get('notification_update', 0),
+                'notification.offer' => $request->get('notification_product', 0),
+                'notification.login' => $request->get('notification_login', 0),
+                'notification.mobile' => $request->get('notification_mobile', 0),
+            ]);
+
+            return redirect()->back()->with([
+                'status' => 'success',
+                'message' => __('Notification successfully updated')
+            ]);
+        } catch (\Exception $e) {
+            return redirect()->back()->with([
+                'status' => 'danger',
+                'message' => __($e->getMessage())
+            ]);
+        }
     }
 
 }

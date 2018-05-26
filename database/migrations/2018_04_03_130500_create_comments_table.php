@@ -22,6 +22,7 @@ class CreateCommentsTable extends Migration
             $table->string('contact', 50);
             $table->string('website', 100);
             $table->text('comment');
+            $table->text('ip');
             $table->enum('status', ['pending', 'approved', 'rejected'])->default('approved');
             $table->integer('commentable_id');
             $table->string('commentable_type');
