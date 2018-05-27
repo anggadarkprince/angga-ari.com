@@ -12,9 +12,17 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use Laravel\Socialite\Contracts\User as ProviderUser;
+use Laravel\Socialite\Facades\Socialite;
 
 class LinkedAccountService
 {
+    /**
+     * Bind linked account to specific user or create new.
+     *
+     * @param ProviderUser $providerUser
+     * @param $provider
+     * @return mixed
+     */
     public function bindOrCreate(ProviderUser $providerUser, $provider)
     {
         $account = LinkedAccount::where('provider_name', $provider)
@@ -88,6 +96,10 @@ class LinkedAccountService
                 'token' => $providerUser->token,
             ];
 
+            if (property_exists($providerUser, 'tokenSecret')) {
+                $linkedData['secret'] = $providerUser->tokenSecret;
+            }
+
             if (property_exists($providerUser, 'expiresIn')) {
                 $expiredAt = Carbon::now()->addSecond($providerUser->expiresIn)->format('Y-m-d H:i:s');
                 $linkedData['expired_at'] = $expiredAt;
@@ -106,4 +118,38 @@ class LinkedAccountService
             return $user;
         }
     }
+
+    /**
+     * Get linked account of user by specific provider.
+     *
+     * @param $provider
+     * @param User $user
+     * @return null
+     */
+    public function getLinkedAccount($provider, User $user)
+    {
+        $linkedAccount = $user->linkedAccounts()->where('provider_name', $provider)->first();
+        $account = null;
+        if($linkedAccount) {
+            if($provider == 'twitter') {
+                $account = Socialite::driver($provider)->userFromTokenAndSecret($linkedAccount->token, $linkedAccount->secret);
+            } else {
+                $account = Socialite::driver($provider)->userFromToken($linkedAccount->token);
+            }
+        }
+
+        return $account;
+    }
+
+    /**
+     * Remove linked account from user.
+     *
+     * @param User $user
+     * @param $provider
+     */
+    public function unbind(User $user, $provider)
+    {
+        $user->linkedAccounts()->where('provider_name', $provider)->delete();
+    }
+
 }

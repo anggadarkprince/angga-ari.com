@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\LinkedAccountService;
 use App\Setting;
 use App\User;
 use Illuminate\Http\Request;
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use Intervention\Image\Facades\Image;
+use Laravel\Socialite\Facades\Socialite;
 
 class SettingController extends Controller
 {
@@ -100,13 +102,18 @@ class SettingController extends Controller
     /**
      * Show the contact setting.
      *
+     * @param LinkedAccountService $accountService
      * @return \Illuminate\View\View
      */
-    public function contact()
+    public function contact(LinkedAccountService $accountService)
     {
         $user = Auth::user();
 
-        return view('setting.contact', compact('user'));
+        $facebook = $accountService->getLinkedAccount('facebook', $user);
+        $twitter = $accountService->getLinkedAccount('twitter', $user);
+        $google = $accountService->getLinkedAccount('google', $user);
+
+        return view('setting.contact', compact('user', 'facebook', 'twitter', 'google'));
     }
 
     /**

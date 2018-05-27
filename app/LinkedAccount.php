@@ -12,7 +12,7 @@ class LinkedAccount extends Model
      * @var array
      */
     protected $fillable = [
-        'provider_name', 'provider_id', 'token', 'expired_at'
+        'provider_name', 'provider_id', 'token', 'secret', 'expired_at'
     ];
 
     /**

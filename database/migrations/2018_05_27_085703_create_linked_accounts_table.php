@@ -19,6 +19,7 @@ class CreateLinkedAccountsTable extends Migration
             $table->string('provider_name')->nullable();
             $table->string('provider_id')->unique()->nullable();
             $table->string('token', 500)->nullable();
+            $table->string('secret', 500)->nullable();
             $table->dateTime('expired_at')->nullable();
             $table->timestamps();
 

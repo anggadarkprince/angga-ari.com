@@ -63,6 +63,10 @@ Route::domain('dashboard.' . env('APP_URL'))->group(function () {
             Route::get('contact', 'SettingController@contact')->name('setting.contact');
             Route::put('contact', 'SettingController@updateContact')->name('setting.contact.update');
 
+            Route::get('contact/{provider}', 'Auth\LoginSocialController@redirectToProvider')->name('setting.contact.bind');
+            Route::get('contact/{provider}/unbind', 'Auth\LoginSocialController@unbindProvider')->name('setting.contact.unbind');
+            Route::get('contact/{provider}/callback', 'Auth\LoginSocialController@handleProviderCallback')->name('setting.contact.callback');
+
             Route::get('password', 'SettingController@password')->name('setting.password');
             Route::put('password', 'SettingController@updatePassword')->name('setting.password.update');
 

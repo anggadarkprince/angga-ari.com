@@ -83,7 +83,7 @@ strong {
 }
 
 .link-muted {
-  color: #999;
+  color: $text-muted;
 
   &:focus, &:hover {
     color: $primary;

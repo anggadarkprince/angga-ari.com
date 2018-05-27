@@ -19,35 +19,109 @@
             <legend>Socials</legend>
 
             <div class="form-group row">
-                <label for="facebook" class="col-md-3 col-form-label">Facebook</label>
-                <div class="col-md-9">
-                    <div class="row">
-                        <div class="col-sm-8">
-                            <input type="text" readonly class="form-control-plaintext pb-0" id="facebook"
-                                   value="Angga Ari Wijaya">
-                            <a href="#">
-                                <small class="form-text mt-0">@anggadarkprince</small>
-                            </a>
-                        </div>
-                        <div class="col-sm-4 text-sm-right">
-                            <button class="btn btn-sm btn-danger mt-2">Disconnect</button>
+                <label for="facebook" class="col-2 col-sm-3 col-form-label">
+                    <img src="{{ Storage::url('layouts/social/facebook.svg') }}" class="mr-2" style="width: 35px"
+                         alt="Facebook">
+                    <span class="d-none d-md-inline-block">Facebook</span>
+                </label>
+                @if($facebook)
+                    <div class="col-10 col-sm-9">
+                        <div class="row">
+                            <div class="col-sm-8 d-flex justify-content-start">
+                                <img src="{{ $facebook->getAvatar() }}" alt="Avatar" style="width: 50px"
+                                     class="mr-3 rounded-circle">
+                                <div>
+                                    <input type="text" readonly class="form-control-plaintext pb-0 pt-0" id="facebook"
+                                           value="{{ $facebook->getName() }}">
+                                    <a href="https://facebook.com/{{ $facebook->getId() }}" target="_blank">
+                                        <small class="form-text mt-0">{{ $facebook->getName() }}</small>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 d-flex justify-content-sm-end">
+                                <a href="{{ route('setting.contact.unbind', ['provider' => 'facebook']) }}"
+                                   class="btn btn-sm btn-danger align-self-center mt-3 mt-sm-0">
+                                    Disconnect
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @else
+                    <div class="col-md-9 d-flex">
+                        <a href="{{ route('setting.contact.bind', ['provider' => 'facebook']) }}?bind=true"
+                           class="btn btn-sm btn-secondary align-self-center">Connect</a>
+                    </div>
+                @endif
             </div>
 
             <div class="form-group row">
-                <label for="facebook" class="col-md-3 col-form-label">Twitter</label>
-                <div class="col-md-9">
-                    <a href="#" class="btn btn-sm btn-secondary">Connect</a>
-                </div>
+                <label for="twitter" class="col-2 col-sm-3 col-form-label">
+                    <img src="{{ Storage::url('layouts/social/twitter.svg') }}" class="mr-2" style="width: 35px"
+                         alt="Twitter">
+                    <span class="d-none d-md-inline-block">Twitter</span>
+                </label>
+                @if($twitter)
+                    <div class="col-10 col-sm-9">
+                        <div class="row">
+                            <div class="col-sm-8 d-flex justify-content-start">
+                                <img src="{{ $twitter->getAvatar() }}" alt="Avatar" style="width: 50px"
+                                     class="mr-3 rounded-circle">
+                                <div><input type="text" readonly class="form-control-plaintext pb-0 pt-0" id="twitter"
+                                            value="{{ $twitter->getName() }}">
+                                    <a href="https://twitter.com/{{ $twitter->getNickname() }}" target="_blank">
+                                        <small class="form-text mt-0">{{ '@' . $twitter->getNickname() }}</small>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 d-flex justify-content-sm-end">
+                                <a href="{{ route('setting.contact.unbind', ['provider' => 'twitter']) }}"
+                                   class="btn btn-sm btn-danger align-self-center mt-3 mt-sm-0">
+                                    Disconnect
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                @else
+                    <div class="col-md-9 d-flex">
+                        <a href="{{ route('setting.contact.bind', ['provider' => 'twitter']) }}?bind=true"
+                           class="btn btn-sm btn-secondary align-self-center">Connect</a>
+                    </div>
+                @endif
             </div>
 
             <div class="form-group row">
-                <label for="facebook" class="col-md-3 col-form-label">Google</label>
-                <div class="col-md-9">
-                    <a href="#" class="btn btn-sm btn-secondary">Connect</a>
-                </div>
+                <label for="google" class="col-2 col-sm-3 col-form-label">
+                    <img src="{{ Storage::url('layouts/social/google-plus.svg') }}" class="mr-2" style="width: 35px"
+                         alt="Google">
+                    <span class="d-none d-md-inline-block">Google</span>
+                </label>
+                @if($google)
+                    <div class="col-10 col-sm-9">
+                        <div class="row">
+                            <div class="col-sm-8 d-flex justify-content-start">
+                                <img src="{{ $google->getAvatar() }}" alt="Avatar" style="width: 50px"
+                                     class="mr-3 rounded-circle">
+                                <div><input type="text" readonly class="form-control-plaintext pb-0 pt-0" id="google"
+                                            value="{{ $google->getName() }}">
+                                    <a href="https://plus.google.com/{{ $google->getNickname() }}" target="_blank">
+                                        <small class="form-text mt-0">{{ '+' . $google->getNickname() }}</small>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 d-flex justify-content-sm-end">
+                                <a href="{{ route('setting.contact.unbind', ['provider' => 'google']) }}"
+                                   class="btn btn-sm btn-danger align-self-center mt-3 mt-sm-0">
+                                    Disconnect
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                @else
+                    <div class="col-md-9 d-flex">
+                        <a href="{{ route('setting.contact.bind', ['provider' => 'google']) }}?bind=true"
+                           class="btn btn-sm btn-secondary align-self-center">Connect</a>
+                    </div>
+                @endif
             </div>
 
             <div class="form-group">
@@ -93,7 +167,9 @@
             <div class="form-group row">
                 <label for="website" class="col-md-3 col-form-label">Website</label>
                 <div class="col-md-9">
-                    <input type="url" class="form-control{{ $errors->first('website') ? ' is-invalid' : '' }}" id="website" name="website" value="{{ old('website', $user->website) }}" placeholder="Your website or blog">
+                    <input type="url" class="form-control{{ $errors->first('website') ? ' is-invalid' : '' }}"
+                           id="website" name="website" value="{{ old('website', $user->website) }}"
+                           placeholder="Your website or blog">
                     @if($errors->first('website'))
                         <span class="invalid-feedback">{{ $errors->first('website') }}</span>
                     @endif

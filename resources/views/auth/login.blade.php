@@ -16,22 +16,22 @@
             <div class="card box-shadow">
                 <div class="card-body text-center">
                     <h4 class="mb-0">{{ __('Sign In') }}</h4>
-                    <small class="text-muted">{{ __('Login to your dashboard') }}</small>
+                    <small class="text-muted">{{ __('Login to your dashboard with socials') }}</small>
 
                     <ul class="list-inline mt-3">
                         <li class="list-inline-item">
                             <a href="{{ route('social.login', ['provider' => 'facebook']) }}">
-                                <img src="{{ Storage::url('layouts/social/facebook.svg') }}" style="width: 40px" alt="Facebook">
+                                <img src="{{ Storage::url('layouts/social/facebook.svg') }}" style="width: 35px" alt="Facebook">
                             </a>
                         </li>
                         <li class="list-inline-item">
                             <a href="{{ route('social.login', ['provider' => 'twitter']) }}">
-                                <img src="{{ Storage::url('layouts/social/twitter.svg') }}" style="width: 40px" alt="Twitter">
+                                <img src="{{ Storage::url('layouts/social/twitter.svg') }}" style="width: 35px" alt="Twitter">
                             </a>
                         </li>
                         <li class="list-inline-item">
                             <a href="{{ route('social.login', ['provider' => 'google']) }}">
-                                <img src="{{ Storage::url('layouts/social/google-plus.svg') }}" style="width: 40px" alt="Google">
+                                <img src="{{ Storage::url('layouts/social/google-plus.svg') }}" style="width: 35px" alt="Google">
                             </a>
                         </li>
                     </ul>
@@ -40,7 +40,7 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <input id="email" type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="Username or email" required>
 
                             @if ($errors->has('email'))
@@ -60,7 +60,7 @@
                             @endif
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="Password" required>
 
                             @if ($errors->has('password'))
@@ -70,18 +70,16 @@
                             @endif
                         </div>
 
-                        <div class="form-group mb-2 text-left row">
+                        <div class="form-group mb-3 text-left row">
                             <div class="col-7">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
-                                        <small>{{ __('Remember Me') }}</small>
-                                    </label>
+                                <div class="custom-control custom-checkbox">
+                                    <input class="custom-control-input" type="checkbox" id="remember" name="remember"{{ old('remember') ? ' checked' : '' }}>
+                                    <label class="custom-control-label text-muted" for="remember">{{ __('Remember Me') }}</label>
                                 </div>
                             </div>
                             <div class="col-5 text-right">
-                                <a href="{{ route('register') }}">
-                                    <small>{{ __('Register Me') }}</small>
+                                <a href="{{ route('register') }}" class="link-muted">
+                                    {{ __('Register') }}
                                 </a>
                             </div>
                         </div>
