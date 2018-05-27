@@ -42,8 +42,14 @@ Route::domain('account.' . env('APP_URL'))->group(function () {
     Route::get('/', function () {
         return redirect(route('login'));
     });
-    Route::get('/register/activate/{token}', 'Auth\RegisterController@activate')->name('register.activation');
-    Route::post('/register/resend', 'Auth\RegisterController@resendEmailActivation')->name('register.resend');
+
+    // Social Auth
+    Route::get('login/{provider}', 'Auth\LoginSocialController@redirectToProvider')->name('social.login');
+    Route::get('login/{provider}/callback', 'Auth\LoginSocialController@handleProviderCallback')->name('social.callback');
+
+    // Register
+    Route::get('register/activate/{token}', 'Auth\RegisterController@activate')->name('register.activation');
+    Route::post('register/resend', 'Auth\RegisterController@resendEmailActivation')->name('register.resend');
 });
 
 Route::domain('dashboard.' . env('APP_URL'))->group(function () {

@@ -46,16 +46,14 @@
                             @endif
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group mb-3">
                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Retype your password" required>
                         </div>
 
-                        <div class="form-group mb-2 text-left">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="agree" {{ old('agree', true) ? 'checked' : '' }}>
-                                    <small>{{ __('I agree with terms and conditions') }}</small>
-                                </label>
+                        <div class="form-group mb-3 text-left">
+                            <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" id="agree" name="agree"{{ old('agree', true) ? ' checked' : '' }}>
+                                <label class="custom-control-label" for="agree">{{ __('I agree with terms and conditions') }}</label>
                             </div>
                         </div>
 

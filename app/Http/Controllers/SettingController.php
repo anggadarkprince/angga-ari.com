@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Contracts\Calendar;
 use App\Setting;
 use App\User;
 use Illuminate\Http\Request;
@@ -166,8 +165,8 @@ class SettingController extends Controller
         $hashedPassword = $user->password;
 
         $this->validate($request, [
-            'password' => ['required', function ($attribute, $value, $fail) use ($hashedPassword) {
-                if (!Hash::check($value, $hashedPassword)) {
+            'password' => [function ($attribute, $value, $fail) use ($hashedPassword) {
+                if ($hashedPassword && !Hash::check($value, $hashedPassword)) {
                     return $fail($attribute . ' does not match with old password.');
                 }
             }],

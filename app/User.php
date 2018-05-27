@@ -93,6 +93,16 @@ class User extends Authenticatable
     }
 
     /**
+     * Get linked social account such as Facebook, Twitter or Google.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function linkedAccounts()
+    {
+        return $this->hasMany(LinkedAccount::class);
+    }
+
+    /**
      * Get user setting.
      *
      * @param $keys

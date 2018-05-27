@@ -3,11 +3,7 @@
 @section('title', Auth::user()->name)
 
 @section('content')
-    @if (session('status'))
-        <div class="alert alert-success">
-            {{ session('status') }}
-        </div>
-    @endif
+    @include('errors._message')
 
     <div class="row card-app-wrapper">
         <div class="col-sm-6 col-md-4">

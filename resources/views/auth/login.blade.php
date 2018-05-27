@@ -18,6 +18,23 @@
                     <h4 class="mb-0">{{ __('Sign In') }}</h4>
                     <small class="text-muted">{{ __('Login to your dashboard') }}</small>
 
+                    <ul class="list-inline mt-3">
+                        <li class="list-inline-item">
+                            <a href="{{ route('social.login', ['provider' => 'facebook']) }}">
+                                <img src="{{ Storage::url('layouts/social/facebook.svg') }}" style="width: 40px" alt="Facebook">
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="{{ route('social.login', ['provider' => 'twitter']) }}">
+                                <img src="{{ Storage::url('layouts/social/twitter.svg') }}" style="width: 40px" alt="Twitter">
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="{{ route('social.login', ['provider' => 'google']) }}">
+                                <img src="{{ Storage::url('layouts/social/google-plus.svg') }}" style="width: 40px" alt="Google">
+                            </a>
+                        </li>
+                    </ul>
                     <hr class="mb-4">
 
                     <form method="POST" action="{{ route('login') }}">
