@@ -79,6 +79,9 @@ Route::domain('dashboard.' . env('APP_URL'))->group(function () {
             Route::view('/skill', 'showcase.skill')->name('showcase.skill');
             Route::view('/profile', 'showcase.profile')->name('showcase.profile');
 
+            Route::get('profile', 'Showcase\ProfileController@profile')->name('showcase.profile');
+            Route::put('profile', 'Showcase\ProfileController@update')->name('showcase.profile.update');
+
             Route::view('/portfolio/create', 'showcase.portfolio.create')->name('showcase.portfolio.create');
             Route::view('/{portfolio?}', 'showcase.portfolio')->name('showcase.portfolio');
         });

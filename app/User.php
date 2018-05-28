@@ -110,7 +110,7 @@ class User extends Authenticatable
      * @return \Illuminate\Database\Eloquent\Model|\Illuminate\Database\Query\Builder|null|object
      * @throws \Exception
      */
-    public function setting($keys, $defaultValue)
+    public function setting($keys, $defaultValue = '')
     {
         $setting = new Setting();
 

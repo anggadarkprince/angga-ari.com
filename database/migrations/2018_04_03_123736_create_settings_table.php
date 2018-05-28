@@ -34,6 +34,13 @@ class CreateSettingsTable extends Migration
             ['setting_group_id' => 3, 'setting' => 'offer'],
             ['setting_group_id' => 3, 'setting' => 'login'],
             ['setting_group_id' => 3, 'setting' => 'mobile'],
+            ['setting_group_id' => 4, 'setting' => 'contact'],
+            ['setting_group_id' => 4, 'setting' => 'email'],
+            ['setting_group_id' => 4, 'setting' => 'website'],
+            ['setting_group_id' => 4, 'setting' => 'tagline'],
+            ['setting_group_id' => 4, 'setting' => 'subtagline'],
+            ['setting_group_id' => 4, 'setting' => 'identity'],
+            ['setting_group_id' => 4, 'setting' => 'profile'],
         ]);
     }
 

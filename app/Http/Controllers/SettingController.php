@@ -127,7 +127,7 @@ class SettingController extends Controller
         $this->validate($request, [
             'contact' => 'bail|required|max:50',
             'location' => 'required|max:100',
-            'website' => 'max:100|url',
+            'website' => 'nullable|max:100|url',
         ]);
 
         $user = User::find($request->user()->id);
