@@ -33,7 +33,7 @@ class ExperiencePolicy
     }
 
     /**
-     * Determine if the given post can be deleted by the user.
+     * Determine if the given experience can be deleted by the user.
      *
      * @param User $user
      * @param Experience $experience

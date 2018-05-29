@@ -4,6 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property integer id
+ * @property integer user_id
+ * @property string degree
+ * @property string major
+ * @property string location
+ * @property string enter
+ * @property string graduate
+ */
 class Education extends Model
 {
     /**

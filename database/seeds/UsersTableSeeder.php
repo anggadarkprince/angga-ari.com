@@ -29,7 +29,11 @@ class UsersTableSeeder extends Seeder
                 }
             });
 
-            $user->events()->saveMany(factory(App\Event::class, rand(5, 10))->make());
+            $user->educations()->saveMany(factory(App\Education::class, rand(2, 5))->make());
+
+            $user->experiences()->saveMany(factory(App\Experience::class, rand(2, 5))->make());
+
+            $user->awards()->saveMany(factory(App\Award::class, rand(2, 5))->make());
 
             $user->skills()->saveMany(factory(App\Skill::class, rand(2, 8))->make());
 

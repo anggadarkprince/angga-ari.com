@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Award;
+use App\Skill;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class AwardPolicy
+class SkillPolicy
 {
     use HandlesAuthorization;
 
@@ -21,26 +21,26 @@ class AwardPolicy
     }
 
     /**
-     * Determine if the given award can be updated by the user.
+     * Determine if the given skill can be updated by the user.
      *
      * @param User $user
-     * @param Award $award
+     * @param Skill $skill
      * @return bool
      */
-    public function update(User $user, Award $award)
+    public function update(User $user, Skill $skill)
     {
-        return $user->id === $award->user_id;
+        return $user->id === $skill->user_id;
     }
 
     /**
-     * Determine if the given award can be deleted by the user.
+     * Determine if the given skill can be deleted by the user.
      *
      * @param User $user
-     * @param Award $award
+     * @param Skill $skill
      * @return bool
      */
-    public function destroy(User $user, Award $award)
+    public function destroy(User $user, Skill $skill)
     {
-        return $user->id === $award->user_id;
+        return $user->id === $skill->user_id;
     }
 }

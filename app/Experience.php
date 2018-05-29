@@ -4,6 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property integer id
+ * @property integer user_id
+ * @property string experience
+ * @property string occupation
+ * @property string description
+ * @property string location
+ * @property string start
+ * @property string end
+ */
 class Experience extends Model
 {
     /**

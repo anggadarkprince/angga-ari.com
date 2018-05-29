@@ -37,3 +37,6 @@ Experience.init();
 
 import Award from './scripts/award.js'
 Award.init();
+
+import Skill from './scripts/skill.js'
+Skill.init();

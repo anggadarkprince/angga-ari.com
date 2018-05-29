@@ -75,8 +75,7 @@ Route::domain('dashboard.' . env('APP_URL'))->group(function () {
         });
 
         Route::prefix('showcase')->group(function () {
-            Route::view('skill', 'showcase.skill')->name('showcase.skill');
-            Route::get('achievement', 'Showcase\AchievementController@achievement')->name('showcase.achievement');
+            Route::get('achievement', 'Showcase\AchievementController@index')->name('showcase.achievement');
 
             Route::resource('educations', 'Showcase\EducationController')
                 ->except(['index', 'create', 'edit'])
@@ -103,6 +102,16 @@ Route::domain('dashboard.' . env('APP_URL'))->group(function () {
                     'show' => 'showcase.awards.show',
                     'update' => 'showcase.awards.update',
                     'destroy' => 'showcase.awards.destroy'
+                ]);
+
+            Route::resource('skills', 'Showcase\SkillController')
+                ->except(['create', 'edit'])
+                ->names([
+                    'index' => 'showcase.skill',
+                    'store' => 'showcase.skills.store',
+                    'show' => 'showcase.skills.show',
+                    'update' => 'showcase.skills.update',
+                    'destroy' => 'showcase.skills.destroy'
                 ]);
 
             Route::get('profile', 'Showcase\ProfileController@edit')->name('showcase.profile');

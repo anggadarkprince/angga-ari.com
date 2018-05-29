@@ -13,7 +13,7 @@ class AchievementController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function achievement()
+    public function index()
     {
         $user = Auth::user();
         $data = [
