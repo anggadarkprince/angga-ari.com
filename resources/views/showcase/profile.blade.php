@@ -19,7 +19,7 @@
                 @method('put')
 
                 <fieldset>
-                    <legend>Basic Info</legend>
+                    <legend>Professional Contact</legend>
                     <div class="form-group row">
                         <label for="contact" class="col-md-3 col-form-label">Business Contact</label>
                         <div class="col-md-9">
@@ -56,6 +56,9 @@
                             @endif
                         </div>
                     </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Portfolio Profile</legend>
                     <div class="form-group row">
                         <label for="tagline" class="col-md-3 col-form-label">Tagline</label>
                         <div class="col-md-9">

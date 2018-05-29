@@ -32,3 +32,13 @@ if (!function_exists('validate_date')) {
         return $d && $d->format($format) === $date;
     }
 }
+
+if (!function_exists('if_empty')) {
+    function if_empty($value, $default = '')
+    {
+        if (empty($value)) {
+            return $default;
+        }
+        return $value;
+    }
+}

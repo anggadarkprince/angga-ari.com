@@ -28,3 +28,12 @@ LibraryInitializer.init();
 
 import UploadAvatar from './scripts/avatar.js'
 UploadAvatar.init();
+
+import Education from './scripts/education.js'
+Education.init();
+
+import Experience from './scripts/experience.js'
+Experience.init();
+
+import Award from './scripts/award.js'
+Award.init();

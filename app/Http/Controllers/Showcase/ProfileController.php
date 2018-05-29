@@ -16,7 +16,7 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function profile()
+    public function edit()
     {
         $user = Auth::user();
 

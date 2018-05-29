@@ -75,11 +75,37 @@ Route::domain('dashboard.' . env('APP_URL'))->group(function () {
         });
 
         Route::prefix('showcase')->group(function () {
-            Route::view('/achievement', 'showcase.achievement')->name('showcase.achievement');
-            Route::view('/skill', 'showcase.skill')->name('showcase.skill');
-            Route::view('/profile', 'showcase.profile')->name('showcase.profile');
+            Route::view('skill', 'showcase.skill')->name('showcase.skill');
+            Route::get('achievement', 'Showcase\AchievementController@achievement')->name('showcase.achievement');
 
-            Route::get('profile', 'Showcase\ProfileController@profile')->name('showcase.profile');
+            Route::resource('educations', 'Showcase\EducationController')
+                ->except(['index', 'create', 'edit'])
+                ->names([
+                    'store' => 'showcase.educations.store',
+                    'show' => 'showcase.educations.show',
+                    'update' => 'showcase.educations.update',
+                    'destroy' => 'showcase.educations.destroy'
+                ]);
+
+            Route::resource('experiences', 'Showcase\ExperienceController')
+                ->except(['index', 'create', 'edit'])
+                ->names([
+                    'store' => 'showcase.experiences.store',
+                    'show' => 'showcase.experiences.show',
+                    'update' => 'showcase.experiences.update',
+                    'destroy' => 'showcase.experiences.destroy'
+                ]);
+
+            Route::resource('awards', 'Showcase\AwardController')
+                ->except(['index', 'create', 'edit'])
+                ->names([
+                    'store' => 'showcase.awards.store',
+                    'show' => 'showcase.awards.show',
+                    'update' => 'showcase.awards.update',
+                    'destroy' => 'showcase.awards.destroy'
+                ]);
+
+            Route::get('profile', 'Showcase\ProfileController@edit')->name('showcase.profile');
             Route::put('profile', 'Showcase\ProfileController@update')->name('showcase.profile.update');
 
             Route::view('/portfolio/create', 'showcase.portfolio.create')->name('showcase.portfolio.create');

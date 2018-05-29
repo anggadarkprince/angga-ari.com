@@ -29,6 +29,16 @@ class User extends Authenticatable
     ];
 
     /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'username';
+    }
+
+    /**
      * Get the activation token that owned by user.
      */
     public function userActivation()
@@ -50,6 +60,30 @@ class User extends Authenticatable
     public function events()
     {
         return $this->hasMany(Event::class);
+    }
+
+    /**
+     * Get the educations that owner by user.
+     */
+    public function educations()
+    {
+        return $this->hasMany(Education::class);
+    }
+
+    /**
+     * Get the experiences that owner by user.
+     */
+    public function experiences()
+    {
+        return $this->hasMany(Experience::class);
+    }
+
+    /**
+     * Get the experiences that owner by user.
+     */
+    public function awards()
+    {
+        return $this->hasMany(Award::class);
     }
 
     /**

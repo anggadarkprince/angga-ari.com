@@ -218,6 +218,20 @@
     }
   }
 
+  &.loading {
+    .modal-content:after {
+      content: "LOADING...";
+      position: absolute;
+      background: fade_out($white, 0.2);
+      width: 100%;
+      height: 100%;
+      padding-top: 48%;
+      text-align: center;
+      color: $gray-700;
+      font-size: 20px;
+    }
+  }
+
   .modal-content {
     border-radius: 8px;
   }
