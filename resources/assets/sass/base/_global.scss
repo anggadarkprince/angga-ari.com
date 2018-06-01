@@ -230,3 +230,33 @@ input[type=checkbox]:not(.custom-control-input), input[type=radio]:not(.custom-c
 input[type=radio] {
   bottom: 3px;
 }
+
+.loading {
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: fade_out($white, 0.3);
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+
+  &:after {
+    content: "";
+    z-index: 2;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border: solid 2px transparent;
+    border-top-color: $primary;
+    border-left-color: $primary;
+    left: calc(50% - 14px);
+    top: calc(50% - 14px);
+    border-radius: 50%;
+    animation: pace-spinner 1s ease-in-out infinite;
+  }
+}

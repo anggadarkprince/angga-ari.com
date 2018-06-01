@@ -14,6 +14,10 @@
             </a>
         </div>
     </div>
+
+    @include('errors._general')
+    @include('errors._message')
+
     <div class="row">
         <div class="col-sm-6 col-md-4 d-flex align-items-stretch">
             <div class="card card-portfolio box-shadow mb-4">

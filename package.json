@@ -24,6 +24,7 @@
     "lodash": "^4.17.4",
     "magnific-popup": "^1.1.0",
     "mixitup": "^3.2.2",
+    "mustache": "^2.3.0",
     "pace-js": "^1.0.2",
     "popper.js": "^1.12",
     "prismjs": "^1.13.0",

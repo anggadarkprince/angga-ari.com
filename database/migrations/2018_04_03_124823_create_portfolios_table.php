@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateShowcasesTable extends Migration
+class CreatePortfoliosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,19 @@ class CreateShowcasesTable extends Migration
      */
     public function up()
     {
-        Schema::create('showcases', function (Blueprint $table) {
+        Schema::create('portfolios', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('slug', 300);
             $table->string('title', 100);
             $table->string('tagline', 100);
             $table->text('description')->nullable();
-            $table->string('cover', 300);
+            $table->string('cover', 300)->nullable();
             $table->string('company', 100)->nullable();
             $table->string('team', 200)->nullable();
-            $table->string('url', 500)->nullable();
+            $table->string('url', 300)->nullable();
+            $table->string('layout', 50)->default('default');
             $table->date('date')->nullable();
-            $table->string('licence', 100)->nullable();
             $table->enum('privacy', ['private', 'public'])->default('public');
             $table->softDeletes();
             $table->timestamps();
@@ -41,6 +41,6 @@ class CreateShowcasesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('showcases');
+        Schema::dropIfExists('portfolios');
     }
 }

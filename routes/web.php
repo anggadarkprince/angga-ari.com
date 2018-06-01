@@ -117,8 +117,21 @@ Route::domain('dashboard.' . env('APP_URL'))->group(function () {
             Route::get('profile', 'Showcase\ProfileController@edit')->name('showcase.profile');
             Route::put('profile', 'Showcase\ProfileController@update')->name('showcase.profile.update');
 
-            Route::view('/portfolio/create', 'showcase.portfolio.create')->name('showcase.portfolio.create');
-            Route::view('/{portfolio?}', 'showcase.portfolio')->name('showcase.portfolio');
+            Route::post('portfolio/upload', 'Showcase\PortfolioController@upload')->name('showcase.portfolio.upload');
+            Route::delete('portfolio/delete_upload', 'Showcase\PortfolioController@deleteUpload')->name('showcase.portfolio.upload.delete');
+            Route::resource('portfolio', 'Showcase\PortfolioController')
+                ->names([
+                    'index' => 'showcase.portfolio',
+                    'create' => 'showcase.portfolio.create',
+                    'store' => 'showcase.portfolio.store',
+                    'show' => 'showcase.portfolio.show',
+                    'edit' => 'showcase.portfolio.edit',
+                    'update' => 'showcase.portfolio.update',
+                    'destroy' => 'showcase.portfolio.destroy'
+                ]);
+
+            //Route::view('/portfolio/create', 'showcase.portfolio.create')->name('showcase.portfolio.create');
+            //Route::view('/{portfolio?}', 'showcase.portfolio')->name('showcase.portfolio');
         });
 
         Route::prefix('blog')->group(function () {

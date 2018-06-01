@@ -22,6 +22,7 @@ class CreateUploadsTable extends Migration
             $table->unsignedBigInteger('size');
             $table->string('mime')->nullable();
             $table->string('caption');
+            $table->text('description');
             $table->integer('attachable_id');
             $table->string('attachable_type');
             $table->timestamps();

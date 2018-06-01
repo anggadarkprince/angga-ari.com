@@ -1,4 +1,11 @@
 export default function () {
+    window.paceOptions = {
+        ajax: {
+            trackMethods: ['GET', 'POST', 'PUT', 'DELETE', 'REMOVE'],
+            restartOnRequestAfter: 5,
+        }
+    };
+
     $('[data-toggle="popover"]').popover({
         trigger: 'focus'
     });
@@ -8,7 +15,7 @@ export default function () {
         if (fileName !== '') {
             fileName = fileName.split('\\').pop();
         }
-        $(this).next('.custom-file-label').html(fileName);
+        $(this).parent().find('.custom-file-label').html(fileName);
     });
 
     // sequential modal calling never wait one of another, that cause layout vertical calculation problem,

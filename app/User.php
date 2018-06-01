@@ -106,9 +106,9 @@ class User extends Authenticatable
     /**
      * Get the showcases that owned by user.
      */
-    public function showcases()
+    public function portfolios()
     {
-        return $this->hasMany(Showcase::class);
+        return $this->hasMany(Portfolio::class);
     }
 
     /**

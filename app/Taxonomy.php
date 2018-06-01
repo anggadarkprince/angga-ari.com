@@ -27,6 +27,6 @@ class Taxonomy extends Model
      */
     public function showcases()
     {
-        return $this->morphedByMany(Showcase::class, 'taggable', 'taxonomy_relationship');
+        return $this->morphedByMany(Portfolio::class, 'taggable', 'taxonomy_relationship');
     }
 }

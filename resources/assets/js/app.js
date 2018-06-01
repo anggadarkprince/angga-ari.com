@@ -29,6 +29,9 @@ LibraryInitializer.init();
 import UploadAvatar from './scripts/avatar.js'
 UploadAvatar.init();
 
+import Portfolio from './scripts/portfolio.js'
+Portfolio.init();
+
 import Education from './scripts/education.js'
 Education.init();
 

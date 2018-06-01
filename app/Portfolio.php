@@ -4,8 +4,22 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Showcase extends Model
+/**
+ * @property integer id
+ * @property integer user_id
+ */
+class Portfolio extends Model
 {
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'slug', 'title', 'tagline', 'description', 'cover', 'company',
+        'team', 'url', 'date', 'layout', 'privacy'
+    ];
+
     /**
      * Get the owner that owns the showcase.
      */

@@ -37,7 +37,7 @@ class UsersTableSeeder extends Seeder
 
             $user->skills()->saveMany(factory(App\Skill::class, rand(2, 8))->make());
 
-            $user->showcases()->saveMany(factory(App\Showcase::class, rand(2, 10))->make());
+            $user->showcases()->saveMany(factory(App\Portfolio::class, rand(2, 10))->make());
 
             $user->showcases->each(function ($showcase) use ($user, $tagTotal, $userTotal) {
                 $showcase->tags()->attach(

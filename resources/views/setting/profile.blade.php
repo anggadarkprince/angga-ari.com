@@ -119,12 +119,12 @@
                 <div class="col-md-9">
                     <div class="custom-control custom-radio custom-control-inline">
                         <input class="custom-control-input" type="radio" name="gender" id="gender_male"
-                               value="male" {{ (old('gender', $user->gender) == 'male' OR empty($user->gender)) ? 'checked' : '' }}>
+                               value="male"{{ (old('gender', $user->gender) == 'male' OR empty($user->gender)) ? ' checked' : '' }}>
                         <label class="custom-control-label" for="gender_male">Male</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
                         <input class="custom-control-input" type="radio" name="gender" id="gender_female"
-                               value="female" {{ old('gender', $user->gender) == 'female' ? 'checked' : '' }}>
+                               value="female"{{ old('gender', $user->gender) == 'female' ? ' checked' : '' }}>
                         <label class="custom-control-label" for="gender_female">Female</label>
                     </div>
                 </div>

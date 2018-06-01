@@ -63,3 +63,4 @@ require('jquery-validation');
 require('croppie');
 require('selectize');
 window.mixitup = require('mixitup');
+window.Mustache = require('mustache');

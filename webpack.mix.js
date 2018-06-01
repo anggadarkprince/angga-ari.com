@@ -20,7 +20,11 @@ mix
     .copyDirectory('node_modules/ckeditor/lang', 'public/js/ckeditor/lang')
     .copyDirectory('node_modules/ckeditor/plugins', 'public/js/ckeditor/plugins')
     .scripts([
+        'node_modules/pace-js/pace.js',
+    ], 'public/js/script.js')
+    .scripts([
         'node_modules/scrollreveal/dist/scrollreveal.js',
+        'node_modules/pace-js/pace.js',
         'resources/assets/js/scripts/landing.js',
         'resources/assets/js/scripts/backtotop.js',
     ], 'public/js/landing.js')

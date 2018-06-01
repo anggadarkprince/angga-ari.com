@@ -42,3 +42,21 @@ if (!function_exists('if_empty')) {
         return $value;
     }
 }
+
+if (!function_exists('get_period_path')) {
+    function get_period_path($baseName)
+    {
+        return $baseName . '/' . date('Y') . '/' . date('m') . '/';
+    }
+}
+
+if (!function_exists('get_unique_name')) {
+    function get_unique_name($baseName, $label, $ext = '')
+    {
+        $name = $baseName . '_' . uniqid() . '_' . $label;
+        if (!empty($ext)) {
+            $name .= '.' . $ext;
+        }
+        return $name;
+    }
+}
