@@ -10,6 +10,7 @@ use App\Uploader;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -23,7 +24,9 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        return view('showcase.portfolio');
+        $portfolios = Auth::user()->portfolios()->latest()->paginate(12);
+
+        return view('showcase.portfolio', compact('portfolios'));
     }
 
     /**
@@ -50,37 +53,37 @@ class PortfolioController extends Controller
         $destination = get_period_path('portfolios');
 
         // upload cover
-        $large = get_unique_name('cover', '', 'jpg');
-        $small = get_unique_name('cover', 'small', 'jpg');
+        $largePath = $destination . get_unique_name('cover', '', 'jpg');
+        $smallPath = get_small_version($largePath);
         $upload->uploadImage($request->get('cover_base64'), [
-            ['destination' => $destination . $large, 'width' => 1200, 'height' => 720],
-            ['destination' => $destination . $small, 'width' => 400, 'height' => 240]
+            ['destination' => $largePath, 'width' => 1200, 'height' => 720],
+            ['destination' => $smallPath, 'width' => 400, 'height' => 240]
+        ]);
+
+        // modify input value
+        $slugger = new Slugger();
+        $request->request->add([
+            'slug' => $slugger->createSafeSlug(Portfolio::class, $request->get('title')),
+            'cover' => $largePath,
+            'date' => $request->get('year') . '-' . $request->get('month') . '-01'
         ]);
 
         // upload screenshots
         $screenshots = [];
         foreach ($request->get('screenshots_base64', []) as $screenshot) {
             if (!empty($screenshot)) {
-                $large = get_unique_name('screenshot', '', 'jpg');
-                $small = get_unique_name('screenshot', 'small', 'jpg');
+                $largePath = $destination . get_unique_name('screenshot', '', 'jpg');
+                $smallPath = get_small_version($largePath);
                 $results = $upload->moveImageFromTemp($screenshot, [
-                    ['destination' => $destination . $large, 'width' => 800, 'height' => 500],
-                    ['destination' => $destination . $small, 'width' => 400, 'height' => 250]
+                    ['destination' => $largePath, 'width' => 800, 'height' => 500],
+                    ['destination' => $smallPath, 'width' => 400, 'height' => 250]
                 ]);
 
                 if (!empty($results)) {
-                    $screenshots[] = $destination . $large;
+                    $screenshots[] = $largePath;
                 }
             }
         }
-
-        // modify input value
-        $slugger = new Slugger();
-        $request->request->add([
-            'slug' => $slugger->createSafeSlug(Portfolio::class, $request->get('title')),
-            'cover' => $destination . $large,
-            'date' => $request->get('year') . '-' . $request->get('month') . '-01'
-        ]);
 
         try {
             DB::transaction(function () use ($request, $screenshots) {

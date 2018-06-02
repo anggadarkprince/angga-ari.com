@@ -1,4 +1,6 @@
-export default function() {
+export default function () {
+    let baseUrl = document.head.querySelector('meta[name="base-url"]').content;
+
     $('.selectize:not(.create)').selectize();
 
     $('.selectize.create').selectize({
@@ -10,12 +12,33 @@ export default function() {
         plugins: ['restore_on_backspace'],
         delimiter: ',',
         persist: false,
-        maxItems: 10,
+        hideSelected: true,
+        openOnFocus: false,
+        addPrecedence: true,
+        maxItems: 15,
+        valueField: 'slug',
+        labelField: 'term',
+        searchField: ['term', 'slug'],
         create: function (input) {
             return {
-                value: input,
-                text: input
-            }
+                slug: input,
+                term: input
+            };
+        },
+        load: function (query, callback) {
+            if (!query.length) return callback();
+            $.ajax({
+                url: baseUrl + '/taxonomy/search',
+                type: 'GET',
+                dataType: 'json',
+                data: {q: query},
+                error: function () {
+                    callback();
+                },
+                success: function (res) {
+                    callback(res);
+                }
+            });
         }
     });
 }

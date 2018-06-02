@@ -34,7 +34,7 @@ Route::domain('blog.' . env('APP_URL'))->group(function () {
 
 Route::domain('showcase.' . env('APP_URL'))->group(function () {
     Route::view('/', 'landing.showcase.index')->name('showcase');
-    Route::view('/{slug}', 'landing.showcase.view')->name('showcase.view');
+    Route::view('/{portfolio}', 'landing.showcase.view')->name('showcase.view');
 });
 
 Route::domain('account.' . env('APP_URL'))->group(function () {
@@ -53,6 +53,8 @@ Route::domain('account.' . env('APP_URL'))->group(function () {
 });
 
 Route::domain('dashboard.' . env('APP_URL'))->group(function () {
+    Route::get('taxonomy/search', 'TaxonomyController@search')->name('taxonomy.search');
+
     Route::middleware(['auth'])->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
 

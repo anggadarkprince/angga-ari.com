@@ -259,4 +259,18 @@ input[type=radio] {
     border-radius: 50%;
     animation: pace-spinner 1s ease-in-out infinite;
   }
+
+  &.form-control {
+    &:before {
+      content: inherit;
+    }
+
+    &:after {
+      left: auto;
+      right: 15px;
+      width: 14px;
+      height: 14px;
+      top: calc(50% - 7px);
+    }
+  }
 }

@@ -17,9 +17,19 @@ class Portfolio extends Model
      * @var array
      */
     protected $fillable = [
-        'slug', 'title', 'tagline', 'description', 'cover', 'company',
+        'slug', 'field', 'title', 'tagline', 'description', 'cover', 'company',
         'team', 'url', 'date', 'layout', 'privacy'
     ];
+
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
     /**
      * Get the portfolio's cover small version.
@@ -29,6 +39,17 @@ class Portfolio extends Model
     public function getCoverSmallAttribute()
     {
         return get_small_version($this->cover);
+    }
+
+    /**
+     * Scope a query to only include popular users.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeLatest($query)
+    {
+        return $query->orderBy('created_at', 'desc');
     }
 
     /**
