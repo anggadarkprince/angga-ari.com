@@ -7,6 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Taxonomy extends Model
 {
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'term', 'slug', 'type', 'description'
+    ];
+
+    /**
      * Get the owner that owns the taxonomy.
      */
     public function user()
@@ -19,7 +28,7 @@ class Taxonomy extends Model
      */
     public function posts()
     {
-        return $this->morphedByMany(Post::class, 'taggable', 'taxonomy_relationship');
+        return $this->morphedByMany(Post::class, 'taggable', 'taxonomy_relationship')->withTimestamps();
     }
 
     /**
@@ -27,6 +36,6 @@ class Taxonomy extends Model
      */
     public function showcases()
     {
-        return $this->morphedByMany(Portfolio::class, 'taggable', 'taxonomy_relationship');
+        return $this->morphedByMany(Portfolio::class, 'taggable', 'taxonomy_relationship')->withTimestamps();
     }
 }

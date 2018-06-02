@@ -15,15 +15,16 @@ class CreateTaxonomiesTable extends Migration
     {
         Schema::create('taxonomies', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->integer('taxonomy_id')->unsigned()->nullable();
+            $table->unsignedInteger('user_id')->nullable();
+            $table->unsignedInteger('taxonomy_id')->nullable();
             $table->string('term', 100);
             $table->string('slug');
             $table->string('type');
+            $table->text('description')->nullable();
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('taxonomy_id')->references('id')->on('taxonomies')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('taxonomy_id')->references('id')->on('taxonomies')
+                ->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

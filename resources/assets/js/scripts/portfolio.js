@@ -6,7 +6,7 @@ var Portfolio = (function () {
         // set croppie editor for cover portfolio.
         var uploadCrop = $('#upload-cover-content').croppie({
             viewport: {width: 300, height: 180,},
-            boundary: {width: 300, height: 180}
+            boundary: {height: 200}
         });
 
         // bind image to croppie when image selected.

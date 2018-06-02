@@ -7,6 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Upload extends Model
 {
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'user_id', 'parent', 'is_directory', 'path', 'file_name', 'size',
+        'mime', 'caption', 'description'
+    ];
+
+    /**
      * Get the owner that owns the files.
      */
     public function user()

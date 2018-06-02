@@ -46,17 +46,29 @@ if (!function_exists('if_empty')) {
 if (!function_exists('get_period_path')) {
     function get_period_path($baseName)
     {
-        return $baseName . '/' . date('Y') . '/' . date('m') . '/';
+        return $baseName . '/' . date('Y/m/d') . '/';
     }
 }
 
 if (!function_exists('get_unique_name')) {
-    function get_unique_name($baseName, $label, $ext = '')
+    function get_unique_name($baseName, $label = '', $ext = '')
     {
-        $name = $baseName . '_' . uniqid() . '_' . $label;
+        $name = $baseName . '_' . uniqid();
+        if (!empty($label)) {
+            $name .= '_' . $label;
+        }
         if (!empty($ext)) {
             $name .= '.' . $ext;
         }
         return $name;
+    }
+}
+
+if (!function_exists('get_small_version')) {
+    function get_small_version($filename, $labelSmall = '_small')
+    {
+        $extensionPos = strrpos($filename, '.');
+        $thumbnail = substr($filename, 0, $extensionPos) . $labelSmall . substr($filename, $extensionPos);
+        return $thumbnail;
     }
 }

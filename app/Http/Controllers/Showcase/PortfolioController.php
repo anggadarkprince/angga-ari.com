@@ -4,10 +4,14 @@ namespace App\Http\Controllers\Showcase;
 
 use App\Http\Requests\StorePortfolio;
 use App\Portfolio;
+use App\Slugger;
+use App\Tagger;
 use App\Uploader;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class PortfolioController extends Controller
@@ -37,6 +41,7 @@ class PortfolioController extends Controller
      *
      * @param StorePortfolio $request
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function store(StorePortfolio $request)
     {
@@ -45,43 +50,70 @@ class PortfolioController extends Controller
         $destination = get_period_path('portfolios');
 
         // upload cover
-        $original = get_unique_name('cover', 'original', 'jpg');
+        $large = get_unique_name('cover', '', 'jpg');
         $small = get_unique_name('cover', 'small', 'jpg');
-        $upload->uploadImage($request->get('cover_base64'), $destination, [
-            ['filename' => $original, 'width' => 1200, 'height' => 720],
-            ['filename' => $small, 'width' => 400, 'height' => 240]
+        $upload->uploadImage($request->get('cover_base64'), [
+            ['destination' => $destination . $large, 'width' => 1200, 'height' => 720],
+            ['destination' => $destination . $small, 'width' => 400, 'height' => 240]
         ]);
 
         // upload screenshots
+        $screenshots = [];
         foreach ($request->get('screenshots_base64', []) as $screenshot) {
             if (!empty($screenshot)) {
-                $original = get_unique_name('screenshot', 'original', 'jpg');
+                $large = get_unique_name('screenshot', '', 'jpg');
                 $small = get_unique_name('screenshot', 'small', 'jpg');
-                $upload->moveImageFromTemp($screenshot, $destination, [
-                    ['filename' => $original, 'width' => 800, 'height' => 500],
-                    ['filename' => $small, 'width' => 400, 'height' => 250]
+                $results = $upload->moveImageFromTemp($screenshot, [
+                    ['destination' => $destination . $large, 'width' => 800, 'height' => 500],
+                    ['destination' => $destination . $small, 'width' => 400, 'height' => 250]
                 ]);
+
+                if (!empty($results)) {
+                    $screenshots[] = $destination . $large;
+                }
             }
         }
 
         // modify input value
+        $slugger = new Slugger();
         $request->request->add([
-            'slug' => str_slug($request->get('title')),
-            'cover' => $destination . $original,
+            'slug' => $slugger->createSafeSlug(Portfolio::class, $request->get('title')),
+            'cover' => $destination . $large,
             'date' => $request->get('year') . '-' . $request->get('month') . '-01'
         ]);
 
-        $portfolio = new Portfolio($request->except(['keywords', 'year', 'month']));
+        try {
+            DB::transaction(function () use ($request, $screenshots) {
+                $user = User::find($request->user()->id);
 
-        if (Auth::user()->portfolios()->save($portfolio)) {
-            return redirect()->route('showcase.portfolio')->with([
-                'status' => 'success',
-                'message' => __('Data :label successfully created', ['label' => 'portfolio'])
-            ]);
+                $portfolio = new Portfolio($request->except(['keywords', 'year', 'month']));
+                $user->portfolios()->save($portfolio);
+
+                $tagger = new Tagger();
+                $tagger->tagging($portfolio, $request->get('keywords', []));
+
+                foreach ($screenshots as $path) {
+                    $absolutePath = storage_path('app/public/' . $path);
+                    if (File::exists($absolutePath)) {
+                        $portfolio->screenshots()->create([
+                            'user_id' => $user->id,
+                            'path' => $path,
+                            'file_name' => File::name($absolutePath) . '.' . File::extension($absolutePath),
+                            'size' => File::size($absolutePath),
+                            'mime' => File::mimeType($absolutePath),
+                        ]);
+                    }
+                }
+            }, 5);
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors([
+                'message' => __('Update :label failed, try again later ', ['label' => 'portfolio'])
+            ])->withInput();
         }
 
-        return redirect()->back()->withErrors([
-            'message' => __('Update :label failed, try again later', ['label' => 'portfolio'])
+        return redirect()->route('showcase.portfolio')->with([
+            'status' => 'success',
+            'message' => __('Data :label successfully created', ['label' => 'portfolio'])
         ]);
     }
 
@@ -96,7 +128,7 @@ class PortfolioController extends Controller
         if ($request->ajax()) {
             $imageBase64 = $request->get('image_base64');
             $upload = new Uploader();
-            return $upload->uploadImage($imageBase64, '_temp/', ['storage' => 'local']);
+            return $upload->uploadImage($imageBase64, ['storage' => 'local']);
         }
         return abort(400, 'Ajax request only');
     }

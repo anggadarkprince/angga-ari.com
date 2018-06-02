@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property integer id
  * @property integer user_id
+ * @property string cover
  */
 class Portfolio extends Model
 {
@@ -19,6 +20,16 @@ class Portfolio extends Model
         'slug', 'title', 'tagline', 'description', 'cover', 'company',
         'team', 'url', 'date', 'layout', 'privacy'
     ];
+
+    /**
+     * Get the portfolio's cover small version.
+     *
+     * @return string
+     */
+    public function getCoverSmallAttribute()
+    {
+        return get_small_version($this->cover);
+    }
 
     /**
      * Get the owner that owns the showcase.
@@ -41,7 +52,7 @@ class Portfolio extends Model
      */
     public function tags()
     {
-        return $this->morphToMany(Taxonomy::class, 'taggable', 'taxonomy_relationships');
+        return $this->morphToMany(Taxonomy::class, 'taggable', 'taxonomy_relationships')->withTimestamps();
     }
 
     /**

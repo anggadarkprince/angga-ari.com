@@ -29,7 +29,7 @@ class Post extends Model
      */
     public function tags()
     {
-        return $this->morphToMany(Taxonomy::class, 'taggable', 'taxonomy_relationships');
+        return $this->morphToMany(Taxonomy::class, 'taggable', 'taxonomy_relationships')->withTimestamps();
     }
 
     /**
