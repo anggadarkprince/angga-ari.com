@@ -31,6 +31,13 @@ var Portfolio = (function () {
         var templateScreenshotItem = $('#template-screenshot-item').html();
         var screenshotWrapper = $('.screenshot-wrapper');
 
+        if(screenshotWrapper.length) {
+            Sortable.create(screenshotWrapper[0], {
+                animation: 150,
+                draggable: ".screenshot-item-wrapper.loaded",
+            });
+        }
+
         // we need at least 3 empty screenshot item
         // but stop adding when reach 9
         function checkNeedMoreScreenshot() {

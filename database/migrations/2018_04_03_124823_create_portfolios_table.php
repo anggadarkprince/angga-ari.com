@@ -15,7 +15,7 @@ class CreatePortfoliosTable extends Migration
     {
         Schema::create('portfolios', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
+            $table->unsignedInteger('user_id');
             $table->string('slug', 300);
             $table->string('title', 100);
             $table->string('tagline', 100);
@@ -27,6 +27,8 @@ class CreatePortfoliosTable extends Migration
             $table->string('layout', 50)->default('default');
             $table->date('date')->nullable();
             $table->enum('privacy', ['private', 'public'])->default('public');
+            $table->unsignedInteger('views');
+            $table->unsignedSmallInteger('order')->nullable();
             $table->softDeletes();
             $table->timestamps();
 

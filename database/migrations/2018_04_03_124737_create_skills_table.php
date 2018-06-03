@@ -15,11 +15,12 @@ class CreateSkillsTable extends Migration
     {
         Schema::create('skills', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
+            $table->unsignedInteger('user_id');
             $table->string('field');
-            $table->string('expertise', 50);
-            $table->string('description', 300)->nullable();
-            $table->smallInteger('proficiency_level')->unsigned();
+            $table->string('expertise', 100);
+            $table->text('description')->nullable();
+            $table->unsignedTinyInteger('proficiency_level');
+            $table->unsignedSmallInteger('order')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

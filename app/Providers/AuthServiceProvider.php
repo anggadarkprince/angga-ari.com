@@ -8,6 +8,7 @@ use App\Experience;
 use App\Policies\AwardPolicy;
 use App\Policies\EducationPolicy;
 use App\Policies\ExperiencePolicy;
+use App\Policies\PortfolioPolicy;
 use App\Policies\SkillPolicy;
 use App\Portfolio;
 use App\Skill;

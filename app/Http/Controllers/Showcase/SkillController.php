@@ -19,7 +19,7 @@ class SkillController extends Controller
     {
         $skills = Auth::user()->skills;
 
-        return view('showcase.skill', compact('skills'));
+        return view('showcase.skill.index', compact('skills'));
     }
 
     /**

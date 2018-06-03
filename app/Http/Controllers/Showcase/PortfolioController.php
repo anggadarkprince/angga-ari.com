@@ -26,7 +26,7 @@ class PortfolioController extends Controller
     {
         $portfolios = Auth::user()->portfolios()->latest()->paginate(12);
 
-        return view('showcase.portfolio', compact('portfolios'));
+        return view('showcase.portfolio.index', compact('portfolios'));
     }
 
     /**

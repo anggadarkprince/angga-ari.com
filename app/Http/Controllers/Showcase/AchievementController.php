@@ -22,6 +22,6 @@ class AchievementController extends Controller
             'awards' => $user->awards()->orderBy('awarded_in')->get(),
         ];
 
-        return view('showcase.achievement', $data);
+        return view('showcase.achievement.index', $data);
     }
 }

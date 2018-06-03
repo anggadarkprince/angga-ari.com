@@ -19,9 +19,9 @@
     @include('errors._message')
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 skill-wrapper">
             @foreach($skills as $skill)
-                <div class="card box-shadow mb-4">
+                <div class="card box-shadow mb-4 skill-item" style="cursor: pointer">
                     <div class="card-body d-flex justify-content-start pr-3">
                         <img src="{{ Storage::url('layouts/icons/footwear.svg') }}"
                              class="pr-3 mr-3 border-right align-self-start d-none d-sm-block" style="width: 100px">
@@ -67,14 +67,14 @@
                     </div>
                 </div>
             @endforeach
-            <a href="#modal-form-skill" data-toggle="modal" class="card card-empty mb-4">
-                <div class="card-body text-center d-flex align-items-center justify-content-center">
-                    <h6 class="mb-0"><i class="icon-plus mr-3"></i> ADD NEW SKILL</h6>
-                </div>
-            </a>
         </div>
     </div>
+    <a href="#modal-form-skill" data-toggle="modal" class="card card-empty mb-4">
+        <div class="card-body text-center d-flex align-items-center justify-content-center">
+            <h6 class="mb-0"><i class="icon-plus mr-3"></i> ADD NEW SKILL</h6>
+        </div>
+    </a>
 
-    @include('showcase.modals._skill')
+    @include('showcase.skill.modals._skill')
     @include('components.modals._delete')
 @endsection

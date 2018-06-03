@@ -76,10 +76,10 @@
         </div>
     </div>
 
-    @include('showcase.modals._achievement')
-    @include('showcase.modals._education')
-    @include('showcase.modals._experience')
-    @include('showcase.modals._award')
+    @include('showcase.achievement.modals._achievement')
+    @include('showcase.achievement.modals._education')
+    @include('showcase.achievement.modals._experience')
+    @include('showcase.achievement.modals._award')
     @include('components.modals._delete')
 
 @endsection

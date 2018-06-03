@@ -62,5 +62,7 @@ require('ckeditor');
 require('jquery-validation');
 require('croppie');
 require('selectize');
+require('jquery-lazy')
 window.mixitup = require('mixitup');
 window.Mustache = require('mustache');
+window.Sortable = require('sortablejs');

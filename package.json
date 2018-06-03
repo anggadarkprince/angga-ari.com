@@ -18,6 +18,7 @@
     "cross-env": "^5.1",
     "humanize-plus": "^1.8.2",
     "jquery": "^3.2",
+    "jquery-lazy": "^1.7.9",
     "jquery-validation": "^1.17.0",
     "jquery.easing": "^1.4.1",
     "laravel-mix": "^2.0",
@@ -32,6 +33,7 @@
     "selectize": "^0.12.4",
     "selectizebootstrap": "git+ssh://git@github.com/papakay/selectize-bootstrap-4-style.git",
     "simple-line-icons": "^2.4.1",
+    "sortablejs": "^1.7.0",
     "toastr": "^2.1.4",
     "vue": "^2.5.7"
   }

@@ -22,7 +22,7 @@
         @foreach($portfolios as $portfolio)
             <div class="col-sm-6 col-md-4 d-flex align-items-stretch">
                 <div class="card card-portfolio box-shadow mb-4 w-100">
-                    <img class="card-img-top" src="{{ asset('storage/' . $portfolio->cover_small) }}" alt="{{ $portfolio->title }}">
+                    <img class="card-img-top lazy loading" style="min-height: 153px" data-src="{{ asset('storage/' . $portfolio->cover_small) }}">
                     <div class="card-body">
                         <h3 class="card-title mb-2">
                             <a href="{{ route('showcase.view', ['portfolio' => $portfolio->slug]) }}">
@@ -47,9 +47,16 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                         <h6 class="dropdown-header">Action</h6>
-                                        <a class="dropdown-item" href="#"><i class="icon-eye mr-2"></i>View Showcase</a>
-                                        <a class="dropdown-item" href="#"><i class="icon-note mr-2"></i>Edit Portfolio</a>
-                                        <a class="dropdown-item" href="#"><i class="icon-trash mr-2"></i>Delete</a>
+                                        <a class="dropdown-item" href="{{ route('showcase.view', ['portfolio' => $portfolio->slug]) }}"><i class="icon-eye mr-2"></i>View Showcase</a>
+                                        <a class="dropdown-item" href="{{ route('showcase.portfolio.edit', ['portfolio' => $portfolio->slug]) }}">
+                                            <i class="icon-note mr-2"></i>Edit Portfolio
+                                        </a>
+                                        <a class="dropdown-item btn-delete"  href="#modal-delete" data-toggle="modal"
+                                           data-id="3" data-label="{{ $portfolio->title }}"
+                                           data-title="Portfolio"
+                                           data-url="{{ route('showcase.portfolio.destroy', ['portfolio' => $portfolio->slug]) }}">
+                                            <i class="icon-trash mr-2"></i>Delete
+                                        </a>
                                     </div>
                                 </div>
                             </li>
@@ -71,4 +78,6 @@
     <div class="d-flex justify-content-center">
         {{ $portfolios->links() }}
     </div>
+
+    @include('components.modals._delete')
 @endsection

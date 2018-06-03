@@ -5,6 +5,17 @@ let Skill = (function () {
     let form;
     let submit;
 
+    function order() {
+        var skillWrapper = $('.skill-wrapper');
+
+        if (skillWrapper.length) {
+            Sortable.create(skillWrapper[0], {
+                animation: 150,
+                draggable: ".skill-item",
+            });
+        }
+    }
+
     function modal() {
         modalForm = $('#modal-form-skill');
         form = modalForm.find('form');
@@ -52,6 +63,7 @@ let Skill = (function () {
     }
 
     function init() {
+        order();
         modal();
     }
 

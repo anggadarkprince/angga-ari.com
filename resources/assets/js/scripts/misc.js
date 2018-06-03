@@ -18,6 +18,20 @@ export default function () {
         $(this).parent().find('.custom-file-label').html(fileName);
     });
 
+    $('.lazy').Lazy({
+        delay: 150,
+        placeholder: '',
+        defaultImage: '',
+        effect: "fadeIn",
+        effectTime: 500,
+        threshold: 0,
+        enableThrottle: true,
+        throttle: 250,
+        afterLoad: function(element) {
+            $(element).removeClass('loading');
+        },
+    });
+
     // sequential modal calling never wait one of another, that cause layout vertical calculation problem,
     // we need to wait until last modal is completely hidden, then we trigger another modal to be shown.
     // first cancel modal by checking the trigger button that has 2 data-toggle attribute which is launch and dismiss

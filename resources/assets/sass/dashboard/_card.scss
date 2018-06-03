@@ -233,6 +233,10 @@
 }
 
 .card-portfolio {
+  img {
+    background-color: $gray-200;
+  }
+
   .card-title {
     font-size: 1.1rem;
   }
