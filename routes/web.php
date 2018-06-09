@@ -35,6 +35,7 @@ Route::domain('blog.' . env('APP_URL'))->group(function () {
 Route::domain('showcase.' . env('APP_URL'))->group(function () {
     Route::view('/', 'landing.showcase.index')->name('showcase');
     Route::view('/{portfolio}', 'landing.showcase.view')->name('showcase.view');
+    Route::get('/{user}/generate', 'Showcase\ShowcaseController@generate')->name('showcase.generate');
 });
 
 Route::domain('account.' . env('APP_URL'))->group(function () {
@@ -132,8 +133,7 @@ Route::domain('dashboard.' . env('APP_URL'))->group(function () {
                     'destroy' => 'showcase.portfolio.destroy'
                 ]);
 
-            //Route::view('/portfolio/create', 'showcase.portfolio.create')->name('showcase.portfolio.create');
-            //Route::view('/{portfolio?}', 'showcase.portfolio')->name('showcase.portfolio');
+            Route::get('/', 'Showcase\ShowcaseController@index')->name('showcase.index');
         });
 
         Route::prefix('blog')->group(function () {

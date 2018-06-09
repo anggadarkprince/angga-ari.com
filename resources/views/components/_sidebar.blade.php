@@ -1,7 +1,5 @@
-<?php $routeName = Route::current()->getName() ?>
-<?php $isAppRoute = ($routeName != 'home' && strpos($routeName, 'setting.') === false) ?>
 <div class="sidebar mr-xl-4">
-    <div class="sidebar-header d-none d-lg-block{{ $isAppRoute ? ' avatar-collapse' : '' }}">
+    <div class="sidebar-header d-none d-lg-block{{ is_app_route() ? ' avatar-collapse' : '' }}">
         <img class="user-avatar img-fluid" src="{{ Storage::url((Auth::user()->avatar ? Auth::user()->avatar : 'avatars/noavatar.jpg')) }}" alt="{{ Auth::user()->name }}">
         <div class="user-info clearfix">
             <h3 class="user-name text-truncate">{{ Auth::user()->name }}</h3>
@@ -16,9 +14,9 @@
         </div>
     </div>
 
-    <ul class="sidebar-menu{{ $isAppRoute ? '' : ' d-none d-lg-block' }}">
-        <li class="d-none d-lg-block{{ $routeName == 'home' || $isAppRoute ? ' active' : '' }}">
-            @if($isAppRoute)
+    <ul class="sidebar-menu{{ is_app_route() ? '' : ' d-none d-lg-block' }}">
+        <li class="d-none d-lg-block{{ Route::current()->getName() == 'home' || is_app_route() ? ' active' : '' }}">
+            @if(is_app_route())
                 <a href="{{ url(Request::segment(1)) }}">
                     <i class="icon-layers"></i>{{ ucfirst(Request::segment(1)) }}
                 </a>
@@ -26,7 +24,7 @@
                 <a href="{{ route('home') }}"><i class="icon-layers"></i>Apps</a>
             @endif
         </li>
-        @if($isAppRoute)
+        @if(is_app_route())
             <li>
                 @include(Request::segment(1) . '._navigation')
             </li>
@@ -36,7 +34,7 @@
         @endif
     </ul>
 
-    <ul class="sidebar-menu d-none d-lg-block justify-content-around{{ $isAppRoute ? '' : ' d-sm-flex' }}">
+    <ul class="sidebar-menu d-none d-lg-block justify-content-around{{ is_app_route() ? '' : ' d-sm-flex' }}">
         <li{{ Request::segment(1) == 'premium' ? ' class=active' : '' }}>
             <a href="{{ route('premium') }}">
                 <i class="icon-energy d-none d-sm-inline-block"></i>{{ __('Go Premium') }}

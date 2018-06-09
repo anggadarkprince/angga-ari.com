@@ -10,9 +10,9 @@
             <div class="card box-shadow card-app">
                 <div class="card-feature" style="background: url('{{ Storage::url('layouts/app/showcase.png') }}') no-repeat center center / cover;"></div>
                 <div class="card-body">
-                    <h5 class="card-title"><a href="{{ route('showcase.portfolio') }}" class="link-pink">Showcase</a></h5>
+                    <h5 class="card-title"><a href="{{ route('showcase.index') }}" class="link-pink">Showcase</a></h5>
                     <p class="card-text">Professional profile</p>
-                    <a href="{{ route('showcase.portfolio') }}" class="btn-arrow"><i class="icon-arrow-right-circle bg-pink"></i></a>
+                    <a href="{{ route('showcase.index') }}" class="btn-arrow"><i class="icon-arrow-right-circle bg-pink"></i></a>
                 </div>
             </div>
         </div>
@@ -71,7 +71,7 @@
     <div class="row">
         <div class="col-sm-6 col-md-4">
             <div class="card box-shadow card-app card-coming-soon text-center mr-0">
-                <div class="card-feature" style="background: url('{{ Storage::url('layouts/app/alarm.png') }}') no-repeat center center / cover;"></div>
+                <div class="card-feature filter-grayscale" style="background: url('{{ Storage::url('layouts/app/alarm.png') }}') no-repeat center center / cover;"></div>
                 <div class="card-body">
                     <h5 class="card-title text-muted">Coming Soon</h5>
                     <p class="card-text text-primary pr-0">Alarm</p>
@@ -80,7 +80,7 @@
         </div>
         <div class="col-sm-6 col-md-4">
             <div class="card box-shadow card-app card-coming-soon text-center mr-0">
-                <div class="card-feature" style="background: url('{{ Storage::url('layouts/app/diet.png') }}') no-repeat center center / cover;"></div>
+                <div class="card-feature filter-grayscale" style="background: url('{{ Storage::url('layouts/app/diet.png') }}') no-repeat center center / cover;"></div>
                 <div class="card-body">
                     <h5 class="card-title text-muted">Coming Soon</h5>
                     <p class="card-text text-primary pr-0">Diet</p>
@@ -89,7 +89,7 @@
         </div>
         <div class="col-sm-6 col-md-4">
             <div class="card box-shadow card-app card-coming-soon text-center mr-0">
-                <div class="card-feature" style="background: url('{{ Storage::url('layouts/app/news.png') }}') no-repeat center center / cover;"></div>
+                <div class="card-feature filter-grayscale" style="background: url('{{ Storage::url('layouts/app/news.png') }}') no-repeat center center / cover;"></div>
                 <div class="card-body">
                     <h5 class="card-title text-muted">Coming Soon</h5>
                     <p class="card-text text-primary pr-0">News Feeder</p>

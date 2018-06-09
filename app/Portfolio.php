@@ -63,6 +63,17 @@ class Portfolio extends Model
     }
 
     /**
+     * Scope a query to only include popular users.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopePopular($query)
+    {
+        return $query->orderBy('views', 'desc');
+    }
+
+    /**
      * Get the owner that owns the showcase.
      */
     public function user()

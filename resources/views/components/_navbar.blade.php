@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand navbar-app">
     <div class="container">
-        @if(Request::segment(1) == 'app')
+        @if(is_app_route())
             <div class="navbar-brand app text-uppercase mr-1 mr-sm-4">
-                <a href="{{ route('index') }}" class="d-block">{{ Request::segment(2) }}</a>
+                <a href="{{ route('index') }}" class="d-block">{{ Request::segment(1) }}</a>
                 <small class="text-gray-500">{{ config('app.name') }}</small>
             </div>
         @else

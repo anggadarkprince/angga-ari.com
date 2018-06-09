@@ -67,8 +67,17 @@ if (!function_exists('get_unique_name')) {
 if (!function_exists('get_small_version')) {
     function get_small_version($filename, $labelSmall = '_small')
     {
+        $filename = preg_replace('/_original\./', '.', $filename);
         $extensionPos = strrpos($filename, '.');
         $thumbnail = substr($filename, 0, $extensionPos) . $labelSmall . substr($filename, $extensionPos);
         return $thumbnail;
+    }
+}
+
+if (!function_exists('is_app_route')) {
+    function is_app_route()
+    {
+        $routeName = Route::current()->getName();
+        return ($routeName != 'home' && strpos($routeName, 'setting.') === false);
     }
 }

@@ -82,9 +82,9 @@ class SettingController extends Controller
         $user->birthday = $birthday;
         $user->username = $request->get('username');
         $user->email = $request->get('email');
-        $user->birthday = $request->get('birthday');
         $user->gender = $request->get('gender');
         $user->about = $request->get('about');
+        $user->birthday = $birthday;
 
         if ($user->save()) {
             return redirect()->back()->with([
