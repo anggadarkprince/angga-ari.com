@@ -7,17 +7,17 @@
         <div class="container my-auto">
             <div class="row">
                 <div class="col-lg-5 mx-auto sr-show-up">
-                    <img src="{{ Storage::url('avatars/2018040600001/avatar.jpg') }}" alt="Angga" class="mb-3 rounded-circle">
+                    <img src="{{ Storage::url((Auth::user()->avatar ? Auth::user()->avatar : 'avatars/noavatar.jpg')) }}" alt="Angga" class="mb-3 rounded-circle">
                 </div>
-                <div class="col-lg-10 mx-auto">
+                <div class="col-lg-10 text-uppercase mx-auto">
                     <h1 class="text-uppercase sr-show-up">
-                        <strong class="text-stronger">NERD SOFTWARE ARCHITECT</strong>
+                        <strong class="text-stronger">{{ $user->setting('showcase.tagline') }}</strong>
                     </h1>
-                    <h3 class="text-wide sr-show-up">ANGGA ARI WIJAYA</h3>
+                    <h3 class="text-wide sr-show-up">{{ $user->name }}</h3>
                     <hr class="sr-show-up">
                 </div>
                 <div class="col-lg-8 mx-auto">
-                    <p class="text-faded mb-5 sr-show-up">An introvert web programmer who tried to change his small world, craft things with his keyboard and papers, love warm rice and coffee!</p>
+                    <p class="text-faded mb-5 sr-show-up">{{ $user->setting('showcase.subtagline') }}</p>
                     <a class="btn btn-primary btn-xl btn-pill js-scroll-trigger sr-button" href="#about">Find Out More</a>
                 </div>
             </div>
@@ -31,10 +31,7 @@
                     <h2 class="section-heading text-white sr-icons">Who the hell am I?</h2>
                     <hr class="light my-4 sr-icons">
                     <p class="text-faded mb-5 sr-icons">
-                        I'm a software developer who has been freelancing for 2 years, currently I have full time job and focus on web development.
-                        Basically I am a calm and quite type of person, common engineer trait and personality.
-                        I am very passionate about programming and new technology. Moreover I am very ease and ready to be self learner.
-                        I force my self to keep persistent and discipline. I love working with my passion and been wanting to another challenge if there is an opportunity.
+                        {{ $user->setting('showcase.identity') }}
                     </p>
                     <a class="btn btn-light btn-lg js-scroll-trigger sr-button" href="#profile">Meet him personally</a>
                 </div>
@@ -43,29 +40,23 @@
     </section>
 
     <div class="container">
-        <section id="profile">
+        <section id="profile" class="pb-0">
             <div class="row justify-content-sm-between">
                 <div class="col-md-3 mb-3 text-center text-md-right sr-profile">
                     <p class="mb-0 section-heading-group"><strong>PROFILE</strong></p>
                     <small class="text-muted">What I am all about</small>
                 </div>
                 <div class="col-md-8 text-center text-sm-left">
-                    <div class="sr-profile">
-                        <p>
-                            Hey, I am Angga Ari Wijaya a boy with quarter century of age, just call me Angga, I'm a rookie software engineer, I used to live in Gresik - East Java, Indonesia.
-                            Half workaholic, sometimes playing games, less sleep, build something like application or software. I practice everyday by the way and I think I'm good at it as well.</p>
-                        <p>
-                            Welcome to my personal website, here you can found my latest works, achievement, history, papers
-                            and blog posts. Presently I am working at Transcon Indonesia a logistic company in Surabaya, Indonesia since 2017.
-                        </p>
+                    <div class="sr-profile mb-4">
+                        {{ $user->setting('showcase.profile') }}
                     </div>
 
                     <div class="row sr-profile">
                         <div class="col-sm-4">
                             <p class="mb-1 mb-sm-2"><strong>Full Name</strong></p>
                         </div>
-                        <div class="col-sm-6">
-                            <p>Angga Ari Wijaya</p>
+                        <div class="col-sm-8">
+                            <p>{{ $user->name }}</p>
                         </div>
                     </div>
 
@@ -73,8 +64,8 @@
                         <div class="col-sm-4">
                             <p class="mb-1 mb-sm-2"><strong>Contact</strong></p>
                         </div>
-                        <div class="col-sm-6">
-                            <p>(+62) 85655479868</p>
+                        <div class="col-sm-8">
+                            <p>{{ $user->contact }}</p>
                         </div>
                     </div>
 
@@ -82,10 +73,10 @@
                         <div class="col-sm-4">
                             <p class="mb-1 mb-sm-2"><strong>Email</strong></p>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-8">
                             <p>
-                                <a href="mailto:angga.aw92@gmail.com" class="link-natural">
-                                    angga.aw92@gmail.com
+                                <a href="mailto:{{ $user->email }}" class="link-natural">
+                                    {{ $user->email }}
                                 </a>
                             </p>
                         </div>
@@ -95,10 +86,10 @@
                         <div class="col-sm-4">
                             <p class="mb-1 mb-sm-2"><strong>Website</strong></p>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-8">
                             <p>
-                                <a href="http://anggadarkprince.wordpress.com" class="link-natural">
-                                    http://anggadarkprince.wordpress.com
+                                <a href="{{ $user->website }}" class="link-natural">
+                                    {{ $user->website }}
                                 </a>
                             </p>
                         </div>
@@ -108,8 +99,8 @@
                         <div class="col-sm-4">
                             <p class="mb-1 mb-sm-2"><strong>Day of Birth</strong></p>
                         </div>
-                        <div class="col-sm-6">
-                            <p>May 26, 1992</p>
+                        <div class="col-sm-8">
+                            <p>{{ format_date($user->birthday, 'F d, Y') }}</p>
                         </div>
                     </div>
 
@@ -117,24 +108,36 @@
                         <div class="col-sm-4">
                             <p class="mb-1 mb-sm-2"><strong>Location</strong></p>
                         </div>
-                        <div class="col-sm-6">
-                            <p>Gresik, East Java Indonesia 61122</p>
+                        <div class="col-sm-8">
+                            <p>{{ $user->location }}</p>
                         </div>
                     </div>
 
-                    <p class="text-center text-sm-left text-wide mt-4 mb-0 sr-profile">
-                        <a href="#"><i class="fab fa-facebook-f fa-2x"></i></a>
-                        <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in fa-2x"></i></a>
-                        <a href="#"><i class="fab fa-google-plus-g fa-2x"></i></a>
-                        <a href="#"><i class="fab fa-behance fa-2x"></i></a>
-                        <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+                    <p class="text-center text-sm-left text-wide mb-0 mt-4 sr-profile">
+                        @if($facebook)
+                            <a href="https://facebook.com/{{ $facebook->getId() }}">
+                                <img src="{{ Storage::url('layouts/social/facebook.svg') }}"
+                                     class="mr-2" style="width: 35px" alt="Facebook">
+                            </a>
+                        @endif
+                        @if($twitter)
+                            <a href="https://twitter.com/{{ $twitter->getNickname() }}">
+                                <img src="{{ Storage::url('layouts/social/twitter.svg') }}"
+                                     class="mr-2" style="width: 35px" alt="Twitter">
+                            </a>
+                        @endif
+                        @if($google)
+                            <a href="https://google.com/{{ $google->getNickname() }}">
+                                <img src="{{ Storage::url('layouts/social/google-plus.svg') }}"
+                                     class="mr-2" style="width: 35px" alt="Google">
+                            </a>
+                        @endif
                     </p>
                 </div>
             </div>
         </section>
 
-        <section id="experiences">
+        <section id="experiences" class="pb-0">
             <div class="row justify-content-sm-between">
                 <div class="col-sm-3 mb-3 text-center text-sm-right sr-profile">
                     <p class="mb-0 section-heading-group"><strong>JOURNEY</strong></p>
@@ -144,124 +147,77 @@
                     <div class="mb-4">
                         <p class="text-primary sr-profile"><strong>EDUCATIONS</strong></p>
                         <ul class="list-unstyled">
-                            <li class="sr-profile">
-                                <div class="row">
-                                    <div class="col-md-7">
-                                        <p class="mb-1"><strong>Bachelor Degree</strong></p>
-                                        <p class="text-muted mb-1 mb-md-3">University of Jember - Information System</p>
+                            @foreach($user->educations as $education)
+                                <li class="sr-profile">
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                            <p class="mb-1"><strong>{{ $education->degree }}</strong></p>
+                                            <p class="text-muted mb-1 mb-md-3">
+                                                {{ $education->institution }} - {{ $education->major }}</p>
+                                        </div>
+                                        <div class="col-md-5 text-md-right">
+                                            <p class="mb-1">
+                                                <strong>
+                                                    {{ $education->enter }} - {{ if_empty($education->graduate, __('Now')) }}
+                                                </strong></p>
+                                            <p class="mb-4 mb-md-3">{{ $education->location }}</p>
+                                        </div>
                                     </div>
-                                    <div class="col-md-5 text-md-right">
-                                        <p class="mb-1"><strong>2010 - 2016</strong></p>
-                                        <p class="mb-4 mb-md-3">Jember, Indonesia</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="sr-profile">
-                                <div class="row">
-                                    <div class="col-md-7">
-                                        <p class="mb-1"><strong>High School</strong></p>
-                                        <p class="text-muted mb-1 mb-md-3">SMK Semen Gresik - Mechanic Automotive</p>
-                                    </div>
-                                    <div class="col-md-5 text-md-right">
-                                        <p class="mb-1"><strong>2007 - 2010</strong></p>
-                                        <p class="mb-4 mb-md-3">Gresik, Indonesia</p>
-                                    </div>
-                                </div>
-                            </li>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                     <div class="mb-4">
                         <p class="text-primary sr-profile"><strong>EXPERIENCES</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-3 sr-profile">
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <p class="mb-1"><strong>Remote Job</strong></p>
-                                        <p class="mb-1 text-primary">Freelance Programmer</p>
+                            @foreach($user->experiences as $experience)
+                                <li class="mb-3 sr-profile">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <p class="mb-1"><strong>{{ $experience->experience }}</strong></p>
+                                            <p class="mb-1 text-primary">{{ $experience->occupation }} at {{ $experience->location }}</p>
+                                        </div>
+                                        <div class="col-md-3 text-md-right">
+                                            <p class="mb-1">
+                                                <strong>
+                                                    {{ $experience->start }} - {{ if_empty($experience->end, __('Now')) }}
+                                                </strong>
+                                            </p>
+                                        </div>
+                                        <div class="col">
+                                            <p class="text-muted">
+                                                {{ $experience->description }}
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div class="col-md-4 text-md-right">
-                                        <p class="mb-1"><strong>2015 - 2018</strong></p>
-                                    </div>
-                                    <div class="col">
-                                        <p class="text-muted">
-                                            I worked remotely for many client that required to build web, desktop, and mobile application
-                                            in small and medium size. I used many frameworks and face a lot of technical issue alone, sometime
-                                            work with partner together. I build from scratch the modules with Laravel or Codeigniter for web application,
-                                            Java Android for mobile app, and Adobe AIR or Flash for games. Wrote query in MySQL or Postgre DBMS and deployment through Apache or NginX in VPS with basic configurations.
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="mb-3 sr-profile">
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <p class="mb-1"><strong>Internship: Ministry of Transmigration and Manpower of RI</strong></p>
-                                        <p class="mb-1 text-primary">Temporary Junior Programmer</p>
-                                    </div>
-                                    <div class="col-md-4 text-md-right">
-                                        <p class="mb-1"><strong>Jakarta, 2015 - 2015</strong></p>
-                                    </div>
-                                    <div class="col">
-                                        <p class="text-muted">
-                                            Translate, design and developing government IT business as Internship Programme Project.
-                                            I developed task scheduler in android with Java and hybrid app for iPad. Also
-                                            I built simple office letter management for daily basis usage (intranet-based website).
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="mb-3 sr-profile">
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <p class="mb-1"><strong>Lab Assistance</strong></p>
-                                        <p class="mb-1 text-primary">Programming Assistance</p>
-                                    </div>
-                                    <div class="col-md-4 text-md-right">
-                                        <p class="mb-1"><strong>Jember, 2012 - 2014</strong></p>
-                                    </div>
-                                    <div class="col">
-                                        <p class="text-muted">
-                                            Lab is one of my favorite place in University, try to share my knowledge by teaching another students.
-                                            Improve skills in daily basis, managed programming event and course, engaged with lecture project and maintained
-                                            computers also any equipment inside.
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                     <div class="mb-4">
                         <p class="text-primary sr-profile"><strong>ACHIEVEMENTS</strong></p>
                         <ul class="list-unstyled">
-                            <li class="mb-3 sr-profile">
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <p class="mb-1"><strong>Discovery National Event</strong></p>
-                                        <p class="mb-1 text-primary">4th application discovery</p>
+                            @foreach($user->awards as $award)
+                                <li class="mb-3 sr-profile">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <p class="mb-1"><strong>{{ $award->title }} : {{ $award->category }}</strong></p>
+                                            <p class="mb-1 text-primary">{{ $award->description }}</p>
+                                        </div>
+                                        <div class="col-md-4 text-md-right">
+                                            <p class="mb-1"><strong>{{ $award->awarded_in }}</strong></p>
+                                            <p class="text-muted mb-1">{{ $award->location }}</p>
+                                        </div>
                                     </div>
-                                    <div class="col-md-4 text-md-right">
-                                        <p class="mb-1"><strong>Jember, 2014</strong></p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="mb-3 sr-profile">
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <p class="mb-1"><strong>HIMASIF Friendship Competition</strong></p>
-                                        <p class="mb-1 text-primary">1th algorithm category</p>
-                                    </div>
-                                    <div class="col-md-4 text-md-right">
-                                        <p class="mb-1"><strong>Jember, 2014</strong></p>
-                                    </div>
-                                </div>
-                            </li>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="skills">
+        <section id="skills" class="pb-0">
             <div class="row justify-content-sm-between">
                 <div class="col-sm-3 mb-3 text-center text-sm-right sr-skill">
                     <p class="mb-0 section-heading-group"><strong>EXPERTISE</strong></p>
@@ -269,134 +225,36 @@
                 </div>
                 <div class="col-sm-8">
                     <div class="row">
-                        <div class="col-lg-6 mb-5">
-                            <div class="row sr-skill">
-                                <div class="col-1">
-                                    <strong class="text-gray-400">01</strong>
-                                </div>
-                                <div class="col-11">
-                                    <p><strong>ADVANCED CSS</strong></p>
-                                    <p class="skill-description">We're entering the deepest realms of CSS3 now, using gulp stack and webpack automate front end builder.</p>
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col-2">
-                                            <strong class="text-primary">70%</strong>
-                                        </div>
-                                        <div class="col-10">
-                                            <div class="progress">
-                                                <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                        <?php $order = 1 ?>
+                        @foreach($user->skills as $skill)
+                            <div class="col-lg-6 mb-5">
+                                <div class="row sr-skill">
+                                    <div class="col-1">
+                                        <strong class="text-gray-400">
+                                            {{ str_pad($order, 2, '0', STR_PAD_LEFT) }}
+                                        </strong>
+                                    </div>
+                                    <div class="col-11">
+                                        <p><strong>{{ $skill->expertise }}</strong></p>
+                                        <p class="skill-description">{{ $skill->description }}</p>
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col-2">
+                                                <strong class="text-primary">{{ $skill->proficiency_level }}%</strong>
+                                            </div>
+                                            <div class="col-10">
+                                                <div class="progress">
+                                                    <div class="progress-bar" role="progressbar" style="width: {{ $skill->proficiency_level }}%" aria-valuenow="{{ $skill->proficiency_level }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-6 mb-5">
-                            <div class="row sr-skill">
-                                <div class="col-1">
-                                    <strong class="text-gray-400">02</strong>
-                                </div>
-                                <div class="col-11">
-                                    <p><strong>FRONT END DESIGN</strong></p>
-                                    <p class="skill-description">Involves creating the HTML, CSS, and presentational JavaScript code that makes up a user interface.</p>
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col-2 col-sm-4 col-md-2">
-                                            <strong class="text-primary">50%</strong>
-                                        </div>
-                                        <div class="col-10 col-sm-8 col-md-10">
-                                            <div class="progress">
-                                                <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="w-100"></div>
-                        <div class="col-lg-6 mb-5">
-                            <div class="row sr-skill">
-                                <div class="col-1">
-                                    <strong class="text-gray-400">03</strong>
-                                </div>
-                                <div class="col-11">
-                                    <p><strong>VERSION CONTROL</strong></p>
-                                    <p class="skill-description">GIT version control software to track every modification my code in a special kind of database.</p>
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col-2">
-                                            <strong class="text-primary">30%</strong>
-                                        </div>
-                                        <div class="col-10">
-                                            <div class="progress">
-                                                <div class="progress-bar" role="progressbar" style="width: 30%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 mb-5">
-                            <div class="row sr-skill">
-                                <div class="col-1">
-                                    <strong class="text-gray-400">04</strong>
-                                </div>
-                                <div class="col-11">
-                                    <p><strong>WEB PROGRAMMING</strong></p>
-                                    <p class="skill-description">I'm using Laravel, codeigniter mostly (based PHP language), little Yii, Java EE, Rails and Django.</p>
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col-2">
-                                            <strong class="text-primary">85%</strong>
-                                        </div>
-                                        <div class="col-10">
-                                            <div class="progress">
-                                                <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="w-100"></div>
-                        <div class="col-lg-6 mb-5">
-                            <div class="row sr-skill">
-                                <div class="col-1">
-                                    <strong class="text-gray-400">05</strong>
-                                </div>
-                                <div class="col-11">
-                                    <p><strong>DATABASE / PL</strong></p>
-                                    <p class="skill-description">Using MySql in daily basis, some project with PostgreSQL, maintain basic query and procedure.</p>
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col-2">
-                                            <strong class="text-primary">45%</strong>
-                                        </div>
-                                        <div class="col-10">
-                                            <div class="progress">
-                                                <div class="progress-bar" role="progressbar" style="width: 45%" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 mb-5">
-                            <div class="row sr-skill">
-                                <div class="col-1">
-                                    <strong class="text-gray-400">06</strong>
-                                </div>
-                                <div class="col-11">
-                                    <p><strong>JAVASCRIPT / JQUERY</strong></p>
-                                    <p class="skill-description">Some UI libraries and selector fancy jQuery in many project that I have been done, little angular and react.</p>
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col-2">
-                                            <strong class="text-primary">50%</strong>
-                                        </div>
-                                        <div class="col-10">
-                                            <div class="progress">
-                                                <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            @if($order % 2 == 0)
+                                <div class="w-100"></div>
+                            @endif
+                            <?php $order++ ?>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -438,7 +296,9 @@
             </div>
 
             <div class="text-center">
-                <a class="btn btn-primary btn-pill btn-lg mt-5 sr-showcase" href="{{ route('showcase') }}">SHOW ALL MY SHOWCASES</a>
+                <a class="btn btn-primary btn-pill btn-lg mt-5 sr-showcase" href="{{ route('showcase') }}">
+                    SHOW ALL SHOWCASES
+                </a>
             </div>
         </div>
     </section>
@@ -544,7 +404,7 @@
         <div class="container text-center">
             <h3 class="mb-2 sr-profile">Download My Professional CV</h3>
             <p class="mb-5 sr-profile">Generated PDF file</p>
-            <a class="btn btn-light btn-xl sr-button mb-5" href="#">Download Now</a>
+            <a class="btn btn-light btn-xl sr-button mb-5" href="{{ route('showcase.generate', ['user' => $user->username]) }}">Download Now</a>
             <p class="sr-profile">
                 Or visit my old profile <a href="https://anggadarkprince.github.io">anggadarkprince.github.io</a>
             </p>
@@ -658,22 +518,24 @@
                 </div>
             </div>
             <div class="row text-center">
-                <div class="col-6 col-md-3 ml-auto">
+                <div class="col-sm-6 col-md-3 ml-auto">
                     <i class="icon-screen-smartphone fa-3x mb-3 d-inline-block sr-contact"></i>
-                    <p class="sr-show-up">(+62) 85655479868</p>
+                    <p class="sr-show-up">{{ $user->setting('showcase.contact', $user->contact) }}</p>
                 </div>
-                <div class="col-6 col-md-3 mr-auto mr-md-0">
+                <div class="col-sm-6 col-md-3 mr-auto mr-md-0">
                     <i class="icon-envelope-open fa-3x mb-3 d-inline-block sr-contact"></i>
                     <p class="sr-show-up">
-                        <a href="mailto:me@angga-ari.com" class="link-natural">me@angga-ari.com</a>
+                        <a href="mailto:me@angga-ari.com" class="link-natural">{{ $user->setting('showcase.email', $user->email) }}</a>
                     </p>
                 </div>
                 <div class="col-12 col-md-3 mr-auto d-none d-md-block">
                     <i class="icon-social-twitter fa-3x mb-3 d-inline-block sr-contact"></i>
                     <p class="sr-show-up">
-                        <a href="https://twitter.com/anggadarkprince" class="link-natural">
-                            @anggadarkprince
-                        </a>
+                        @if($twitter)
+                            <a href="https://twitter.com/{{ $twitter->getNickname() }}" class="link-natural">
+                                {{ '@' . $twitter->getNickname() }}
+                            </a>
+                        @endif
                     </p>
                 </div>
             </div>

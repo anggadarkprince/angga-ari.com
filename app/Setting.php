@@ -8,13 +8,58 @@ use Illuminate\Support\Facades\DB;
 class Setting extends Model
 {
     /**
+     * Bind setting query with keys.
+     *
+     * @param $query
+     * @param $key
+     * @throws \Exception
+     */
+    public function bindSettingKey(&$query, $key)
+    {
+        $keys = explode('.', $key);
+
+        $query->where('setting_groups.group', $keys[0]);
+
+        if (count($keys) > 1) {
+            $query->where('settings.setting', $keys[1]);
+        } else {
+            throw new \Exception('Setting key is invalid, format should be [group_key.setting_key]');
+        }
+    }
+
+    /**
+     * Get initial default value of setting key.
+     *
+     * @param $key
+     * @return mixed|null
+     * @throws \Exception
+     */
+    public function getInitialValue($key)
+    {
+        $settings = DB::table('setting_groups')
+            ->select('group', 'setting', 'initial_value')
+            ->join('settings', 'setting_groups.id', '=', 'settings.setting_group_id');
+
+        $this->bindSettingKey($settings, $key);
+
+        $settingRow = $settings->first();
+
+        if(empty($settingRow)) {
+            return null;
+        }
+
+        return $settingRow->initial_value;
+    }
+
+    /**
      * Get application setting.
      *
      * @param $key
      * @param string $defaultValue
      * @return Model|\Illuminate\Database\Query\Builder|null|object
+     * @throws \Exception
      */
-    public function getSettingApp($key, $defaultValue = '')
+    public function getAppSetting($key, $defaultValue = '')
     {
         return $this->getSetting(null, $key, $defaultValue);
     }
@@ -26,27 +71,26 @@ class Setting extends Model
      * @param string $key
      * @param string $defaultValue
      * @return Model|\Illuminate\Database\Query\Builder|null|object
+     * @throws \Exception
      */
     public function getSetting($userId, $key, $defaultValue = '')
     {
         $settings = DB::table('setting_groups')
-            ->select('group', 'setting', 'value')
+            ->select('group', 'setting', 'value', 'initial_value')
             ->join('settings', 'setting_groups.id', '=', 'settings.setting_group_id')
-            ->join('user_settings', 'settings.id', '=', 'user_settings.setting_id')
+            ->leftJoin('user_settings', 'settings.id', '=', 'user_settings.setting_id')
             ->where('user_settings.user_id', $userId);
 
-        $keys = explode('.', $key);
-
-        $settings->where('setting_groups.group', $keys[0]);
-
-        if (count($keys) > 1) {
-            $settings->where('settings.setting', $keys[1]);
-        }
+        $this->bindSettingKey($settings, $key);
 
         $settingRow = $settings->first();
 
-        if (empty($settingRow)) {
-            return $defaultValue;
+        if (empty($settingRow) || is_null($settingRow->value) || $settingRow->value == '') {
+            if(is_null($defaultValue) || $defaultValue == '') {
+                return $this->getInitialValue($key);
+            } else {
+                return $defaultValue;
+            }
         }
 
         return $settingRow->value;
@@ -88,7 +132,7 @@ class Setting extends Model
         $keys = explode('.', $key);
 
         if (count($keys) < 2) {
-            throw new \Exception('Invalid user setting key, format must contain group and setting');
+            throw new \Exception('Invalid user setting key, format must formatted as [group_key.setting_key]');
         }
 
         $setting = DB::table('setting_groups')

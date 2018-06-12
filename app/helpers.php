@@ -8,8 +8,8 @@ if (!function_exists('get_setting')) {
     }
 }
 
-if (!function_exists('get_setting')) {
-    function get_setting_app($key, $default = '')
+if (!function_exists('get_app_setting')) {
+    function get_app_setting($key, $default = '')
     {
         $setting = new \App\Setting();
         return $setting->getSetting(null, $key, $default);

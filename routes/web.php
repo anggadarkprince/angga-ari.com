@@ -12,7 +12,7 @@
 */
 
 Route::domain(env('APP_URL'))->group(function () {
-    Route::get('/', 'PageController@index')->name('index');
+    Route::get('/', 'LandingController@index')->name('index');
     Route::view('/help', 'statics.help')->name('help');
     Route::view('/privacy', 'statics.privacy')->name('privacy');
     Route::view('/agreement', 'statics.agreement')->name('agreement');

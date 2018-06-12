@@ -15,14 +15,14 @@
                     <h2 class="mr-4"><i class="icon-like text-primary"></i></h2>
                     <div>
                         <h5 class="text-primary">Impression</h5>
-                        <p class="text-muted">242 Views</p>
+                        <p class="text-muted">{{ $user->portfolios()->sum('views') }} Views</p>
                     </div>
                 </div>
                 <div class="col-6 col-md-4 d-flex flex-column flex-sm-row">
                     <h2 class="mr-4"><i class="icon-bubbles text-primary"></i></h2>
                     <div>
                         <h5 class="text-primary">Comments</h5>
-                        <p class="text-muted">52 Talks</p>
+                        <p class="text-muted">{{ $user->portfolios()->sum('comments') }} Talks</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -39,31 +39,41 @@
                 <div class="col-md">
                     <div class="d-flex d-md-block justify-content-between">
                         <h6>Portfolio</h6>
-                        <p class="text-muted">{{ $user->portfolios()->count() }} Items</p>
+                        <a href="{{ route('showcase.portfolio') }}" class="link-muted">
+                            {{ $user->portfolios()->count() }} Items
+                        </a>
                     </div>
                 </div>
                 <div class="col-md">
                     <div class="d-flex d-md-block justify-content-between">
                         <h6>Expertise</h6>
-                        <p class="text-muted">{{ $user->skills()->count() }} Skills</p>
+                        <a href="{{ route('showcase.skill') }}" class="link-muted">
+                            {{ $user->skills()->count() }} Skills
+                        </a>
                     </div>
                 </div>
                 <div class="col-md">
                     <div class="d-flex d-md-block justify-content-between">
                         <h6>Educations</h6>
-                        <p class="text-muted">{{ $user->educations()->count() }} Schools</p>
+                        <a href="{{ route('showcase.achievement') }}" class="link-muted">
+                            {{ $user->educations()->count() }} Schools
+                        </a>
                     </div>
                 </div>
                 <div class="col-md">
                     <div class="d-flex d-md-block justify-content-between">
                         <h6>Experiences</h6>
-                        <p class="text-muted">{{ $user->experiences()->count() }} Activity</p>
+                        <a href="{{ route('showcase.achievement') }}" class="link-muted">
+                            {{ $user->experiences()->count() }} Activity
+                        </a>
                     </div>
                 </div>
                 <div class="col-md">
                     <div class="d-flex d-md-block justify-content-between">
                         <h6>Awards</h6>
-                        <p class="text-muted">{{ $user->awards()->count() }} Winning</p>
+                        <a href="{{ route('showcase.achievement') }}" class="link-muted">
+                            {{ $user->awards()->count() }} Winning
+                        </p>
                     </div>
                 </div>
             </div>

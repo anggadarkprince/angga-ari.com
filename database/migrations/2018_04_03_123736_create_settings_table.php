@@ -18,6 +18,7 @@ class CreateSettingsTable extends Migration
             $table->increments('id');
             $table->integer('setting_group_id')->unsigned();
             $table->string('setting');
+            $table->text('initial_value');
             $table->timestamps();
 
             $table->foreign('setting_group_id')->references('id')->on('setting_groups')->onDelete('cascade');
