@@ -11,7 +11,7 @@
                 <div class="col-lg-7 col-md-10 mx-auto">
                     <div class="site-heading">
                         <h1 class="sr-show-up">Craft Things, Share Ideas</h1>
-                        <span class="subheading sr-show-up">A simple blog post about nerdy and computer tech stuff</span>
+                        <span class="subheading sr-show-up">A simple blog post about nerdy and tech stuff</span>
                     </div>
                 </div>
             </div>
@@ -164,12 +164,20 @@
                             Socials
                         </p>
                         <p>Let's get in touch</p>
-                        <ul class="widget-list text-wide">
-                            <a href="#"><i class="fab fa-facebook-f fa-2x"></i></a>
-                            <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
-                            <a href="#"><i class="fab fa-github fa-2x"></i></a>
-                            <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
-                        </ul>
+                        <div class="widget-list text-wide">
+                            <a href="https://facebook.com/sharer/sharer.php?u={{ url()->full() }}">
+                                <img src="{{ Storage::url('layouts/social/facebook.svg') }}"
+                                     class="mr-2" style="width: 35px" alt="Facebook">
+                            </a>
+                            <a href="https://twitter.com/home?status={{ urlencode('Hey check this awesome article on ' . url()->full()) }}">
+                                <img src="{{ Storage::url('layouts/social/twitter.svg') }}"
+                                     class="mr-2" style="width: 35px" alt="Twitter">
+                            </a>
+                            <a href="https://plus.google.com/share?url={{ url()->full() }}">
+                                <img src="{{ Storage::url('layouts/social/google-plus.svg') }}"
+                                     class="mr-2" style="width: 35px" alt="Google">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

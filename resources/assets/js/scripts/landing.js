@@ -1,5 +1,4 @@
-(function ($) {
-    "use strict"; // Start of use strict
+export default function() {
 
     // Smooth scrolling using jQuery easing
     $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
@@ -46,39 +45,14 @@
         scale: 0.3,
         distance: '0px'
     }, 200);
-    sr.reveal('.sr-button', {
-        duration: 800,
-        delay: 200
-    });
     sr.reveal('.sr-profile', {
         duration: 800,
         delay: 200
     });
-    sr.reveal('.sr-contact', {
-        duration: 600,
-        scale: 0.3,
-        distance: '0px'
-    }, 300);
     sr.reveal('.sr-show-up', {
         duration: 500,
         scale: 0.3
-    }, 100);
-    sr.reveal('.sr-skill', {
-        duration: 600,
-        delay: 100
-    });
-    sr.reveal('.sr-blog', {
-        duration: 600,
-        delay: 200
-    }, 150);
-    sr.reveal('.sr-showcase', {
-        duration: 800,
-        delay: 200
-    }, 100);
-    sr.reveal('.sr-contact-form', {
-        duration: 800,
-        delay: 200
-    });
+    }, 300);
 
     if ($('.showcase-gallery').length) {
         $('.showcase-gallery').magnificPopup({
@@ -111,5 +85,4 @@
             }
         });
     }
-
-})(jQuery); // End of use strict
+}

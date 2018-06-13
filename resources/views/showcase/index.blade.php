@@ -73,7 +73,7 @@
                         <h6>Awards</h6>
                         <a href="{{ route('showcase.achievement') }}" class="link-muted">
                             {{ $user->awards()->count() }} Winning
-                        </p>
+                        </a>>
                     </div>
                 </div>
             </div>

@@ -2,13 +2,12 @@
 
 @import '~bootstrap/scss/bootstrap';
 @import '~simple-line-icons/scss/simple-line-icons';
-@import '~@fortawesome/fontawesome-free-webfonts/scss/fontawesome';
-@import '~@fortawesome/fontawesome-free-webfonts/scss/fa-regular';
-@import '~@fortawesome/fontawesome-free-webfonts/scss/fa-solid';
-@import '~@fortawesome/fontawesome-free-webfonts/scss/fa-brands';
 @import '~magnific-popup/dist/magnific-popup.css';
 
 @import "base/mixins.scss";
+
+@import "plugins/pace";
+
 @import "base/bootstrap-overrides.scss";
 @import "base/typography.scss";
 @import "base/global.scss";
@@ -23,3 +22,4 @@
 @import "landing/showcase.scss";
 @import "landing/map.scss";
 @import "landing/footer.scss";
+@import "dashboard/misc.scss";

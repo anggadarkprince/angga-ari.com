@@ -4,25 +4,25 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="keywords" content="">
+    <meta name="description" content="{{ get_app_setting('app.description') }}">
+    <meta name="author" content="{{ get_app_setting('app.author') }}">
+    <meta name="keywords" content="{{ get_app_setting('app.keywords') }}">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="base-url" content="{{ url('/') }}">
 
     <title>{{ config('app.name') }} - @yield('title') </title>
 
     <!-- Scripts -->
     <script src="{{ mix('js/manifest.js') }}" defer></script>
     <script src="{{ mix('js/vendor.js') }}" defer></script>
-    <script src="{{ mix('js/app.js') }}" defer></script>
     <script src="{{ mix('js/landing.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:700' rel='stylesheet' type='text/css'>
 
     <!-- Styles -->
     <link href="{{ mix('css/landing.css') }}" rel="stylesheet">
@@ -83,6 +83,8 @@
 
 @include('components._footer_mini')
 @include('components._to_top')
+@include('components._cookie_confirm')
 
+@yield('scripts')
 </body>
 </html>

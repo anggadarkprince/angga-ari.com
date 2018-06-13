@@ -17,3 +17,7 @@
     </div>
     @include('components.modals._alert')
 @endsection
+
+@section('scripts')
+    <script src="{{ mix('js/showcase.js') }}" defer></script>
+@endsection

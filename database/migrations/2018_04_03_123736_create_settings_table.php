@@ -28,6 +28,7 @@ class CreateSettingsTable extends Migration
             ['setting_group_id' => 1, 'setting' => 'name'],
             ['setting_group_id' => 1, 'setting' => 'description'],
             ['setting_group_id' => 1, 'setting' => 'keywords'],
+            ['setting_group_id' => 1, 'setting' => 'author'],
             ['setting_group_id' => 1, 'setting' => 'profile'],
             ['setting_group_id' => 2, 'setting' => 'support'],
             ['setting_group_id' => 2, 'setting' => 'bug'],

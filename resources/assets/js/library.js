@@ -4,6 +4,7 @@ import cookie from './scripts/cookie'
 import deleteModal from './scripts/delete'
 import drive from './scripts/drive'
 import misc from './scripts/misc'
+import modalChaining from './scripts/modalChaining'
 import postEditor from './scripts/postEditor'
 import searchBox from './scripts/searchBox'
 import selectize from './scripts/selectTag'
@@ -16,6 +17,9 @@ var LibraryInitializer = (function () {
     function libInitializer() {
         // activate misc library
         misc();
+
+        // modal chaining
+        modalChaining();
 
         // initialize selectize library
         selectize();

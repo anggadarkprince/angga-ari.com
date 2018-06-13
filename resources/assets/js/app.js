@@ -7,39 +7,20 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue');
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
-
-if($('#app').length) {
-    const app = new Vue({
-        el: '#app'
-    });
-}
+require('jquery.easing');
+require('prismjs');
+require('magnific-popup');
+require('ckeditor');
+require('jquery-validation');
+require('croppie');
+require('selectize');
+require('jquery-lazy');
+window.mixitup = require('mixitup');
+window.Mustache = require('mustache');
+window.Sortable = require('sortablejs');
 
 import LibraryInitializer from './library.js'
 LibraryInitializer.init();
 
 import UploadAvatar from './scripts/avatar.js'
 UploadAvatar.init();
-
-import Portfolio from './scripts/portfolio.js'
-Portfolio.init();
-
-import Education from './scripts/education.js'
-Education.init();
-
-import Experience from './scripts/experience.js'
-Experience.init();
-
-import Award from './scripts/award.js'
-Award.init();
-
-import Skill from './scripts/skill.js'
-Skill.init();
