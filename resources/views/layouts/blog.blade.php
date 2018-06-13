@@ -18,6 +18,7 @@
     <script src="{{ mix('js/vendor.js') }}" defer></script>
     <script src="{{ mix('js/app.js') }}" defer></script>
     <script src="{{ mix('js/blog.js') }}" defer></script>
+    <script src="{{ mix('js/script.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">

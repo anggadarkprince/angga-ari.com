@@ -7,7 +7,7 @@
         <div class="col-sm-8">
             <div class="row">
                 <?php $order = 1 ?>
-                @foreach($user->skills as $skill)
+                @foreach($skills as $skill)
                     <div class="col-lg-6 mb-5">
                         <div class="row sr-profile">
                             <div class="col-1">

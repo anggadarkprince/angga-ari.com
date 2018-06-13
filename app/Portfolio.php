@@ -52,14 +52,14 @@ class Portfolio extends Model
     }
 
     /**
-     * Scope a query to only include popular users.
+     * Scope a query to sort portfolio by working date.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeLatest($query)
     {
-        return $query->orderBy('created_at', 'desc');
+        return $query->orderBy('date', 'desc');
     }
 
     /**

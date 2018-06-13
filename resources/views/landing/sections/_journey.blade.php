@@ -8,7 +8,7 @@
             <div class="mb-4">
                 <p class="text-primary sr-profile"><strong>EDUCATIONS</strong></p>
                 <ul class="list-unstyled">
-                    @foreach($user->educations as $education)
+                    @foreach($educations as $education)
                         <li class="sr-profile">
                             <div class="row">
                                 <div class="col-md-7">
@@ -33,7 +33,7 @@
             <div class="mb-4">
                 <p class="text-primary sr-profile"><strong>EXPERIENCES</strong></p>
                 <ul class="list-unstyled">
-                    @foreach($user->experiences as $experience)
+                    @foreach($experiences as $experience)
                         <li class="mb-3 sr-profile">
                             <div class="row">
                                 <div class="col-md-9">
@@ -61,7 +61,7 @@
             <div class="mb-4">
                 <p class="text-primary sr-profile"><strong>ACHIEVEMENTS</strong></p>
                 <ul class="list-unstyled">
-                    @foreach($user->awards as $award)
+                    @foreach($awards as $award)
                         <li class="mb-3 sr-profile">
                             <div class="row">
                                 <div class="col-md-8">

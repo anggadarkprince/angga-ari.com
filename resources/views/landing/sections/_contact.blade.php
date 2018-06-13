@@ -12,11 +12,11 @@
         </div>
         <div class="row text-center">
             <div class="col-sm-6 col-md-3 ml-auto">
-                <i class="icon-screen-smartphone fa-3x mb-3 d-inline-block sr-show-up"></i>
+                <i class="icon-screen-smartphone display-4 mb-3 d-inline-block sr-show-up"></i>
                 <p class="sr-show-up">{{ $user->setting('showcase.contact', $user->contact) }}</p>
             </div>
             <div class="col-sm-6 col-md-3 mr-auto mr-md-0">
-                <i class="icon-envelope-open fa-3x mb-3 d-inline-block sr-show-up"></i>
+                <i class="icon-envelope-open display-4 mb-3 d-inline-block sr-show-up"></i>
                 <p class="sr-show-up">
                     <a href="mailto:me@angga-ari.com" class="link-natural">
                         {{ $user->setting('showcase.email', $user->email) }}
@@ -25,7 +25,7 @@
             </div>
             @if($twitter)
                 <div class="col-12 col-md-3 mr-auto d-none d-md-block">
-                    <i class="icon-social-twitter fa-3x mb-3 d-inline-block sr-show-up"></i>
+                    <i class="icon-social-twitter display-4 mb-3 d-inline-block sr-show-up"></i>
                     <p class="sr-show-up">
                         <a href="https://twitter.com/{{ $twitter->getNickname() }}" class="link-natural">
                             {{ '@' . $twitter->getNickname() }}

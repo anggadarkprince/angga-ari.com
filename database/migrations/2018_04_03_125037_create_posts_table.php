@@ -23,7 +23,8 @@ class CreatePostsTable extends Migration
             $table->text('cover');
             $table->enum('status', ['draft', 'published', 'scheduled'])->default('draft');
             $table->enum('privacy', ['private', 'public'])->default('public');
-            $table->unsignedBigInteger('view')->default(0);
+            $table->unsignedInteger('views')->default(0);
+            $table->unsignedInteger('comments')->default(0);
             $table->dateTime('published_at');
             $table->softDeletes();
             $table->timestamps();

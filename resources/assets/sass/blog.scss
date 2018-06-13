@@ -5,6 +5,9 @@
 @import '~prismjs/themes/prism-tomorrow.css';
 
 @import "base/mixins.scss";
+
+@import "plugins/pace";
+
 @import "base/bootstrap-overrides.scss";
 @import "base/typography.scss";
 @import "base/global.scss";
@@ -18,3 +21,4 @@
 @import "blog/comment";
 
 @import "dashboard/footer";
+@import "dashboard/misc.scss";
