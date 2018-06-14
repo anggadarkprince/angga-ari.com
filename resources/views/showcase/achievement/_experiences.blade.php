@@ -20,7 +20,7 @@
                                 <i class="icon-note mr-2"></i>Edit Experience
                             </a>
                             <a class="dropdown-item btn-delete" href="#modal-delete" data-toggle="modal"
-                               data-id="3" data-label="{{ $experience->occupation }}"
+                               data-id="{{ $experience->id }}" data-label="{{ $experience->occupation }}"
                                data-title="{{ $experience->experience }}"
                                data-url="{{ route('showcase.experiences.destroy', ['experience' => $experience->id]) }}">
                                 <i class="icon-trash mr-2"></i>Delete

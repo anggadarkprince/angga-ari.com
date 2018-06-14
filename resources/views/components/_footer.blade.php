@@ -14,8 +14,8 @@
             <div class="col-5 col-md">
                 <ul class="list-unstyled">
                     <li class="text-strong mb-2">Apps</li>
-                    <li><a href="{{ route('showcase.portfolio') }}" class="link-muted">Showcase</a></li>
-                    <li><a href="{{ route('blog.post') }}" class="link-muted">Blog</a></li>
+                    <li><a href="{{ route('showcase.index') }}" class="link-muted">Showcase</a></li>
+                    <li><a href="{{ route('blog.index') }}" class="link-muted">Blog</a></li>
                     <li><a href="{{ route('drive.browser') }}" class="link-muted">Drive</a></li>
                     <li class="d-none d-sm-block"><a href="{{ route('journal.notebook') }}" class="link-muted">Note</a></li>
                     <li class="d-none d-sm-block"><a href="{{ route('finance.transaction') }}" class="link-muted">Finance</a></li>

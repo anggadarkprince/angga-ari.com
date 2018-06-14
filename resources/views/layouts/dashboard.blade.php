@@ -20,4 +20,5 @@
 
 @section('scripts')
     <script src="{{ mix('js/showcase.js') }}" defer></script>
+    <script src="{{ mix('js/blog.js') }}" defer></script>
 @endsection

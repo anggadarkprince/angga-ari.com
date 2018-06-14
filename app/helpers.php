@@ -81,3 +81,19 @@ if (!function_exists('is_app_route')) {
         return ($routeName != 'home' && strpos($routeName, 'setting.') === false);
     }
 }
+
+if (!function_exists('cover_background')) {
+    function cover_background($url, $additionalStyles = [])
+    {
+        $styles = 'style="';
+        $background = "background: url('" . asset($url) . "') no-repeat center center / cover;";
+        $styles .= $background;
+        if (!empty($additionalStyles)) {
+            foreach ($additionalStyles as $attr => $value) {
+                $styles .= ' ' . $attr . ': ' . $value . ';';
+            }
+        }
+        $styles .= '"';
+        return $styles;
+    }
+}

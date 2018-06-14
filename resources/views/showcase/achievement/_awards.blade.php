@@ -18,7 +18,7 @@
                                 <i class="icon-note mr-2"></i>Edit Award
                             </a>
                             <a class="dropdown-item btn-delete" href="#modal-delete" data-toggle="modal"
-                               data-id="3" data-label="{{ $award->title }}"
+                               data-id="{{ $award->id }}" data-label="{{ $award->title }}"
                                data-title="{{ $award->category }}"
                                data-url="{{ route('showcase.awards.destroy', ['award' => $award->id]) }}">
                                 <i class="icon-trash mr-2"></i>Delete

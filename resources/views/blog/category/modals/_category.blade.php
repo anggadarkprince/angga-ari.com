@@ -8,15 +8,18 @@
                 </button>
             </div>
             <div class="modal-body py-2">
-                <form action="#" method="post">
+                <form action="{{ route('blog.category.store') }}" method="post" id="category-form" novalidate>
                     @csrf
+                    @method('post')
                     <div class="form-group">
-                        <label for="category">Category</label>
-                        <input type="text" class="form-control" id="category" placeholder="Category title" required>
+                        <label for="term">Category</label>
+                        <input type="text" class="form-control" id="term" name="term" placeholder="Category title"
+                               maxlength="100" required>
                     </div>
                     <div class="form-group">
                         <label for="description">Description</label>
-                        <textarea class="form-control" id="description" placeholder="Detail description category about" required></textarea>
+                        <textarea class="form-control" id="description" name="description" maxlength="500"
+                                  placeholder="Detail description category about"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="featured">Featured Image</label>
@@ -28,7 +31,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-info">Save changes</button>
+                <button type="button" class="btn btn-info" data-submit="true" data-toggle="button" aria-pressed="false"
+                        onclick="event.preventDefault(); document.getElementById('category-form').submit();">Save changes</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>

@@ -1,5 +1,5 @@
-import readFile from './readFile.js'
-import showAlert from "./alert";
+import readFile from '../scripts/readFile.js'
+import showAlert from "../scripts/alert";
 
 var Portfolio = (function () {
     function cover() {

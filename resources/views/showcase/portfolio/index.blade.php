@@ -51,8 +51,8 @@
                                         <a class="dropdown-item" href="{{ route('showcase.portfolio.edit', ['portfolio' => $portfolio->slug]) }}">
                                             <i class="icon-note mr-2"></i>Edit Portfolio
                                         </a>
-                                        <a class="dropdown-item btn-delete"  href="#modal-delete" data-toggle="modal"
-                                           data-id="3" data-label="{{ $portfolio->title }}"
+                                        <a class="dropdown-item btn-delete" href="#modal-delete" data-toggle="modal"
+                                           data-id="{{ $portfolio->id }}" data-label="{{ $portfolio->title }}"
                                            data-title="Portfolio"
                                            data-url="{{ route('showcase.portfolio.destroy', ['portfolio' => $portfolio->slug]) }}">
                                             <i class="icon-trash mr-2"></i>Delete

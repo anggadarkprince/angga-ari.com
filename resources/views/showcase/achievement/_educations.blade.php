@@ -20,7 +20,7 @@
                                 <i class="icon-note mr-2"></i>Edit School
                             </a>
                             <a class="dropdown-item btn-delete" href="#modal-delete" data-toggle="modal"
-                               data-id="3" data-label="{{ $education->institution }}"
+                               data-id="{{ $education->id }}" data-label="{{ $education->institution }}"
                                data-title="{{ $education->degree }}"
                                data-url="{{ route('showcase.educations.destroy', ['education' => $education->id]) }}">
                                 <i class="icon-trash mr-2"></i>Delete

@@ -4,6 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property integer user_id
+ */
 class Taxonomy extends Model
 {
     /**
@@ -12,8 +15,20 @@ class Taxonomy extends Model
      * @var array
      */
     protected $fillable = [
-        'term', 'slug', 'type', 'description'
+        'term', 'slug', 'type', 'category', 'description'
     ];
+
+    /**
+     * Scope a query to sort latest post by published date.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param $category
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeCategory($query, $category)
+    {
+        return $query->where('category', $category);
+    }
 
     /**
      * Get the owner that owns the taxonomy.
@@ -28,7 +43,7 @@ class Taxonomy extends Model
      */
     public function posts()
     {
-        return $this->morphedByMany(Post::class, 'taggable', 'taxonomy_relationship')->withTimestamps();
+        return $this->morphedByMany(Post::class, 'taggable', 'taxonomy_relationships')->withTimestamps();
     }
 
     /**
@@ -36,6 +51,6 @@ class Taxonomy extends Model
      */
     public function showcases()
     {
-        return $this->morphedByMany(Portfolio::class, 'taggable', 'taxonomy_relationship')->withTimestamps();
+        return $this->morphedByMany(Portfolio::class, 'taggable', 'taxonomy_relationships')->withTimestamps();
     }
 }

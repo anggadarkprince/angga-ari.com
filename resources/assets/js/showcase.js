@@ -1,14 +1,14 @@
-import Portfolio from './scripts/portfolio.js'
+import Portfolio from './showcase/portfolio'
 Portfolio.init();
 
-import Education from './scripts/education.js'
+import Education from './showcase/education'
 Education.init();
 
-import Experience from './scripts/experience.js'
+import Experience from './showcase/experience'
 Experience.init();
 
-import Award from './scripts/award.js'
+import Award from './showcase/award'
 Award.init();
 
-import Skill from './scripts/skill.js'
+import Skill from './showcase/skill'
 Skill.init();

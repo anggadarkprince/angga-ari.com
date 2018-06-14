@@ -21,7 +21,7 @@
     <div class="row">
         <div class="col-md-12 skill-wrapper">
             @foreach($skills as $skill)
-                <div class="card box-shadow mb-4 skill-item" style="cursor: pointer">
+                <div class="card box-shadow mb-4 skill-item cursor-pointer">
                     <div class="card-body d-flex justify-content-start pr-3">
                         <img src="{{ Storage::url('layouts/icons/footwear.svg') }}"
                              class="pr-3 mr-3 border-right align-self-start d-none d-sm-block" style="width: 100px">
@@ -55,7 +55,7 @@
                                             <i class="icon-note mr-2"></i>Edit Experience
                                         </a>
                                         <a class="dropdown-item btn-delete" href="#modal-delete" data-toggle="modal"
-                                           data-id="3" data-label="{{ $skill->expertise }}"
+                                           data-id="{{ $skill->id }}" data-label="{{ $skill->expertise }}"
                                            data-title="{{ $skill->field }}"
                                            data-url="{{ route('showcase.skills.destroy', ['skill' => $skill->id]) }}">
                                             <i class="icon-trash mr-2"></i>Delete

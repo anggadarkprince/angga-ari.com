@@ -10,8 +10,10 @@ use App\Policies\EducationPolicy;
 use App\Policies\ExperiencePolicy;
 use App\Policies\PortfolioPolicy;
 use App\Policies\SkillPolicy;
+use App\Policies\TaxonomyPolicy;
 use App\Portfolio;
 use App\Skill;
+use App\Taxonomy;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -29,6 +31,7 @@ class AuthServiceProvider extends ServiceProvider
         Award::class => AwardPolicy::class,
         Skill::class => SkillPolicy::class,
         Portfolio::class => PortfolioPolicy::class,
+        Taxonomy::class => TaxonomyPolicy::class,
     ];
 
     /**

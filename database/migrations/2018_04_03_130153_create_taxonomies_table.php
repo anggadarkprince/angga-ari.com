@@ -20,6 +20,7 @@ class CreateTaxonomiesTable extends Migration
             $table->string('term', 100);
             $table->string('slug');
             $table->string('type');
+            $table->string('category');
             $table->text('description')->nullable();
             $table->timestamps();
 

@@ -1,4 +1,4 @@
-import showAlert from './alert.js'
+import showAlert from '../scripts/alert.js'
 
 let Education = (function () {
     let modalForm;
@@ -40,7 +40,7 @@ let Education = (function () {
                 modalForm.removeClass('loading');
                 submit.text('Save Changes');
 
-                form.attr('action', form.attr('action').replace('/\/[0-9]+$/', ''));
+                form.attr('action', form.attr('action').replace(/\/[0-9]+$/, ''));
                 form.find('[name=_method]').val('post');
             }
         });

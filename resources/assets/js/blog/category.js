@@ -1,12 +1,23 @@
-import showAlert from './alert.js'
+import showAlert from '../scripts/alert.js'
 
-let Experience = (function () {
+let Category = (function () {
     let modalForm;
     let form;
     let submit;
 
+    function order() {
+        var categoryWrapper = $('.category-wrapper');
+
+        if (categoryWrapper.length) {
+            Sortable.create(categoryWrapper[0], {
+                animation: 150,
+                draggable: ".category-item",
+            });
+        }
+    }
+
     function modal() {
-        modalForm = $('#modal-form-experience');
+        modalForm = $('#modal-form-category');
         form = modalForm.find('form');
         submit = modalForm.find('[data-submit]');
 
@@ -23,11 +34,7 @@ let Experience = (function () {
                 axios.get(url)
                     .then(function (response) {
                         modalForm.removeClass('loading');
-                        modalForm.find('#experience').val(response.data['experience']);
-                        modalForm.find('#occupation').val(response.data['occupation']);
-                        modalForm.find('#start').val(response.data['start']);
-                        modalForm.find('#end').val(response.data['end']);
-                        modalForm.find('#location').val(response.data['location']);
+                        modalForm.find('#term').val(response.data['term']);
                         modalForm.find('#description').val(response.data['description']);
                     })
                     .catch(function (error) {
@@ -39,24 +46,20 @@ let Experience = (function () {
             } else {
                 modalForm.removeClass('loading');
                 submit.text('Save Changes');
-
-                form.attr('action', form.attr('action').replace('/\/[0-9]+$/', ''));
+                form.attr('action', form.attr('action').replace(/\/[0-9]+$/, ''));
                 form.find('[name=_method]').val('post');
             }
         });
 
         modalForm.on('hidden.bs.modal', function () {
-            modalForm.find('#experience').val('');
-            modalForm.find('#occupation').val('');
-            modalForm.find('#start').val((new Date()).getFullYear());
-            modalForm.find('#end').val('');
-            modalForm.find('#location').val('');
+            modalForm.find('#term').val('');
             modalForm.find('#description').val('');
         })
     }
 
     function init() {
         modal();
+        order();
     }
 
     return {
@@ -64,4 +67,4 @@ let Experience = (function () {
     };
 })();
 
-export default Experience
+export default Category

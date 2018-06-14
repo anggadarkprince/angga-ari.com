@@ -26,7 +26,7 @@ Route::domain(env('APP_URL'))->group(function () {
 
 Route::domain('blog.' . env('APP_URL'))->group(function () {
     Route::view('/', 'blog.index')->name('blog');
-    Route::view('/category/{slug}', 'blog.index')->name('blog.category');
+    Route::view('/category/{slug}', 'blog.index')->name('blog.article.category');
     Route::view('/tag/{slug}', 'blog.index')->name('blog.tag');
     Route::view('/{year}/{month}/{slug}', 'blog.article')->name('blog.article');
     Route::view('/author/{username}', 'blog.author')->name('blog.author');
@@ -137,12 +137,23 @@ Route::domain('dashboard.' . env('APP_URL'))->group(function () {
         });
 
         Route::prefix('blog')->group(function () {
-            Route::view('/category', 'blog.category')->name('blog.category');
+            Route::get('/', 'Blog\BlogController@index')->name('blog.index');
+
             Route::view('/taxonomy', 'blog.taxonomy')->name('blog.taxonomy');
             Route::view('/preference', 'blog.preference')->name('blog.preference');
 
-            Route::view('/post/create', 'blog.post.create')->name('blog.post.create');
-            Route::view('/{post?}', 'blog.post')->name('blog.post');
+            Route::get('post', 'Blog\PostController@index')->name('blog.post');
+            Route::get('post/create', 'Blog\PostController@create')->name('blog.post.create');
+            Route::post('post', 'Blog\PostController@store')->name('blog.post.store');
+            Route::get('post/{post}/edit', 'Blog\PostController@edit')->name('blog.post.edit');
+            Route::put('post/{post}', 'Blog\PostController@update')->name('blog.post.update');
+            Route::delete('post/{post}', 'Blog\PostController@delete')->name('blog.post.destroy');
+
+            Route::get('category', 'Blog\CategoryController@index')->name('blog.category');
+            Route::post('category', 'Blog\CategoryController@store')->name('blog.category.store');
+            Route::get('category/{taxonomy}', 'Blog\CategoryController@show')->name('blog.category.show');
+            Route::put('category/{taxonomy}', 'Blog\CategoryController@update')->name('blog.category.update');
+            Route::delete('category/{taxonomy}', 'Blog\CategoryController@destroy')->name('blog.category.destroy');
         });
 
         Route::prefix('drive')->group(function () {

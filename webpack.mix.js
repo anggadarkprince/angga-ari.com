@@ -15,6 +15,7 @@ mix
     .js('resources/assets/js/app.js', 'public/js')
     .js('resources/assets/js/landing.js', 'public/js')
     .js('resources/assets/js/showcase.js', 'public/js')
+    .js('resources/assets/js/blog.js', 'public/js')
 
     .copy('node_modules/ckeditor/config.js', 'public/js/ckeditor/config.js')
     .copy('node_modules/ckeditor/styles.js', 'public/js/ckeditor/styles.js')
@@ -31,7 +32,7 @@ mix
         'node_modules/scrollreveal/dist/scrollreveal.js',
         'resources/assets/js/scripts/blog.js',
         'resources/assets/js/scripts/backtotop.js',
-    ], 'public/js/blog.js')
+    ], 'public/js/blog-public.js')
 
     .sass('resources/assets/sass/app.scss', 'public/css')
     .sass('resources/assets/sass/landing.scss', 'public/css')
