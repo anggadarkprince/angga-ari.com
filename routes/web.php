@@ -139,8 +139,8 @@ Route::domain('dashboard.' . env('APP_URL'))->group(function () {
         Route::prefix('blog')->group(function () {
             Route::get('/', 'Blog\BlogController@index')->name('blog.index');
 
-            Route::view('/taxonomy', 'blog.taxonomy')->name('blog.taxonomy');
-            Route::view('/preference', 'blog.preference')->name('blog.preference');
+            Route::get('preference', 'Blog\PreferenceController@basic')->name('blog.preference');
+            Route::put('preference', 'Blog\PreferenceController@update')->name('blog.preference.update');
 
             Route::get('post', 'Blog\PostController@index')->name('blog.post');
             Route::get('post/create', 'Blog\PostController@create')->name('blog.post.create');
@@ -154,6 +154,8 @@ Route::domain('dashboard.' . env('APP_URL'))->group(function () {
             Route::get('category/{taxonomy}', 'Blog\CategoryController@show')->name('blog.category.show');
             Route::put('category/{taxonomy}', 'Blog\CategoryController@update')->name('blog.category.update');
             Route::delete('category/{taxonomy}', 'Blog\CategoryController@destroy')->name('blog.category.destroy');
+
+            Route::get('taxonomy', 'Blog\TaxonomyController@index')->name('blog.taxonomy');
         });
 
         Route::prefix('drive')->group(function () {

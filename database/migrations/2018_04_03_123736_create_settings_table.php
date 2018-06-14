@@ -43,6 +43,11 @@ class CreateSettingsTable extends Migration
             ['setting_group_id' => 4, 'setting' => 'subtagline'],
             ['setting_group_id' => 4, 'setting' => 'identity'],
             ['setting_group_id' => 4, 'setting' => 'profile'],
+            ['setting_group_id' => 5, 'setting' => 'heading'],
+            ['setting_group_id' => 5, 'setting' => 'subheading'],
+            ['setting_group_id' => 5, 'setting' => 'keywords'],
+            ['setting_group_id' => 5, 'setting' => 'category'],
+            ['setting_group_id' => 5, 'setting' => 'language'],
         ]);
     }
 

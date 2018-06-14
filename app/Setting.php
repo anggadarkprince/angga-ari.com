@@ -132,7 +132,7 @@ class Setting extends Model
         $keys = explode('.', $key);
 
         if (count($keys) < 2) {
-            throw new \Exception('Invalid user setting key, format must formatted as [group_key.setting_key]');
+            throw new \Exception('Invalid user setting key, should be formatted as [group_key.setting_key]');
         }
 
         $setting = DB::table('setting_groups')
