@@ -5,7 +5,6 @@ import deleteModal from './scripts/delete'
 import drive from './scripts/drive'
 import misc from './scripts/misc'
 import modalChaining from './scripts/modalChaining'
-import postEditor from './scripts/postEditor'
 import searchBox from './scripts/searchBox'
 import selectize from './scripts/selectTag'
 import svg from './scripts/svg'
@@ -26,9 +25,6 @@ var LibraryInitializer = (function () {
 
         // initialize jquery validation
         validation();
-
-        // initialize ck-editor
-        postEditor();
     }
 
     function domEventAndManipulation() {

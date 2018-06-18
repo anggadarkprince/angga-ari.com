@@ -20,12 +20,12 @@ class CreatePostsTable extends Migration
             $table->string('title', 150);
             $table->string('subtitle', 150)->nullable();
             $table->text('content');
-            $table->text('cover');
+            $table->text('cover')->nullable();
             $table->enum('status', ['draft', 'published', 'scheduled'])->default('draft');
             $table->enum('privacy', ['private', 'public'])->default('public');
             $table->unsignedInteger('views')->default(0);
             $table->unsignedInteger('comments')->default(0);
-            $table->dateTime('published_at');
+            $table->dateTime('published_at')->nullable();
             $table->softDeletes();
             $table->timestamps();
 

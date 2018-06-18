@@ -145,9 +145,10 @@ Route::domain('dashboard.' . env('APP_URL'))->group(function () {
             Route::get('post', 'Blog\PostController@index')->name('blog.post');
             Route::get('post/create', 'Blog\PostController@create')->name('blog.post.create');
             Route::post('post', 'Blog\PostController@store')->name('blog.post.store');
+            Route::get('post/{id}/preview', 'Blog\PostController@preview')->name('blog.post.preview');
             Route::get('post/{post}/edit', 'Blog\PostController@edit')->name('blog.post.edit');
             Route::put('post/{post}', 'Blog\PostController@update')->name('blog.post.update');
-            Route::delete('post/{post}', 'Blog\PostController@delete')->name('blog.post.destroy');
+            Route::delete('post/{post}', 'Blog\PostController@destroy')->name('blog.post.destroy');
 
             Route::get('category', 'Blog\CategoryController@index')->name('blog.category');
             Route::post('category', 'Blog\CategoryController@store')->name('blog.category.store');

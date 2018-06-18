@@ -15,14 +15,12 @@ class CategoryController extends Controller
      * Display a listing of the resource.
      *
      * @param Request $request
+     * @param Taxonomy $taxonomy
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request, Taxonomy $taxonomy)
     {
-        $categories = Taxonomy::where('user_id', $request->user()->id)
-            ->orWhere('slug', 'uncategories')
-            ->category(Post::class)
-            ->get();
+        $categories = $taxonomy->categories($request->user()->id, Post::class);
 
         return view('blog.category.index', compact('categories'));
     }
@@ -31,12 +29,12 @@ class CategoryController extends Controller
      * Store a newly created resource in storage.
      *
      * @param StoreTaxonomy $request
+     * @param Slugger $slugger
      * @return \Illuminate\Http\Response
      * @throws \Exception
      */
-    public function store(StoreTaxonomy $request)
+    public function store(StoreTaxonomy $request, Slugger $slugger)
     {
-        $slugger = new Slugger();
         $slug = $slugger->createSafeSlug(Taxonomy::class, $request->get('term'));
 
         $request->request->add([
@@ -54,7 +52,7 @@ class CategoryController extends Controller
         }
 
         return redirect()->back()->withErrors([
-            'message' => __('Update :label failed, try again later', ['label' => __('taxonomy')])
+            'message' => __('Create :label failed, try again later', ['label' => __('taxonomy')])
         ]);
     }
 

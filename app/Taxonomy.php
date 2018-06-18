@@ -31,6 +31,18 @@ class Taxonomy extends Model
     }
 
     /**
+     * Scope a query to sort latest post by published date.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param $type
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeType($query, $type)
+    {
+        return $query->where('type', $type);
+    }
+
+    /**
      * Get the owner that owns the taxonomy.
      */
     public function user()
@@ -52,5 +64,20 @@ class Taxonomy extends Model
     public function showcases()
     {
         return $this->morphedByMany(Portfolio::class, 'taggable', 'taxonomy_relationships')->withTimestamps();
+    }
+
+    /**
+     * Get categories by user id and type.
+     *
+     * @param $userId
+     * @param $type
+     * @return mixed
+     */
+    public function categories($userId, $type)
+    {
+        return $this->where('user_id', $userId)
+            ->orWhere('slug', 'uncategories')
+            ->category($type)
+            ->get();
     }
 }

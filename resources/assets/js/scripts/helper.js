@@ -1,4 +1,10 @@
 var Helper = (function () {
+    function debugMessage(message) {
+        if (window.console && window.console.log) {
+            window.console.log(message);
+        }
+    };
+
     function copyToClipboard(text) {
         if (window.clipboardData && window.clipboardData.setData) {
             // IE specific code path to prevent textarea being shown while dialog is visible.
@@ -130,6 +136,7 @@ var Helper = (function () {
     }
 
     return {
+        debugMessage: debugMessage,
         urlParams: urlParams,
         numberFormat: numberFormat,
         copyToClipboard: copyToClipboard,

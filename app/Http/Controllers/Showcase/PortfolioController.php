@@ -110,7 +110,7 @@ class PortfolioController extends Controller
             }, 5);
         } catch (\Exception $e) {
             return redirect()->back()->withErrors([
-                'message' => __('Update :label failed, try again later ', ['label' => 'portfolio'])
+                'message' => __('Create :label failed, try again later ', ['label' => 'portfolio'])
             ])->withInput();
         }
 

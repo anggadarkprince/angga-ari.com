@@ -39,7 +39,7 @@ class StorePortfolio extends FormRequest
             'team' => 'nullable|max:50',
             'company' => 'nullable|max:50',
             'url' => 'nullable|url|max:300',
-            'keywords' => 'required|max:300',
+            'keywords' => 'required|max:500',
             'layout' => 'required|in:default,flow,masonry',
         ];
     }

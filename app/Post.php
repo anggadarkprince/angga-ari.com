@@ -4,6 +4,7 @@ namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
 /**
@@ -14,9 +15,13 @@ use Illuminate\Support\Str;
  * @property Carbon published_at
  * @property string content
  * @property string cover
+ * @property mixed status
+ * @method static findOrFail($id, $columns = ['*'])
  */
 class Post extends Model
 {
+    use SoftDeletes;
+
     /**
      * The attributes that should be cast to native types.
      *
@@ -36,6 +41,16 @@ class Post extends Model
     ];
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'slug', 'title', 'subtitle', 'content', 'cover', 'privacy', 'status',
+        'views', 'comments', 'published_at'
+    ];
+
+    /**
      * Get the route key for post.
      *
      * @return string
@@ -52,12 +67,42 @@ class Post extends Model
      */
     public function getUrlAttribute()
     {
-        $params = [
-            'year' => $this->published_at->format('Y'),
-            'month' => $this->published_at->format('m'),
-            'slug' => $this->slug
-        ];
-        return route('blog.article', $params);
+        if ($this->status == 'published') {
+            $params = [
+                'year' => $this->published_at->format('Y'),
+                'month' => $this->published_at->format('m'),
+                'slug' => $this->slug
+            ];
+            return route('blog.article', $params);
+        } else {
+            return route('blog.post.preview', ['id' => $this->id]);
+        }
+    }
+
+    /**
+     * Get the post's category.
+     *
+     * @return string
+     */
+    public function getCategoryIdAttribute()
+    {
+        $category = $this->tags()->type(Tagger::TAXONOMY_CATEGORY)->first();
+        if (empty($category)) {
+            return null;
+        }
+        return $category->id;
+    }
+
+    /**
+     * Get the post's tags.
+     *
+     * @return string
+     */
+    public function getTagAttribute()
+    {
+        $tags = $this->tags()->type(Tagger::TAXONOMY_TAG)->pluck('term')->implode(',');
+
+        return $tags;
     }
 
     /**
@@ -99,7 +144,7 @@ class Post extends Model
      */
     public function scopeLatest($query)
     {
-        return $query->orderBy('published_at', 'desc');
+        return $query->orderBy('updated_at', 'desc');
     }
 
     /**

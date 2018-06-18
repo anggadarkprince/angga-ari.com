@@ -1,4 +1,4 @@
-export default function() {
+export default function () {
     if ($('#editor').length) {
         CKEDITOR.replace('editor', {
             extraPlugins: 'autoembed,embedsemantic,codesnippet',
@@ -22,7 +22,7 @@ export default function() {
             removeDialogTabs: 'image:advanced;link:advanced',
             height: 400,
             placeholder: 'Type content here...',
-            contentsCss: ['/content.css', '../../css/app.css']
+            contentsCss: ['/js/ckeditor/contents.css', '/css/app.css', '/css/blog.css'],
         });
     }
 
@@ -42,7 +42,7 @@ export default function() {
             bodyClass: 'article-editor',
             height: 300,
             placeholder: 'Type content here...',
-            contentsCss: ['/content.css', '../../css/app.css']
+            contentsCss: ['/js/ckeditor/contents.css', '/css/app.css', '/css/blog.css']
         });
     }
 }

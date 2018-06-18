@@ -9,9 +9,11 @@ use App\Policies\AwardPolicy;
 use App\Policies\EducationPolicy;
 use App\Policies\ExperiencePolicy;
 use App\Policies\PortfolioPolicy;
+use App\Policies\PostPolicy;
 use App\Policies\SkillPolicy;
 use App\Policies\TaxonomyPolicy;
 use App\Portfolio;
+use App\Post;
 use App\Skill;
 use App\Taxonomy;
 use Illuminate\Support\Facades\Gate;
@@ -32,6 +34,7 @@ class AuthServiceProvider extends ServiceProvider
         Skill::class => SkillPolicy::class,
         Portfolio::class => PortfolioPolicy::class,
         Taxonomy::class => TaxonomyPolicy::class,
+        Post::class => PostPolicy::class,
     ];
 
     /**

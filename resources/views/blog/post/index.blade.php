@@ -21,16 +21,25 @@
 
             @foreach($posts as $post)
                 <div class="card box-shadow mb-5">
-                    <div class="card-img-top" {!! cover_background($post->cover_small_url, ['height' => '200px']) !!}></div>
+
+                    @if(!empty($post->cover))
+                        <div class="card-img-top" {!! cover_background($post->cover_small_url, ['height' => '200px']) !!}></div>
+                    @endif
+
                     <div class="card-body">
+                        @if($post->status == 'draft')
+                            <span class="badge badge-info float-right mt-1 ml-3">DRAFT</span>
+                        @endif
+
                         <h4 class="card-title mb-1">
                             <a href="{{ $post->url }}">{{ $post->title }}</a>
                         </h4>
+
                         @if(!empty($post->subtitle))
                             <p class="card-text mb-2 text-primary d-none d-sm-block">
                                 {{ $post->subtitle }}
                             </p>
-                        @endempty
+                        @endif
 
                         <p class="text-muted small mb-0">
                             Posted
@@ -39,7 +48,11 @@
                                     {{ $post->user->name }}
                                 </a>
                             </span>
-                            on {{ $post->published_at->format('F d, Y') }}
+                            @if($post->status == 'published')
+                                on {{ $post->published_at->format('F d, Y') }}
+                            @else
+                                last saved at {{ $post->updated_at->format('F d, Y') }}
+                            @endif
                         </p>
 
                         <p class="card-text mb-1 mt-2 d-none d-sm-block">
@@ -58,7 +71,7 @@
                         <div class="list-inline mb-0 d-flex d-sm-inline-block justify-content-around w-sm-auto w-100">
                             <div class="list-inline-item">
                                 <a href="{{ $post->url }}" class="link-natural">
-                                    <i class="icon-doc mr-2"></i>View
+                                    <i class="icon-doc mr-2"></i>{{ $post->status == 'published' ? 'View' : 'Preview' }}
                                 </a>
                             </div>
                             <div class="list-inline-item">

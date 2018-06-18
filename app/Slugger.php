@@ -14,10 +14,11 @@ class Slugger extends Model
      * @param $class
      * @param $title
      * @param string $column
+     * @param null $exceptId
      * @return string
      * @throws \Exception
      */
-    public function createSafeSlug($class, $title, $column = 'slug')
+    public function createSafeSlug($class, $title, $exceptId = null, $column = 'slug')
     {
         $tried = 0;
         while (true) {
@@ -30,7 +31,10 @@ class Slugger extends Model
                 }
             }
 
-            $record = $class::where($column, $slug)->first();
+            $record = $class::where($column, $slug)
+                ->where((new $class)->getKeyName(), '!=', $exceptId)
+                ->first();
+
             if (empty($record)) {
                 return $slug;
             }

@@ -1,15 +1,15 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Blog - Create Post')
+@section('title', 'Blog - Edit post ' . $post->title)
 
 @section('content')
     <div class="section-title d-flex w-100 justify-content-between">
         <div>
-            <h4 class="mb-0">Create Post</h4>
-            <small class="text-muted">Publish an article</small>
+            <h4 class="mb-0">Edit Post</h4>
+            <small class="text-muted">Edit an article</small>
         </div>
         <div class="mt-0 mt-sm-2">
-            <a href="{{ route('blog.post.create') }}" class="btn btn-sm btn-info">
+            <a href="{{ route('blog.post.preview', ['id' => $post->id]) }}" class="btn btn-sm btn-info">
                 Preview
             </a>
         </div>
@@ -18,15 +18,16 @@
 
         @include('errors._global')
 
-        <form action="{{ route('blog.post.store') }}" method="post" novalidate id="form-post">
+        <form action="{{ route('blog.post.update', ['post' => $post->slug]) }}" method="post" novalidate id="form-post">
             @csrf
+            @method('put')
             <fieldset>
                 <legend>Write Post</legend>
                 <div class="form-group">
                     <div class="input-group">
                         <input type="text"
                                class="form-control form-control-lg{{ $errors->first('title') ? ' is-invalid' : '' }}"
-                               id="title" name="title" value="{{ old('title') }}" placeholder="Post title" required
+                               id="title" name="title" value="{{ old('title', $post->title) }}" placeholder="Post title" required
                                maxlength="200">
                         <div class="input-group-append">
                             <button class="btn btn-input" type="button" data-toggle="collapse"
@@ -38,14 +39,14 @@
                             <span class="invalid-feedback">{{ $errors->first('title') }}</span>
                         @endif
                     </div>
-                    <div class="collapse" id="title-setting">
+                    <div class="collapse show" id="title-setting">
                         <input type="text"
-                               class="form-control mt-2 slugger{{ $errors->first('slug') ? ' is-invalid' : '' }}"
-                               id="slug" name="slug" value="{{ old('slug') }}" data-target="#title"
+                               class="form-control mt-2 slugger slugger-changed{{ $errors->first('slug') ? ' is-invalid' : '' }}"
+                               id="slug" name="slug" value="{{ old('slug', $post->slug) }}" data-target="#title"
                                placeholder="Unique post slug" required maxlength="500">
                         <input type="text"
                                class="form-control mt-2{{ $errors->first('subtitle') ? ' is-invalid' : '' }}"
-                               id="subtitle" name="subtitle" value="{{ old('subtitle') }}"
+                               id="subtitle" name="subtitle" value="{{ old('subtitle', $post->subtitle) }}"
                                placeholder="Post subtitle" maxlength="300">
                         <small class="form-text text-muted">
                             Additional title to make your post more described.
@@ -54,7 +55,7 @@
                 </div>
                 <div class="form-group{{ $errors->first('content') ? ' is-invalid' : '' }}">
                     <textarea class="form-control post-editor" id="editor" name="content"
-                              placeholder="Write your content here" rows="15">{{ old('content') }}</textarea>
+                              placeholder="Write your content here" rows="15">{{ old('content', $post->content) }}</textarea>
                     @if($errors->first('content'))
                         <span class="invalid-feedback">{{ $errors->first('content') }}</span>
                     @endif
@@ -75,7 +76,7 @@
                                     id="category" placeholder="Type new or select category" required>
                                 <option value=""></option>
                                 @foreach($categories as $category)
-                                    <option value="{{ $category->id }}"{{ old('category') == $category->id ? ' selected' : '' }}>
+                                    <option value="{{ $category->id }}"{{ old('category', $post->category_id) == $category->id ? ' selected' : '' }}>
                                         {{ $category->term }}
                                     </option>
                                 @endforeach
@@ -103,7 +104,7 @@
                 <div class="form-group">
                     <label for="tags">Tags</label>
                     <input type="text" class="form-control tag-able{{ $errors->first('tags') ? ' is-invalid' : '' }}"
-                           id="tags" name="tags" value="{{ old('tags') }}" placeholder="Tags and keywords"
+                           id="tags" name="tags" value="{{ old('tags', $post->tag) }}" placeholder="Tags and keywords"
                            maxlength="500">
                     @if($errors->first('tags'))
                         <span class="invalid-feedback">{{ $errors->first('tags') }}</span>
@@ -120,13 +121,13 @@
                                 <div class="custom-control custom-radio custom-control-inline">
                                     <input class="custom-control-input{{ $errors->first('privacy') ? ' is-invalid' : '' }}"
                                            type="radio" name="privacy" id="privacy_public"
-                                           value="public"{{ old('privacy', 'public') == 'public' ? ' checked' : '' }}>
+                                           value="public"{{ old('privacy', $post->privacy) == 'public' ? ' checked' : '' }}>
                                     <label class="custom-control-label" for="privacy_public">Public</label>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline">
                                     <input class="custom-control-input{{ $errors->first('privacy') ? ' is-invalid' : '' }}"
                                            type="radio" name="privacy" id="privacy_private"
-                                           value="private"{{ old('privacy') == 'private' ? ' checked' : '' }}>
+                                           value="private"{{ old('privacy', $post->privacy) == 'private' ? ' checked' : '' }}>
                                     <label class="custom-control-label" for="privacy_private">Private</label>
                                 </div>
                             </div>
@@ -139,13 +140,13 @@
                                 <div class="custom-control custom-radio custom-control-inline">
                                     <input class="custom-control-input ignore-validation{{ $errors->first('status') ? ' is-invalid' : '' }}"
                                            type="radio" name="status" id="status_published"
-                                           value="published"{{ old('status', 'published') == 'published' ? ' checked' : '' }}>
+                                           value="published"{{ old('status', $post->status) == 'published' ? ' checked' : '' }}>
                                     <label class="custom-control-label" for="status_published">Published</label>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline">
                                     <input class="custom-control-input ignore-validation{{ $errors->first('status') ? ' is-invalid' : '' }}"
                                            type="radio" name="status" id="status_draft"
-                                           value="draft"{{ old('status') == 'draft' ? ' checked' : '' }}>
+                                           value="draft"{{ old('status', $post->status) == 'draft' ? ' checked' : '' }}>
                                     <label class="custom-control-label" for="status_draft">Draft</label>
                                 </div>
                             </div>
@@ -155,7 +156,7 @@
             </fieldset>
 
             <div class="form-group mb-5">
-                <button class="btn btn-primary btn-lg">Save Post</button>
+                <button class="btn btn-info btn-lg">Update Post</button>
             </div>
         </form>
     </div>

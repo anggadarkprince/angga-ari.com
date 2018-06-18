@@ -12,19 +12,55 @@ class Tagger extends Model
     /**
      * Tag keywords into a model.
      * @param Model $model
-     * @param array $tags
-     * @param $type
+     * @param array $terms
+     * @param string $type
+     * @param null $userId
+     * @param bool $withoutDetach
      * @return boolean
      */
-    public function tagging(Model $model, $tags = [], $type = self::TAXONOMY_TAG)
+    public function tagging(Model $model, $terms = [], $type = self::TAXONOMY_TAG, $userId = null, $withoutDetach = false)
     {
-        $tagIds = [];
-        $tags = is_array($tags) ? $tags : explode(',', $tags);
-        foreach ($tags as $tag) {
-            $tagSlug = str_slug($tag);
-            $tagData = Taxonomy::firstOrCreate(['slug' => $tagSlug, 'term' => $tag, 'type' => $type]);
-            $tagIds[] = $tagData->id;
+        $termIds = [];
+        $terms = is_array($terms) ? $terms : explode(',', $terms);
+
+        foreach ($terms as $term) {
+            if ($type == self::TAXONOMY_CATEGORY) {
+                $category = Taxonomy::find($term);
+                if (empty($category)) {
+                    $termIds[] = $this->storeTerm($term, $type, $userId)->id;
+                } else {
+                    $termIds[] = $category->id;
+                }
+            } else {
+                $termIds[] = $this->storeTerm($term, $type)->id;
+            }
         }
-        return $model->tags()->sync($tagIds);
+
+        $tags = $model->tags();
+
+        if ($withoutDetach) {
+            return $tags->syncWithoutDetaching($termIds);
+        }
+
+        return $tags->sync($termIds);
+    }
+
+    /**
+     * Get or create term.
+     *
+     * @param $term
+     * @param $type
+     * @param null $userId
+     * @return mixed
+     */
+    public function storeTerm($term, $type, $userId = null)
+    {
+        $slug = str_slug($term);
+
+        $termData = Taxonomy::firstOrCreate([
+            'slug' => $slug, 'term' => $term, 'type' => $type, 'user_id' => $userId
+        ]);
+
+        return $termData;
     }
 }
