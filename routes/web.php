@@ -55,6 +55,7 @@ Route::domain('account.' . env('APP_URL'))->group(function () {
 
 Route::domain('dashboard.' . env('APP_URL'))->group(function () {
     Route::get('taxonomy/search', 'TaxonomyController@search')->name('taxonomy.search');
+    Route::post('upload', 'UploadController@upload')->name('uploader.upload');
 
     Route::middleware(['auth'])->group(function () {
         Route::get('/', 'HomeController@index')->name('home');

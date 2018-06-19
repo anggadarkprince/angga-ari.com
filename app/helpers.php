@@ -44,14 +44,14 @@ if (!function_exists('if_empty')) {
 }
 
 if (!function_exists('get_period_path')) {
-    function get_period_path($baseName)
+    function get_period_path($baseName, $file = '')
     {
-        return $baseName . '/' . date('Y/m/d') . '/';
+        return $baseName . '/' . date('Y/m/d') . '/' . $file;
     }
 }
 
 if (!function_exists('get_unique_name')) {
-    function get_unique_name($baseName, $label = '', $ext = '')
+    function get_unique_name($baseName = '', $ext = 'jpg', $label = '')
     {
         $name = $baseName . '_' . uniqid();
         if (!empty($label)) {

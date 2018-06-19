@@ -59,7 +59,7 @@ class Portfolio extends Model
      */
     public function scopeLatest($query)
     {
-        return $query->orderBy('date', 'desc');
+        return $query->orderBy('date', 'desc')->orderBy('created_at', 'desc');
     }
 
     /**

@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p class="lead modal-message mb-2"></p>
+                <p class="lead modal-message mb-0"></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>

@@ -23,12 +23,15 @@
                 <div class="card box-shadow mb-5">
 
                     @if(!empty($post->cover))
-                        <div class="card-img-top" {!! cover_background($post->cover_small_url, ['height' => '200px']) !!}></div>
+                        <div class="card-img-top" {!! cover_background($post->cover_medium_url, ['height' => '200px']) !!}></div>
                     @endif
 
                     <div class="card-body">
                         @if($post->status == 'draft')
-                            <span class="badge badge-info float-right mt-1 ml-3">DRAFT</span>
+                            <span class="badge badge-info float-right mt-1 ml-2">DRAFT</span>
+                        @endif
+                        @if($post->privacy == 'private')
+                            <span class="badge badge-secondary float-right mt-1 ml-2">PRIVATE</span>
                         @endif
 
                         <h4 class="card-title mb-1">

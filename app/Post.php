@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Observers\PostObserver;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -16,6 +17,7 @@ use Illuminate\Support\Str;
  * @property string content
  * @property string cover
  * @property mixed status
+ * @property User user
  * @method static findOrFail($id, $columns = ['*'])
  */
 class Post extends Model
@@ -126,6 +128,16 @@ class Post extends Model
     }
 
     /**
+     * Get the post's url of cover.
+     *
+     * @return string
+     */
+    public function getCoverMediumUrlAttribute()
+    {
+        return asset('storage/' . get_small_version($this->cover, '_medium'));
+    }
+
+    /**
      * Get the post's preview text.
      *
      * @param int $words
@@ -145,6 +157,17 @@ class Post extends Model
     public function scopeLatest($query)
     {
         return $query->orderBy('updated_at', 'desc');
+    }
+
+    /**
+     * Scope a query to sort latest post by published date.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopePublished($query)
+    {
+        return $query->where('status', 'published');
     }
 
     /**
@@ -169,5 +192,13 @@ class Post extends Model
     public function comments()
     {
         return $this->morphMany(Comment::class, 'commentable');
+    }
+
+    /**
+     * Model events
+     */
+    protected static function boot() {
+        parent::boot();
+        parent::observe(PostObserver::class);
     }
 }

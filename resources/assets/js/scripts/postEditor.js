@@ -1,7 +1,7 @@
 export default function () {
     if ($('#editor').length) {
         CKEDITOR.replace('editor', {
-            extraPlugins: 'autoembed,embedsemantic,codesnippet',
+            extraPlugins: 'preview,autoembed,embedsemantic',
             toolbar: [
                 {name: 'styles', items: ['Format']},
                 {name: 'basicstyles', items: ['Bold', 'Italic', 'Strike']},
@@ -12,7 +12,7 @@ export default function () {
                 {name: 'links', items: ['Link', 'Unlink']},
                 {name: 'insert', items: ['Image', 'EmbedSemantic', 'Table']},
                 {name: 'tools', items: ['Maximize']},
-                {name: 'others', items: ['Source']}
+                {name: 'others', items: ['Preview', 'Source']}
             ],
             skin: 'moono-lisa',
             bodyClass: 'article-editor',

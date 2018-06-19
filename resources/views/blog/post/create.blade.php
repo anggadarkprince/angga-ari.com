@@ -66,6 +66,10 @@
 
             <fieldset>
                 <legend>Post Details</legend>
+                <label for="post-cover" class="d-block cursor-pointer">
+                    <div class="mt-2 mb-3 rounded" id="cover-preview"
+                         style="display: none; height: 240px"></div>
+                </label>
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
@@ -87,15 +91,16 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label for="cover">Feature Cover</label>
+                            <label for="post-cover">Feature Cover</label>
                             <div class="custom-file">
-                                <input type="file"
+                                <input type="hidden" id="post-cover-temp" name="cover_temp" value="">
+                                <input type="file" accept="image/gif, image/png, image/jpeg" data-url="<?= route('uploader.upload') ?>"
                                        class="custom-file-input{{ $errors->first('cover') ? ' is-invalid' : '' }}"
-                                       id="cover" name="cover">
+                                       id="post-cover" name="cover">
                                 @if($errors->first('cover'))
                                     <span class="invalid-feedback">{{ $errors->first('cover') }}</span>
                                 @endif
-                                <label class="custom-file-label" for="cover">Choose file</label>
+                                <label class="custom-file-label text-truncate" for="cover">Choose file</label>
                             </div>
                         </div>
                     </div>

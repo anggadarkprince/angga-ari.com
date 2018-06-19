@@ -12,12 +12,11 @@
             @foreach($posts as $post)
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item sr-show-up">
                     <div class="blog-item-wrapper">
-                        <div class="blog-item-img">
-                            <a href="{{ $post->url }}">
-                                <img class="img-fluid d-block lazy loading" style="min-height: 190px"
-                                     data-src="{{ $post->cover_small_url }}">
-                            </a>
-                        </div>
+                        <a href="{{ $post->url }}">
+                            <div class="blog-item-img lazy loading" style="min-height: 190px; background: no-repeat center center / cover;"
+                                 data-src="{{ $post->cover_small_url }}">
+                            </div>
+                        </a>
                         <div class="blog-item-text">
                             <div class="meta-tags">
                                 <span class="date">

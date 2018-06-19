@@ -31,7 +31,7 @@ class LandingController extends Controller
             'awards' => $user->awards,
             'skills' => $user->skills,
             'portfolios' => $user->portfolios()->latest()->take(6)->get(),
-            'posts' => $user->posts()->latest()->take(3)->get(),
+            'posts' => $user->posts()->published()->latest()->take(3)->get(),
             'facebook' => $accountService->getLinkedAccount('facebook', $user),
             'twitter' => $accountService->getLinkedAccount('twitter', $user),
             'google' => $accountService->getLinkedAccount('google', $user),

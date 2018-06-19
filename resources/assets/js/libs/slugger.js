@@ -21,7 +21,7 @@ export default function () {
                     targetInput = input.data('target');
                 }
 
-                let allowChangesInput = $(settings.allowChanges);
+                let allowChangesInput = settings.allowChanges;
                 if (input.data('allow-changes') != null) {
                     allowChangesInput = input.data('allow-changes');
                 }

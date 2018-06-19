@@ -21,6 +21,9 @@ class Tagger extends Model
     public function tagging(Model $model, $terms = [], $type = self::TAXONOMY_TAG, $userId = null, $withoutDetach = false)
     {
         $termIds = [];
+        if(empty($terms)) {
+            $terms = [];
+        }
         $terms = is_array($terms) ? $terms : explode(',', $terms);
 
         foreach ($terms as $term) {

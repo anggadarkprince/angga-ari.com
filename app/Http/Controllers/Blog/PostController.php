@@ -7,9 +7,11 @@ use App\Post;
 use App\Slugger;
 use App\Tagger;
 use App\Taxonomy;
+use App\Uploader;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -41,6 +43,37 @@ class PostController extends Controller
     }
 
     /**
+     * Set upload and modify request data.
+     *
+     * @param $request
+     * @return mixed
+     * @throws \Exception
+     */
+    private function manageRequestUpload($request)
+    {
+        $data = $request->all();
+
+        if(empty($request->get('cover_temp'))) {
+            unset($data['cover']);
+        } else {
+            $uploader = new Uploader();
+            $path = get_period_path('posts', get_unique_name());
+            $results = $uploader->moveFromTemp($request->get('cover_temp'), [
+                ['destination' => $path, 'width' => 1400],
+                ['destination' => get_small_version($path, '_medium'), 'width' => 750],
+                ['destination' => get_small_version($path), 'width' => 350]
+            ]);
+
+            if(!empty($results)) {
+                $data['cover'] = $path;
+            }
+        }
+        unset($data['cover_temp']);
+
+        return $data;
+    }
+
+    /**
      * Store a newly created post in storage.
      *
      * @param StorePost $request
@@ -51,18 +84,21 @@ class PostController extends Controller
      */
     public function store(StorePost $request, Slugger $slugger, Tagger $tagger)
     {
+        $user = $request->user();
+
         $request->request->add([
             'slug' => $slugger->createSafeSlug(Post::class, $request->get('slug')),
             'published_at' => $request->get('status', 'draft') == 'published' ? now() : null
         ]);
 
-        try {
-            DB::transaction(function () use ($request, $tagger) {
-                $post = new Post($request->all());
-                $request->user()->portfolios()->save($post);
+        $data = $this->manageRequestUpload($request);
 
-                $tagger->tagging($post, $request->get('tags', []), Tagger::TAXONOMY_TAG);
-                $tagger->tagging($post, $request->get('category', []), Tagger::TAXONOMY_CATEGORY, $request->user()->id, true);
+        try {
+            DB::transaction(function () use ($user, $tagger, $data) {
+                $post = new Post($data);
+                $user->portfolios()->save(new Post($data));
+                $tagger->tagging($post, $data['tags'], Tagger::TAXONOMY_TAG);
+                $tagger->tagging($post, $data['category'], Tagger::TAXONOMY_CATEGORY, $user->id, true);
             }, 5);
         } catch (\Exception $e) {
             return redirect()->back()->withInput()->withErrors([
@@ -120,12 +156,13 @@ class PostController extends Controller
             'slug' => $slugger->createSafeSlug(Post::class, $request->get('slug'), $post->id)
         ]);
 
-        try {
-            DB::transaction(function () use ($post, $request, $tagger) {
-                $post->update($request->all());
+        $data = $this->manageRequestUpload($request);
 
-                $tagger->tagging($post, $request->get('tags', []), Tagger::TAXONOMY_TAG);
-                $tagger->tagging($post, $request->get('category', []), Tagger::TAXONOMY_CATEGORY, $request->user()->id, true);
+        try {
+            DB::transaction(function () use ($data, $post, $tagger) {
+                $post->update($data);
+                $tagger->tagging($post, $data['tags'], Tagger::TAXONOMY_TAG);
+                $tagger->tagging($post, $data['category'], Tagger::TAXONOMY_CATEGORY, $post->user->id, true);
             }, 5);
         } catch (\Exception $e) {
             return redirect()->back()->withInput()->withErrors([
@@ -151,7 +188,7 @@ class PostController extends Controller
     {
         $this->authorize('destroy', $post);
 
-        if ($post->delete()) {
+        if ($post->forceDelete()) {
             return redirect()->back()->with([
                 'status' => 'warning',
                 'message' => __('Data :label successfully deleted', ['label' => 'post'])

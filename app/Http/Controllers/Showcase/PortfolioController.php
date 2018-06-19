@@ -53,11 +53,11 @@ class PortfolioController extends Controller
         $destination = get_period_path('portfolios');
 
         // upload cover
-        $largePath = $destination . get_unique_name('cover', '', 'jpg');
+        $largePath = $destination . get_unique_name('cover');
         $smallPath = get_small_version($largePath);
-        $upload->uploadImage($request->get('cover_base64'), [
-            ['destination' => $largePath, 'width' => 1200, 'height' => 720],
-            ['destination' => $smallPath, 'width' => 400, 'height' => 240]
+        $upload->upload($request->get('cover_base64'), [
+            ['destination' => $largePath, 'width' => 1200, 'height' => 720, 'storage' => 'public'],
+            ['destination' => $smallPath, 'width' => 400, 'height' => 240, 'storage' => 'public']
         ]);
 
         // modify input value
@@ -72,9 +72,9 @@ class PortfolioController extends Controller
         $screenshots = [];
         foreach ($request->get('screenshots_base64', []) as $screenshot) {
             if (!empty($screenshot)) {
-                $largePath = $destination . get_unique_name('screenshot', '', 'jpg');
+                $largePath = $destination . get_unique_name('screenshot');
                 $smallPath = get_small_version($largePath);
-                $results = $upload->moveImageFromTemp($screenshot, [
+                $results = $upload->moveFromTemp($screenshot, [
                     ['destination' => $largePath, 'width' => 800, 'height' => 500],
                     ['destination' => $smallPath, 'width' => 400, 'height' => 250]
                 ]);
@@ -131,7 +131,7 @@ class PortfolioController extends Controller
         if ($request->ajax()) {
             $imageBase64 = $request->get('image_base64');
             $upload = new Uploader();
-            return $upload->uploadImage($imageBase64, ['storage' => 'local']);
+            return $upload->upload($imageBase64);
         }
         return abort(400, 'Ajax request only');
     }
