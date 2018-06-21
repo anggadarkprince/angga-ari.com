@@ -76,8 +76,7 @@
                                     <option value="60" selected>1 hour before</option>
                                     <option value="15" selected>15 minutes before</option>
                                     <option value="5" selected>5 minutes before</option>
-                                    <option value="once" selected>Once at time</option>
-                                    <option value="days">Repeat Select Days</option>
+                                    <option value="0" selected>Once at time</option>
                                 </select>
                             </div>
                         </div>

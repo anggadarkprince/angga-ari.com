@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('slug', 350);
             $table->string('title', 150);
             $table->string('subtitle', 150)->nullable();
-            $table->text('content');
+            $table->text('content')->nullable();
             $table->text('cover')->nullable();
             $table->enum('status', ['draft', 'published', 'scheduled'])->default('draft');
             $table->enum('privacy', ['private', 'public'])->default('public');

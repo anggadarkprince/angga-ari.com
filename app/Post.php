@@ -2,25 +2,22 @@
 
 namespace App;
 
+use App\Contracts\Taggable;
 use App\Observers\PostObserver;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
 /**
- * @property integer id
- * @property integer user_id
- * @property string slug
- * @property string title
+ * @property int $id
+ * @property string $slug
+ * @property string $cover
+ * @property string $status
  * @property Carbon published_at
- * @property string content
- * @property string cover
- * @property mixed status
- * @property User user
- * @method static findOrFail($id, $columns = ['*'])
  */
-class Post extends Model
+class Post extends Model implements Taggable
 {
     use SoftDeletes;
 
@@ -51,6 +48,14 @@ class Post extends Model
         'slug', 'title', 'subtitle', 'content', 'cover', 'privacy', 'status',
         'views', 'comments', 'published_at'
     ];
+
+    /**
+     * Model events
+     */
+    protected static function boot() {
+        parent::boot();
+        parent::observe(PostObserver::class);
+    }
 
     /**
      * Get the route key for post.
@@ -145,14 +150,14 @@ class Post extends Model
      */
     public function getPreview($words = 20)
     {
-        return Str::words(strip_tags($this->content), $words);
+        return isset($this->content) ? Str::words(strip_tags($this->content), $words) : '';
     }
 
     /**
      * Scope a query to sort latest post by published date.
      *
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @param Builder $query
+     * @return Builder
      */
     public function scopeLatest($query)
     {
@@ -162,8 +167,8 @@ class Post extends Model
     /**
      * Scope a query to sort latest post by published date.
      *
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @param Builder $query
+     * @return Builder
      */
     public function scopePublished($query)
     {
@@ -180,6 +185,8 @@ class Post extends Model
 
     /**
      * Get all of the tags for the showcase.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany|Taxonomy
      */
     public function tags()
     {
@@ -188,17 +195,11 @@ class Post extends Model
 
     /**
      * Get all of the post's comments.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany|Comment
      */
     public function comments()
     {
         return $this->morphMany(Comment::class, 'commentable');
-    }
-
-    /**
-     * Model events
-     */
-    protected static function boot() {
-        parent::boot();
-        parent::observe(PostObserver::class);
     }
 }

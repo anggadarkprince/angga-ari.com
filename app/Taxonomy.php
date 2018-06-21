@@ -2,11 +2,9 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * @property integer user_id
- */
 class Taxonomy extends Model
 {
     /**
@@ -21,9 +19,9 @@ class Taxonomy extends Model
     /**
      * Scope a query to sort latest post by published date.
      *
-     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param Builder $query
      * @param $category
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return Builder
      */
     public function scopeCategory($query, $category)
     {
@@ -33,9 +31,9 @@ class Taxonomy extends Model
     /**
      * Scope a query to sort latest post by published date.
      *
-     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param Builder $query
      * @param $type
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return Builder
      */
     public function scopeType($query, $type)
     {

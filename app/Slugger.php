@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Slugger extends Model
+class Slugger
 {
     const MAX_TRIAL = 10;
 
@@ -18,7 +18,7 @@ class Slugger extends Model
      * @return string
      * @throws \Exception
      */
-    public function createSafeSlug($class, $title, $exceptId = null, $column = 'slug')
+    public function createSafeSlug(Model $class, $title, $exceptId = null, $column = 'slug')
     {
         $tried = 0;
         while (true) {
@@ -31,6 +31,8 @@ class Slugger extends Model
                 }
             }
 
+            /** @noinspection PhpDynamicAsStaticMethodCallInspection */
+            /** @noinspection PhpUndefinedMethodInspection */
             $record = $class::where($column, $slug)
                 ->where((new $class)->getKeyName(), '!=', $exceptId)
                 ->first();
@@ -45,5 +47,6 @@ class Slugger extends Model
 
             $tried++;
         }
+        return null;
     }
 }

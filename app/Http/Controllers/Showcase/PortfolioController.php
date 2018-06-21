@@ -124,16 +124,16 @@ class PortfolioController extends Controller
      * Upload data to storage.
      *
      * @param Request $request
+     * @param Uploader $uploader
      * @return array|void
      */
-    public function upload(Request $request)
+    public function upload(Request $request, Uploader $uploader)
     {
         if ($request->ajax()) {
             $imageBase64 = $request->get('image_base64');
-            $upload = new Uploader();
-            return $upload->upload($imageBase64);
+            return $uploader->upload($imageBase64);
         }
-        return abort(400, 'Ajax request only');
+        abort(400, 'Ajax request only');
     }
 
     /**
@@ -195,7 +195,7 @@ class PortfolioController extends Controller
      *
      * @param Portfolio $portfolio
      * @return \Illuminate\Http\RedirectResponse
-     * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @throws \Illuminate\Auth\Access\AuthorizationException|\Exception
      */
     public function destroy(Portfolio $portfolio)
     {

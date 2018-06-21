@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 
 class Setting extends Model
@@ -10,7 +11,7 @@ class Setting extends Model
     /**
      * Bind setting query with keys.
      *
-     * @param $query
+     * @param Builder $query
      * @param $key
      * @throws \Exception
      */
@@ -70,7 +71,7 @@ class Setting extends Model
      * @param integer $userId
      * @param string $key
      * @param string $defaultValue
-     * @return Model|\Illuminate\Database\Query\Builder|null|object
+     * @return mixed|null|string
      * @throws \Exception
      */
     public function getSetting($userId, $key, $defaultValue = '')
@@ -102,7 +103,7 @@ class Setting extends Model
      * @param $userId
      * @param $keys
      * @param string $value
-     * @return mixed|void
+     * @return bool|mixed
      * @throws \Exception
      */
     public function setSetting($userId, $keys, $value = '')

@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Constraint;
 use Intervention\Image\Facades\Image;
 
 class Uploader extends Model
@@ -126,7 +127,7 @@ class Uploader extends Model
      * @param $source
      * @param $outputs
      * @param string $type
-     * @return array
+     * @return array|bool
      * @throws \Exception
      */
     public function moveFromTemp($source, $outputs, $type = 'image')
@@ -154,6 +155,7 @@ class Uploader extends Model
                 }
                 break;
         }
+        return true;
     }
 
     /**
@@ -195,7 +197,7 @@ class Uploader extends Model
                     }
 
                     if($output['width'] == null || $output['height'] == null) {
-                        $image->resize($output['width'], $output['height'], function ($constraint) {
+                        $image->resize($output['width'], $output['height'], function (Constraint $constraint) {
                             $constraint->aspectRatio();
                         });
                     } else {

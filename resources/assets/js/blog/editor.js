@@ -43,7 +43,7 @@ let Editor = (function () {
         let coverPreview = form.find('#cover-preview');
 
         coverInput.on('change', function () {
-            var input = this;
+            let input = this;
             if (input.files && input.files[0]) {
                 if (input.files[0].size > 2000000) {
                     showAlert('Image too large', 'Maximum file must be less than 2MB');

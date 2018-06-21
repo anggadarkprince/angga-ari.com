@@ -4,15 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * @property integer id
- * @property integer user_id
- * @property string degree
- * @property string major
- * @property string location
- * @property string enter
- * @property string graduate
- */
 class Education extends Model
 {
     /**
@@ -36,4 +27,12 @@ class Education extends Model
         'Junior High School', 'Elementary School',
         'Special Course', 'Other',
     ];
+
+    /**
+     * Get the user that owns the education.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

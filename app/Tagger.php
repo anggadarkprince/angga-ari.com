@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Contracts\Taggable;
 use Illuminate\Database\Eloquent\Model;
 
 class Tagger extends Model
@@ -11,20 +12,21 @@ class Tagger extends Model
 
     /**
      * Tag keywords into a model.
-     * @param Model $model
-     * @param array $terms
+     * @param Taggable $model
+     * @param array|string $terms
      * @param string $type
      * @param null $userId
      * @param bool $withoutDetach
-     * @return boolean
+     * @return array
      */
-    public function tagging(Model $model, $terms = [], $type = self::TAXONOMY_TAG, $userId = null, $withoutDetach = false)
+    public function tagging(Taggable $model, $terms = null, $type = self::TAXONOMY_TAG, $userId = null, $withoutDetach = false)
     {
         $termIds = [];
         if(empty($terms)) {
             $terms = [];
+        } else {
+            $terms = is_array($terms) ? $terms : explode(',', $terms);
         }
-        $terms = is_array($terms) ? $terms : explode(',', $terms);
 
         foreach ($terms as $term) {
             if ($type == self::TAXONOMY_CATEGORY) {

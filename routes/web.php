@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
 Route::domain(env('APP_URL'))->group(function () {
     Route::get('/', 'LandingController@index')->name('index');
     Route::view('/help', 'statics.help')->name('help');
@@ -39,7 +41,8 @@ Route::domain('showcase.' . env('APP_URL'))->group(function () {
 });
 
 Route::domain('account.' . env('APP_URL'))->group(function () {
-    Auth::routes();
+    Route::auth();
+
     Route::get('/', function () {
         return redirect(route('login'));
     });

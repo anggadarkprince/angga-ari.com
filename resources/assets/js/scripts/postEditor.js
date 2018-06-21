@@ -28,6 +28,7 @@ export default function () {
 
     if ($('#editor-simple').length) {
         CKEDITOR.replace('editor-simple', {
+            extraPlugins: 'forms',
             toolbar: [
                 {name: 'basicstyles', items: ['Bold', 'Italic', 'Strike']},
                 {
@@ -36,7 +37,6 @@ export default function () {
                 },
                 {name: 'links', items: ['Link', 'Unlink']},
                 {name: 'tools', items: ['Maximize']},
-                {name: 'others', items: ['Source']}
             ],
             skin: 'moono-lisa',
             bodyClass: 'article-editor',

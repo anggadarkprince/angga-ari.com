@@ -4,19 +4,26 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserSetting extends Model
+class Notebook extends Model
 {
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['created_at', 'updated_at'];
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'user_id', 'setting_id', 'value'
+        'title', 'description', 'privacy'
     ];
 
     /**
-     * Get the user that owns the setting.
+     * Get the author that owns the post.
      */
     public function user()
     {

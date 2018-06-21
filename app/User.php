@@ -3,26 +3,10 @@
 namespace App;
 
 use App\Notifications\ResetPassword;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-/**
- * @property integer id
- * @property string name
- * @property string username
- * @property string email
- * @property string password
- * @property string location
- * @property string contact
- * @property string birthday
- * @property string gender
- * @property string website
- * @property string about
- * @property string avatar
- * @property string status
- * @property string created_at
- * @property string updated_at
- */
 class User extends Authenticatable
 {
     use Notifiable;
@@ -33,7 +17,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'username', 'email', 'password', 'location', 'contact', 'website', 'about', 'avatar', 'status'
+        'name', 'username', 'email', 'password', 'location', 'contact', 'website',
+        'about', 'avatar', 'status'
     ];
 
     /**
@@ -133,6 +118,14 @@ class User extends Authenticatable
     public function uploads()
     {
         return $this->hasMany(Upload::class);
+    }
+
+    /**
+     * Get the notebooks that owned by user.
+     */
+    public function notebooks()
+    {
+        return $this->hasMany(Notebook::class);
     }
 
     /**

@@ -2,15 +2,15 @@
 
 namespace App;
 
+use App\Contracts\Taggable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * @property integer id
- * @property integer user_id
- * @property string cover
+ * @property string $cover
  */
-class Portfolio extends Model
+class Portfolio extends Model implements Taggable
 {
     use SoftDeletes;
 
@@ -54,19 +54,21 @@ class Portfolio extends Model
     /**
      * Scope a query to sort portfolio by working date.
      *
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @param Builder $query
+     * @return Builder
      */
     public function scopeLatest($query)
     {
-        return $query->orderBy('date', 'desc')->orderBy('created_at', 'desc');
+        return $query
+            ->orderBy('date', 'desc')
+            ->orderBy('created_at', 'desc');
     }
 
     /**
      * Scope a query to only include popular users.
      *
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @param Builder $query
+     * @return Builder
      */
     public function scopePopular($query)
     {
