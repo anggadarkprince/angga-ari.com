@@ -1,12 +1,31 @@
 <?php
 
-use Faker\Generator as Faker;
+namespace Database\Factories;
 
-$factory->define(App\Skill::class, function (Faker $faker) {
-    return [
-        'field' => $faker->words(2, true),
-        'expertise' => $faker->words(3, true),
-        'description' => $faker->sentence(8),
-        'proficiency_level' => $faker->numberBetween(1, 10),
-    ];
-});
+use App\Models\Skill;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class SkillFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Skill::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'field' => $this->faker->words(2, true),
+            'expertise' => $this->faker->words(3, true),
+            'description' => $this->faker->sentence(8),
+            'proficiency_level' => $this->faker->numberBetween(1, 10),
+        ];
+    }
+}

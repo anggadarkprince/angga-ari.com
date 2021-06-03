@@ -1,5 +1,32 @@
 <?php
 
+use App\Http\Controllers\Auth\ConfirmPasswordController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LoginSocialController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\Auth\VerificationController;
+use App\Http\Controllers\Blog\BlogController;
+use App\Http\Controllers\Blog\CategoryController;
+use App\Http\Controllers\Blog\PostController;
+use App\Http\Controllers\Blog\PreferenceController;
+use App\Http\Controllers\Blog\TaxonomyController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LandingController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\Showcase\AchievementController;
+use App\Http\Controllers\Showcase\AwardController;
+use App\Http\Controllers\Showcase\EducationController;
+use App\Http\Controllers\Showcase\ExperienceController;
+use App\Http\Controllers\Showcase\PortfolioController;
+use App\Http\Controllers\Showcase\ProfileController;
+use App\Http\Controllers\Showcase\ShowcaseController;
+use App\Http\Controllers\Showcase\SkillController;
+use App\Http\Controllers\UploadController;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,22 +38,20 @@
 |
 */
 
-use Illuminate\Support\Facades\Route;
-
 Route::domain(env('APP_URL'))->group(function () {
-    Route::get('/', 'LandingController@index')->name('index');
+    Route::get('/', [LandingController::class, 'index'])->name('index');
     Route::view('/help', 'statics.help')->name('help');
     Route::view('/privacy', 'statics.privacy')->name('privacy');
     Route::view('/agreement', 'statics.agreement')->name('agreement');
     Route::view('/cookie', 'statics.cookie')->name('cookie');
     Route::view('/premium', 'statics.premium')->name('premium');
-    Route::view('/coming_soon', 'statics.coming_soon')->name('coming_soon');
+    Route::view('/coming-soon', 'statics.coming-soon')->name('coming_soon');
 
-    Route::get('contact', 'ContactController@form')->name('contact');
-    Route::post('contact', 'ContactController@save')->name('contact.save');
+    Route::get('contact', [ContactController::class, 'form'])->name('contact');
+    Route::post('contact', [ContactController::class, 'save'])->name('contact.save');
 });
 
-Route::domain('blog.' . env('APP_URL'))->group(function () {
+Route::domain(env('APP_BLOG_URL'))->group(function () {
     Route::view('/', 'blog.index')->name('blog');
     Route::view('/category/{slug}', 'blog.index')->name('blog.article.category');
     Route::view('/tag/{slug}', 'blog.index')->name('blog.tag');
@@ -34,57 +59,83 @@ Route::domain('blog.' . env('APP_URL'))->group(function () {
     Route::view('/author/{username}', 'blog.author')->name('blog.author');
 });
 
-Route::domain('showcase.' . env('APP_URL'))->group(function () {
+Route::domain(env('APP_SHOWCASE_URL'))->group(function () {
     Route::view('/', 'landing.showcase.index')->name('showcase');
-    Route::view('/{portfolio}', 'landing.showcase.view')->name('showcase.view');
-    Route::get('/{user}/generate', 'Showcase\ShowcaseController@generate')->name('showcase.generate');
+    Route::view('/{slug}', 'landing.showcase.view')->name('showcase.view');
+    Route::get('/{user}/generate', [ShowcaseController::class, 'generate'])->name('showcase.generate');
 });
 
-Route::domain('account.' . env('APP_URL'))->group(function () {
-    Route::auth();
+Route::domain(env('APP_ACCOUNT_URL'))->group(function () {
 
+    // Redirect to login
     Route::get('/', function () {
         return redirect(route('login'));
     });
 
-    // Social Auth
-    Route::get('login/{provider}', 'Auth\LoginSocialController@redirectToProvider')->name('social.login');
-    Route::get('login/{provider}/callback', 'Auth\LoginSocialController@handleProviderCallback')->name('social.callback');
+    // Login Routes
+    Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+    Route::post('login', [LoginController::class, 'login']);
 
-    // Register
-    Route::get('register/activate/{token}', 'Auth\RegisterController@activate')->name('register.activation');
-    Route::post('register/resend', 'Auth\RegisterController@resendEmailActivation')->name('register.resend');
+    // Logout Routes
+    Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+
+    // Registration
+    Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+    Route::post('register', [RegisterController::class, 'register']);
+
+    // Password Reset
+    Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+    Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+    Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+    Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
+
+    // Confirm Password
+    Route::get('password/confirm', [ConfirmPasswordController::class, 'showConfirmForm'])->name('password.confirm');
+    Route::post('password/confirm', [ConfirmPasswordController::class, 'confirm']);
+
+    // Email Verification
+    Route::get('email/verify', [VerificationController::class, 'show'])->name('verification.notice');
+    Route::get('email/verify/{id}/{hash}', [VerificationController::class, 'verify'])->name('verification.verify');
+    Route::post('email/resend', [VerificationController::class, 'resend'])->name('verification.resend');
+
+    // Social Auth
+    Route::get('login/{provider}', [LoginSocialController::class, 'redirectToProvider'])->name('social.login');
+    Route::get('login/{provider}/callback', [LoginSocialController::class, 'handleProviderCallback'])->name('social.callback');
+
+    // Register (should moved to Email verification route)
+    Route::get('register/activate/{token}', [RegisterController::class, 'activate'])->name('register.activation');
+    Route::post('register/resend', [RegisterController::class, 'resendEmailActivation'])->name('register.resend');
 });
 
-Route::domain('dashboard.' . env('APP_URL'))->group(function () {
-    Route::get('taxonomy/search', 'TaxonomyController@search')->name('taxonomy.search');
-    Route::post('upload', 'UploadController@upload')->name('uploader.upload');
+Route::domain(env('APP_DASHBOARD_URL'))->group(function () {
+    Route::get('taxonomy/search', [TaxonomyController::class, 'search'])->name('taxonomy.search');
+    Route::post('upload', [UploadController::class, 'upload'])->name('uploader.upload');
 
     Route::middleware(['auth'])->group(function () {
-        Route::get('/', 'HomeController@index')->name('home');
+        Route::get('/', [HomeController::class, 'index'])->name('home');
 
         Route::prefix('setting')->group(function () {
-            Route::get('profile', 'SettingController@profile')->name('setting.profile');
-            Route::put('profile', 'SettingController@updateProfile')->name('setting.profile.update');
+            Route::get('profile', [SettingController::class, 'profile'])->name('setting.profile');
+            Route::put('profile', [SettingController::class, 'updateProfile'])->name('setting.profile.update');
 
-            Route::get('contact', 'SettingController@contact')->name('setting.contact');
-            Route::put('contact', 'SettingController@updateContact')->name('setting.contact.update');
+            Route::get('contact', [SettingController::class, 'contact'])->name('setting.contact');
+            Route::put('contact', [SettingController::class, 'updateContact'])->name('setting.contact.update');
 
-            Route::get('contact/{provider}', 'Auth\LoginSocialController@redirectToProvider')->name('setting.contact.bind');
-            Route::get('contact/{provider}/unbind', 'Auth\LoginSocialController@unbindProvider')->name('setting.contact.unbind');
-            Route::get('contact/{provider}/callback', 'Auth\LoginSocialController@handleProviderCallback')->name('setting.contact.callback');
+            Route::get('contact/{provider}', [LoginSocialController::class, 'redirectToProvider'])->name('setting.contact.bind');
+            Route::get('contact/{provider}/unbind', [LoginSocialController::class, 'unbindProvider'])->name('setting.contact.unbind');
+            Route::get('contact/{provider}/callback', [LoginSocialController::class, 'handleProviderCallback'])->name('setting.contact.callback');
 
-            Route::get('password', 'SettingController@password')->name('setting.password');
-            Route::put('password', 'SettingController@updatePassword')->name('setting.password.update');
+            Route::get('password', [SettingController::class, 'password'])->name('setting.password');
+            Route::put('password', [SettingController::class, 'updatePassword'])->name('setting.password.update');
 
-            Route::get('notification', 'SettingController@notification')->name('setting.notification');
-            Route::put('notification', 'SettingController@updateNotification')->name('setting.notification.update');
+            Route::get('notification', [SettingController::class, 'notification'])->name('setting.notification');
+            Route::put('notification', [SettingController::class, 'updateNotification'])->name('setting.notification.update');
         });
 
         Route::prefix('showcase')->group(function () {
-            Route::get('achievement', 'Showcase\AchievementController@index')->name('showcase.achievement');
+            Route::get('achievements', [AchievementController::class, 'index'])->name('showcase.achievement');
 
-            Route::resource('educations', 'Showcase\EducationController')
+            Route::resource('educations', EducationController::class)
                 ->except(['index', 'create', 'edit'])
                 ->names([
                     'store' => 'showcase.educations.store',
@@ -93,7 +144,7 @@ Route::domain('dashboard.' . env('APP_URL'))->group(function () {
                     'destroy' => 'showcase.educations.destroy'
                 ]);
 
-            Route::resource('experiences', 'Showcase\ExperienceController')
+            Route::resource('experiences', ExperienceController::class)
                 ->except(['index', 'create', 'edit'])
                 ->names([
                     'store' => 'showcase.experiences.store',
@@ -102,7 +153,7 @@ Route::domain('dashboard.' . env('APP_URL'))->group(function () {
                     'destroy' => 'showcase.experiences.destroy'
                 ]);
 
-            Route::resource('awards', 'Showcase\AwardController')
+            Route::resource('awards', AwardController::class)
                 ->except(['index', 'create', 'edit'])
                 ->names([
                     'store' => 'showcase.awards.store',
@@ -111,7 +162,7 @@ Route::domain('dashboard.' . env('APP_URL'))->group(function () {
                     'destroy' => 'showcase.awards.destroy'
                 ]);
 
-            Route::resource('skills', 'Showcase\SkillController')
+            Route::resource('skills', SkillController::class)
                 ->except(['create', 'edit'])
                 ->names([
                     'index' => 'showcase.skill',
@@ -121,12 +172,12 @@ Route::domain('dashboard.' . env('APP_URL'))->group(function () {
                     'destroy' => 'showcase.skills.destroy'
                 ]);
 
-            Route::get('profile', 'Showcase\ProfileController@edit')->name('showcase.profile');
-            Route::put('profile', 'Showcase\ProfileController@update')->name('showcase.profile.update');
+            Route::get('profile', [ProfileController::class, 'edit'])->name('showcase.profile');
+            Route::put('profile', [ProfileController::class, 'update'])->name('showcase.profile.update');
 
-            Route::post('portfolio/upload', 'Showcase\PortfolioController@upload')->name('showcase.portfolio.upload');
-            Route::delete('portfolio/delete_upload', 'Showcase\PortfolioController@deleteUpload')->name('showcase.portfolio.upload.delete');
-            Route::resource('portfolio', 'Showcase\PortfolioController')
+            Route::post('portfolios/upload', [PortfolioController::class, 'upload'])->name('showcase.portfolio.upload');
+            Route::delete('portfolios/delete_upload', [PortfolioController::class, 'deleteUpload'])->name('showcase.portfolio.upload.delete');
+            Route::resource('portfolios', PortfolioController::class)
                 ->names([
                     'index' => 'showcase.portfolio',
                     'create' => 'showcase.portfolio.create',
@@ -137,30 +188,33 @@ Route::domain('dashboard.' . env('APP_URL'))->group(function () {
                     'destroy' => 'showcase.portfolio.destroy'
                 ]);
 
-            Route::get('/', 'Showcase\ShowcaseController@index')->name('showcase.index');
+            Route::get('/', [ShowcaseController::class, 'index'])->name('showcase.index');
         });
 
         Route::prefix('blog')->group(function () {
-            Route::get('/', 'Blog\BlogController@index')->name('blog.index');
+            Route::get('/', [BlogController::class, 'index'])->name('blog.index');
 
-            Route::get('preference', 'Blog\PreferenceController@basic')->name('blog.preference');
-            Route::put('preference', 'Blog\PreferenceController@update')->name('blog.preference.update');
+            Route::get('preference', [PreferenceController::class, 'basic'])->name('blog.preference');
+            Route::put('preference', [PreferenceController::class, 'update'])->name('blog.preference.update');
 
-            Route::get('post', 'Blog\PostController@index')->name('blog.post');
-            Route::get('post/create', 'Blog\PostController@create')->name('blog.post.create');
-            Route::post('post', 'Blog\PostController@store')->name('blog.post.store');
-            Route::get('post/{id}/preview', 'Blog\PostController@preview')->name('blog.post.preview');
-            Route::get('post/{post}/edit', 'Blog\PostController@edit')->name('blog.post.edit');
-            Route::put('post/{post}', 'Blog\PostController@update')->name('blog.post.update');
-            Route::delete('post/{post}', 'Blog\PostController@destroy')->name('blog.post.destroy');
+            Route::resource('posts', PostController::class)->names([
+                'index' => 'blog.post',
+                'create' => 'blog.post.create',
+                'store' => 'blog.post.store',
+                'show' => 'blog.post.show',
+                'edit' => 'blog.post.edit',
+                'update' => 'blog.post.update',
+                'destroy' => 'blog.post.destroy',
+            ]);
+            Route::apiResource('categories', CategoryController::class)->names([
+                'index' => 'blog.category',
+                'store' => 'blog.category.store',
+                'show' => 'blog.category.show',
+                'update' => 'blog.category.update',
+                'destroy' => 'blog.category.destroy',
+            ]);
 
-            Route::get('category', 'Blog\CategoryController@index')->name('blog.category');
-            Route::post('category', 'Blog\CategoryController@store')->name('blog.category.store');
-            Route::get('category/{taxonomy}', 'Blog\CategoryController@show')->name('blog.category.show');
-            Route::put('category/{taxonomy}', 'Blog\CategoryController@update')->name('blog.category.update');
-            Route::delete('category/{taxonomy}', 'Blog\CategoryController@destroy')->name('blog.category.destroy');
-
-            Route::get('taxonomy', 'Blog\TaxonomyController@index')->name('blog.taxonomy');
+            Route::get('taxonomy', [TaxonomyController::class, 'index'])->name('blog.taxonomy');
         });
 
         Route::prefix('drive')->group(function () {

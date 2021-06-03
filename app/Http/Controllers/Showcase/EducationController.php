@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Showcase;
 
-use App\Education;
+use App\Models\Education;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreEducation;
 use Illuminate\Http\Request;

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Showcase;
 
-use App\Setting;
-use App\User;
+use App\Models\Setting;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;

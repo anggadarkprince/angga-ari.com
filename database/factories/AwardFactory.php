@@ -1,14 +1,32 @@
 <?php
 
-use App\Award;
-use Faker\Generator as Faker;
+namespace Database\Factories;
 
-$factory->define(Award::class, function (Faker $faker) {
-    return [
-        'title' => $faker->words(3, true),
-        'category' => $faker->words(3, true),
-        'description' => $faker->paragraph(3),
-        'location' => $faker->city . ', ' . $faker->country,
-        'awarded_in' => $faker->date('Y'),
-    ];
-});
+use App\Models\Award;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class AwardFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Award::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'title' => $this->faker->words(3, true),
+            'category' => $this->faker->words(3, true),
+            'description' => $this->faker->paragraph(3),
+            'location' => $this->faker->city . ', ' . $this->faker->country,
+            'awarded_in' => $this->faker->date('Y'),
+        ];
+    }
+}

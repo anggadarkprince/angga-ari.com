@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Showcase;
 
-use App\Award;
+use App\Models\Award;
 use App\Http\Requests\StoreAward;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

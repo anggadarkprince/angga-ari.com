@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Showcase;
 
-use App\User;
+use App\Models\User;
 use Dompdf\Dompdf;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

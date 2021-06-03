@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Blog;
 
 use App\Http\Requests\StorePost;
-use App\Post;
-use App\Slugger;
-use App\Tagger;
-use App\Taxonomy;
-use App\Uploader;
+use App\Models\Post;
+use App\Models\Slugger;
+use App\Models\Tagger;
+use App\Models\Taxonomy;
+use App\Models\Uploader;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -118,7 +118,7 @@ class PostController extends Controller
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function preview($id)
+    public function show($id)
     {
         $post = Post::findOrFail($id);
 

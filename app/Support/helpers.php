@@ -1,9 +1,12 @@
 <?php
 
+use App\Models\Setting;
+use Illuminate\Support\Facades\Route;
+
 if (!function_exists('get_setting')) {
     function get_setting($userId, $key, $default = '')
     {
-        $setting = new \App\Setting();
+        $setting = new Setting();
         return $setting->getSetting($userId, $key, $default);
     }
 }
@@ -11,7 +14,7 @@ if (!function_exists('get_setting')) {
 if (!function_exists('get_app_setting')) {
     function get_app_setting($key, $default = '')
     {
-        $setting = new \App\Setting();
+        $setting = new Setting();
         return $setting->getSetting(null, $key, $default);
     }
 }

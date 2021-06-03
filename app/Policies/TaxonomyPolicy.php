@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Taxonomy;
-use App\User;
+use App\Models\Taxonomy;
+use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class TaxonomyPolicy

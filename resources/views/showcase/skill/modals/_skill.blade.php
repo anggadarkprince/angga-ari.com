@@ -14,7 +14,7 @@
                     <div class="form-group">
                         <label for="field">Expertise Field</label>
                         <select class="custom-select" name="field" id="field">
-                            @foreach(\App\Skill::FIELDS as $field)
+                            @foreach(\App\Models\Skill::FIELDS as $field)
                                 <option value="{{ $field }}">{{ $field }}</option>
                             @endforeach
                         </select>

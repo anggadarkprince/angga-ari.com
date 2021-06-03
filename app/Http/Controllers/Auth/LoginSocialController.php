@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\LinkedAccountService;
-use Socialite;
+use App\Models\LinkedAccountService;
+use Laravel\Socialite\Facades\Socialite;
 
 class LoginSocialController extends Controller
 {

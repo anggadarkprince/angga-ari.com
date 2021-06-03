@@ -3,14 +3,16 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Mail\AccountActivationMail;
-use App\User;
+use App\Models\User;
 use App\Http\Controllers\Controller;
-use App\UserActivation;
+use App\Models\UserActivation;
+use App\Traits\Auth\RegistersUsers;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -63,20 +65,20 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array $data
-     * @return \App\User
+     * @return User
      */
     protected function create(array $data)
     {
         $user = User::create([
             'name' => $data['name'],
-            'username' => str_slug($data['name']) . '-' . uniqid(),
+            'username' => Str::slug($data['name']) . '-' . uniqid(),
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
 
         UserActivation::create([
             'user_id' => $user->id,
-            'token' => str_random(40)
+            'token' => Str::random(40)
         ]);
 
         Mail::to($user->email)->send(new AccountActivationMail($user));
@@ -87,7 +89,7 @@ class RegisterController extends Controller
     /**
      * Resend email
      * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function resendEmailActivation(Request $request)
     {
@@ -106,7 +108,7 @@ class RegisterController extends Controller
     /**
      * Activate user account
      * @param $token
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function activate($token)
     {
@@ -136,7 +138,7 @@ class RegisterController extends Controller
      * Force logout (or keep login and prevent access some feature till user verify the email).
      * @param Request $request
      * @param $user
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     protected function registered(Request $request, $user)
     {

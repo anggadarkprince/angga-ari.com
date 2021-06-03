@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\LinkedAccountService;
-use App\Setting;
-use App\User;
+use App\Models\LinkedAccountService;
+use App\Models\Setting;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;

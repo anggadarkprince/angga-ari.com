@@ -13,9 +13,8 @@ return [
     |
     */
 
-    'pending' => 'Please activate your account first via your email.',
-    'suspended' => 'Your account was suspended.',
     'failed' => 'These credentials do not match our records.',
+    'password' => 'The provided password is incorrect.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
 ];

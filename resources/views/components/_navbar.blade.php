@@ -44,7 +44,7 @@
                         </a>
                     </li>
                     <li class="nav-item dropdown dropdown-account pl-3">
-                        <a id="dropdown-account" class="nav-link p-0" href="#" role="button"
+                        <a id="dropdown-account" class="nav-link" href="#" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img class="rounded-circle"
                                  src="{{ Storage::url((Auth::user()->avatar ? Auth::user()->avatar : 'avatars/noavatar.jpg')) }}"

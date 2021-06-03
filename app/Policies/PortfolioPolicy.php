@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Portfolio;
-use App\User;
+use App\Models\Portfolio;
+use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class PortfolioPolicy

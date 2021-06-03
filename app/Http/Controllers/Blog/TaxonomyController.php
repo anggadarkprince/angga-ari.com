@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Blog;
 
-use App\Taxonomy;
+use App\Models\Taxonomy;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

@@ -14,7 +14,7 @@
                     <div class="form-group">
                         <label for="degree">Education Degree</label>
                         <select class="custom-select" name="degree" id="degree" required>
-                            @foreach(\App\Education::DEGREES as $degree)
+                            @foreach(\App\Models\Education::DEGREES as $degree)
                                 <option value="{{ $degree }}">{{ $degree }}</option>
                             @endforeach
                         </select>

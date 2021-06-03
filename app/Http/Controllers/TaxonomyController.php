@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Taxonomy;
+use App\Models\Taxonomy;
 use Illuminate\Http\Request;
 
 class TaxonomyController extends Controller

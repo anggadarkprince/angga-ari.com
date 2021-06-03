@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Blog;
 
 use App\Http\Requests\StoreTaxonomy;
-use App\Post;
-use App\Slugger;
-use App\Taxonomy;
+use App\Models\Post;
+use App\Models\Slugger;
+use App\Models\Taxonomy;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

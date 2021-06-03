@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Showcase;
 
-use App\Experience;
+use App\Models\Experience;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreExperience;
 use Illuminate\Http\Request;

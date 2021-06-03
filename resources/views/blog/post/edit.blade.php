@@ -9,7 +9,7 @@
             <small class="text-muted">Edit an article</small>
         </div>
         <div class="mt-0 mt-sm-2">
-            <a href="{{ route('blog.post.preview', ['id' => $post->id]) }}" class="btn btn-sm btn-info">
+            <a href="{{ route('blog.post.show', ['id' => $post->id]) }}" class="btn btn-sm btn-info">
                 Preview
             </a>
         </div>

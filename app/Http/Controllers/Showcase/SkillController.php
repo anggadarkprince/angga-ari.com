@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Showcase;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreSkill;
-use App\Skill;
+use App\Models\Skill;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\LinkedAccountService;
-use App\User;
+use App\Models\LinkedAccountService;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class LandingController extends Controller

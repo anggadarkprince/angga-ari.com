@@ -23,7 +23,7 @@
                             <select class="selectize{{ $errors->first('field') ? ' is-invalid' : '' }}"
                                     name="field" id="field" placeholder="Select creative field" required>
                                 <option value=""></option>
-                                @foreach(\App\Skill::FIELDS as $field)
+                                @foreach(\App\Models\Skill::FIELDS as $field)
                                     <option value="{{ $field }}"{{ old('field') == $field ? ' selected' : '' }}>
                                         {{ $field }}
                                     </option>

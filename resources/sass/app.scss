@@ -1,0 +1,29 @@
+@import "base/variables";
+
+@import '~bootstrap/scss/bootstrap';
+@import '~simple-line-icons/scss/simple-line-icons';
+@import '~selectize/dist/css/selectize.css';
+//@import '~selectizebootstrap/dist/css/selectize.bootstrap4.css';
+@import '~croppie/croppie.css';
+
+@import "base/mixins.scss";
+
+@import "plugins/ckeditor";
+@import "plugins/selectize";
+@import "plugins/pace";
+@import "plugins/sortable";
+
+@import "base/bootstrap-overrides.scss";
+@import "base/typography.scss";
+@import "base/global.scss";
+@import "base/pallets";
+@import "base/form";
+
+@import "dashboard/layout.scss";
+@import "dashboard/navbar.scss";
+@import "dashboard/sidebar.scss";
+@import "dashboard/card.scss";
+@import "dashboard/list.scss";
+@import "dashboard/footer.scss";
+@import "dashboard/misc.scss";
+

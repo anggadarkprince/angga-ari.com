@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Showcase;
 
 use App\Http\Requests\StorePortfolio;
-use App\Portfolio;
-use App\Slugger;
-use App\Tagger;
-use App\Uploader;
-use App\User;
+use App\Models\Portfolio;
+use App\Models\Slugger;
+use App\Models\Tagger;
+use App\Models\Uploader;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
