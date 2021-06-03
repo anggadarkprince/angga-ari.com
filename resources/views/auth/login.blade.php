@@ -49,7 +49,7 @@
                                         {{ $errors->first('email') }}
 
                                         @if ($errors->has('resend'))
-                                            <a href="{{ route('register.resend') }}" class="link-muted"
+                                            <a href="{{ route('verification.resend') }}" class="link-muted"
                                                        onclick="event.preventDefault(); document.getElementById('resend-form').submit();">
                                                 {{ __('Click here to resend') }}
                                             </a>
@@ -95,7 +95,7 @@
                         </div>
                     </form>
 
-                    <form id="resend-form" action="{{ route('register.resend') }}" method="POST" style="display: none;">
+                    <form id="resend-form" action="{{ route('verification.resend') }}" method="POST" style="display: none;">
                         @csrf
                         <input type="hidden" name="email" value="{{ old('email') }}">
                     </form>

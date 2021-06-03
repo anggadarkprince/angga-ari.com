@@ -50,7 +50,9 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         if ($user->status != 'activated') {
-            auth()->logout();
+            if ($user->status == 'suspended') {
+                auth()->logout();
+            }
 
             throw ValidationException::withMessages([
                 $this->username() => [trans('auth.' . $user->status)],

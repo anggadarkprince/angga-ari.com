@@ -94,24 +94,24 @@ Route::domain(env('APP_ACCOUNT_URL'))->group(function () {
     Route::post('password/confirm', [ConfirmPasswordController::class, 'confirm']);
 
     // Email Verification
-    Route::get('email/verify', [VerificationController::class, 'show'])->name('verification.notice');
-    Route::get('email/verify/{id}/{hash}', [VerificationController::class, 'verify'])->name('verification.verify');
-    Route::post('email/resend', [VerificationController::class, 'resend'])->name('verification.resend');
+    Route::get('email/verify', [VerificationController::class, 'show'])->middleware('auth')->name('verification.notice');
+    Route::get('email/verify/{id}/{hash}', [VerificationController::class, 'verify'])->middleware(['auth', 'signed'])->name('verification.verify');
+    Route::post('email/resend', [VerificationController::class, 'resend'])->middleware(['auth', 'throttle:6,1'])->name('verification.resend');
 
     // Social Auth
     Route::get('login/{provider}', [LoginSocialController::class, 'redirectToProvider'])->name('social.login');
     Route::get('login/{provider}/callback', [LoginSocialController::class, 'handleProviderCallback'])->name('social.callback');
 
     // Register (should moved to Email verification route)
-    Route::get('register/activate/{token}', [RegisterController::class, 'activate'])->name('register.activation');
-    Route::post('register/resend', [RegisterController::class, 'resendEmailActivation'])->name('register.resend');
+    //Route::get('register/activate/{token}', [RegisterController::class, 'activate'])->name('register.activation');
+    //Route::post('register/resend', [RegisterController::class, 'resendEmailActivation'])->name('register.resend');
 });
 
 Route::domain(env('APP_DASHBOARD_URL'))->group(function () {
     Route::get('taxonomy/search', [TaxonomyController::class, 'search'])->name('taxonomy.search');
     Route::post('upload', [UploadController::class, 'upload'])->name('uploader.upload');
 
-    Route::middleware(['auth'])->group(function () {
+    Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/', [HomeController::class, 'index'])->name('home');
 
         Route::prefix('setting')->group(function () {

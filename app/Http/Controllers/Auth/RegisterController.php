@@ -76,12 +76,12 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        UserActivation::create([
-            'user_id' => $user->id,
-            'token' => Str::random(40)
-        ]);
+        //UserActivation::create([
+        //    'user_id' => $user->id,
+        //    'token' => Str::random(40)
+        //]);
 
-        Mail::to($user->email)->send(new AccountActivationMail($user));
+        //Mail::to($user->email)->send(new AccountActivationMail($user));
 
         return $user;
     }
@@ -142,8 +142,8 @@ class RegisterController extends Controller
      */
     protected function registered(Request $request, $user)
     {
-        $this->guard()->logout();
-        return redirect('/login')->with('status', 'We sent you an activation code. Check your email and click on the link to verify.');
+        //$this->guard()->logout();
+        //return redirect('/login')->with('status', 'We sent you an activation code. Check your email and click on the link to verify.');
     }
 
     public function redirectTo()
