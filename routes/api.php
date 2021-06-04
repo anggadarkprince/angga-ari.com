@@ -1,8 +1,12 @@
 <?php
 
+use App\Http\Controllers\Api\Auth\LoginController;
+use App\Http\Controllers\Api\Auth\RegisterController;
 use App\Http\Controllers\Api\Showcase\AwardController;
 use App\Http\Controllers\Api\Showcase\EducationController;
 use App\Http\Controllers\Api\Showcase\ExperienceController;
+use App\Http\Controllers\Api\Showcase\ShowcaseController;
+use App\Http\Controllers\Api\Showcase\SkillController;
 use App\Http\Controllers\Showcase\PortfolioController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,15 +26,22 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/register', [RegisterController::class, 'register']);
+Route::match(['post', 'delete'], '/logout', [LoginController::class, 'login']);
+
 Route::middleware('auth:api')->group(function () {
 
     Route::prefix('showcase')->group(function() {
 
+        Route::get('/', ShowcaseController::class);
+
         Route::apiResources([
             'awards' => AwardController::class,
             'educations' => EducationController::class,
-            'experience' => ExperienceController::class,
-            'portfolio' => PortfolioController::class,
+            'experiences' => ExperienceController::class,
+            'portfolios' => PortfolioController::class,
+            'skills' => SkillController::class,
         ]);
 
     });
