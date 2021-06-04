@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Api\Auth\LoginController;
 use App\Http\Controllers\Api\Auth\RegisterController;
+use App\Http\Controllers\Api\Journal\NotebookController;
+use App\Http\Controllers\Api\Journal\NoteController;
 use App\Http\Controllers\Api\Showcase\AwardController;
 use App\Http\Controllers\Api\Showcase\EducationController;
 use App\Http\Controllers\Api\Showcase\ExperienceController;
@@ -42,6 +44,15 @@ Route::middleware('auth:api')->group(function () {
             'experiences' => ExperienceController::class,
             'portfolios' => PortfolioController::class,
             'skills' => SkillController::class,
+        ]);
+
+    });
+
+    Route::prefix('journal')->group(function() {
+
+        Route::apiResources([
+            'notebooks' => NotebookController::class,
+            'notebooks.notes' => NoteController::class,
         ]);
 
     });

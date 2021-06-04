@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace App\Services;
 
+use Exception;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Slugger
 {
@@ -16,13 +18,13 @@ class Slugger
      * @param string $column
      * @param null $exceptId
      * @return string
-     * @throws \Exception
+     * @throws Exception
      */
     public function createSafeSlug(Model $class, $title, $exceptId = null, $column = 'slug')
     {
         $tried = 0;
         while (true) {
-            $slug = str_slug($title);
+            $slug = Str::slug($title);
             if ($tried > 0) {
                 if ($tried >= self::MAX_TRIAL) {
                     $slug .= '-' . uniqid();
@@ -31,8 +33,6 @@ class Slugger
                 }
             }
 
-            /** @noinspection PhpDynamicAsStaticMethodCallInspection */
-            /** @noinspection PhpUndefinedMethodInspection */
             $record = $class::where($column, $slug)
                 ->where((new $class)->getKeyName(), '!=', $exceptId)
                 ->first();
@@ -42,11 +42,10 @@ class Slugger
             }
 
             if ($tried == self::MAX_TRIAL * 2) {
-                throw new \Exception("Slug generation exhausted in {$tried} trial");
+                throw new Exception("Slug generation exhausted in {$tried} trial");
             }
 
             $tried++;
         }
-        return null;
     }
 }

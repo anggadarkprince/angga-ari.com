@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace App\Services;
 
 use App\Contracts\Taggable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Tagger extends Model
 {
@@ -60,7 +61,7 @@ class Tagger extends Model
      */
     public function storeTerm($term, $type, $userId = null)
     {
-        $slug = str_slug($term);
+        $slug = Str::slug($term);
 
         $termData = Taxonomy::firstOrCreate([
             'slug' => $slug, 'term' => $term, 'type' => $type, 'user_id' => $userId

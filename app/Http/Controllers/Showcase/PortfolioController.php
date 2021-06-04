@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Showcase;
 
 use App\Http\Requests\StorePortfolio;
 use App\Models\Portfolio;
-use App\Models\Slugger;
-use App\Models\Tagger;
+use App\Services\Slugger;
+use App\Services\Tagger;
 use App\Models\Uploader;
 use App\Models\User;
 use Illuminate\Http\Request;

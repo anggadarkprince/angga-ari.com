@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Blog;
 
 use App\Http\Requests\StorePost;
 use App\Models\Post;
-use App\Models\Slugger;
-use App\Models\Tagger;
+use App\Services\Slugger;
+use App\Services\Tagger;
 use App\Models\Taxonomy;
 use App\Models\Uploader;
 use Illuminate\Http\Request;

@@ -7,11 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Notebook extends Model
 {
     /**
-     * The attributes that should be mutated to dates.
+     * The attributes that should be cast.
      *
      * @var array
      */
-    protected $dates = ['created_at', 'updated_at'];
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime'
+    ];
 
     /**
      * The attributes that are mass assignable.
@@ -28,5 +31,13 @@ class Notebook extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Get the author that owns the post.
+     */
+    public function notes()
+    {
+        return $this->hasMany(Note::class);
     }
 }
