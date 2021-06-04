@@ -13,7 +13,7 @@ class StoreAward extends FormRequest
      */
     public function authorize()
     {
-        if($this->isMethod('put') || $this->isMethod('patch')) {
+        if ($this->isMethod('put') || $this->isMethod('patch')) {
             $award = $this->route('award');
 
             return $award && $this->user()->can('update', $award);
