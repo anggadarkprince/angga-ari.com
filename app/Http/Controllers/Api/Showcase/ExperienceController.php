@@ -11,6 +11,14 @@ use Illuminate\Http\Request;
 class ExperienceController extends Controller
 {
     /**
+     * ExperienceController constructor.
+     */
+    public function __construct()
+    {
+        $this->authorizeResource(Experience::class);
+    }
+
+    /**
      * Display a listing of the experience.
      *
      * @param Request $request

@@ -30,7 +30,7 @@ class NotebookController extends Controller
         return Response::json([
             'status' => 'OK',
             'code' => 200,
-            'data' => $request->user()->awards
+            'data' => $request->user()->notebooks
         ]);
     }
 

@@ -2,7 +2,14 @@
 
 namespace App\Exceptions;
 
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Auth\AuthenticationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -37,5 +44,52 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+    /**
+     * Render an exception into an HTTP response.
+     *
+     * @param $request
+     * @param Throwable $e
+     * @return Response
+     *
+     * @throws Throwable
+     */
+    public function render($request, Throwable $e)
+    {
+        if ($e instanceof ModelNotFoundException || $e instanceof NotFoundHttpException) {
+            return $request->expectsJson()
+                ? new JsonResponse(
+                    ['status' => 'Not Found', 'code' => 404, 'message' => $e->getMessage() ?: 'Request not found'],
+                    404,
+                    $this->isHttpException($e) ? $e->getHeaders() : [],
+                    JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES
+                )
+                : $this->prepareResponse($request, $e);
+        }
+
+        if ($e instanceof AuthenticationException) {
+            return $request->expectsJson()
+                ? new JsonResponse(
+                    ['status' => 'Unauthenticated', 'code' => 401, 'message' => $e->getMessage() ?: 'Unauthenticated'],
+                    401,
+                    [],
+                    JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES
+                )
+                : $this->prepareResponse($request, $e);
+        }
+
+        if ($e instanceof AccessDeniedHttpException || $e instanceof AuthorizationException) {
+            return $request->expectsJson()
+                ? new JsonResponse(
+                    ['status' => 'Unauthorized', 'code' => 403, 'message' => $e->getMessage() ?: 'Unauthorized'],
+                    403,
+                    [],
+                    JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES
+                )
+                : $this->prepareResponse($request, $e);
+        }
+
+        return parent::render($request, $e);
     }
 }

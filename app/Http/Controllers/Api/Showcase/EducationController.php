@@ -11,6 +11,14 @@ use Illuminate\Http\Request;
 class EducationController extends Controller
 {
     /**
+     * EducationController constructor.
+     */
+    public function __construct()
+    {
+        $this->authorizeResource(Education::class);
+    }
+
+    /**
      * Display a listing of the education.
      *
      * @param Request $request

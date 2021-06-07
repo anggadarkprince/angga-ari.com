@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Policies;
+namespace App\Policies\Showcase;
 
-use App\Models\Skill;
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class SkillPolicy
+class PostPolicy
 {
     use HandlesAuthorization;
 
@@ -24,23 +24,23 @@ class SkillPolicy
      * Determine if the given skill can be updated by the user.
      *
      * @param User $user
-     * @param Skill $skill
+     * @param Post $post
      * @return bool
      */
-    public function update(User $user, Skill $skill)
+    public function update(User $user, Post $post)
     {
-        return $user->id === $skill->user_id;
+        return $user->id === $post->user_id;
     }
 
     /**
      * Determine if the given skill can be deleted by the user.
      *
      * @param User $user
-     * @param Skill $skill
+     * @param Post $post
      * @return bool
      */
-    public function destroy(User $user, Skill $skill)
+    public function destroy(User $user, Post $post)
     {
-        return $user->id === $skill->user_id;
+        return $user->id === $post->user_id;
     }
 }

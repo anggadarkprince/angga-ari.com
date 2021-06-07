@@ -11,6 +11,14 @@ use Illuminate\Http\Request;
 class PortfolioController extends Controller
 {
     /**
+     * PortfolioController constructor.
+     */
+    public function __construct()
+    {
+        $this->authorizeResource(Portfolio::class);
+    }
+
+    /**
      * Display a listing of the portfolio.
      *
      * @param Request $request

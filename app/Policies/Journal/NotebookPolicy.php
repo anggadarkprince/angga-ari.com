@@ -21,6 +21,17 @@ class NotebookPolicy
     }
 
     /**
+     * Determine whether the user can view any models.
+     *
+     * @param User $user
+     * @return mixed
+     */
+    public function viewAny(User $user)
+    {
+        return true;
+    }
+
+    /**
      * Determine whether the user can view the notebook.
      *
      * @param User $user
@@ -62,7 +73,7 @@ class NotebookPolicy
      * @param Notebook $notebook
      * @return bool
      */
-    public function destroy(User $user, Notebook $notebook)
+    public function delete(User $user, Notebook $notebook)
     {
         return $user->id === $notebook->user_id;
     }

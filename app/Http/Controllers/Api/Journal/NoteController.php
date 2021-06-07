@@ -54,11 +54,12 @@ class NoteController extends Controller
     /**
      * Display the specified note.
      *
+     * @param Notebook $notebook
      * @param Note $note
      * @return JsonResponse
      * @throws AuthorizationException
      */
-    public function show(Note $note)
+    public function show(Notebook $notebook, Note $note)
     {
         $this->authorize('view', $note);
 
@@ -84,7 +85,7 @@ class NoteController extends Controller
 
         $data = $request->merge(['notebook_id' => $notebook->id])->input();
 
-        $note = $note->fill($data)->save();
+        $note->mergeFillable(['notebook_id'])->fill($data)->save();
 
         return Response::json([
             'status' => 'OK',
@@ -96,11 +97,12 @@ class NoteController extends Controller
     /**
      * Remove the specified note from storage.
      *
+     * @param Notebook $notebook
      * @param Note $note
      * @return JsonResponse
      * @throws AuthorizationException
      */
-    public function destroy(Note $note)
+    public function destroy(Notebook $notebook, Note $note)
     {
         $this->authorize('delete', $note);
 

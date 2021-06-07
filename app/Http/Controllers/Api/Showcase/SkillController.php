@@ -11,6 +11,14 @@ use Illuminate\Http\Request;
 class SkillController extends Controller
 {
     /**
+     * SkillController constructor.
+     */
+    public function __construct()
+    {
+        $this->authorizeResource(Skill::class);
+    }
+
+    /**
      * Display a listing of the skill.
      *
      * @param Request $request

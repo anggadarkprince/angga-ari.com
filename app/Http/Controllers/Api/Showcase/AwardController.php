@@ -11,6 +11,14 @@ use Illuminate\Http\Request;
 class AwardController extends Controller
 {
     /**
+     * AwardController constructor.
+     */
+    public function __construct()
+    {
+        $this->authorizeResource(Award::class);
+    }
+
+    /**
      * Display a listing of the award.
      *
      * @param Request $request

@@ -68,7 +68,7 @@ class NotePolicy
      * @param Note $note
      * @return bool
      */
-    public function destroy(User $user, Note $note)
+    public function delete(User $user, Note $note)
     {
         return $user->id === $note->notebook->user_id;
     }
