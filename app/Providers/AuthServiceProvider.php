@@ -2,10 +2,14 @@
 
 namespace App\Providers;
 
+use App\Models\Award;
+use App\Models\Education;
 use App\Models\Note;
 use App\Models\Notebook;
 use App\Policies\Journal\NotebookPolicy;
 use App\Policies\Journal\NotePolicy;
+use App\Policies\Showcase\AwardPolicy;
+use App\Policies\Showcase\EducationPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -19,6 +23,9 @@ class AuthServiceProvider extends ServiceProvider
     protected $policies = [
         Notebook::class => NotebookPolicy::class,
         Note::class => NotePolicy::class,
+
+        Award::class => AwardPolicy::class,
+        Education::class => EducationPolicy::class,
     ];
 
     /**

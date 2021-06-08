@@ -29,7 +29,7 @@ class EducationController extends Controller
         return response()->json([
             'status' => 'OK',
             'code' => 200,
-            'data' => $request->user()->achievements
+            'data' => $request->user()->educations
         ]);
     }
 
