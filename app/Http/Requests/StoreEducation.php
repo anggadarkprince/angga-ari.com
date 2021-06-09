@@ -14,11 +14,6 @@ class StoreEducation extends FormRequest
      */
     public function authorize()
     {
-        if($this->isMethod('put') || $this->isMethod('patch')) {
-            $education = $this->route('education');
-
-            return $education && $this->user()->can('update', $education);
-        }
         return true;
     }
 

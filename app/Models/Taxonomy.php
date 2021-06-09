@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Taxonomy extends Model
 {
+    const TYPE_SHOWCASE = 'showcase';
+    const TYPE_JOURNAL = 'journal';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -23,7 +26,7 @@ class Taxonomy extends Model
      * @param $category
      * @return Builder
      */
-    public function scopeCategory($query, $category)
+    public function scopeCategory(Builder $query, $category)
     {
         return $query->where('category', $category);
     }
@@ -35,7 +38,7 @@ class Taxonomy extends Model
      * @param $type
      * @return Builder
      */
-    public function scopeType($query, $type)
+    public function scopeType(Builder $query, $type)
     {
         return $query->where('type', $type);
     }

@@ -6,7 +6,7 @@ use App\Http\Requests\StorePortfolio;
 use App\Models\Portfolio;
 use App\Services\Slugger;
 use App\Services\Tagger;
-use App\Models\Uploader;
+use App\Services\Uploader;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

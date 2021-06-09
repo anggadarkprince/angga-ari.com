@@ -5,8 +5,16 @@ namespace App\Http\Controllers\Api\Showcase;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePortfolio;
 use App\Models\Portfolio;
+use App\Models\Taxonomy;
+use App\Services\Slugger;
+use App\Services\Tagger;
+use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class PortfolioController extends Controller
 {
@@ -29,7 +37,7 @@ class PortfolioController extends Controller
         return response()->json([
             'status' => 'OK',
             'code' => 200,
-            'data' => $request->user()->awards
+            'data' => $request->user()->portfolios
         ]);
     }
 
@@ -37,11 +45,35 @@ class PortfolioController extends Controller
      * Store a newly created portfolio in storage.
      *
      * @param StorePortfolio $request
+     * @param Slugger $slugger
      * @return JsonResponse
+     * @throws Exception
      */
-    public function store(StorePortfolio $request)
+    public function store(StorePortfolio $request, Slugger $slugger)
     {
-        $portfolio = $request->user()->portfolios()->create($request->validated());
+        $portfolio = DB::transaction(function() use ($request, $slugger) {
+            $data = $request->validated();
+
+            $data['date'] = $data['year'] . '-' . $data['month'] . '-1';
+            $data['slug'] = $slugger->createSafeSlug(Portfolio::class, $data['title']);
+            $data['cover'] = $request->file('cover')->store(get_period_path('portfolios/cover'), ['disk' => 'public']);
+
+            $portfolio = $request->user()->portfolios()->create($data);
+
+            $tags = Collection::make(explode(",", $data['tags']));
+            $tagIds = $tags->map(function($tag) use ($request, $slugger) {
+                $taxonomy = Taxonomy::firstOrCreate([
+                    'slug' => Str::slug($tag),
+                    'term' => $tag,
+                    'type' => Tagger::TAXONOMY_TAG,
+                ]);
+                return $taxonomy->id;
+            });
+
+            $portfolio->tags()->attach($tagIds);
+
+            return $portfolio;
+        });
 
         return response()->json([
             'status' => 'OK',
@@ -70,11 +102,31 @@ class PortfolioController extends Controller
      *
      * @param StorePortfolio $request
      * @param Portfolio $portfolio
+     * @param Tagger $tagger
      * @return JsonResponse
      */
-    public function update(StorePortfolio $request, Portfolio $portfolio)
+    public function update(StorePortfolio $request, Portfolio $portfolio, Tagger $tagger)
     {
-        $portfolio->fill($request->validated())->save();
+        $oldCover = $portfolio->cover;
+
+        DB::transaction(function() use ($request, $portfolio, $tagger) {
+            $data = $request->validated();
+
+            $data['date'] = $data['year'] . '-' . $data['month'] . '-1';
+
+            $fileCover = $request->file('cover');
+            if ($fileCover->isValid()) {
+                $data['cover'] = $fileCover->store(get_period_path('portfolios/cover'), ['disk' => 'public']);
+            }
+
+            $portfolio->fill($data)->save();
+
+            $tagger->tagging($portfolio, $request->get('tags', []));
+        });
+
+        if (Storage::disk('public')->exists($oldCover)) {
+            Storage::delete($oldCover);
+        }
 
         return response()->json([
             'status' => 'OK',
@@ -91,7 +143,7 @@ class PortfolioController extends Controller
      */
     public function destroy(Portfolio $portfolio)
     {
-        $portfolio->delete();
+        $portfolio->forceDelete();
 
         return response()->json([
             'status' => 'OK',

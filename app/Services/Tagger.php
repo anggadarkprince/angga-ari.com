@@ -3,10 +3,10 @@
 namespace App\Services;
 
 use App\Contracts\Taggable;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Taxonomy;
 use Illuminate\Support\Str;
 
-class Tagger extends Model
+class Tagger
 {
     const TAXONOMY_TAG = 'tag';
     const TAXONOMY_CATEGORY = 'category';
@@ -14,7 +14,7 @@ class Tagger extends Model
     /**
      * Tag keywords into a model.
      * @param Taggable $model
-     * @param array|string $terms
+     * @param null $terms
      * @param string $type
      * @param null $userId
      * @param bool $withoutDetach
@@ -22,13 +22,13 @@ class Tagger extends Model
      */
     public function tagging(Taggable $model, $terms = null, $type = self::TAXONOMY_TAG, $userId = null, $withoutDetach = false)
     {
-        $termIds = [];
-        if(empty($terms)) {
+        if (empty($terms)) {
             $terms = [];
         } else {
             $terms = is_array($terms) ? $terms : explode(',', $terms);
         }
 
+        $termIds = [];
         foreach ($terms as $term) {
             if ($type == self::TAXONOMY_CATEGORY) {
                 $category = Taxonomy::find($term);
@@ -63,10 +63,8 @@ class Tagger extends Model
     {
         $slug = Str::slug($term);
 
-        $termData = Taxonomy::firstOrCreate([
+        return Taxonomy::firstOrCreate([
             'slug' => $slug, 'term' => $term, 'type' => $type, 'user_id' => $userId
         ]);
-
-        return $termData;
     }
 }

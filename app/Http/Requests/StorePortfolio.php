@@ -13,11 +13,6 @@ class StorePortfolio extends FormRequest
      */
     public function authorize()
     {
-        if($this->isMethod('put') || $this->isMethod('patch')) {
-            $portfolio = $this->route('portfolio');
-
-            return $portfolio && $this->user()->can('update', $portfolio);
-        }
         return true;
     }
 
@@ -29,17 +24,16 @@ class StorePortfolio extends FormRequest
     public function rules()
     {
         return [
-            'field' => 'required|max:100',
             'title' => 'required|max:100',
             'tagline' => 'required|max:200',
             'description' => 'required|max:2000',
             'year' => 'required|integer|between:1975,' . date('Y'),
             'month' => 'required|date_format:m',
-            'cover' => 'required',
+            'cover' => 'required|image|mimes:jpg,jpeg,png|max:3000',
             'team' => 'nullable|max:50',
             'company' => 'nullable|max:50',
             'url' => 'nullable|url|max:300',
-            'keywords' => 'required|max:500',
+            'tags' => 'required|max:500',
             'layout' => 'required|in:default,flow,masonry',
         ];
     }

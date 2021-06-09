@@ -21,6 +21,40 @@ class ExperiencePolicy
     }
 
     /**
+     * Determine whether the user can view any experience.
+     *
+     * @param User $user
+     * @return mixed
+     */
+    public function viewAny(User $user)
+    {
+        return true;
+    }
+
+    /**
+     * Determine whether the user can view the experience.
+     *
+     * @param User $user
+     * @param Experience $experience
+     * @return mixed
+     */
+    public function view(User $user, Experience $experience)
+    {
+        return $user->id === $experience->user_id;
+    }
+
+    /**
+     * Determine whether the user can create experience.
+     *
+     * @param User $user
+     * @return mixed
+     */
+    public function create(User $user)
+    {
+        return true;
+    }
+
+    /**
      * Determine if the given experience can be updated by the user.
      *
      * @param User $user
@@ -39,7 +73,7 @@ class ExperiencePolicy
      * @param Experience $experience
      * @return bool
      */
-    public function destroy(User $user, Experience $experience)
+    public function delete(User $user, Experience $experience)
     {
         return $user->id === $experience->user_id;
     }

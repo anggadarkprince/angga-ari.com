@@ -27,8 +27,8 @@ class CreatePortfoliosTable extends Migration
             $table->string('layout', 50)->default('default');
             $table->date('date')->nullable();
             $table->enum('privacy', ['private', 'public'])->default('public');
-            $table->unsignedInteger('views');
-            $table->unsignedInteger('comments');
+            $table->unsignedInteger('views')->default(0);
+            $table->unsignedInteger('comments')->default(0);
             $table->unsignedSmallInteger('order')->nullable();
             $table->softDeletes();
             $table->timestamps();

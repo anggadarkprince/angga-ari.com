@@ -13,11 +13,6 @@ class StoreExperience extends FormRequest
      */
     public function authorize()
     {
-        if($this->isMethod('put') || $this->isMethod('patch')) {
-            $experience = $this->route('experience');
-
-            return $experience && $this->user()->can('update', $experience);
-        }
         return true;
     }
 

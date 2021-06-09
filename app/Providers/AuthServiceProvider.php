@@ -4,12 +4,18 @@ namespace App\Providers;
 
 use App\Models\Award;
 use App\Models\Education;
+use App\Models\Experience;
 use App\Models\Note;
 use App\Models\Notebook;
+use App\Models\Portfolio;
+use App\Models\Skill;
 use App\Policies\Journal\NotebookPolicy;
 use App\Policies\Journal\NotePolicy;
 use App\Policies\Showcase\AwardPolicy;
 use App\Policies\Showcase\EducationPolicy;
+use App\Policies\Showcase\ExperiencePolicy;
+use App\Policies\Showcase\PortfolioPolicy;
+use App\Policies\Showcase\SkillPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -26,6 +32,9 @@ class AuthServiceProvider extends ServiceProvider
 
         Award::class => AwardPolicy::class,
         Education::class => EducationPolicy::class,
+        Experience::class => ExperiencePolicy::class,
+        Skill::class => SkillPolicy::class,
+        Portfolio::class => PortfolioPolicy::class,
     ];
 
     /**

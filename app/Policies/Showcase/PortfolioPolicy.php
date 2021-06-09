@@ -21,6 +21,40 @@ class PortfolioPolicy
     }
 
     /**
+     * Determine whether the user can view any portfolio.
+     *
+     * @param User $user
+     * @return mixed
+     */
+    public function viewAny(User $user)
+    {
+        return true;
+    }
+
+    /**
+     * Determine whether the user can view the portfolio.
+     *
+     * @param User $user
+     * @param Portfolio $portfolio
+     * @return mixed
+     */
+    public function view(User $user, Portfolio $portfolio)
+    {
+        return $user->id === $portfolio->user_id;
+    }
+
+    /**
+     * Determine whether the user can create portfolio.
+     *
+     * @param User $user
+     * @return mixed
+     */
+    public function create(User $user)
+    {
+        return true;
+    }
+
+    /**
      * Determine if the given skill can be updated by the user.
      *
      * @param User $user
@@ -39,7 +73,7 @@ class PortfolioPolicy
      * @param Portfolio $portfolio
      * @return bool
      */
-    public function destroy(User $user, Portfolio $portfolio)
+    public function delete(User $user, Portfolio $portfolio)
     {
         return $user->id === $portfolio->user_id;
     }

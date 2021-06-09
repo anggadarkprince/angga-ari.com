@@ -20,7 +20,7 @@ class Slugger
      * @return string
      * @throws Exception
      */
-    public function createSafeSlug(Model $class, $title, $exceptId = null, $column = 'slug')
+    public function createSafeSlug($class, $title, $exceptId = null, $column = 'slug')
     {
         $tried = 0;
         while (true) {

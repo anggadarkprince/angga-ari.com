@@ -7,7 +7,7 @@ use App\Models\Post;
 use App\Services\Slugger;
 use App\Services\Tagger;
 use App\Models\Taxonomy;
-use App\Models\Uploader;
+use App\Services\Uploader;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;

@@ -57,7 +57,7 @@ class Portfolio extends Model implements Taggable
      * @param Builder $query
      * @return Builder
      */
-    public function scopeLatest($query)
+    public function scopeLatest(Builder $query)
     {
         return $query
             ->orderBy('date', 'desc')
@@ -70,7 +70,7 @@ class Portfolio extends Model implements Taggable
      * @param Builder $query
      * @return Builder
      */
-    public function scopePopular($query)
+    public function scopePopular(Builder $query)
     {
         return $query->orderBy('views', 'desc');
     }

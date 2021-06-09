@@ -9,7 +9,7 @@ use App\Http\Controllers\Api\Showcase\EducationController;
 use App\Http\Controllers\Api\Showcase\ExperienceController;
 use App\Http\Controllers\Api\Showcase\ShowcaseController;
 use App\Http\Controllers\Api\Showcase\SkillController;
-use App\Http\Controllers\Showcase\PortfolioController;
+use App\Http\Controllers\Api\Showcase\PortfolioController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
