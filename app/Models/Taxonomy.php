@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Taxonomy extends Model
 {
-    const TYPE_SHOWCASE = 'showcase';
-    const TYPE_JOURNAL = 'journal';
+    const TYPE_CATEGORY = 'category';
+    const TYPE_TAG = 'tag';
 
     /**
      * The attributes that are mass assignable.
@@ -18,6 +18,18 @@ class Taxonomy extends Model
     protected $fillable = [
         'term', 'slug', 'type', 'category', 'description'
     ];
+
+    /**
+     * Scope a query to sort latest post by published date.
+     *
+     * @param Builder $query
+     * @param $userId
+     * @return Builder
+     */
+    public function scopeOwner(Builder $query, $userId)
+    {
+        return $query->where('user_id', $userId)->orWhere('slug', 'uncategories');
+    }
 
     /**
      * Scope a query to sort latest post by published date.
@@ -76,8 +88,8 @@ class Taxonomy extends Model
      */
     public function categories($userId, $type)
     {
-        return $this->where('user_id', $userId)
-            ->orWhere('slug', 'uncategories')
+        return $this
+            ->owner($userId)
             ->category($type)
             ->get();
     }

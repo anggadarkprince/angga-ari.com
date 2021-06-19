@@ -13,11 +13,6 @@ class StoreTaxonomy extends FormRequest
      */
     public function authorize()
     {
-        if($this->isMethod('put') || $this->isMethod('patch')) {
-            $taxonomy = $this->route('taxonomy');
-
-            return $taxonomy && $this->user()->can('update', $taxonomy);
-        }
         return true;
     }
 

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\Auth\LoginController;
 use App\Http\Controllers\Api\Auth\RegisterController;
+use App\Http\Controllers\Api\Blog\CategoryController;
 use App\Http\Controllers\Api\Journal\NotebookController;
 use App\Http\Controllers\Api\Journal\NoteController;
 use App\Http\Controllers\Api\Showcase\AwardController;
@@ -34,7 +35,7 @@ Route::match(['post', 'delete'], '/logout', [LoginController::class, 'login']);
 
 Route::middleware('auth:api')->group(function () {
 
-    Route::prefix('showcase')->group(function() {
+    Route::prefix('showcase')->group(function () {
 
         Route::get('/', ShowcaseController::class);
 
@@ -48,12 +49,18 @@ Route::middleware('auth:api')->group(function () {
 
     });
 
-    Route::prefix('journal')->group(function() {
+    Route::prefix('journal')->group(function () {
 
         Route::apiResources([
             'notebooks' => NotebookController::class,
             'notebooks.notes' => NoteController::class,
         ]);
+
+    });
+
+    Route::prefix('blog')->group(function () {
+
+        Route::apiResource('categories', CategoryController::class)->parameters(['categories' => 'taxonomy']);
 
     });
 });

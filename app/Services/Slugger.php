@@ -3,12 +3,20 @@
 namespace App\Services;
 
 use Exception;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 class Slugger
 {
     const MAX_TRIAL = 10;
+
+    private $userId;
+
+    public function setUserId($userId)
+    {
+        $this->userId = $userId;
+
+        return $this;
+    }
 
     /**
      * Create safe slug, generate new one if already exist, and add unique id if max tried reached.
@@ -33,9 +41,17 @@ class Slugger
                 }
             }
 
-            $record = $class::where($column, $slug)
-                ->where((new $class)->getKeyName(), '!=', $exceptId)
-                ->first();
+            $record = $class::where($column, $slug);
+
+            if ($exceptId) {
+                $record->where((new $class)->getKeyName(), '!=', $exceptId);
+            }
+
+            if ($this->userId) {
+                $record->where('user_id', $this->userId);
+            }
+
+            $record = $record->first();
 
             if (empty($record)) {
                 return $slug;

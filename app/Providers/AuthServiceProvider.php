@@ -9,6 +9,7 @@ use App\Models\Note;
 use App\Models\Notebook;
 use App\Models\Portfolio;
 use App\Models\Skill;
+use App\Models\Taxonomy;
 use App\Policies\Journal\NotebookPolicy;
 use App\Policies\Journal\NotePolicy;
 use App\Policies\Showcase\AwardPolicy;
@@ -16,6 +17,7 @@ use App\Policies\Showcase\EducationPolicy;
 use App\Policies\Showcase\ExperiencePolicy;
 use App\Policies\Showcase\PortfolioPolicy;
 use App\Policies\Showcase\SkillPolicy;
+use App\Policies\TaxonomyPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -35,6 +37,8 @@ class AuthServiceProvider extends ServiceProvider
         Experience::class => ExperiencePolicy::class,
         Skill::class => SkillPolicy::class,
         Portfolio::class => PortfolioPolicy::class,
+
+        Taxonomy::class => TaxonomyPolicy::class,
     ];
 
     /**
