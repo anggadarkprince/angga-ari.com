@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Api\Auth\LoginController;
+use App\Http\Controllers\Api\Auth\ForgotPasswordController;
 use App\Http\Controllers\Api\Auth\RegisterController;
+use App\Http\Controllers\Api\Auth\ResetPasswordController;
 use App\Http\Controllers\Api\Blog\CategoryController;
 use App\Http\Controllers\Api\Journal\NotebookController;
 use App\Http\Controllers\Api\Journal\NoteController;
@@ -31,6 +33,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/register', [RegisterController::class, 'register']);
+Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail']);
+Route::post('/reset-password', [ResetPasswordController::class, 'reset']);
 Route::match(['post', 'delete'], '/logout', [LoginController::class, 'login']);
 
 Route::middleware('auth:api')->group(function () {
