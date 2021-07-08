@@ -14,8 +14,8 @@ class CreateEducationsTable extends Migration
     public function up()
     {
         Schema::create('educations', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('user_id')->unsigned();
+            $table->id('id');
+            $table->foreignId('user_id');
             $table->string('degree', 100);
             $table->string('institution', 100);
             $table->string('major', 100);

@@ -14,8 +14,8 @@ class CreateNotebooksTable extends Migration
     public function up()
     {
         Schema::create('notebooks', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('user_id');
+            $table->id('id');
+            $table->foreignId('user_id');
             $table->string('title', 100);
             $table->string('description', 500);
             $table->enum('privacy', ['private', 'public'])->default('public');

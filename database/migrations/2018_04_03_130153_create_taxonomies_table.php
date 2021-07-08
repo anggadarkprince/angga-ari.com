@@ -14,9 +14,9 @@ class CreateTaxonomiesTable extends Migration
     public function up()
     {
         Schema::create('taxonomies', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('user_id')->nullable();
-            $table->unsignedInteger('taxonomy_id')->nullable();
+            $table->id('id');
+            $table->foreignId('user_id')->nullable();
+            $table->foreignId('taxonomy_id')->nullable();
             $table->string('term', 100);
             $table->string('slug');
             $table->string('type');

@@ -14,8 +14,8 @@ class CreateLinkedAccountsTable extends Migration
     public function up()
     {
         Schema::create('linked_accounts', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('user_id');
+            $table->id('id');
+            $table->foreignId('user_id');
             $table->string('provider_name')->nullable();
             $table->string('provider_id')->unique()->nullable();
             $table->string('token', 500)->nullable();

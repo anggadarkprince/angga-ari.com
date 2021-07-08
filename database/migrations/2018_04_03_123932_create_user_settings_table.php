@@ -16,8 +16,8 @@ class CreateUserSettingsTable extends Migration
     {
         Schema::create('user_settings', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned()->nullable();
-            $table->integer('setting_id')->unsigned();
+            $table->foreignId('user_id')->nullable();
+            $table->foreignId('setting_id');
             $table->text('value');
             $table->timestamps();
 

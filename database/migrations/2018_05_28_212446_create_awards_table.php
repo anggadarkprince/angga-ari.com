@@ -14,8 +14,8 @@ class CreateAwardsTable extends Migration
     public function up()
     {
         Schema::create('awards', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('user_id')->unsigned();
+            $table->id('id');
+            $table->foreignId('user_id');
             $table->string('title', 100);
             $table->string('category', 100);
             $table->string('description', 700)->nullable();

@@ -14,9 +14,9 @@ class CreateTaxonomyRelationshipsTable extends Migration
     public function up()
     {
         Schema::create('taxonomy_relationships', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('taxonomy_id');
-            $table->integer('taggable_id');
+            $table->id('id');
+            $table->foreignId('taxonomy_id');
+            $table->foreignId('taggable_id');
             $table->string('taggable_type');
             $table->timestamps();
         });
