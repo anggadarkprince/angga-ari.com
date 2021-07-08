@@ -6,6 +6,7 @@ use App\Contracts\Taggable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * @property string $cover
@@ -32,6 +33,15 @@ class Portfolio extends Model implements Taggable
     ];
 
     /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = [
+        'cover_url',
+    ];
+
+    /**
      * Get the route key for the model.
      *
      * @return string
@@ -49,6 +59,16 @@ class Portfolio extends Model implements Taggable
     public function getCoverSmallAttribute()
     {
         return get_small_version($this->cover);
+    }
+
+    /**
+     * Get the portfolio's cover full url.
+     *
+     * @return string
+     */
+    public function getCoverUrlAttribute($value)
+    {
+        return Storage::disk('public')->url($this->cover);
     }
 
     /**

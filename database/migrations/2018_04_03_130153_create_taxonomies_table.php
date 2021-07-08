@@ -19,8 +19,8 @@ class CreateTaxonomiesTable extends Migration
             $table->foreignId('taxonomy_id')->nullable();
             $table->string('term', 100);
             $table->string('slug');
-            $table->string('type');
-            $table->string('category');
+            $table->string('type')->nullable();
+            $table->string('category')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
 
