@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\Journal;
 
+use App\Events\Journal\NewNotebookCreated;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Journal\NotebookRequest;
 use App\Models\Notebook;
@@ -43,6 +44,8 @@ class NotebookController extends Controller
     public function store(NotebookRequest $request)
     {
         $notebook = $request->user()->notebooks()->create($request->validated());
+
+        NewNotebookCreated::dispatch($notebook);
 
         return Response::json([
             'status' => 'OK',

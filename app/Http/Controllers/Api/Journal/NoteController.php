@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\Journal;
 
+use App\Events\Journal\NoteAdded;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Journal\NoteRequest;
 use App\Models\Note;
@@ -43,6 +44,8 @@ class NoteController extends Controller
         $this->authorize('create', [Note::class, $notebook]);
 
         $note = $notebook->notes()->create($request->validated());
+
+        NoteAdded::dispatch($note);
 
         return Response::json([
             'status' => 'OK',
