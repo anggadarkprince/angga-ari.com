@@ -8,9 +8,11 @@ use App\Models\Experience;
 use App\Models\Note;
 use App\Models\Notebook;
 use App\Models\Portfolio;
+use App\Models\Post;
 use App\Models\Skill;
 use App\Models\Task;
 use App\Models\Taxonomy;
+use App\Policies\Blog\PostPolicy;
 use App\Policies\Journal\NotebookPolicy;
 use App\Policies\Journal\NotePolicy;
 use App\Policies\Journal\TaskPolicy;
@@ -42,6 +44,7 @@ class AuthServiceProvider extends ServiceProvider
         Portfolio::class => PortfolioPolicy::class,
 
         Taxonomy::class => TaxonomyPolicy::class,
+        Post::class => PostPolicy::class,
     ];
 
     /**

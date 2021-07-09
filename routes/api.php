@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\Auth\ForgotPasswordController;
 use App\Http\Controllers\Api\Auth\RegisterController;
 use App\Http\Controllers\Api\Auth\ResetPasswordController;
 use App\Http\Controllers\Api\Blog\CategoryController;
+use App\Http\Controllers\Api\Blog\PostController;
 use App\Http\Controllers\Api\Journal\NotebookController;
 use App\Http\Controllers\Api\Journal\NoteController;
 use App\Http\Controllers\Api\Journal\TaskController;
@@ -67,6 +68,7 @@ Route::middleware('auth:api')->group(function () {
     Route::prefix('blog')->group(function () {
 
         Route::apiResource('categories', CategoryController::class)->parameters(['categories' => 'taxonomy']);
+        Route::apiResource('posts', PostController::class);
 
     });
 });

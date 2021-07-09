@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Contracts\Taggable;
 use App\Observers\PostObserver;
+use App\Services\Tagger;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;

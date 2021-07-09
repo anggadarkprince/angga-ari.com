@@ -1,15 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: angga
- * Date: 19/06/18
- * Time: 17:15
- */
 
 namespace App\Observers;
 
-
-use App\Post;
+use App\Models\Post;
 use Illuminate\Support\Facades\Storage;
 
 class PostObserver
