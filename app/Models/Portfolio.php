@@ -66,9 +66,9 @@ class Portfolio extends Model implements Taggable
      *
      * @return string
      */
-    public function getCoverUrlAttribute($value)
+    public function getCoverUrlAttribute()
     {
-        return Storage::disk('public')->url($this->cover);
+        return empty($this->cover) ? null : Storage::disk('public')->url($this->cover);
     }
 
     /**

@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 /**
@@ -48,6 +49,15 @@ class Post extends Model implements Taggable
     protected $fillable = [
         'slug', 'title', 'subtitle', 'content', 'cover', 'privacy', 'status',
         'views', 'comments', 'published_at'
+    ];
+
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = [
+        'cover_url',
     ];
 
     /**
@@ -120,7 +130,7 @@ class Post extends Model implements Taggable
      */
     public function getCoverUrlAttribute()
     {
-        return asset('storage/' . $this->cover);
+        return empty($this->cover) ? null : Storage::disk('public')->url($this->cover);
     }
 
     /**
