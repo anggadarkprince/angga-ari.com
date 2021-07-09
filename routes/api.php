@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\Auth\ResetPasswordController;
 use App\Http\Controllers\Api\Blog\CategoryController;
 use App\Http\Controllers\Api\Journal\NotebookController;
 use App\Http\Controllers\Api\Journal\NoteController;
+use App\Http\Controllers\Api\Journal\TaskController;
 use App\Http\Controllers\Api\Showcase\AwardController;
 use App\Http\Controllers\Api\Showcase\EducationController;
 use App\Http\Controllers\Api\Showcase\ExperienceController;
@@ -56,6 +57,7 @@ Route::middleware('auth:api')->group(function () {
     Route::prefix('journal')->group(function () {
 
         Route::apiResources([
+            'tasks' => TaskController::class,
             'notebooks' => NotebookController::class,
             'notebooks.notes' => NoteController::class,
         ]);

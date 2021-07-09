@@ -2,9 +2,14 @@
 
 namespace App\Models;
 
+use App\Exceptions\InvalidUserSetting;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -55,6 +60,8 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /**
      * Get the activation token that owned by user.
+     *
+     * @return HasOne
      */
     public function userActivation()
     {
@@ -63,6 +70,8 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /**
      * Get the posts that owned by author.
+     *
+     * @return HasMany
      */
     public function posts()
     {
@@ -71,6 +80,8 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /**
      * Get the educations that owner by user.
+     *
+     * @return HasMany
      */
     public function educations()
     {
@@ -79,6 +90,8 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /**
      * Get the experiences that owner by user.
+     *
+     * @return HasMany
      */
     public function experiences()
     {
@@ -87,6 +100,8 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /**
      * Get the experiences that owner by user.
+     *
+     * @return HasMany
      */
     public function awards()
     {
@@ -95,6 +110,8 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /**
      * Get the skills that owned by user.
+     *
+     * @return HasMany
      */
     public function skills()
     {
@@ -103,6 +120,8 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /**
      * Get the showcases that owned by user.
+     *
+     * @return HasMany
      */
     public function portfolios()
     {
@@ -111,6 +130,8 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /**
      * Get the tags that owned by user.
+     *
+     * @return HasMany
      */
     public function taxonomies()
     {
@@ -119,6 +140,8 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /**
      * Get the comments that owned by user.
+     *
+     * @return HasMany
      */
     public function comments()
     {
@@ -127,6 +150,8 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /**
      * Get the uploaded files that owned by user.
+     *
+     * @return HasMany
      */
     public function uploads()
     {
@@ -135,6 +160,8 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /**
      * Get the notebooks that owned by user.
+     *
+     * @return HasMany
      */
     public function notebooks()
     {
@@ -142,9 +169,19 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * Get the task that owned by user.
+     *
+     * @return HasMany
+     */
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
+
+    /**
      * Get linked social account such as Facebook, Twitter or Google.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function linkedAccounts()
     {
@@ -156,15 +193,15 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @param $keys
      * @param $defaultValue
-     * @return \Illuminate\Database\Eloquent\Model|\Illuminate\Database\Query\Builder|null|object
+     * @return Model|Builder|null|object
      * @throws \Exception
      */
     public function setting($keys, $defaultValue = '')
     {
         $setting = new Setting();
 
-        if(!isset($this->id)) {
-            throw new \Exception('No user setting available');
+        if (!isset($this->id)) {
+            throw new InvalidUserSetting('No user setting available');
         }
 
         return $setting->getSetting($this->id, $keys, $defaultValue);

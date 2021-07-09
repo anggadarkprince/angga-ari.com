@@ -9,9 +9,11 @@ use App\Models\Note;
 use App\Models\Notebook;
 use App\Models\Portfolio;
 use App\Models\Skill;
+use App\Models\Task;
 use App\Models\Taxonomy;
 use App\Policies\Journal\NotebookPolicy;
 use App\Policies\Journal\NotePolicy;
+use App\Policies\Journal\TaskPolicy;
 use App\Policies\Showcase\AwardPolicy;
 use App\Policies\Showcase\EducationPolicy;
 use App\Policies\Showcase\ExperiencePolicy;
@@ -31,6 +33,7 @@ class AuthServiceProvider extends ServiceProvider
     protected $policies = [
         Notebook::class => NotebookPolicy::class,
         Note::class => NotePolicy::class,
+        Task::class => TaskPolicy::class,
 
         Award::class => AwardPolicy::class,
         Education::class => EducationPolicy::class,
