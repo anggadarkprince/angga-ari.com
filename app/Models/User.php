@@ -214,6 +214,13 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function sendPasswordResetNotification($token)
     {
+        ResetPassword::$createUrlCallback = function($notifiable, $token) {
+            return url(env('APP_ACCOUNT_URL').route('password.reset', [
+                'token' => $token,
+                'email' => $notifiable->getEmailForPasswordReset(),
+            ], false));
+        };
+
         $this->notify(new ResetPassword($token));
     }
 }
