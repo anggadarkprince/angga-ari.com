@@ -23,9 +23,11 @@ class SettingRequest extends FormRequest
      */
     public function rules()
     {
+        $keySize = $this->input('cipher') == 'AES-256-CBC' ? 32 : 16;
+
         return [
             'master_password' => 'nullable|string|max:100',
-            'secret_key' => 'nullable|string|max:100',
+            'secret_key' => 'nullable|string|size:' . $keySize,
             'cipher' => 'required|in:AES-256-CBC,AES-128-CBC',
             'entropy' => 'required|in:strong,normal',
             'reveal_method' => 'required|in:steganography,plain-text',
