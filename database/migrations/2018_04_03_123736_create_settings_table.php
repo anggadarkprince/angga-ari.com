@@ -30,12 +30,15 @@ class CreateSettingsTable extends Migration
             ['setting_group_id' => 1, 'setting' => 'keywords'],
             ['setting_group_id' => 1, 'setting' => 'author'],
             ['setting_group_id' => 1, 'setting' => 'profile'],
+
             ['setting_group_id' => 2, 'setting' => 'support'],
             ['setting_group_id' => 2, 'setting' => 'bug'],
+
             ['setting_group_id' => 3, 'setting' => 'update'],
             ['setting_group_id' => 3, 'setting' => 'offer'],
             ['setting_group_id' => 3, 'setting' => 'login'],
             ['setting_group_id' => 3, 'setting' => 'mobile'],
+
             ['setting_group_id' => 4, 'setting' => 'contact'],
             ['setting_group_id' => 4, 'setting' => 'email'],
             ['setting_group_id' => 4, 'setting' => 'website'],
@@ -43,11 +46,18 @@ class CreateSettingsTable extends Migration
             ['setting_group_id' => 4, 'setting' => 'subtagline'],
             ['setting_group_id' => 4, 'setting' => 'identity'],
             ['setting_group_id' => 4, 'setting' => 'profile'],
+
             ['setting_group_id' => 5, 'setting' => 'heading'],
             ['setting_group_id' => 5, 'setting' => 'subheading'],
             ['setting_group_id' => 5, 'setting' => 'keywords'],
             ['setting_group_id' => 5, 'setting' => 'category'],
             ['setting_group_id' => 5, 'setting' => 'language'],
+
+            ['setting_group_id' => 9, 'setting' => 'master_password'],
+            ['setting_group_id' => 9, 'setting' => 'secret_key'],
+            ['setting_group_id' => 9, 'setting' => 'cipher'],
+            ['setting_group_id' => 9, 'setting' => 'entropy'],
+            ['setting_group_id' => 9, 'setting' => 'reveal_method'],
         ]);
     }
 

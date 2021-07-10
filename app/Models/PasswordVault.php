@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Encryption\Encrypter;
 use Illuminate\Support\Facades\Crypt;
 
 class PasswordVault extends Model
@@ -30,11 +31,7 @@ class PasswordVault extends Model
         parent::boot();
 
         static::creating(function ($model) {
-            $model->identifier = Crypt::encryptString($model->identifier);
-            $model->password = Crypt::encryptString($model->password);
-            if (!empty($model->password2)) {
-                $model->password2 = Crypt::encryptString($model->password2);
-            }
+            self::encryptVault($model);
         });
 
         static::updating(function ($model) {
@@ -49,6 +46,8 @@ class PasswordVault extends Model
      */
     public static function encryptVault($model)
     {
+        //new Encrypter($this->parseKey($config), $config['cipher']);
+
         $model->identifier = Crypt::encryptString($model->identifier);
         $model->password = Crypt::encryptString($model->password);
         if (!empty($model->password2)) {

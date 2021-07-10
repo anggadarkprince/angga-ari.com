@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Exception;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
@@ -13,7 +14,7 @@ class Setting extends Model
      *
      * @param Builder $query
      * @param $key
-     * @throws \Exception
+     * @throws Exception
      */
     public function bindSettingKey(&$query, $key)
     {
@@ -24,7 +25,7 @@ class Setting extends Model
         if (count($keys) > 1) {
             $query->where('settings.setting', $keys[1]);
         } else {
-            throw new \Exception('Setting key is invalid, format should be [group_key.setting_key]');
+            throw new Exception('Setting key is invalid, format should be [group_key.setting_key]');
         }
     }
 
@@ -33,7 +34,7 @@ class Setting extends Model
      *
      * @param $key
      * @return mixed|null
-     * @throws \Exception
+     * @throws Exception
      */
     public function getInitialValue($key)
     {
@@ -58,7 +59,7 @@ class Setting extends Model
      * @param $key
      * @param string $defaultValue
      * @return Model|\Illuminate\Database\Query\Builder|null|object
-     * @throws \Exception
+     * @throws Exception
      */
     public function getAppSetting($key, $defaultValue = '')
     {
@@ -72,7 +73,7 @@ class Setting extends Model
      * @param string $key
      * @param string $defaultValue
      * @return mixed|null|string
-     * @throws \Exception
+     * @throws Exception
      */
     public function getSetting($userId, $key, $defaultValue = '')
     {
@@ -104,7 +105,7 @@ class Setting extends Model
      * @param $keys
      * @param string $value
      * @return bool|mixed
-     * @throws \Exception
+     * @throws Exception
      */
     public function setSetting($userId, $keys, $value = '')
     {
@@ -126,14 +127,14 @@ class Setting extends Model
      * @param $key
      * @param string $value
      * @return mixed
-     * @throws \Exception
+     * @throws Exception
      */
     private function updateSetting($userId, $key, $value = '')
     {
         $keys = explode('.', $key);
 
         if (count($keys) < 2) {
-            throw new \Exception('Invalid user setting key, should be formatted as [group_key.setting_key]');
+            throw new Exception('Invalid user setting key, should be formatted as [group_key.setting_key]');
         }
 
         $setting = DB::table('setting_groups')
@@ -145,7 +146,7 @@ class Setting extends Model
             ])->first();
 
         if (empty($setting)) {
-            throw new \Exception("Setting key [{$key}] is not found");
+            throw new Exception("Setting key [{$key}] is not found");
         }
 
         $userSetting = UserSetting::updateOrCreate(
