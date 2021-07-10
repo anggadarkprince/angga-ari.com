@@ -7,6 +7,7 @@ use App\Models\Education;
 use App\Models\Experience;
 use App\Models\Note;
 use App\Models\Notebook;
+use App\Models\PasswordVault;
 use App\Models\Portfolio;
 use App\Models\Post;
 use App\Models\Skill;
@@ -22,6 +23,7 @@ use App\Policies\Showcase\ExperiencePolicy;
 use App\Policies\Showcase\PortfolioPolicy;
 use App\Policies\Showcase\SkillPolicy;
 use App\Policies\TaxonomyPolicy;
+use App\Policies\Vault\PasswordVaultPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -45,6 +47,8 @@ class AuthServiceProvider extends ServiceProvider
 
         Taxonomy::class => TaxonomyPolicy::class,
         Post::class => PostPolicy::class,
+
+        PasswordVault::class => PasswordVaultPolicy::class,
     ];
 
     /**

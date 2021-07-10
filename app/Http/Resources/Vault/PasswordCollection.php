@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Resources\Posts;
+namespace App\Http\Resources\Vault;
 
 use App\Http\Resources\BaseCollection;
 use Illuminate\Http\Request;
 
-class PostCollection extends BaseCollection
+class PasswordCollection extends BaseCollection
 {
     /**
      * Transform the resource collection into an array.
      *
-     * @param Request $request
+     * @param  Request  $request
      * @return array
      */
     public function toArray($request)
