@@ -16,6 +16,7 @@ use App\Http\Controllers\Api\Showcase\ExperienceController;
 use App\Http\Controllers\Api\Showcase\ShowcaseController;
 use App\Http\Controllers\Api\Showcase\SkillController;
 use App\Http\Controllers\Api\Showcase\PortfolioController;
+use App\Http\Controllers\Api\Vault\MasterPassword;
 use App\Http\Controllers\Api\Vault\PasswordVaultController;
 use App\Http\Controllers\Api\Vault\SettingController as VaultSettingController;
 use Illuminate\Http\Request;
@@ -83,6 +84,7 @@ Route::middleware('auth:api')->group(function () {
         Route::apiResource('password-vaults', PasswordVaultController::class);
         Route::get('settings', [VaultSettingController::class, 'index']);
         Route::post('settings', [VaultSettingController::class, 'update']);
+        Route::post('master-password', [MasterPassword::class, 'index']);
 
     });
 });
