@@ -30,7 +30,7 @@ class LoginController extends Controller
                 'status' => 'Unauthenticated',
                 'code' => 401,
                 'message' => __('User or password wrong'),
-            ]);
+            ], 401);
         }
 
         $token = Auth()->user()->createToken('authToken')->plainTextToken;
@@ -69,7 +69,7 @@ class LoginController extends Controller
             'status' => 'Error',
             'code' => 500,
             'message' => __('Revoke token failed'),
-        ]);
+        ], 500);
     }
 
 }
