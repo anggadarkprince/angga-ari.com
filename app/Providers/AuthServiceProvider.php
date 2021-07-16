@@ -14,8 +14,10 @@ use App\Models\Skill;
 use App\Models\Task;
 use App\Models\Taxonomy;
 use App\Models\Transaction;
+use App\Models\Upload;
 use App\Models\Wallet;
 use App\Policies\Blog\PostPolicy;
+use App\Policies\Drive\UploadPolicy;
 use App\Policies\Journal\NotebookPolicy;
 use App\Policies\Journal\NotePolicy;
 use App\Policies\Journal\TaskPolicy;
@@ -56,6 +58,8 @@ class AuthServiceProvider extends ServiceProvider
 
         Wallet::class => WalletPolicy::class,
         Transaction::class => TransactionPolicy::class,
+
+        Upload::class => UploadPolicy::class,
     ];
 
     /**

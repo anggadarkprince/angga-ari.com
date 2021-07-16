@@ -18,13 +18,14 @@ class CreateUploadsTable extends Migration
             $table->foreignId('user_id');
             $table->foreignId('parent')->nullable();
             $table->boolean('is_directory')->default(false);
-            $table->string('file');
+            $table->text('source')->nullable();
+            $table->string('name');
             $table->unsignedBigInteger('size');
             $table->string('mime')->nullable();
-            $table->string('caption');
-            $table->text('description');
-            $table->integer('attachable_id');
-            $table->string('attachable_type');
+            $table->string('caption')->nullable();
+            $table->text('description')->nullable();
+            $table->integer('attachable_id')->nullable();
+            $table->string('attachable_type')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

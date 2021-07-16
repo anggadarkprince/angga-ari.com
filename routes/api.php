@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\Auth\ResetPasswordController;
 use App\Http\Controllers\Api\Blog\SettingController;
 use App\Http\Controllers\Api\Blog\CategoryController;
 use App\Http\Controllers\Api\Blog\PostController;
+use App\Http\Controllers\Api\Drive\UploadController;
 use App\Http\Controllers\Api\Journal\NotebookController;
 use App\Http\Controllers\Api\Journal\NoteController;
 use App\Http\Controllers\Api\Journal\TaskController;
@@ -96,6 +97,13 @@ Route::middleware('auth:api')->group(function () {
             'wallets' => WalletController::class,
             'wallets.transactions' => TransactionController::class,
         ]);
+
+    });
+
+    Route::prefix('drive')->group(function () {
+
+        Route::post('upload', [UploadController::class, 'create']);
+        Route::delete('upload/{upload}', [UploadController::class, 'delete']);
 
     });
 });

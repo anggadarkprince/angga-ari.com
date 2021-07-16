@@ -12,7 +12,7 @@ class Upload extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'parent', 'is_directory', 'path', 'file_name', 'size',
+        'user_id', 'parent', 'is_directory', 'path', 'source', 'name', 'size',
         'mime', 'caption', 'description'
     ];
 
