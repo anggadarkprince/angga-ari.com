@@ -89,6 +89,16 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * Get the wallets that owned by user.
+     *
+     * @return HasMany
+     */
+    public function wallets()
+    {
+        return $this->hasMany(Wallet::class);
+    }
+
+    /**
      * Get the educations that owner by user.
      *
      * @return HasMany

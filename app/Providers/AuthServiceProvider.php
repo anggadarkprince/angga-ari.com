@@ -13,6 +13,8 @@ use App\Models\Post;
 use App\Models\Skill;
 use App\Models\Task;
 use App\Models\Taxonomy;
+use App\Models\Transaction;
+use App\Models\Wallet;
 use App\Policies\Blog\PostPolicy;
 use App\Policies\Journal\NotebookPolicy;
 use App\Policies\Journal\NotePolicy;
@@ -24,6 +26,8 @@ use App\Policies\Showcase\PortfolioPolicy;
 use App\Policies\Showcase\SkillPolicy;
 use App\Policies\TaxonomyPolicy;
 use App\Policies\Vault\PasswordVaultPolicy;
+use App\Policies\Wallet\TransactionPolicy;
+use App\Policies\Wallet\WalletPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -49,6 +53,9 @@ class AuthServiceProvider extends ServiceProvider
         Post::class => PostPolicy::class,
 
         PasswordVault::class => PasswordVaultPolicy::class,
+
+        Wallet::class => WalletPolicy::class,
+        Transaction::class => TransactionPolicy::class,
     ];
 
     /**

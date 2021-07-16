@@ -19,6 +19,8 @@ use App\Http\Controllers\Api\Showcase\PortfolioController;
 use App\Http\Controllers\Api\Vault\MasterPassword;
 use App\Http\Controllers\Api\Vault\PasswordVaultController;
 use App\Http\Controllers\Api\Vault\SettingController as VaultSettingController;
+use App\Http\Controllers\Api\Wallet\TransactionController;
+use App\Http\Controllers\Api\Wallet\WalletController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -85,6 +87,15 @@ Route::middleware('auth:api')->group(function () {
         Route::get('settings', [VaultSettingController::class, 'index']);
         Route::post('settings', [VaultSettingController::class, 'update']);
         Route::post('master-password', [MasterPassword::class, 'index']);
+
+    });
+
+    Route::prefix('wallet')->group(function () {
+
+        Route::apiResources([
+            'wallets' => WalletController::class,
+            'wallets.transactions' => TransactionController::class,
+        ]);
 
     });
 });
