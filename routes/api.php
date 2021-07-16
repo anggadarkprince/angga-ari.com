@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\Auth\ResetPasswordController;
 use App\Http\Controllers\Api\Blog\SettingController;
 use App\Http\Controllers\Api\Blog\CategoryController;
 use App\Http\Controllers\Api\Blog\PostController;
+use App\Http\Controllers\Api\Drive\DirectoryController;
 use App\Http\Controllers\Api\Drive\UploadController;
 use App\Http\Controllers\Api\Journal\NotebookController;
 use App\Http\Controllers\Api\Journal\NoteController;
@@ -102,8 +103,15 @@ Route::middleware('auth:api')->group(function () {
 
     Route::prefix('drive')->group(function () {
 
+        Route::get('download/{upload}', [UploadController::class, 'show']);
         Route::post('upload', [UploadController::class, 'create']);
-        Route::delete('upload/{upload}', [UploadController::class, 'delete']);
+        Route::delete('file/{upload}', [UploadController::class, 'delete']);
+
+        Route::get('/', [DirectoryController::class, 'index']);
+        Route::get('directory/{directory}', [DirectoryController::class, 'show']);
+        Route::post('directory', [DirectoryController::class, 'store']);
+        Route::put('directory/{directory}', [DirectoryController::class, 'update']);
+        Route::delete('directory/{directory}', [DirectoryController::class, 'delete']);
 
     });
 });

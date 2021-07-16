@@ -10,9 +10,24 @@ use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class UploadController extends Controller
 {
+    /**
+     * Store file stream to storage.
+     *
+     * @param Upload $upload
+     * @return StreamedResponse
+     * @throws AuthorizationException
+     */
+    public function show(Upload $upload)
+    {
+        $this->authorize('view', $upload);
+
+        return Storage::download($upload->source);
+    }
+
     /**
      * Store file stream to storage.
      *
@@ -22,8 +37,9 @@ class UploadController extends Controller
      */
     public function create(UploadRequest $request)
     {
-        $this->authorize('delete', Upload::class);
+        $this->authorize('create', Upload::class);
 
+        $parent = $request->input('parent');
         $caption = $request->input('caption');
         $fileSource = $request->file('source');
         $fileName = $request->input('file_name');
@@ -36,6 +52,7 @@ class UploadController extends Controller
 
         if ($result) {
             $upload = $request->user()->uploads()->create([
+                'parent' => $parent ?: null,
                 'source' => $result,
                 'name' => $fileName ?? $fileSource->getClientOriginalName(),
                 'size' => $fileSource->getSize(),
@@ -68,16 +85,8 @@ class UploadController extends Controller
     {
         $this->authorize('delete', $upload);
 
-        if ($upload->delete()) {
-            if (Storage::delete($upload->source)) {
-                return new UploadResource($upload);
-            }
-        }
+        $upload->delete();
 
-        return Response::json([
-            'status' => 'Error',
-            'code' => 500,
-            'message' => __('Delete source file failed, try again later'),
-        ], 500);
+        return new UploadResource($upload);
     }
 }

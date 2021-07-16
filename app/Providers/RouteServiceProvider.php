@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Upload;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -35,6 +36,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->customModelBinding();
         $this->configureRateLimiting();
 
         $this->routes(function () {
@@ -60,4 +62,15 @@ class RouteServiceProvider extends ServiceProvider
             return Limit::perMinute(60)->by(optional($request->user())->id ?: $request->ip());
         });
     }
+
+    /**
+     * Configure custom model binding.
+     */
+    protected function customModelBinding()
+    {
+        Route::bind('directory', function ($value) {
+            return Upload::where('id', $value)->firstOrFail();
+        });
+    }
+
 }

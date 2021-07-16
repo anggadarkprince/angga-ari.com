@@ -4,9 +4,8 @@ namespace App\Http\Resources\Drive;
 
 use App\Http\Resources\BaseResource;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
-class UploadResource extends BaseResource
+class DirectoryResource extends BaseResource
 {
     /**
      * Transform the resource into an array.
@@ -18,14 +17,11 @@ class UploadResource extends BaseResource
     {
         return [
             'id' => $this->id,
-            'is_directory' => $this->is_directory,
-            'file_name' => $this->name,
-            'source' => $this->source,
-            'path' => $this->is_directory ? null : Storage::url($this->source),
-            'size' => $this->size,
-            'mime' => $this->mime,
-            'caption' => $this->caption,
+            'parent' => $this->parent,
+            'directory_name' => $this->name,
             'description' => $this->description,
+            'total_item' => $this->contents->count(),
+            'contents' => UploadResource::collection($this->contents),
             'created_at' => $this->created_at,
             'update_at' => $this->update_at,
         ];

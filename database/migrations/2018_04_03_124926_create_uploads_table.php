@@ -20,7 +20,7 @@ class CreateUploadsTable extends Migration
             $table->boolean('is_directory')->default(false);
             $table->text('source')->nullable();
             $table->string('name');
-            $table->unsignedBigInteger('size');
+            $table->unsignedBigInteger('size')->default(0);
             $table->string('mime')->nullable();
             $table->string('caption')->nullable();
             $table->text('description')->nullable();
