@@ -108,10 +108,11 @@ Route::middleware('auth:api')->group(function () {
         Route::delete('file/{upload}', [UploadController::class, 'delete']);
 
         Route::get('/', [DirectoryController::class, 'index']);
-        Route::get('directory/{directory}', [DirectoryController::class, 'show']);
-        Route::post('directory', [DirectoryController::class, 'store']);
-        Route::put('directory/{directory}', [DirectoryController::class, 'update']);
-        Route::delete('directory/{directory}', [DirectoryController::class, 'delete']);
+        Route::get('directories', [DirectoryController::class, 'index']);
+        Route::get('directories/{directory}', [DirectoryController::class, 'show']);
+        Route::post('directories', [DirectoryController::class, 'store']);
+        Route::put('directories/{directory}', [DirectoryController::class, 'update']);
+        Route::delete('directories/{directory}', [DirectoryController::class, 'delete']);
 
     });
 });

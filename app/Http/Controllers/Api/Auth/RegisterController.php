@@ -37,7 +37,7 @@ class RegisterController extends Controller
             'data' => [
                 'access_token' => $token,
                 'token_type' => 'Bearer',
-                'user' => auth()->user()
+                'user' => $user
             ],
         ]);
     }
